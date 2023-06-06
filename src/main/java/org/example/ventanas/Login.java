@@ -26,26 +26,36 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        panelFondoLogin = new javax.swing.JPanel();
+        panelIngreso = new javax.swing.JPanel();
         titulo = new javax.swing.JLabel();
         tituloEmail = new javax.swing.JLabel();
         tituloContraseña = new javax.swing.JLabel();
         separadorEmail = new javax.swing.JSeparator();
         ingresoTextoEmail1 = new javax.swing.JTextField();
-        separadorEmail1 = new javax.swing.JSeparator();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        separadorContraseña = new javax.swing.JSeparator();
+        ingresoTextoContraseña = new javax.swing.JPasswordField();
+        logoPanelIngreso = new javax.swing.JLabel();
+        botonPanelIngreso = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        barraSuperior = new javax.swing.JPanel();
+        botonExitVentana = new javax.swing.JPanel();
+        exitTexto = new javax.swing.JLabel();
+        LogoGrandeLogin = new javax.swing.JLabel();
+        derechosAutores = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
+        setLocationByPlatform(true);
+        setUndecorated(true);
+        setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panelFondoLogin.setBackground(new java.awt.Color(255, 255, 255));
+        panelFondoLogin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(102, 102, 255));
-        jPanel2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jPanel2.setFont(new java.awt.Font("Myanmar Text", 1, 18)); // NOI18N
+        panelIngreso.setBackground(new java.awt.Color(102, 102, 255));
+        panelIngreso.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        panelIngreso.setFont(new java.awt.Font("Myanmar Text", 1, 18)); // NOI18N
 
         titulo.setFont(new java.awt.Font("Myanmar Text", 1, 48)); // NOI18N
         titulo.setForeground(new java.awt.Color(255, 255, 255));
@@ -64,66 +74,145 @@ public class Login extends javax.swing.JFrame {
         ingresoTextoEmail1.setText("Ingrese Email del Usuario");
         ingresoTextoEmail1.setBorder(null);
 
-        jPasswordField1.setBackground(new java.awt.Color(102, 102, 255));
-        jPasswordField1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jPasswordField1.setText("jPasswordField1");
-        jPasswordField1.setBorder(null);
+        ingresoTextoContraseña.setBackground(new java.awt.Color(102, 102, 255));
+        ingresoTextoContraseña.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        ingresoTextoContraseña.setText("jPasswordField1");
+        ingresoTextoContraseña.setBorder(null);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+        logoPanelIngreso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/autodraw_6_6_2023-removebg-preview.png"))); // NOI18N
+
+        botonPanelIngreso.setBackground(new java.awt.Color(255, 255, 255));
+        botonPanelIngreso.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jLabel1.setBackground(new java.awt.Color(102, 120, 255));
+        jLabel1.setFont(new java.awt.Font("Myanmar Text", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 102, 255));
+        jLabel1.setText("ENTRAR");
+
+        javax.swing.GroupLayout botonPanelIngresoLayout = new javax.swing.GroupLayout(botonPanelIngreso);
+        botonPanelIngreso.setLayout(botonPanelIngresoLayout);
+        botonPanelIngresoLayout.setHorizontalGroup(
+            botonPanelIngresoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(botonPanelIngresoLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jLabel1)
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+        botonPanelIngresoLayout.setVerticalGroup(
+            botonPanelIngresoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(botonPanelIngresoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1))
+        );
+
+        javax.swing.GroupLayout panelIngresoLayout = new javax.swing.GroupLayout(panelIngreso);
+        panelIngreso.setLayout(panelIngresoLayout);
+        panelIngresoLayout.setHorizontalGroup(
+            panelIngresoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelIngresoLayout.createSequentialGroup()
+                .addGroup(panelIngresoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelIngresoLayout.createSequentialGroup()
+                        .addGap(115, 115, 115)
+                        .addGroup(panelIngresoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(logoPanelIngreso)
+                            .addComponent(titulo)))
+                    .addGroup(panelIngresoLayout.createSequentialGroup()
                         .addGap(39, 39, 39)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(panelIngresoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(tituloContraseña)
                             .addComponent(tituloEmail)
                             .addComponent(separadorEmail)
                             .addComponent(ingresoTextoEmail1, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE)
-                            .addComponent(separadorEmail1)
-                            .addComponent(jPasswordField1)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(112, 112, 112)
-                        .addComponent(titulo)))
+                            .addComponent(separadorContraseña)
+                            .addComponent(ingresoTextoContraseña)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelIngresoLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(botonPanelIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(39, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(129, 129, 129)
-                .addComponent(titulo)
+        panelIngresoLayout.setVerticalGroup(
+            panelIngresoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelIngresoLayout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addComponent(logoPanelIngreso)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(titulo)
+                .addGap(19, 19, 19)
                 .addComponent(tituloEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ingresoTextoEmail1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(2, 2, 2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(separadorEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
+                .addGap(27, 27, 27)
                 .addComponent(tituloContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ingresoTextoContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(separadorEmail1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(395, Short.MAX_VALUE))
+                .addComponent(separadorContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(58, 58, 58)
+                .addComponent(botonPanelIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(72, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 370, -1));
+        panelFondoLogin.add(panelIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 370, 530));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Logo-removebg-preview-removebg-preview.png"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 110, -1, -1));
+        barraSuperior.setOpaque(false);
+
+        botonExitVentana.setBackground(new java.awt.Color(255, 255, 255));
+        botonExitVentana.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        exitTexto.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        exitTexto.setForeground(new java.awt.Color(0, 0, 0));
+        exitTexto.setText("X");
+
+        javax.swing.GroupLayout botonExitVentanaLayout = new javax.swing.GroupLayout(botonExitVentana);
+        botonExitVentana.setLayout(botonExitVentanaLayout);
+        botonExitVentanaLayout.setHorizontalGroup(
+            botonExitVentanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, botonExitVentanaLayout.createSequentialGroup()
+                .addContainerGap(20, Short.MAX_VALUE)
+                .addComponent(exitTexto)
+                .addGap(18, 18, 18))
+        );
+        botonExitVentanaLayout.setVerticalGroup(
+            botonExitVentanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(exitTexto, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout barraSuperiorLayout = new javax.swing.GroupLayout(barraSuperior);
+        barraSuperior.setLayout(barraSuperiorLayout);
+        barraSuperiorLayout.setHorizontalGroup(
+            barraSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, barraSuperiorLayout.createSequentialGroup()
+                .addGap(0, 820, Short.MAX_VALUE)
+                .addComponent(botonExitVentana, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        barraSuperiorLayout.setVerticalGroup(
+            barraSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(botonExitVentana, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        panelFondoLogin.add(barraSuperior, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 40));
+
+        LogoGrandeLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Logo-removebg-preview-removebg-preview.png"))); // NOI18N
+        panelFondoLogin.add(LogoGrandeLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 90, -1, -1));
+
+        derechosAutores.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        derechosAutores.setForeground(new java.awt.Color(204, 204, 204));
+        derechosAutores.setText("Inc Equipo Dinamita ");
+        panelFondoLogin.add(derechosAutores, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 470, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelFondoLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 527, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(panelFondoLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -165,13 +254,20 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel LogoGrandeLogin;
+    private javax.swing.JPanel barraSuperior;
+    private javax.swing.JPanel botonExitVentana;
+    private javax.swing.JPanel botonPanelIngreso;
+    private javax.swing.JLabel derechosAutores;
+    private javax.swing.JLabel exitTexto;
+    private javax.swing.JPasswordField ingresoTextoContraseña;
     private javax.swing.JTextField ingresoTextoEmail1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JLabel logoPanelIngreso;
+    private javax.swing.JPanel panelFondoLogin;
+    private javax.swing.JPanel panelIngreso;
+    private javax.swing.JSeparator separadorContraseña;
     private javax.swing.JSeparator separadorEmail;
-    private javax.swing.JSeparator separadorEmail1;
     private javax.swing.JLabel titulo;
     private javax.swing.JLabel tituloContraseña;
     private javax.swing.JLabel tituloEmail;

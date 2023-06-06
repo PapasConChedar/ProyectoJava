@@ -8,6 +8,7 @@ public class Cliente extends Persona{
     private String contraseña;
     private String telefono;
     private String listaDePedidos;
+    
 
     //region CONSTRUCTOR VACIO
     public Cliente(String persona, String apellido, String dni, String direccion, String idCliente, String numeroCuenta, String direcEnte, String email, String contraseña, String telefono, String listaDePedidos) {
