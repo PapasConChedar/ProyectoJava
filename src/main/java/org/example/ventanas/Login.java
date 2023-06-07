@@ -4,12 +4,16 @@
  */
 package org.example.ventanas;
 
+import java.util.Locale;
+
 /**
  *
  * @author Agus-Notebook
  */
 public class Login extends javax.swing.JFrame {
-
+    int mouseX;
+    int mouseY;
+   
     /**
      * Creates new form Login
      */
@@ -157,9 +161,24 @@ public class Login extends javax.swing.JFrame {
         panelFondoLogin.add(panelIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 370, 530));
 
         barraSuperior.setOpaque(false);
+        barraSuperior.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                barraSuperiorMouseDragged(evt);
+            }
+        });
+        barraSuperior.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                barraSuperiorMousePressed(evt);
+            }
+        });
 
         botonExitVentana.setBackground(new java.awt.Color(255, 255, 255));
         botonExitVentana.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botonExitVentana.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botonExitVentanaMouseClicked(evt);
+            }
+        });
 
         exitTexto.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         exitTexto.setForeground(new java.awt.Color(0, 0, 0));
@@ -218,40 +237,25 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void barraSuperiorMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_barraSuperiorMousePressed
+        // TODO add your handling code here:
+        mouseX = evt.getX();
+        mouseY = evt.getY();
+    }//GEN-LAST:event_barraSuperiorMousePressed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Login().setVisible(true);
-            }
-        });
-    }
+    private void barraSuperiorMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_barraSuperiorMouseDragged
+        // TODO add your handling code here:
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x-mouseX,y-mouseY);
+    }//GEN-LAST:event_barraSuperiorMouseDragged
+
+    private void botonExitVentanaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonExitVentanaMouseClicked
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_botonExitVentanaMouseClicked
+
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LogoGrandeLogin;
