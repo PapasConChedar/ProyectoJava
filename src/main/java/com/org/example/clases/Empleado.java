@@ -3,18 +3,17 @@ package com.org.example.clases;
 import java.io.Serializable;
 
 public class Empleado extends Persona implements Serializable {
-private String idEmpleado;
-private String email;
-private String contraseña;
+    private static int contador;
+    private String idEmpleado;
+    private String email;
+    private String contraseña;
 
 
-// region CONSTRUCTOR VACIO
     public Empleado(String persona, String apellido, String dni, String direccion) {
         super(persona, apellido, dni, direccion);
+        this.idEmpleado = String.valueOf(++Empleado.contador);
     }
-    // endregion
 
-    //region GETTERS AND SETTERS
     public String getIdEmpleado() {
         return idEmpleado;
     }
@@ -38,9 +37,7 @@ private String contraseña;
     public void setContraseña(String contraseña) {
         this.contraseña = contraseña;
     }
-// endregion
 
-    //region TOSTRING
     @Override
     public String toString() {
         return "Empleado{" +
@@ -49,5 +46,4 @@ private String contraseña;
                 ", contraseña='" + contraseña + '\'' +
                 '}';
     }
-    //endregion
 }

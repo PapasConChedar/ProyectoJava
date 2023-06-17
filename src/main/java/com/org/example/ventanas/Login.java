@@ -5,6 +5,8 @@
 package com.org.example.ventanas;
 
 import java.awt.Color;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
 /**
@@ -176,8 +178,15 @@ public class Login extends javax.swing.JFrame {
         textoIngreso.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         textoIngreso.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                textoIngresoMouseClicked(evt);
+//                textoIngresoMouseClicked(evt);
+            //validar email y contraseña
+
+                // cargar el archivo principal para ver si existe el usuario
+
             }
+
+
+
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 textoIngresoMouseEntered(evt);
             }

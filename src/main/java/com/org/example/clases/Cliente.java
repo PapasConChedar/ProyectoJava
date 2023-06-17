@@ -3,6 +3,7 @@ package com.org.example.clases;
 import java.io.Serializable;
 
 public class Cliente extends Persona implements Serializable {
+    private static int contador;
     private String idCliente;
     private String numeroCuenta;
     private String direccionEnte;
@@ -10,12 +11,12 @@ public class Cliente extends Persona implements Serializable {
     private String contraseña;
     private String telefono;
     private String listaDePedidos;
-    
+
 
     //region CONSTRUCTOR VACIO
     public Cliente(String persona, String apellido, String dni, String direccion, String idCliente, String numeroCuenta, String direcEnte, String email, String contraseña, String telefono, String listaDePedidos) {
         super(persona, apellido, dni, direccion);
-        this.idCliente = idCliente;
+        this.idCliente = String.valueOf(++Cliente.contador);
         this.numeroCuenta = numeroCuenta;
         this.direccionEnte = direcEnte;
         this.email = email;
@@ -88,15 +89,7 @@ public class Cliente extends Persona implements Serializable {
     //region TOSTRING
     @Override
     public String toString() {
-        return "Cliente{" +
-                "idCliente='" + idCliente + '\'' +
-                ", numeroCuenta='" + numeroCuenta + '\'' +
-                ", direccionEnte='" + direccionEnte + '\'' +
-                ", email='" + email + '\'' +
-                ", contraseña='" + contraseña + '\'' +
-                ", telefono='" + telefono + '\'' +
-                ", listaDePedidos='" + listaDePedidos + '\'' +
-                '}';
+        return "Cliente{" + "idCliente='" + idCliente + '\'' + ", numeroCuenta='" + numeroCuenta + '\'' + ", direccionEnte='" + direccionEnte + '\'' + ", email='" + email + '\'' + ", contraseña='" + contraseña + '\'' + ", telefono='" + telefono + '\'' + ", listaDePedidos='" + listaDePedidos + '\'' + '}';
     }
 
     //endregion
