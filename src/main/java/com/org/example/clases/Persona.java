@@ -1,6 +1,8 @@
 package com.org.example.clases;
 
-public class Persona {
+import java.io.Serializable;
+
+public class Persona implements Serializable {
 
     private String persona;
     private String apellido;

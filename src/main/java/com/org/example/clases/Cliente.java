@@ -1,6 +1,8 @@
 package com.org.example.clases;
 
-public class Cliente extends Persona{
+import java.io.Serializable;
+
+public class Cliente extends Persona implements Serializable {
     private String idCliente;
     private String numeroCuenta;
     private String direccionEnte;

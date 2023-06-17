@@ -1,8 +1,9 @@
 package com.org.example.clases;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Pedido extends Productos{
+public class Pedido extends Productos implements Serializable {
     private int numPedido;
     private int precio;
     enum EstadoPago {PAGO, IMPAGO, PENDIENTE}

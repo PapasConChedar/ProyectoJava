@@ -1,0 +1,28 @@
+[
+  {
+    "persona": "Nombre1",
+    "apellido": "Apellido1",
+    "dni": "12345678",
+    "direccion": "Dirección1",
+    "idCliente": "C001",
+    "numeroCuenta": "NC001",
+    "direccionEnte": "Dirección Ente1",
+    "email": "cliente1@example.com",
+    "contraseña": "contraseña1",
+    "telefono": "123456789",
+    "listaDePedidos": "Pedido1, Pedido2"
+  },
+  {
+    "persona": "Nombre2",
+    "apellido": "Apellido2",
+    "dni": "87654321",
+    "direccion": "Dirección2",
+    "idCliente": "C002",
+    "numeroCuenta": "NC002",
+    "direccionEnte": "Dirección Ente2",
+    "email": "cliente2@example.com",
+    "contraseña": "contraseña2",
+    "telefono": "987654321",
+    "listaDePedidos": "Pedido3, Pedido4"
+  }
+]

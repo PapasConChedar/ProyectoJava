@@ -1,4 +1,4 @@
-package com.org.example.interfaces;
+package com.org.example.repository;
 
 import java.util.List;
 
