@@ -4,17 +4,33 @@
  */
 package org.example.ventanas;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+
 /**
  *
  * @author Agus-Notebook
  */
 public class MenuInicio extends javax.swing.JFrame {
-
+    int mouseX;
+    int mouseY;
     /**
      * Creates new form Menu
      */
     public MenuInicio() {
         initComponents();
+        inciarVista();
+    }
+    
+    private void inciarVista(){
+        VistaPrincipal vista = new VistaPrincipal();
+        vista.setSize(800, 600);
+        vista.setLocation(0,0);
+        
+        contenido.removeAll();
+        contenido.add(vista,BorderLayout.CENTER);
+        contenido.revalidate();
+        contenido.repaint(); 
     }
 
     /**
@@ -26,24 +42,50 @@ public class MenuInicio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel2 = new javax.swing.JPanel();
         backGroundMenu = new javax.swing.JPanel();
+        barraSuperiorMenu = new javax.swing.JPanel();
+        botonExitMenu = new javax.swing.JPanel();
+        exitTextoMenu = new javax.swing.JLabel();
         panelOpciones = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         tituloMenu = new javax.swing.JLabel();
         separadorMenu1 = new javax.swing.JSeparator();
-        opcionMenu3 = new javax.swing.JPanel();
+        opcionMenu4 = new javax.swing.JPanel();
+        iconoOpcion4 = new javax.swing.JLabel();
         textoOpcion3 = new javax.swing.JLabel();
+        opcionMenu3 = new javax.swing.JPanel();
         iconoOpcion3 = new javax.swing.JLabel();
+        textoOpcion4 = new javax.swing.JLabel();
         opcionMenu2 = new javax.swing.JPanel();
         textoOpcion2 = new javax.swing.JLabel();
         iconoOpcion2 = new javax.swing.JLabel();
         opcionMenu1 = new javax.swing.JPanel();
         textoOpcion1 = new javax.swing.JLabel();
         iconoOpcion1 = new javax.swing.JLabel();
+        contenido = new javax.swing.JPanel();
+
+        jPanel2.setMaximumSize(new java.awt.Dimension(106, 58));
+        jPanel2.setMinimumSize(new java.awt.Dimension(106, 58));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 58, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocationByPlatform(true);
         setMaximumSize(new java.awt.Dimension(1066, 600));
         setMinimumSize(new java.awt.Dimension(1066, 600));
+        setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(1066, 600));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         backGroundMenu.setBackground(new java.awt.Color(255, 255, 255));
@@ -51,10 +93,78 @@ public class MenuInicio extends javax.swing.JFrame {
         backGroundMenu.setMaximumSize(new java.awt.Dimension(1066, 600));
         backGroundMenu.setMinimumSize(new java.awt.Dimension(1066, 600));
         backGroundMenu.setPreferredSize(new java.awt.Dimension(1066, 600));
+        backGroundMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        barraSuperiorMenu.setMaximumSize(new java.awt.Dimension(1066, 40));
+        barraSuperiorMenu.setMinimumSize(new java.awt.Dimension(1066, 40));
+        barraSuperiorMenu.setOpaque(false);
+        barraSuperiorMenu.setPreferredSize(new java.awt.Dimension(1066, 40));
+        barraSuperiorMenu.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                barraSuperiorMenuMouseDragged(evt);
+            }
+        });
+        barraSuperiorMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                barraSuperiorMenuMousePressed(evt);
+            }
+        });
+
+        botonExitMenu.setBackground(new java.awt.Color(232, 246, 255));
+        botonExitMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botonExitMenu.setMaximumSize(new java.awt.Dimension(69, 40));
+        botonExitMenu.setMinimumSize(new java.awt.Dimension(69, 40));
+        botonExitMenu.setPreferredSize(new java.awt.Dimension(69, 40));
+
+        exitTextoMenu.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        exitTextoMenu.setForeground(new java.awt.Color(0, 0, 0));
+        exitTextoMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        exitTextoMenu.setText("X");
+        exitTextoMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                exitTextoMenuMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                exitTextoMenuMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                exitTextoMenuMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout botonExitMenuLayout = new javax.swing.GroupLayout(botonExitMenu);
+        botonExitMenu.setLayout(botonExitMenuLayout);
+        botonExitMenuLayout.setHorizontalGroup(
+            botonExitMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(exitTextoMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE)
+        );
+        botonExitMenuLayout.setVerticalGroup(
+            botonExitMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(exitTextoMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout barraSuperiorMenuLayout = new javax.swing.GroupLayout(barraSuperiorMenu);
+        barraSuperiorMenu.setLayout(barraSuperiorMenuLayout);
+        barraSuperiorMenuLayout.setHorizontalGroup(
+            barraSuperiorMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, barraSuperiorMenuLayout.createSequentialGroup()
+                .addGap(0, 997, Short.MAX_VALUE)
+                .addComponent(botonExitMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        barraSuperiorMenuLayout.setVerticalGroup(
+            barraSuperiorMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, barraSuperiorMenuLayout.createSequentialGroup()
+                .addComponent(botonExitMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        backGroundMenu.add(barraSuperiorMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         panelOpciones.setBackground(new java.awt.Color(121, 215, 220));
         panelOpciones.setMaximumSize(new java.awt.Dimension(300, 600));
         panelOpciones.setMinimumSize(new java.awt.Dimension(300, 600));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/controlar.png"))); // NOI18N
 
         tituloMenu.setBackground(new java.awt.Color(57, 136, 158));
         tituloMenu.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -63,16 +173,52 @@ public class MenuInicio extends javax.swing.JFrame {
 
         separadorMenu1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
-        opcionMenu3.setBackground(new java.awt.Color(142, 233, 239));
-        opcionMenu3.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(142, 233, 239)));
+        opcionMenu4.setBackground(new java.awt.Color(142, 233, 239));
+        opcionMenu4.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(142, 233, 239)));
+        opcionMenu4.setMaximumSize(new java.awt.Dimension(106, 58));
+        opcionMenu4.setMinimumSize(new java.awt.Dimension(106, 58));
+        opcionMenu4.setPreferredSize(new java.awt.Dimension(106, 58));
+
+        iconoOpcion4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        iconoOpcion4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/carrito-de-supermercado.png"))); // NOI18N
 
         textoOpcion3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         textoOpcion3.setForeground(new java.awt.Color(57, 136, 158));
         textoOpcion3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        textoOpcion3.setText("Usuario");
+        textoOpcion3.setText("Compras");
+
+        javax.swing.GroupLayout opcionMenu4Layout = new javax.swing.GroupLayout(opcionMenu4);
+        opcionMenu4.setLayout(opcionMenu4Layout);
+        opcionMenu4Layout.setHorizontalGroup(
+            opcionMenu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(opcionMenu4Layout.createSequentialGroup()
+                .addComponent(iconoOpcion4, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(textoOpcion3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        opcionMenu4Layout.setVerticalGroup(
+            opcionMenu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(opcionMenu4Layout.createSequentialGroup()
+                .addGroup(opcionMenu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(iconoOpcion4, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textoOpcion3, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        opcionMenu3.setBackground(new java.awt.Color(142, 233, 239));
+        opcionMenu3.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(142, 233, 239)));
+        opcionMenu3.setMaximumSize(new java.awt.Dimension(106, 58));
+        opcionMenu3.setMinimumSize(new java.awt.Dimension(106, 58));
+        opcionMenu3.setPreferredSize(new java.awt.Dimension(106, 58));
 
         iconoOpcion3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        iconoOpcion3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hombre.png"))); // NOI18N
+        iconoOpcion3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cesta-de-la-compra.png"))); // NOI18N
+
+        textoOpcion4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        textoOpcion4.setForeground(new java.awt.Color(57, 136, 158));
+        textoOpcion4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        textoOpcion4.setText("Productos");
 
         javax.swing.GroupLayout opcionMenu3Layout = new javax.swing.GroupLayout(opcionMenu3);
         opcionMenu3.setLayout(opcionMenu3Layout);
@@ -81,22 +227,25 @@ public class MenuInicio extends javax.swing.JFrame {
             .addGroup(opcionMenu3Layout.createSequentialGroup()
                 .addComponent(iconoOpcion3, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(textoOpcion3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(textoOpcion4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         opcionMenu3Layout.setVerticalGroup(
             opcionMenu3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(opcionMenu3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(textoOpcion3, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(iconoOpcion3, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(iconoOpcion3, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(textoOpcion4, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         opcionMenu2.setBackground(new java.awt.Color(142, 233, 239));
         opcionMenu2.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(142, 233, 239)));
+        opcionMenu2.setMaximumSize(new java.awt.Dimension(106, 58));
+        opcionMenu2.setMinimumSize(new java.awt.Dimension(106, 58));
+        opcionMenu2.setPreferredSize(new java.awt.Dimension(106, 58));
 
         textoOpcion2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         textoOpcion2.setForeground(new java.awt.Color(57, 136, 158));
         textoOpcion2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        textoOpcion2.setText("Usuario");
+        textoOpcion2.setText("Usuarios");
 
         iconoOpcion2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         iconoOpcion2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hombre.png"))); // NOI18N
@@ -119,6 +268,11 @@ public class MenuInicio extends javax.swing.JFrame {
 
         opcionMenu1.setBackground(new java.awt.Color(142, 233, 239));
         opcionMenu1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(142, 233, 239)));
+        opcionMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                opcionMenu1MouseClicked(evt);
+            }
+        });
 
         textoOpcion1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         textoOpcion1.setForeground(new java.awt.Color(57, 136, 158));
@@ -149,67 +303,128 @@ public class MenuInicio extends javax.swing.JFrame {
         panelOpcionesLayout.setHorizontalGroup(
             panelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(opcionMenu1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(opcionMenu2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(opcionMenu2, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+            .addComponent(opcionMenu3, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+            .addComponent(opcionMenu4, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
             .addGroup(panelOpcionesLayout.createSequentialGroup()
-                .addContainerGap(100, Short.MAX_VALUE)
-                .addGroup(panelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOpcionesLayout.createSequentialGroup()
-                        .addComponent(tituloMenu)
-                        .addGap(117, 117, 117))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOpcionesLayout.createSequentialGroup()
-                        .addComponent(separadorMenu1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(96, 96, 96))))
-            .addComponent(opcionMenu3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(117, Short.MAX_VALUE)
+                .addComponent(tituloMenu)
+                .addGap(117, 117, 117))
+            .addGroup(panelOpcionesLayout.createSequentialGroup()
+                .addGap(114, 114, 114)
+                .addComponent(jLabel1)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(panelOpcionesLayout.createSequentialGroup()
+                .addGap(96, 96, 96)
+                .addComponent(separadorMenu1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelOpcionesLayout.setVerticalGroup(
             panelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelOpcionesLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addGap(50, 50, 50)
                 .addComponent(tituloMenu)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(separadorMenu1, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1)
+                .addGap(51, 51, 51)
                 .addComponent(opcionMenu1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(opcionMenu2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(opcionMenu3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(319, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(opcionMenu4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(114, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout backGroundMenuLayout = new javax.swing.GroupLayout(backGroundMenu);
-        backGroundMenu.setLayout(backGroundMenuLayout);
-        backGroundMenuLayout.setHorizontalGroup(
-            backGroundMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(backGroundMenuLayout.createSequentialGroup()
-                .addComponent(panelOpciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 767, Short.MAX_VALUE))
+        backGroundMenu.add(panelOpciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        contenido.setBackground(new java.awt.Color(255, 255, 255));
+        contenido.setMaximumSize(new java.awt.Dimension(800, 600));
+        contenido.setMinimumSize(new java.awt.Dimension(800, 600));
+        contenido.setPreferredSize(new java.awt.Dimension(800, 600));
+
+        javax.swing.GroupLayout contenidoLayout = new javax.swing.GroupLayout(contenido);
+        contenido.setLayout(contenidoLayout);
+        contenidoLayout.setHorizontalGroup(
+            contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 800, Short.MAX_VALUE)
         );
-        backGroundMenuLayout.setVerticalGroup(
-            backGroundMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelOpciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        contenidoLayout.setVerticalGroup(
+            contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 600, Short.MAX_VALUE)
         );
+
+        backGroundMenu.add(contenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 0, 770, 600));
 
         getContentPane().add(backGroundMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1070, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void barraSuperiorMenuMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_barraSuperiorMenuMousePressed
+        // TODO add your handling code here:
+        mouseX = evt.getX();
+        mouseY = evt.getY();
+    }//GEN-LAST:event_barraSuperiorMenuMousePressed
+
+    private void barraSuperiorMenuMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_barraSuperiorMenuMouseDragged
+        // TODO add your handling code here:
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x-mouseX,y-mouseY);
+    }//GEN-LAST:event_barraSuperiorMenuMouseDragged
+
+    private void exitTextoMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitTextoMenuMouseClicked
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_exitTextoMenuMouseClicked
+
+    private void exitTextoMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitTextoMenuMouseEntered
+        // TODO add your handling code here:
+        botonExitMenu.setBackground(new Color(237,80,122));
+        exitTextoMenu.setForeground(new Color(232,246,255));
+        
+    }//GEN-LAST:event_exitTextoMenuMouseEntered
+
+    private void exitTextoMenuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitTextoMenuMouseExited
+        // TODO add your handling code here:
+        botonExitMenu.setBackground(new Color(232,246,255));
+        exitTextoMenu.setForeground(Color.BLACK);
+    }//GEN-LAST:event_exitTextoMenuMouseExited
+
+    private void opcionMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionMenu1MouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_opcionMenu1MouseClicked
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel backGroundMenu;
+    private javax.swing.JPanel barraSuperiorMenu;
+    private javax.swing.JPanel botonExitMenu;
+    private javax.swing.JPanel contenido;
+    private javax.swing.JLabel exitTextoMenu;
     private javax.swing.JLabel iconoOpcion1;
     private javax.swing.JLabel iconoOpcion2;
     private javax.swing.JLabel iconoOpcion3;
+    private javax.swing.JLabel iconoOpcion4;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel opcionMenu1;
     private javax.swing.JPanel opcionMenu2;
     private javax.swing.JPanel opcionMenu3;
+    private javax.swing.JPanel opcionMenu4;
     private javax.swing.JPanel panelOpciones;
     private javax.swing.JSeparator separadorMenu1;
     private javax.swing.JLabel textoOpcion1;
     private javax.swing.JLabel textoOpcion2;
     private javax.swing.JLabel textoOpcion3;
+    private javax.swing.JLabel textoOpcion4;
     private javax.swing.JLabel tituloMenu;
     // End of variables declaration//GEN-END:variables
+
 }

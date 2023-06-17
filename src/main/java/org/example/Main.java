@@ -5,7 +5,7 @@ import org.example.ventanas.MenuInicio;
 
 public class Main {
     public static void main(String[] args) {
-        Login menu = new Login();
+        MenuInicio menu = new MenuInicio();
         menu.setVisible(true);
     }
 }
