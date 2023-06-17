@@ -63,7 +63,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="panelOpciones" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="766" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="767" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -105,6 +105,7 @@
                           </Group>
                       </Group>
                   </Group>
+                  <Component id="opcionMenu3" alignment="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -118,7 +119,9 @@
                       <Component id="opcionMenu1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="opcionMenu2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="381" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="opcionMenu3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="319" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -145,6 +148,62 @@
                 </Property>
               </Properties>
             </Component>
+            <Container class="javax.swing.JPanel" name="opcionMenu3">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ef" green="e9" red="8e" type="rgb"/>
+                </Property>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                    <MatteColorBorder bottom="1" left="10" right="1" top="1">
+                      <Color PropertyName="color" blue="ef" green="e9" red="8e" type="rgb"/>
+                    </MatteColorBorder>
+                  </Border>
+                </Property>
+              </Properties>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="iconoOpcion3" min="-2" pref="57" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="textoOpcion3" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                          <Component id="textoOpcion3" alignment="3" min="-2" pref="54" max="-2" attributes="0"/>
+                          <Component id="iconoOpcion3" alignment="3" min="-2" pref="54" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="textoOpcion3">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="18" style="1"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="9e" green="88" red="39" type="rgb"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
+                    <Property name="text" type="java.lang.String" value="Usuario"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="iconoOpcion3">
+                  <Properties>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/hombre.png"/>
+                    </Property>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
             <Container class="javax.swing.JPanel" name="opcionMenu2">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
