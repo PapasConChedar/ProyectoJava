@@ -4,6 +4,8 @@
  */
 package com.org.example.ventanas;
 
+import com.org.example.service.Utils;
+
 import java.awt.Color;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -178,11 +180,23 @@ public class Login extends javax.swing.JFrame {
         textoIngreso.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         textoIngreso.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-//                textoIngresoMouseClicked(evt);
-            //validar email y contraseña
+                try {
+                    Boolean emailIsValid = Utils.validEmail(ingresoEmail.getText());
+                    Boolean passwordIsValid = Utils.validPassword(ingresoContrasenia.getText());
+                    if(!emailIsValid || !passwordIsValid) {
+                        JOptionPane.showMessageDialog(null, "Email o contraseña invalidos");
+                        ingresoContrasenia.setText("");
+                        ingresoEmail.setText("");
+//                        Login.this.dispose();
+                    }else{
+                        Login.this.dispose();
+                        MenuInicio menuInicio = new MenuInicio();
+                        menuInicio.setVisible(true);
 
-                // cargar el archivo principal para ver si existe el usuario
-
+                    }
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
             }
 
 

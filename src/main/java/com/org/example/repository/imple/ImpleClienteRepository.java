@@ -54,7 +54,7 @@ public class ImpleClienteRepository implements GenericsRepository<Cliente> {
     @Override
     public void update(Cliente item) {
         for (Cliente i : listClientes) {
-            if (i.getDni().equals(item.getDni())) {
+            if (i.getIdCliente().equals(item.getIdCliente())) {
                 i.setNombre(item.getNombre());
                 i.setApellido(item.getApellido());
                 i.setDni(item.getDni());
