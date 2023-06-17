@@ -1,7 +1,8 @@
-package repository;
+package com.org.example.repository;
 
-import com.clases.proyectojava.Cliente;
-import interfaces.GenericsRepository;
+
+import com.org.example.clases.Cliente;
+import com.org.example.interfaces.GenericsRepository;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.clases.proyectojava;
+package com.org.example.clases;
 
 import java.util.ArrayList;
 

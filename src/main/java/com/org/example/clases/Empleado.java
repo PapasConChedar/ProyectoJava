@@ -1,4 +1,4 @@
-package com.clases.proyectojava;
+package com.org.example.clases;
 
 public class Empleado extends Persona{
 private String idEmpleado;

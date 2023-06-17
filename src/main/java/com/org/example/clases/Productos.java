@@ -1,4 +1,4 @@
-package com.clases.proyectojava;
+package com.org.example.clases;
 
 public class Productos {
     private String marca;
