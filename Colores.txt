@@ -1,0 +1,11 @@
+Letras oscuras
+[70,112,231] Azul
+[57,136,158] Cyan
+[81,204,210]
+[121,215,220] Cyan un poco mas claro
+
+Letras Claras
+[142,233,239] Cyan
+
+
+https://ar.pinterest.com/pin/99994054212001655/

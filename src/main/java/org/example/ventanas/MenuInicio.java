@@ -26,18 +26,138 @@ public class MenuInicio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        backGroundMenu = new javax.swing.JPanel();
+        panelOpciones = new javax.swing.JPanel();
+        tituloMenu = new javax.swing.JLabel();
+        separadorMenu1 = new javax.swing.JSeparator();
+        opcionMenu2 = new javax.swing.JPanel();
+        textoOpcion2 = new javax.swing.JLabel();
+        iconoOpcion2 = new javax.swing.JLabel();
+        opcionMenu1 = new javax.swing.JPanel();
+        textoOpcion1 = new javax.swing.JLabel();
+        iconoOpcion1 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1066, 600));
+        setMinimumSize(new java.awt.Dimension(1066, 600));
+        setPreferredSize(new java.awt.Dimension(1066, 600));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        backGroundMenu.setBackground(new java.awt.Color(255, 255, 255));
+        backGroundMenu.setForeground(new java.awt.Color(57, 136, 158));
+        backGroundMenu.setMaximumSize(new java.awt.Dimension(1066, 600));
+        backGroundMenu.setMinimumSize(new java.awt.Dimension(1066, 600));
+        backGroundMenu.setPreferredSize(new java.awt.Dimension(1066, 600));
+
+        panelOpciones.setBackground(new java.awt.Color(121, 215, 220));
+        panelOpciones.setMaximumSize(new java.awt.Dimension(300, 600));
+        panelOpciones.setMinimumSize(new java.awt.Dimension(300, 600));
+
+        tituloMenu.setBackground(new java.awt.Color(57, 136, 158));
+        tituloMenu.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        tituloMenu.setForeground(new java.awt.Color(255, 255, 255));
+        tituloMenu.setText("Menu");
+
+        separadorMenu1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+
+        opcionMenu2.setBackground(new java.awt.Color(142, 233, 239));
+        opcionMenu2.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(142, 233, 239)));
+
+        textoOpcion2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        textoOpcion2.setForeground(new java.awt.Color(57, 136, 158));
+        textoOpcion2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        textoOpcion2.setText("Usuario");
+
+        iconoOpcion2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        iconoOpcion2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hombre.png"))); // NOI18N
+
+        javax.swing.GroupLayout opcionMenu2Layout = new javax.swing.GroupLayout(opcionMenu2);
+        opcionMenu2.setLayout(opcionMenu2Layout);
+        opcionMenu2Layout.setHorizontalGroup(
+            opcionMenu2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(opcionMenu2Layout.createSequentialGroup()
+                .addComponent(iconoOpcion2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(textoOpcion2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+        opcionMenu2Layout.setVerticalGroup(
+            opcionMenu2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(opcionMenu2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(textoOpcion2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(iconoOpcion2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+
+        opcionMenu1.setBackground(new java.awt.Color(142, 233, 239));
+        opcionMenu1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(142, 233, 239)));
+
+        textoOpcion1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        textoOpcion1.setForeground(new java.awt.Color(57, 136, 158));
+        textoOpcion1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        textoOpcion1.setText("Principal");
+
+        iconoOpcion1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        iconoOpcion1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Home.png"))); // NOI18N
+
+        javax.swing.GroupLayout opcionMenu1Layout = new javax.swing.GroupLayout(opcionMenu1);
+        opcionMenu1.setLayout(opcionMenu1Layout);
+        opcionMenu1Layout.setHorizontalGroup(
+            opcionMenu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(opcionMenu1Layout.createSequentialGroup()
+                .addComponent(iconoOpcion1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(textoOpcion1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        opcionMenu1Layout.setVerticalGroup(
+            opcionMenu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(opcionMenu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(textoOpcion1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(iconoOpcion1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        javax.swing.GroupLayout panelOpcionesLayout = new javax.swing.GroupLayout(panelOpciones);
+        panelOpciones.setLayout(panelOpcionesLayout);
+        panelOpcionesLayout.setHorizontalGroup(
+            panelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(opcionMenu1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(opcionMenu2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(panelOpcionesLayout.createSequentialGroup()
+                .addContainerGap(100, Short.MAX_VALUE)
+                .addGroup(panelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOpcionesLayout.createSequentialGroup()
+                        .addComponent(tituloMenu)
+                        .addGap(117, 117, 117))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOpcionesLayout.createSequentialGroup()
+                        .addComponent(separadorMenu1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(96, 96, 96))))
+        );
+        panelOpcionesLayout.setVerticalGroup(
+            panelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelOpcionesLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(tituloMenu)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(separadorMenu1, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
+                .addComponent(opcionMenu1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(opcionMenu2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(381, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout backGroundMenuLayout = new javax.swing.GroupLayout(backGroundMenu);
+        backGroundMenu.setLayout(backGroundMenuLayout);
+        backGroundMenuLayout.setHorizontalGroup(
+            backGroundMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(backGroundMenuLayout.createSequentialGroup()
+                .addComponent(panelOpciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 766, Short.MAX_VALUE))
+        );
+        backGroundMenuLayout.setVerticalGroup(
+            backGroundMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelOpciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(backGroundMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1070, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -45,5 +165,15 @@ public class MenuInicio extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel backGroundMenu;
+    private javax.swing.JLabel iconoOpcion1;
+    private javax.swing.JLabel iconoOpcion2;
+    private javax.swing.JPanel opcionMenu1;
+    private javax.swing.JPanel opcionMenu2;
+    private javax.swing.JPanel panelOpciones;
+    private javax.swing.JSeparator separadorMenu1;
+    private javax.swing.JLabel textoOpcion1;
+    private javax.swing.JLabel textoOpcion2;
+    private javax.swing.JLabel tituloMenu;
     // End of variables declaration//GEN-END:variables
 }
