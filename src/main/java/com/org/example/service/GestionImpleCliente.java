@@ -9,38 +9,43 @@ import java.util.List;
 public class GestionImpleCliente {
     ImpleClienteRepository impleClienteRepository = new ImpleClienteRepository();
 
-    public void cargar(){
+    public void cargar() {
         impleClienteRepository.cargar();
     }
 
-    public void guardar(){
+    public void guardar() {
         impleClienteRepository.guardar();
     }
 
-    public Cliente getById(String id){
-        return impleClienteRepository.getById(id);
+    public Cliente getById(String id) {
+        return impleClienteRepository.getById(
+                id);
     }
 
-    public void add(Cliente item){
-        impleClienteRepository.add(item);
+    public void add(Cliente item) {
+        impleClienteRepository.add(
+                item);
     }
 
-    public void update(Cliente item){
-        impleClienteRepository.update(item);
+    public void update(Cliente item) {
+        impleClienteRepository.update(
+                item);
     }
 
-    public void delete(Cliente item){
-        impleClienteRepository.delete(item);
+    public void delete(Cliente item) {
+        impleClienteRepository.delete(
+                item);
     }
 
-    public void deleteById(Cliente cliente){
-        impleClienteRepository.delete(cliente);
+    public void deleteById(Cliente cliente) {
+        impleClienteRepository.delete(
+                cliente);
     }
 
-    public void getAll(){
+    public void getAll() {
         impleClienteRepository.getAll().forEach(
-                System.out::println);}
-
+                System.out::println);
+    }
 
 
     public Boolean VerificarDatosLogin(String email, String Password) throws UsuarioNoEncontradoException {
@@ -48,15 +53,39 @@ public class GestionImpleCliente {
         ////List<Cliente> lista = impleClienteRepository.getAll();
         boolean encontrado = false;
         for (Cliente cliente : impleClienteRepository.getAll()) {
-            if (cliente.getEmail().equals(email) && cliente.getContraseña().equals(Password)) {
+            if (cliente.getEmail().equals(
+                    email) && cliente.getContraseña().equals(
+                    Password)) {
                 encontrado = true;
                 return encontrado;
 
-            } else if (cliente.getEmail().equals(email) && !cliente.getContraseña().equals(Password)) {
-                throw new UsuarioNoEncontradoException(2);
-            } else{throw new UsuarioNoEncontradoException(1);}
+            } else if (cliente.getEmail().equals(
+                    email) && !cliente.getContraseña().equals(
+                    Password)) {
+                throw new UsuarioNoEncontradoException(
+                        2);
+            } else {
+                throw new UsuarioNoEncontradoException(
+                        1);
+            }
         }
         return false;
     }
 
+
+    public Cliente encontrarCliente(String email, String password) {
+        impleClienteRepository.cargar();
+        for (Cliente cliente : impleClienteRepository.getAll()) {
+            if (cliente.getEmail().equals(
+                    email) && cliente.getContraseña().equals(
+                    password)) {
+
+                return cliente;
+
+
+
+            }
+
+        } return null;
+    }
 }

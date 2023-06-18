@@ -340,9 +340,10 @@ public class Login extends javax.swing.JFrame {
 
         GestionImpleCliente gestionImpleCliente = new GestionImpleCliente();
         try {
-            gestionImpleCliente.VerificarDatosLogin(ingresoEmail.getText(),
-                    String.valueOf(ingresoContrasenia.getPassword()));
-            JOptionPane.showMessageDialog(null, "Ingresaste");
+            if( gestionImpleCliente.VerificarDatosLogin(ingresoEmail.getText(),
+                    String.valueOf(ingresoContrasenia.getPassword()))){
+                JOptionPane.showMessageDialog(null, "Ingresaste");
+            }
         } catch (
                 UsuarioNoEncontradoException e) {
             System.out.println(e.getMessage() + e.escribirMensaje());
