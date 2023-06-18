@@ -335,6 +335,7 @@ public class Login extends javax.swing.JFrame {
 
     private void textoIngresoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textoIngresoMouseClicked
         // TODO add your handling code here:
+
         JOptionPane.showMessageDialog(null, "Ingresaste");
     }//GEN-LAST:event_textoIngresoMouseClicked
 
