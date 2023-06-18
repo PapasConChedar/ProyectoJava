@@ -24,5 +24,19 @@
     "contraseña": "Secreto456",
     "telefono": "9876543210",
     "listaDePedidos": "Pedido 2"
+  },
+  {
+    "nombre": "Agustin",
+    "apellido": "Miranda",
+    "dni": "38439118",
+    "direccion": "Victor Hugo 832",
+    "idCliente": 3,
+    "numeroCuenta": "415653451",
+    "direccionEnte": "Pinzon 1780 y Espora",
+    "email": "PapasConCheddar@gmail.com",
+    "contraseña": "M10p90",
+    "telefono": "2254596229",
+    "listaDePedidos": "Pedido 3"
+    
   }
 ]

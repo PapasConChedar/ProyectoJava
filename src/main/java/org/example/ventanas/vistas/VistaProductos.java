@@ -104,6 +104,7 @@ public class VistaProductos extends javax.swing.JPanel implements UtilidadesPane
     public void iconosSolapas() {
         contenedorPanelVistaProducto.setIconAt(0, crearIcono("icons\\iconsSolapasPaneles\\agregar-usuario.png"));
         contenedorPanelVistaProducto.setIconAt(1, crearIcono("icons\\iconsSolapasPaneles\\lupa.png"));
+        contenedorPanelVistaProducto.setIconAt(2, crearIcono("icons\\iconsSolapasPaneles\\editar.png"));
         
     }
 }
