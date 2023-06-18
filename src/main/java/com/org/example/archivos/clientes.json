@@ -8,7 +8,7 @@
     "numeroCuenta": "123456789",
     "direccionEnte": "Calle Principal 123",
     "email": "cliente1@example.com",
-    "contraseña": "secreto123",
+    "contraseña": "Secreto123",
     "telefono": "1234567890",
     "listaDePedidos": "Pedido 1"
   },
@@ -21,7 +21,7 @@
     "numeroCuenta": "987654321",
     "direccionEnte": "Avenida Secundaria 456",
     "email": "cliente2@example.com",
-    "contraseña": "secreto456",
+    "contraseña": "Secreto456",
     "telefono": "9876543210",
     "listaDePedidos": "Pedido 2"
   }

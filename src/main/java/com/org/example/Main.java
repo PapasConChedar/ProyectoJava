@@ -12,16 +12,16 @@ public class Main {
         Login menu = new Login();
        menu.setVisible(
                true);
-        GestionImpleCliente gestionImpleCliente = new GestionImpleCliente();
-        try {
-            gestionImpleCliente.VerificarDatosLogin(
-                    "cliente2@example.com",
-                    "secreto456");
-        } catch (
-                UsuarioNoEncontradoException e) {
-            System.out.println(
-                    e.getMessage() + e.escribirMensaje());
-        }
+       // GestionImpleCliente gestionImpleCliente = new GestionImpleCliente();
+       // try {
+          //  gestionImpleCliente.VerificarDatosLogin(
+          //          "cliente2@example.com",
+           //         "secreto456");
+      //  } catch (
+          //      UsuarioNoEncontradoException e) {
+          //  System.out.println(
+         //           e.getMessage() + e.escribirMensaje());
+      //  }
 
         //gestionImpleCliente.cargar();
         //gestionImpleCliente.getAll();

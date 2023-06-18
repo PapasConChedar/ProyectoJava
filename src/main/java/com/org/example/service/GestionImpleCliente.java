@@ -43,21 +43,20 @@ public class GestionImpleCliente {
 
 
 
-    public void VerificarDatosLogin(String email, String Password) throws UsuarioNoEncontradoException {
+    public Boolean VerificarDatosLogin(String email, String Password) throws UsuarioNoEncontradoException {
         impleClienteRepository.cargar();
         ////List<Cliente> lista = impleClienteRepository.getAll();
         boolean encontrado = false;
         for (Cliente cliente : impleClienteRepository.getAll()) {
             if (cliente.getEmail().equals(email) && cliente.getContraseña().equals(Password)) {
                 encontrado = true;
-                break;
+                return encontrado;
+
             } else if (cliente.getEmail().equals(email) && !cliente.getContraseña().equals(Password)) {
                 throw new UsuarioNoEncontradoException(2);
-            }
+            } else{throw new UsuarioNoEncontradoException(1);}
         }
-        if (!encontrado) {
-            throw new UsuarioNoEncontradoException(1);
-        }
+        return false;
     }
 
 }

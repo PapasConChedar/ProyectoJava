@@ -4,6 +4,8 @@
  */
 package com.org.example.ventanas;
 
+import com.org.example.Exceptions.UsuarioNoEncontradoException;
+import com.org.example.service.GestionImpleCliente;
 import com.org.example.service.Utils;
 
 import java.awt.Color;
@@ -336,7 +338,16 @@ public class Login extends javax.swing.JFrame {
     private void textoIngresoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textoIngresoMouseClicked
         // TODO add your handling code here:
 
-        JOptionPane.showMessageDialog(null, "Ingresaste");
+        GestionImpleCliente gestionImpleCliente = new GestionImpleCliente();
+        try {
+            gestionImpleCliente.VerificarDatosLogin(ingresoEmail.getText(),
+                    String.valueOf(ingresoContrasenia.getPassword()));
+            JOptionPane.showMessageDialog(null, "Ingresaste");
+        } catch (
+                UsuarioNoEncontradoException e) {
+            System.out.println(e.getMessage() + e.escribirMensaje());
+        }
+
     }//GEN-LAST:event_textoIngresoMouseClicked
 
     private void ingresoEmailMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresoEmailMousePressed
