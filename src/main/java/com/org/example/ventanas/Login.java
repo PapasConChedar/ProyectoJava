@@ -185,7 +185,9 @@ public class Login extends javax.swing.JFrame {
                 try {
                     Boolean emailIsValid = Utils.validEmail(ingresoEmail.getText());
                     Boolean passwordIsValid = Utils.validPassword(ingresoContrasenia.getText());
-                    if(!emailIsValid || !passwordIsValid) {
+                    GestionImpleCliente gestionImpleCliente = new GestionImpleCliente();
+                    if(!emailIsValid || !passwordIsValid || !gestionImpleCliente.VerificarDatosLogin(ingresoEmail.getText(),
+                            String.valueOf(ingresoContrasenia.getPassword()))) {
                         JOptionPane.showMessageDialog(null, "Email o contraseña invalidos");
                         ingresoContrasenia.setText("");
                         ingresoEmail.setText("");
@@ -337,17 +339,6 @@ public class Login extends javax.swing.JFrame {
 
     private void textoIngresoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textoIngresoMouseClicked
         // TODO add your handling code here:
-
-        GestionImpleCliente gestionImpleCliente = new GestionImpleCliente();
-        try {
-            if( gestionImpleCliente.VerificarDatosLogin(ingresoEmail.getText(),
-                    String.valueOf(ingresoContrasenia.getPassword()))){
-                JOptionPane.showMessageDialog(null, "Ingresaste");
-            }
-        } catch (
-                UsuarioNoEncontradoException e) {
-            System.out.println(e.getMessage() + e.escribirMensaje());
-        }
 
     }//GEN-LAST:event_textoIngresoMouseClicked
 
