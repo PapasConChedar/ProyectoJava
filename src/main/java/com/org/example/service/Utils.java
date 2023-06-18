@@ -14,7 +14,7 @@ public class Utils {
     }
 
     public static Boolean validPassword(String password) {
-        return password.length() >= 8 && password.length() <= 16 && password.matches(".*[A-Z].*") && password.matches(".*[a-z].*") && password.matches(".*[0-9].*");
+        return password.length() >= 8;
     }
 
 }

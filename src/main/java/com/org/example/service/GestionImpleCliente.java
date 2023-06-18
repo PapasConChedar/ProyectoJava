@@ -4,7 +4,7 @@ import com.org.example.Exceptions.UsuarioNoEncontradoException;
 import com.org.example.clases.Cliente;
 import com.org.example.repository.imple.ImpleClienteRepository;
 
-import java.util.List;
+import java.util.Optional;
 
 public class GestionImpleCliente {
     ImpleClienteRepository impleClienteRepository = new ImpleClienteRepository();
@@ -48,44 +48,26 @@ public class GestionImpleCliente {
     }
 
 
-    public Boolean VerificarDatosLogin(String email, String Password) throws UsuarioNoEncontradoException {
+    public Boolean verificarDatosLogin(String email, String Password) throws UsuarioNoEncontradoException {
         impleClienteRepository.cargar();
-        ////List<Cliente> lista = impleClienteRepository.getAll();
         boolean encontrado = false;
         for (Cliente cliente : impleClienteRepository.getAll()) {
-            if (cliente.getEmail().equals(
-                    email) && cliente.getContraseña().equals(
-                    Password)) {
+            if (cliente.getEmail().equals(email) && cliente.getContraseña().equals(Password)) {
                 encontrado = true;
-                return encontrado;
-
-            } else if (cliente.getEmail().equals(
-                    email) && !cliente.getContraseña().equals(
-                    Password)) {
-                throw new UsuarioNoEncontradoException(
-                        2);
-            } else {
-                throw new UsuarioNoEncontradoException(
-                        1);
+                break;
             }
         }
-        return false;
+        return encontrado;
     }
 
 
-    public Cliente encontrarCliente(String email, String password) {
+    public Optional<Cliente> encontrarCliente(String email, String password) {
         impleClienteRepository.cargar();
         for (Cliente cliente : impleClienteRepository.getAll()) {
-            if (cliente.getEmail().equals(
-                    email) && cliente.getContraseña().equals(
-                    password)) {
-
-                return cliente;
-
-
-
+            if (cliente.getEmail().equals(email) && cliente.getContraseña().equals(password)) {
+                return Optional.of(cliente);
             }
-
-        } return null;
+        }
+        return Optional.empty();
     }
 }

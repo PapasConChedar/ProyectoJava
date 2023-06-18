@@ -9,8 +9,6 @@ import com.org.example.service.GestionImpleCliente;
 import com.org.example.service.Utils;
 
 import java.awt.Color;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
 /**
@@ -186,7 +184,7 @@ public class Login extends javax.swing.JFrame {
                     Boolean emailIsValid = Utils.validEmail(ingresoEmail.getText());
                     Boolean passwordIsValid = Utils.validPassword(ingresoContrasenia.getText());
                     GestionImpleCliente gestionImpleCliente = new GestionImpleCliente();
-                    if(!emailIsValid || !passwordIsValid || !gestionImpleCliente.VerificarDatosLogin(ingresoEmail.getText(),
+                    if(!emailIsValid || !passwordIsValid || !gestionImpleCliente.verificarDatosLogin(ingresoEmail.getText(),
                             String.valueOf(ingresoContrasenia.getPassword()))) {
                         JOptionPane.showMessageDialog(null, "Email o contraseña invalidos");
                         ingresoContrasenia.setText("");
