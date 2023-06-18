@@ -13,16 +13,26 @@ public class Cliente extends Persona implements Serializable {
 
 
     //region CONSTRUCTOR VACIO
-    public Cliente(String persona, String apellido, String dni, String direccion, Integer idCliente, String numeroCuenta, String direcEnte, String email, String contraseña, String telefono, String listaDePedidos) {
-        super(persona, apellido, dni, direccion);
+
+
+    public Cliente() {
+    }
+
+    public Cliente(String nombre, String apellido, String dni, String direccion, Integer idCliente, String numeroCuenta, String direccionEnte, String email, String contraseña, String telefono, String listaDePedidos) {
+        super(nombre,
+                apellido,
+                dni,
+                direccion);
         this.idCliente = idCliente;
         this.numeroCuenta = numeroCuenta;
-        this.direccionEnte = direcEnte;
+        this.direccionEnte = direccionEnte;
         this.email = email;
         this.contraseña = contraseña;
         this.telefono = telefono;
         this.listaDePedidos = listaDePedidos;
     }
+
+
     //endregion
 
     //region GETTERS AND SETTERS

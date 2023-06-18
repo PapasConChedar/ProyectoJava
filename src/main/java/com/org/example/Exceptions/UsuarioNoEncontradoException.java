@@ -16,7 +16,7 @@ public class UsuarioNoEncontradoException extends Exception{
 
     public String escribirMensaje(){
         switch(tipoError) {
-            case 1: return ("Email no encontrad0");
+            case 1: return ("Email no encontrado");
             case 2: return ("La Contraseña parece ser incorrecta");
         }
         return ("");

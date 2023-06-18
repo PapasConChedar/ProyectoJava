@@ -38,8 +38,8 @@ public class GestionImpleCliente {
     }
 
     public void getAll(){
-        impleClienteRepository.getAll();
-    }
+        impleClienteRepository.getAll().forEach(
+                System.out::println);}
 
 
 
@@ -47,9 +47,7 @@ public class GestionImpleCliente {
         impleClienteRepository.cargar();
         ////List<Cliente> lista = impleClienteRepository.getAll();
         boolean encontrado = false;
-        System.out.println("fuera del for");
         for (Cliente cliente : impleClienteRepository.getAll()) {
-            System.out.println("dentro for");
             if (cliente.getEmail().equals(email) && cliente.getContraseña().equals(Password)) {
                 encontrado = true;
                 break;

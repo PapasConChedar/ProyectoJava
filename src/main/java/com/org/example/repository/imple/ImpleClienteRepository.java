@@ -43,6 +43,7 @@ public class ImpleClienteRepository implements GenericsRepository<Cliente> {
     @Override
     public List<Cliente> getAll() {
         return this.listClientes;
+
     }
 
     @Override
