@@ -61,4 +61,5 @@ public class GestionImpleCliente {
             throw new UsuarioNoEncontradoException(1);
         }
     }
+
 }
