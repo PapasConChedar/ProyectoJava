@@ -3,8 +3,7 @@ package com.org.example.clases;
 import java.io.Serializable;
 
 public class Cliente extends Persona implements Serializable {
-    private static int contador;
-    private String idCliente;
+    private Integer idCliente;
     private String numeroCuenta;
     private String direccionEnte;
     private String email;
@@ -14,9 +13,9 @@ public class Cliente extends Persona implements Serializable {
 
 
     //region CONSTRUCTOR VACIO
-    public Cliente(String persona, String apellido, String dni, String direccion, String idCliente, String numeroCuenta, String direcEnte, String email, String contraseña, String telefono, String listaDePedidos) {
+    public Cliente(String persona, String apellido, String dni, String direccion, Integer idCliente, String numeroCuenta, String direcEnte, String email, String contraseña, String telefono, String listaDePedidos) {
         super(persona, apellido, dni, direccion);
-        this.idCliente = String.valueOf(++Cliente.contador);
+        this.idCliente = idCliente;
         this.numeroCuenta = numeroCuenta;
         this.direccionEnte = direcEnte;
         this.email = email;
@@ -28,11 +27,11 @@ public class Cliente extends Persona implements Serializable {
 
     //region GETTERS AND SETTERS
 
-    public String getIdCliente() {
+    public Integer getIdCliente() {
         return idCliente;
     }
 
-    public void setIdCliente(String idCliente) {
+    public void setIdCliente(Integer idCliente) {
         this.idCliente = idCliente;
     }
 

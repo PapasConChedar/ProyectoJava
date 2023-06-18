@@ -3,22 +3,21 @@ package com.org.example.clases;
 import java.io.Serializable;
 
 public class Empleado extends Persona implements Serializable {
-    private static int contador;
-    private String idEmpleado;
+    private Integer idEmpleado;
     private String email;
     private String contraseña;
 
 
     public Empleado(String persona, String apellido, String dni, String direccion) {
         super(persona, apellido, dni, direccion);
-        this.idEmpleado = String.valueOf(++Empleado.contador);
+        this.idEmpleado = idEmpleado;
     }
 
-    public String getIdEmpleado() {
+    public Integer getIdEmpleado() {
         return idEmpleado;
     }
 
-    public void setIdEmpleado(String idEmpleado) {
+    public void setIdEmpleado(Integer idEmpleado) {
         this.idEmpleado = idEmpleado;
     }
 
