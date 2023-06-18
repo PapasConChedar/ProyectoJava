@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package org.example.ventanas;
+package org.example.ventanas.vistas;
 
 /**
  *
@@ -29,14 +29,14 @@ public class VistaPrincipal extends javax.swing.JPanel {
         backgroundPrincipal = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
-        setMaximumSize(new java.awt.Dimension(800, 600));
-        setMinimumSize(new java.awt.Dimension(800, 600));
-        setPreferredSize(new java.awt.Dimension(800, 600));
+        setMaximumSize(new java.awt.Dimension(800, 560));
+        setMinimumSize(new java.awt.Dimension(800, 560));
+        setPreferredSize(new java.awt.Dimension(800, 560));
 
-        backgroundPrincipal.setBackground(new java.awt.Color(255, 255, 255));
-        backgroundPrincipal.setMaximumSize(new java.awt.Dimension(800, 600));
-        backgroundPrincipal.setMinimumSize(new java.awt.Dimension(800, 600));
-        backgroundPrincipal.setPreferredSize(new java.awt.Dimension(800, 600));
+        backgroundPrincipal.setBackground(new java.awt.Color(255, 51, 0));
+        backgroundPrincipal.setMaximumSize(new java.awt.Dimension(800, 560));
+        backgroundPrincipal.setMinimumSize(new java.awt.Dimension(800, 560));
+        backgroundPrincipal.setPreferredSize(new java.awt.Dimension(800, 560));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -56,7 +56,7 @@ public class VistaPrincipal extends javax.swing.JPanel {
             .addGroup(backgroundPrincipalLayout.createSequentialGroup()
                 .addGap(202, 202, 202)
                 .addComponent(jLabel1)
-                .addContainerGap(366, Short.MAX_VALUE))
+                .addContainerGap(326, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -69,9 +69,7 @@ public class VistaPrincipal extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(backgroundPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(backgroundPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
