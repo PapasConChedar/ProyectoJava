@@ -1,7 +1,10 @@
 package com.org.example.service;
 
+import com.org.example.Exceptions.UsuarioNoEncontradoException;
 import com.org.example.clases.Cliente;
 import com.org.example.repository.imple.ImpleClienteRepository;
+
+import java.util.List;
 
 public class GestionImpleCliente {
     ImpleClienteRepository impleClienteRepository = new ImpleClienteRepository();
@@ -38,4 +41,24 @@ public class GestionImpleCliente {
         impleClienteRepository.getAll();
     }
 
+
+
+    public void VerificarDatosLogin(String email, String Password) throws UsuarioNoEncontradoException {
+        impleClienteRepository.cargar();
+        ////List<Cliente> lista = impleClienteRepository.getAll();
+        boolean encontrado = false;
+        System.out.println("fuera del for");
+        for (Cliente cliente : impleClienteRepository.getAll()) {
+            System.out.println("dentro for");
+            if (cliente.getEmail().equals(email) && cliente.getContraseña().equals(Password)) {
+                encontrado = true;
+                break;
+            } else if (cliente.getEmail().equals(email) && !cliente.getContraseña().equals(Password)) {
+                throw new UsuarioNoEncontradoException(2);
+            }
+        }
+        if (!encontrado) {
+            throw new UsuarioNoEncontradoException(1);
+        }
+    }
 }
