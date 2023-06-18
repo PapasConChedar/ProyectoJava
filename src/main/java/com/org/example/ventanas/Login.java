@@ -198,8 +198,10 @@ public class Login extends javax.swing.JFrame {
                         menuInicio.setVisible(true);
 
                     }
-                } catch (Exception e) {
-                    System.out.println(e);
+                } catch (UsuarioNoEncontradoException e) {
+                    JOptionPane.showMessageDialog(null,e.getMessage()+e.escribirMensaje());
+                }catch (Exception e ){
+                    System.out.println(e.getMessage());
                 }
             }
 
