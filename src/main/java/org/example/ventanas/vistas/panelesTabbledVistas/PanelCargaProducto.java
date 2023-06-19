@@ -8,13 +8,13 @@ import com.org.example.clases.Productos;
 import com.org.example.Exceptions.ProductoCargaDatosException;
 import com.org.example.clases.Productos;
 import com.org.example.service.GestionImpleProducto;
+
 import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 /**
- *
  * @author Agus-Notebook
  */
 public class PanelCargaProducto extends javax.swing.JPanel {
@@ -77,9 +77,11 @@ public class PanelCargaProducto extends javax.swing.JPanel {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnGuardarIngresoMouseClicked(evt);
             }
+
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnGuardarIngresoMouseEntered(evt);
             }
+
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnGuardarIngresoMouseExited(evt);
             }
@@ -95,6 +97,7 @@ public class PanelCargaProducto extends javax.swing.JPanel {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnLimpiarIngreso1MouseEntered(evt);
             }
+
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnLimpiarIngreso1MouseExited(evt);
             }
@@ -134,17 +137,17 @@ public class PanelCargaProducto extends javax.swing.JPanel {
         javax.swing.GroupLayout contentText1Layout = new javax.swing.GroupLayout(contentText1);
         contentText1.setLayout(contentText1Layout);
         contentText1Layout.setHorizontalGroup(
-            contentText1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contentText1Layout.createSequentialGroup()
-                .addComponent(textoIngresoMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(ingresoMarca))
+                contentText1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(contentText1Layout.createSequentialGroup()
+                                .addComponent(textoIngresoMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)
+                                .addComponent(ingresoMarca))
         );
         contentText1Layout.setVerticalGroup(
-            contentText1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contentText1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(textoIngresoMarca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ingresoMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                contentText1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(contentText1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(textoIngresoMarca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(ingresoMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         contentText2.setBackground(new java.awt.Color(255, 255, 255));
@@ -171,17 +174,17 @@ public class PanelCargaProducto extends javax.swing.JPanel {
         javax.swing.GroupLayout contentText2Layout = new javax.swing.GroupLayout(contentText2);
         contentText2.setLayout(contentText2Layout);
         contentText2Layout.setHorizontalGroup(
-            contentText2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contentText2Layout.createSequentialGroup()
-                .addComponent(textoIngresoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(ingresoNombre))
+                contentText2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(contentText2Layout.createSequentialGroup()
+                                .addComponent(textoIngresoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)
+                                .addComponent(ingresoNombre))
         );
         contentText2Layout.setVerticalGroup(
-            contentText2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contentText2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(textoIngresoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(ingresoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                contentText2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(contentText2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(textoIngresoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(ingresoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         contentText3.setBackground(new java.awt.Color(255, 255, 255));
@@ -207,17 +210,17 @@ public class PanelCargaProducto extends javax.swing.JPanel {
         javax.swing.GroupLayout contentText3Layout = new javax.swing.GroupLayout(contentText3);
         contentText3.setLayout(contentText3Layout);
         contentText3Layout.setHorizontalGroup(
-            contentText3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contentText3Layout.createSequentialGroup()
-                .addComponent(textoIngresoElaboracion, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(ingresoElavoracion))
+                contentText3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(contentText3Layout.createSequentialGroup()
+                                .addComponent(textoIngresoElaboracion, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)
+                                .addComponent(ingresoElavoracion))
         );
         contentText3Layout.setVerticalGroup(
-            contentText3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contentText3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(textoIngresoElaboracion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ingresoElavoracion, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                contentText3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(contentText3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(textoIngresoElaboracion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(ingresoElavoracion, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         contentText4.setBackground(new java.awt.Color(255, 255, 255));
@@ -243,17 +246,17 @@ public class PanelCargaProducto extends javax.swing.JPanel {
         javax.swing.GroupLayout contentText4Layout = new javax.swing.GroupLayout(contentText4);
         contentText4.setLayout(contentText4Layout);
         contentText4Layout.setHorizontalGroup(
-            contentText4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contentText4Layout.createSequentialGroup()
-                .addComponent(textoIngresoVencimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(ingresoVencimiento, javax.swing.GroupLayout.DEFAULT_SIZE, 396, Short.MAX_VALUE))
+                contentText4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(contentText4Layout.createSequentialGroup()
+                                .addComponent(textoIngresoVencimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)
+                                .addComponent(ingresoVencimiento, javax.swing.GroupLayout.DEFAULT_SIZE, 396, Short.MAX_VALUE))
         );
         contentText4Layout.setVerticalGroup(
-            contentText4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contentText4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(textoIngresoVencimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ingresoVencimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                contentText4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(contentText4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(textoIngresoVencimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(ingresoVencimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         contentText5.setBackground(new java.awt.Color(255, 255, 255));
@@ -279,17 +282,17 @@ public class PanelCargaProducto extends javax.swing.JPanel {
         javax.swing.GroupLayout contentText5Layout = new javax.swing.GroupLayout(contentText5);
         contentText5.setLayout(contentText5Layout);
         contentText5Layout.setHorizontalGroup(
-            contentText5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contentText5Layout.createSequentialGroup()
-                .addComponent(textoIngresoStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(ingresoStock))
+                contentText5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(contentText5Layout.createSequentialGroup()
+                                .addComponent(textoIngresoStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)
+                                .addComponent(ingresoStock))
         );
         contentText5Layout.setVerticalGroup(
-            contentText5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contentText5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(textoIngresoStock, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ingresoStock, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                contentText5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(contentText5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(textoIngresoStock, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(ingresoStock, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         contentText6.setBackground(new java.awt.Color(255, 255, 255));
@@ -315,45 +318,45 @@ public class PanelCargaProducto extends javax.swing.JPanel {
         javax.swing.GroupLayout contentText6Layout = new javax.swing.GroupLayout(contentText6);
         contentText6.setLayout(contentText6Layout);
         contentText6Layout.setHorizontalGroup(
-            contentText6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contentText6Layout.createSequentialGroup()
-                .addComponent(textoIngresoPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(ingresoPrecio))
+                contentText6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(contentText6Layout.createSequentialGroup()
+                                .addComponent(textoIngresoPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)
+                                .addComponent(ingresoPrecio))
         );
         contentText6Layout.setVerticalGroup(
-            contentText6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contentText6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(textoIngresoPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ingresoPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                contentText6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(contentText6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(textoIngresoPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(ingresoPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout panelMuestraTextoLayout = new javax.swing.GroupLayout(panelMuestraTexto);
         panelMuestraTexto.setLayout(panelMuestraTextoLayout);
         panelMuestraTextoLayout.setHorizontalGroup(
-            panelMuestraTextoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(contentText1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(contentText5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(contentText2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(contentText4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(contentText6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(contentText3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                panelMuestraTextoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(contentText1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(contentText5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(contentText2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(contentText4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(contentText6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(contentText3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         panelMuestraTextoLayout.setVerticalGroup(
-            panelMuestraTextoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMuestraTextoLayout.createSequentialGroup()
-                .addComponent(contentText1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(contentText2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(contentText3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(contentText4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(contentText5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(contentText6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                panelMuestraTextoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMuestraTextoLayout.createSequentialGroup()
+                                .addComponent(contentText1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(contentText2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(contentText3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(contentText4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(contentText5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(contentText6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         backgroundPanelCargaProducto.add(panelMuestraTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 560, 330));
@@ -367,16 +370,16 @@ public class PanelCargaProducto extends javax.swing.JPanel {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(backgroundPanelCargaProducto, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(backgroundPanelCargaProducto, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(backgroundPanelCargaProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(backgroundPanelCargaProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    
+
     /**
      * Restablece los parametros de los Textos Ingreso
      */
@@ -387,45 +390,58 @@ public class PanelCargaProducto extends javax.swing.JPanel {
         ingresoVencimiento.setForeground(new Color(153, 153, 153));
         ingresoStock.setForeground(new Color(153, 153, 153));
         ingresoPrecio.setForeground(new Color(153, 153, 153));
-                ingresoMarca.setText("   Ingrese Marca del Producto");
-                ingresoNombre.setText("   Ingrese Nombre del Producto");
-                ingresoElavoracion.setText("   Ingrese Fecha de Elaboracion xx/xx/xxxx");
-                ingresoVencimiento.setText("   Ingrese Fecha de Vencimiento xx/xx/xxxx");
-                ingresoStock.setText("   Ingrese Stock Producto");
-                ingresoPrecio.setText("   Ingrese Precio Producto");
-        }
+        ingresoMarca.setText("   Ingrese Marca del Producto");
+        ingresoNombre.setText("   Ingrese Nombre del Producto");
+        ingresoElavoracion.setText("   Ingrese Fecha de Elaboracion xx/xx/xxxx");
+        ingresoVencimiento.setText("   Ingrese Fecha de Vencimiento xx/xx/xxxx");
+        ingresoStock.setText("   Ingrese Stock Producto");
+        ingresoPrecio.setText("   Ingrese Precio Producto");
+    }
 
     /**
      * Funcion que setea un color al txto ingresado
-     * @param ingreso 
+     *
+     * @param ingreso
      */
     private void edicionLetraColortexto(JTextField ingreso) {
         ingreso.setText("");
         ingreso.setForeground(Color.BLACK);
     }
-    
-    private boolean verificacionFormato() throws ProductoCargaDatosException{
+
+    /**
+     * Funcion que verifica si los datos ingresados son correctos
+     * @return boolean true si los datos son correctos
+     * @throws ProductoCargaDatosException
+     */
+    private boolean verificacionFormato() throws ProductoCargaDatosException {
         GestionImpleProducto gestor = new GestionImpleProducto();
-        if(gestor.verificarIngresosVacios(ingresoMarca.getText(),
-                    ingresoNombre.getText(),ingresoElavoracion.getText(),
-                    ingresoVencimiento.getText(),ingresoStock.getText(),
-                    ingresoPrecio.getText())){
-            if(gestor.verificacionFormatoFechas(ingresoElavoracion.getText(),
-                    ingresoVencimiento.getText())){
-                if(gestor.verificacionFormatoInteger(ingresoPrecio.getText(),
-                        ingresoStock.getText())){
-                    return true;
-                }else{
-                    throw new ProductoCargaDatosException(9);
+        if (gestor.verificacionIngresosBases(ingresoMarca.getText(),
+                ingresoNombre.getText(), ingresoElavoracion.getText(),
+                ingresoVencimiento.getText(), ingresoStock.getText(),
+                ingresoPrecio.getText())) {
+            if (gestor.verificarIngresosVacios(ingresoMarca.getText(),
+                    ingresoNombre.getText(), ingresoElavoracion.getText(),
+                    ingresoVencimiento.getText(), ingresoStock.getText(),
+                    ingresoPrecio.getText())) {
+                if (gestor.verificacionFormatoFechas(ingresoElavoracion.getText(),
+                        ingresoVencimiento.getText())) {
+                    if (gestor.verificacionFormatoInteger(ingresoPrecio.getText(),
+                            ingresoStock.getText())) {
+                        return true;
+                    } else {
+                        throw new ProductoCargaDatosException(9);
+                    }
+                } else {
+                    throw new ProductoCargaDatosException(8);
                 }
-            }else{
-                throw new ProductoCargaDatosException(8);
+            } else {
+                throw new ProductoCargaDatosException(7);
             }
-        }else{
+        } else {
             throw new ProductoCargaDatosException(7);
         }
     }
-    
+
     private void btnGuardarIngresoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarIngresoMouseEntered
         // TODO add your handling code here:
         btnGuardarIngreso.setBackground(new Color(121, 215, 220));
@@ -464,184 +480,184 @@ public class PanelCargaProducto extends javax.swing.JPanel {
 
     private void ingresoMarcaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresoMarcaMouseClicked
         // TODO add your handling code here:
-        if(ingresoMarca.getText().equals("   Ingrese Marca del Producto")){
+        if (ingresoMarca.getText().equals("   Ingrese Marca del Producto")) {
             edicionLetraColortexto(ingresoMarca);
         }
-        if(ingresoNombre.getText().isEmpty()){
-        ingresoNombre.setForeground(new Color(153, 153, 153));
+        if (ingresoNombre.getText().isEmpty()) {
+            ingresoNombre.setForeground(new Color(153, 153, 153));
             ingresoNombre.setText("   Ingrese Nombre del Producto");
         }
-        if(ingresoElavoracion.getText().isEmpty()){
-        ingresoElavoracion.setForeground(new Color(153, 153, 153));
+        if (ingresoElavoracion.getText().isEmpty()) {
+            ingresoElavoracion.setForeground(new Color(153, 153, 153));
             ingresoElavoracion.setText("   Ingrese Fecha de Elaboracion xx/xx/xxxx");
         }
-        if(ingresoVencimiento.getText().isEmpty()){
-        ingresoVencimiento.setForeground(new Color(153, 153, 153));
-                ingresoVencimiento.setText("   Ingrese Fecha de Vencimiento xx/xx/xxxx");
+        if (ingresoVencimiento.getText().isEmpty()) {
+            ingresoVencimiento.setForeground(new Color(153, 153, 153));
+            ingresoVencimiento.setText("   Ingrese Fecha de Vencimiento xx/xx/xxxx");
         }
-        if(ingresoStock.getText().isEmpty()){
-        ingresoStock.setForeground(new Color(153, 153, 153));
-                ingresoStock.setText("   Ingrese Stock Producto");
-            
+        if (ingresoStock.getText().isEmpty()) {
+            ingresoStock.setForeground(new Color(153, 153, 153));
+            ingresoStock.setText("   Ingrese Stock Producto");
+
         }
-        if(ingresoPrecio.getText().isEmpty()){
-        ingresoPrecio.setForeground(new Color(153, 153, 153));
-                ingresoPrecio.setText("   Ingrese Precio Producto");
-            
+        if (ingresoPrecio.getText().isEmpty()) {
+            ingresoPrecio.setForeground(new Color(153, 153, 153));
+            ingresoPrecio.setText("   Ingrese Precio Producto");
+
         }
     }//GEN-LAST:event_ingresoMarcaMouseClicked
 
     private void ingresoNombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresoNombreMouseClicked
         // TODO add your handling code here:
-        if(ingresoMarca.getText().isEmpty()){
+        if (ingresoMarca.getText().isEmpty()) {
             ingresoMarca.setForeground(new Color(153, 153, 153));
             ingresoMarca.setText("   Ingrese Marca del Producto");
         }
-        if(ingresoNombre.getText().equals("   Ingrese Nombre del Producto")){
+        if (ingresoNombre.getText().equals("   Ingrese Nombre del Producto")) {
             edicionLetraColortexto(ingresoNombre);
         }
-        if(ingresoElavoracion.getText().isEmpty()){
-        ingresoElavoracion.setForeground(new Color(153, 153, 153));
+        if (ingresoElavoracion.getText().isEmpty()) {
+            ingresoElavoracion.setForeground(new Color(153, 153, 153));
             ingresoElavoracion.setText("   Ingrese Fecha de Elaboracion xx/xx/xxxx");
         }
-        if(ingresoVencimiento.getText().isEmpty()){
-        ingresoVencimiento.setForeground(new Color(153, 153, 153));
-                ingresoVencimiento.setText("   Ingrese Fecha de Vencimiento xx/xx/xxxx");
+        if (ingresoVencimiento.getText().isEmpty()) {
+            ingresoVencimiento.setForeground(new Color(153, 153, 153));
+            ingresoVencimiento.setText("   Ingrese Fecha de Vencimiento xx/xx/xxxx");
         }
-        if(ingresoStock.getText().isEmpty()){
-        ingresoStock.setForeground(new Color(153, 153, 153));
-                ingresoStock.setText("   Ingrese Stock Producto");
-            
+        if (ingresoStock.getText().isEmpty()) {
+            ingresoStock.setForeground(new Color(153, 153, 153));
+            ingresoStock.setText("   Ingrese Stock Producto");
+
         }
-        if(ingresoPrecio.getText().isEmpty()){
-        ingresoPrecio.setForeground(new Color(153, 153, 153));
-                ingresoPrecio.setText("   Ingrese Precio Producto");
-            
+        if (ingresoPrecio.getText().isEmpty()) {
+            ingresoPrecio.setForeground(new Color(153, 153, 153));
+            ingresoPrecio.setText("   Ingrese Precio Producto");
+
         }
     }//GEN-LAST:event_ingresoNombreMouseClicked
 
     private void ingresoVencimientoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresoVencimientoMouseClicked
         // TODO add your handling code here:
-        if(ingresoMarca.getText().isEmpty()){
-        ingresoMarca.setForeground(new Color(153, 153, 153));
-            
+        if (ingresoMarca.getText().isEmpty()) {
+            ingresoMarca.setForeground(new Color(153, 153, 153));
+
             ingresoMarca.setText("   Ingrese Marca del Producto");
         }
-        if(ingresoNombre.getText().isEmpty()){
-        ingresoNombre.setForeground(new Color(153, 153, 153));
+        if (ingresoNombre.getText().isEmpty()) {
+            ingresoNombre.setForeground(new Color(153, 153, 153));
             ingresoNombre.setText("   Ingrese Nombre del Producto");
         }
-        if(ingresoElavoracion.getText().isEmpty()){
-        ingresoElavoracion.setForeground(new Color(153, 153, 153));
+        if (ingresoElavoracion.getText().isEmpty()) {
+            ingresoElavoracion.setForeground(new Color(153, 153, 153));
             ingresoElavoracion.setText("   Ingrese Fecha de Elaboracion xx/xx/xxxx");
         }
-        if(ingresoVencimiento.getText().equals("   Ingrese Fecha de Vencimiento xx/xx/xxxx")){
+        if (ingresoVencimiento.getText().equals("   Ingrese Fecha de Vencimiento xx/xx/xxxx")) {
             edicionLetraColortexto(ingresoVencimiento);
         }
-        if(ingresoStock.getText().isEmpty()){
-        ingresoStock.setForeground(new Color(153, 153, 153));
-                ingresoStock.setText("   Ingrese Stock Producto");
-            
+        if (ingresoStock.getText().isEmpty()) {
+            ingresoStock.setForeground(new Color(153, 153, 153));
+            ingresoStock.setText("   Ingrese Stock Producto");
+
         }
-        if(ingresoPrecio.getText().isEmpty()){
-        ingresoPrecio.setForeground(new Color(153, 153, 153));
-                ingresoPrecio.setText("   Ingrese Precio Producto");
-            
+        if (ingresoPrecio.getText().isEmpty()) {
+            ingresoPrecio.setForeground(new Color(153, 153, 153));
+            ingresoPrecio.setText("   Ingrese Precio Producto");
+
         }
     }//GEN-LAST:event_ingresoVencimientoMouseClicked
 
     private void ingresoStockMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresoStockMouseClicked
         // TODO add your handling code here:
-        
-        if(ingresoMarca.getText().isEmpty()){
-        ingresoMarca.setForeground(new Color(153, 153, 153));
+
+        if (ingresoMarca.getText().isEmpty()) {
+            ingresoMarca.setForeground(new Color(153, 153, 153));
             ingresoMarca.setText("   Ingrese Marca del Producto");
         }
-        if(ingresoNombre.getText().isEmpty()){
-        ingresoNombre.setForeground(new Color(153, 153, 153));
+        if (ingresoNombre.getText().isEmpty()) {
+            ingresoNombre.setForeground(new Color(153, 153, 153));
             ingresoNombre.setText("   Ingrese Nombre del Producto");
         }
-        if(ingresoElavoracion.getText().isEmpty()){
-        ingresoElavoracion.setForeground(new Color(153, 153, 153));
+        if (ingresoElavoracion.getText().isEmpty()) {
+            ingresoElavoracion.setForeground(new Color(153, 153, 153));
             ingresoElavoracion.setText("   Ingrese Fecha de Elaboracion xx/xx/xxxx");
         }
-        if(ingresoVencimiento.getText().isEmpty()){
-        ingresoVencimiento.setForeground(new Color(153, 153, 153));
-                ingresoVencimiento.setText("   Ingrese Fecha de Vencimiento xx/xx/xxxx");
+        if (ingresoVencimiento.getText().isEmpty()) {
+            ingresoVencimiento.setForeground(new Color(153, 153, 153));
+            ingresoVencimiento.setText("   Ingrese Fecha de Vencimiento xx/xx/xxxx");
         }
-        if(ingresoStock.getText().equals("   Ingrese Stock Producto")){
+        if (ingresoStock.getText().equals("   Ingrese Stock Producto")) {
             edicionLetraColortexto(ingresoStock);
-            
+
         }
-        if(ingresoPrecio.getText().isEmpty()){
-        ingresoPrecio.setForeground(new Color(153, 153, 153));
-                ingresoPrecio.setText("   Ingrese Precio Producto");
-            
+        if (ingresoPrecio.getText().isEmpty()) {
+            ingresoPrecio.setForeground(new Color(153, 153, 153));
+            ingresoPrecio.setText("   Ingrese Precio Producto");
+
         }
     }//GEN-LAST:event_ingresoStockMouseClicked
 
     private void ingresoPrecioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresoPrecioMouseClicked
         // TODO add your handling code here:
-        if(ingresoMarca.getText().isEmpty()){
-        ingresoMarca.setForeground(new Color(153, 153, 153));
+        if (ingresoMarca.getText().isEmpty()) {
+            ingresoMarca.setForeground(new Color(153, 153, 153));
             ingresoMarca.setText("   Ingrese Marca del Producto");
         }
-        if(ingresoNombre.getText().isEmpty()){
-        ingresoNombre.setForeground(new Color(153, 153, 153));
+        if (ingresoNombre.getText().isEmpty()) {
+            ingresoNombre.setForeground(new Color(153, 153, 153));
             ingresoNombre.setText("   Ingrese Nombre del Producto");
         }
-        if(ingresoElavoracion.getText().isEmpty()){
-        ingresoElavoracion.setForeground(new Color(153, 153, 153));
+        if (ingresoElavoracion.getText().isEmpty()) {
+            ingresoElavoracion.setForeground(new Color(153, 153, 153));
             ingresoElavoracion.setText("   Ingrese Fecha de Elaboracion xx/xx/xxxx");
         }
-        if(ingresoVencimiento.getText().isEmpty()){
-        ingresoVencimiento.setForeground(new Color(153, 153, 153));
-                ingresoVencimiento.setText("   Ingrese Fecha de Vencimiento xx/xx/xxxx");
+        if (ingresoVencimiento.getText().isEmpty()) {
+            ingresoVencimiento.setForeground(new Color(153, 153, 153));
+            ingresoVencimiento.setText("   Ingrese Fecha de Vencimiento xx/xx/xxxx");
         }
-        if(ingresoStock.getText().isEmpty()){
-        ingresoStock.setForeground(new Color(153, 153, 153));
-                ingresoStock.setText("   Ingrese Stock Producto");
+        if (ingresoStock.getText().isEmpty()) {
+            ingresoStock.setForeground(new Color(153, 153, 153));
+            ingresoStock.setText("   Ingrese Stock Producto");
         }
-        if(ingresoPrecio.getText().equals("   Ingrese Precio Producto")){
+        if (ingresoPrecio.getText().equals("   Ingrese Precio Producto")) {
             edicionLetraColortexto(ingresoPrecio);
         }
     }//GEN-LAST:event_ingresoPrecioMouseClicked
 
     private void ingresoElavoracionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresoElavoracionMouseClicked
         // TODO add your handling code here:
-        if(ingresoMarca.getText().isEmpty()){
+        if (ingresoMarca.getText().isEmpty()) {
             ingresoMarca.setForeground(new Color(153, 153, 153));
             ingresoMarca.setText("   Ingrese Marca del Producto");
         }
-        if(ingresoNombre.getText().isEmpty()){
+        if (ingresoNombre.getText().isEmpty()) {
             ingresoNombre.setForeground(new Color(153, 153, 153));
             ingresoNombre.setText("   Ingrese Nombre del Producto");
         }
-        if(ingresoElavoracion.getText().equals("   Ingrese Fecha de Elaboracion xx/xx/xxxx")){
+        if (ingresoElavoracion.getText().equals("   Ingrese Fecha de Elaboracion xx/xx/xxxx")) {
             edicionLetraColortexto(ingresoElavoracion);
         }
-        if(ingresoVencimiento.getText().isEmpty()){
+        if (ingresoVencimiento.getText().isEmpty()) {
             ingresoVencimiento.setForeground(new Color(153, 153, 153));
-                ingresoVencimiento.setText("   Ingrese Fecha de Vencimiento xx/xx/xxxx");
+            ingresoVencimiento.setText("   Ingrese Fecha de Vencimiento xx/xx/xxxx");
         }
-        if(ingresoStock.getText().isEmpty()){
-        ingresoStock.setForeground(new Color(153, 153, 153));
-                ingresoStock.setText("   Ingrese Stock Producto");
-            
+        if (ingresoStock.getText().isEmpty()) {
+            ingresoStock.setForeground(new Color(153, 153, 153));
+            ingresoStock.setText("   Ingrese Stock Producto");
+
         }
-        if(ingresoPrecio.getText().isEmpty()){
-        ingresoPrecio.setForeground(new Color(153, 153, 153));
-                ingresoPrecio.setText("   Ingrese Precio Producto");
-            
+        if (ingresoPrecio.getText().isEmpty()) {
+            ingresoPrecio.setForeground(new Color(153, 153, 153));
+            ingresoPrecio.setText("   Ingrese Precio Producto");
+
         }
     }//GEN-LAST:event_ingresoElavoracionMouseClicked
-
+    //endregion
     private void btnGuardarIngresoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarIngresoMouseClicked
         // TODO add your handling code here:
-        try{
+        try {
             GestionImpleProducto gestionImpleProducto = new GestionImpleProducto();
             Productos productoNuevo = new Productos();
-               if(verificacionFormato()){   
+            if (verificacionFormato()) {
                 productoNuevo.setIdProducto(gestionImpleProducto.crearIdProducto());
                 productoNuevo.setMarca(ingresoMarca.getText());
                 productoNuevo.setNombre(ingresoNombre.getText());
@@ -650,9 +666,11 @@ public class PanelCargaProducto extends javax.swing.JPanel {
                 productoNuevo.setStock(Integer.parseInt(ingresoStock.getText()));
                 productoNuevo.setPrecio(Integer.parseInt(ingresoPrecio.getText()));
                 gestionImpleProducto.add(productoNuevo);
-               }
-        }catch(ProductoCargaDatosException e){
-            JOptionPane.showMessageDialog(null,e.escribirMensaje());
+                JOptionPane.showMessageDialog(null, "Producto Ingresado Correctamente");
+                restablecerTextoIngreso();
+            }
+        } catch (ProductoCargaDatosException e) {
+            JOptionPane.showMessageDialog(null, e.escribirMensaje());
         }
     }//GEN-LAST:event_btnGuardarIngresoMouseClicked
 

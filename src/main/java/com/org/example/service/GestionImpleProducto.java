@@ -38,12 +38,10 @@ public class GestionImpleProducto {
     }
     /**
      * Verifica si alguno de los String ingresados son nulos
-     * @param texto String a verificar
+     * @param  textos String que son los textos ingresados
      * @return en el caso que no tengan espacion vacion devuelve Verdadero
      */
     public boolean verificarIngresosVacios(String... textos){
-        //ArrayList<String> ingresoUsuarios = new ArrayList();
-        //ingresoUsuarios.addAll(List.of(texto));
         for(String i : textos){
             if(i.equals("")){
                 return false;
@@ -58,8 +56,6 @@ public class GestionImpleProducto {
      * @return en el caso que no cumplan devuelve FALSE
      */
     public boolean verificacionFormatoFechas(String... fechas){
-        //ArrayList<String> lista = new ArrayList<>();
-        //lista.addAll(List.of(fechas));
         String regex = "^\\d{1,2}/\\d{1,2}/\\d{4}$";
         Pattern pattern = Pattern.compile(regex);
         for (String fecha : fechas) {
@@ -78,6 +74,30 @@ public class GestionImpleProducto {
         for (String cadena : cadenas) {
             if (!cadena.matches("\\d+")) {
                 return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * Verifica si los String pasados coinciden o no
+     * con los String de las bases
+     * @param textos
+     * @return si no coinciden devuelve TRUE
+     */
+    public boolean verificacionIngresosBases(String... textos){
+        ArrayList<String> bases = new ArrayList<>();
+        bases.add("   Ingrese Marca del Producto");
+        bases.add("   Ingrese Nombre del Producto");
+        bases.add("   Ingrese Fecha de Elaboracion xx/xx/xxxx");
+        bases.add("   Ingrese Fecha de Vencimiento xx/xx/xxxx");
+        bases.add("   Ingrese Stock Producto");
+        bases.add("   Ingrese Precio Producto");
+        for (String texto : textos) {
+            for (String base : bases) {
+                if (texto.equals(base)) {
+                    return false;
+                }
             }
         }
         return true;
