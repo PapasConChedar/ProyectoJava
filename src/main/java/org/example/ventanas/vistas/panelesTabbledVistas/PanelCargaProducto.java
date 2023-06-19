@@ -112,7 +112,6 @@ public class PanelCargaProducto extends javax.swing.JPanel {
         contentText1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         textoIngresoMarca.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        textoIngresoMarca.setForeground(new java.awt.Color(0, 0, 0));
         textoIngresoMarca.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         textoIngresoMarca.setText("Marca :");
         textoIngresoMarca.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -120,7 +119,6 @@ public class PanelCargaProducto extends javax.swing.JPanel {
         textoIngresoMarca.setMinimumSize(new java.awt.Dimension(160, 34));
         textoIngresoMarca.setPreferredSize(new java.awt.Dimension(160, 34));
 
-        ingresoMarca.setBackground(new java.awt.Color(255, 255, 255));
         ingresoMarca.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ingresoMarca.setForeground(new java.awt.Color(153, 153, 153));
         ingresoMarca.setText("   Ingrese Marca del Producto");
@@ -152,7 +150,6 @@ public class PanelCargaProducto extends javax.swing.JPanel {
         contentText2.setFocusable(false);
 
         textoIngresoNombre.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        textoIngresoNombre.setForeground(new java.awt.Color(0, 0, 0));
         textoIngresoNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         textoIngresoNombre.setText("Nombre :");
         textoIngresoNombre.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -160,7 +157,6 @@ public class PanelCargaProducto extends javax.swing.JPanel {
         textoIngresoNombre.setMinimumSize(new java.awt.Dimension(160, 34));
         textoIngresoNombre.setPreferredSize(new java.awt.Dimension(160, 34));
 
-        ingresoNombre.setBackground(new java.awt.Color(255, 255, 255));
         ingresoNombre.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ingresoNombre.setForeground(new java.awt.Color(153, 153, 153));
         ingresoNombre.setText("   Ingrese Nombre del Producto");
@@ -189,7 +185,6 @@ public class PanelCargaProducto extends javax.swing.JPanel {
         contentText3.setBackground(new java.awt.Color(255, 255, 255));
         contentText3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        ingresoElavoracion.setBackground(new java.awt.Color(255, 255, 255));
         ingresoElavoracion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ingresoElavoracion.setForeground(new java.awt.Color(153, 153, 153));
         ingresoElavoracion.setText("   Ingrese Fecha de Elaboracion xx/xx/xxxx");
@@ -200,7 +195,6 @@ public class PanelCargaProducto extends javax.swing.JPanel {
         });
 
         textoIngresoElaboracion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        textoIngresoElaboracion.setForeground(new java.awt.Color(0, 0, 0));
         textoIngresoElaboracion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         textoIngresoElaboracion.setText("Fecha Elaboracion :");
         textoIngresoElaboracion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -228,7 +222,6 @@ public class PanelCargaProducto extends javax.swing.JPanel {
         contentText4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         textoIngresoVencimiento.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        textoIngresoVencimiento.setForeground(new java.awt.Color(0, 0, 0));
         textoIngresoVencimiento.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         textoIngresoVencimiento.setText("FechaVencimiento :");
         textoIngresoVencimiento.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -236,7 +229,6 @@ public class PanelCargaProducto extends javax.swing.JPanel {
         textoIngresoVencimiento.setMinimumSize(new java.awt.Dimension(160, 34));
         textoIngresoVencimiento.setPreferredSize(new java.awt.Dimension(160, 34));
 
-        ingresoVencimiento.setBackground(new java.awt.Color(255, 255, 255));
         ingresoVencimiento.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ingresoVencimiento.setForeground(new java.awt.Color(153, 153, 153));
         ingresoVencimiento.setText("   Ingrese Fecha de Vencimiento xx/xx/xxxx");
@@ -266,7 +258,6 @@ public class PanelCargaProducto extends javax.swing.JPanel {
         contentText5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         textoIngresoStock.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        textoIngresoStock.setForeground(new java.awt.Color(0, 0, 0));
         textoIngresoStock.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         textoIngresoStock.setText("Cantidad Producto :");
         textoIngresoStock.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -274,7 +265,6 @@ public class PanelCargaProducto extends javax.swing.JPanel {
         textoIngresoStock.setMinimumSize(new java.awt.Dimension(160, 34));
         textoIngresoStock.setPreferredSize(new java.awt.Dimension(160, 34));
 
-        ingresoStock.setBackground(new java.awt.Color(255, 255, 255));
         ingresoStock.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ingresoStock.setForeground(new java.awt.Color(153, 153, 153));
         ingresoStock.setText("   Ingrese Stock  Producto");
@@ -304,7 +294,6 @@ public class PanelCargaProducto extends javax.swing.JPanel {
         contentText6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         textoIngresoPrecio.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        textoIngresoPrecio.setForeground(new java.awt.Color(0, 0, 0));
         textoIngresoPrecio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         textoIngresoPrecio.setText("Precio del Producto :");
         textoIngresoPrecio.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -312,7 +301,6 @@ public class PanelCargaProducto extends javax.swing.JPanel {
         textoIngresoPrecio.setMinimumSize(new java.awt.Dimension(160, 34));
         textoIngresoPrecio.setPreferredSize(new java.awt.Dimension(160, 34));
 
-        ingresoPrecio.setBackground(new java.awt.Color(255, 255, 255));
         ingresoPrecio.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ingresoPrecio.setForeground(new java.awt.Color(153, 153, 153));
         ingresoPrecio.setText("   Ingrese Precio Producto");
