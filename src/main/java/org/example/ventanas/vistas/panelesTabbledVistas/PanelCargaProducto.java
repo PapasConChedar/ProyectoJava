@@ -4,11 +4,13 @@
  */
 package org.example.ventanas.vistas.panelesTabbledVistas;
 
+import com.org.example.clases.Productos;
 import com.org.example.Exceptions.ProductoCargaDatosException;
 import com.org.example.clases.Productos;
 import com.org.example.service.GestionImpleProducto;
 import java.awt.Color;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 /**
@@ -374,6 +376,10 @@ public class PanelCargaProducto extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    /**
+     * Restablece los parametros de los Textos Ingreso
+     */
     private void restablecerTextoIngreso() {
         ingresoMarca.setForeground(new Color(153, 153, 153));
         ingresoNombre.setForeground(new Color(153, 153, 153));
@@ -389,11 +395,37 @@ public class PanelCargaProducto extends javax.swing.JPanel {
                 ingresoPrecio.setText("   Ingrese Precio Producto");
         }
 
+    /**
+     * Funcion que setea un color al txto ingresado
+     * @param ingreso 
+     */
     private void edicionLetraColortexto(JTextField ingreso) {
         ingreso.setText("");
         ingreso.setForeground(Color.BLACK);
     }
-
+    
+    private boolean verificacionFormato() throws ProductoCargaDatosException{
+        GestionImpleProducto gestor = new GestionImpleProducto();
+        if(gestor.verificarIngresosVacios(ingresoMarca.getText(),
+                    ingresoNombre.getText(),ingresoElavoracion.getText(),
+                    ingresoVencimiento.getText(),ingresoStock.getText(),
+                    ingresoPrecio.getText())){
+            if(gestor.verificacionFormatoFechas(ingresoElavoracion.getText(),
+                    ingresoVencimiento.getText())){
+                if(gestor.verificacionFormatoInteger(ingresoPrecio.getText(),
+                        ingresoStock.getText())){
+                    return true;
+                }else{
+                    throw new ProductoCargaDatosException(9);
+                }
+            }else{
+                throw new ProductoCargaDatosException(8);
+            }
+        }else{
+            throw new ProductoCargaDatosException(7);
+        }
+    }
+    
     private void btnGuardarIngresoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarIngresoMouseEntered
         // TODO add your handling code here:
         btnGuardarIngreso.setBackground(new Color(121, 215, 220));
@@ -607,13 +639,20 @@ public class PanelCargaProducto extends javax.swing.JPanel {
     private void btnGuardarIngresoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarIngresoMouseClicked
         // TODO add your handling code here:
         try{
-            GestionImpleProducto gestor = new GestionImpleProducto();
-            gestor.add(new Productos(2,ingresoMarca.getText(),ingresoNombre.getText(),
-            ingresoElavoracion.getText(),ingresoVencimiento.getText(),Integer.parseInt(ingresoStock.getText()),
-            Integer.parseInt(ingresoPrecio.getText())));
-            
-        }catch(Exception e){
-            System.out.println(e.getMessage());
+            GestionImpleProducto gestionImpleProducto = new GestionImpleProducto();
+            Productos productoNuevo = new Productos();
+               if(verificacionFormato()){   
+                productoNuevo.setIdProducto(gestionImpleProducto.crearIdProducto());
+                productoNuevo.setMarca(ingresoMarca.getText());
+                productoNuevo.setNombre(ingresoNombre.getText());
+                productoNuevo.setFechaElavoracion(ingresoElavoracion.getText());
+                productoNuevo.setFecheaDeVencimiento(ingresoVencimiento.getText());
+                productoNuevo.setStock(Integer.parseInt(ingresoStock.getText()));
+                productoNuevo.setPrecio(Integer.parseInt(ingresoPrecio.getText()));
+                gestionImpleProducto.add(productoNuevo);
+               }
+        }catch(ProductoCargaDatosException e){
+            JOptionPane.showMessageDialog(null,e.escribirMensaje());
         }
     }//GEN-LAST:event_btnGuardarIngresoMouseClicked
 

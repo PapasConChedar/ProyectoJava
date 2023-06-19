@@ -14,6 +14,10 @@ public class Productos implements Serializable {
 
 
     //region CONSTRUCTOR VACIO
+    public Productos(){
+        
+    }
+    
     public Productos(int id,String marca, String nombre, String fecheaDeVencimiento, String fechaElavoracion, int stock, int precio) {
         this.idProducto = id;
         this.marca = marca;

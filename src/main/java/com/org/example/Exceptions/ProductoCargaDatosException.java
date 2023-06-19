@@ -22,7 +22,9 @@ public class ProductoCargaDatosException extends  Exception{
             case 4: return ("No se pudo actualizar el producto");
             case 5: return ("No se pudo eliminar el producto");
             case 6: return ("No se pudo encontrar el producto");
-            case 7: return ("Datos no Permitidos, vuelva a intentarlo");
+            case 7: return ("Campos Vacios");
+            case 8: return ("Formato Fechas no Permitidos");
+            case 9: return ("Ingreso Caracteres en Lugar de Numero");
         }
         return ("");
     }

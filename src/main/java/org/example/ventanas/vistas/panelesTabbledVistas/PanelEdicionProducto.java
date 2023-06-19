@@ -4,8 +4,9 @@
  */
 package org.example.ventanas.vistas.panelesTabbledVistas;
 
-import javax.swing.JTextField;
 import java.awt.Color;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Agus-Notebook
@@ -13,7 +14,7 @@ import java.awt.Color;
 public class PanelEdicionProducto extends javax.swing.JPanel {
 
     /**
-     * Creates new form PanelEdicionProducto
+     * Creates new form NewPanelEdicionProducto
      */
     public PanelEdicionProducto() {
         initComponents();
@@ -52,10 +53,6 @@ public class PanelEdicionProducto extends javax.swing.JPanel {
         ingresoPrecioEdicionProducto = new javax.swing.JTextField();
         iconoPanelCarga = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-
-        setMaximumSize(new java.awt.Dimension(800, 560));
-        setMinimumSize(new java.awt.Dimension(800, 560));
-        setPreferredSize(new java.awt.Dimension(800, 560));
 
         backgroundPanelEdicionProducto.setMaximumSize(new java.awt.Dimension(800, 560));
         backgroundPanelEdicionProducto.setMinimumSize(new java.awt.Dimension(800, 560));
@@ -322,7 +319,7 @@ public class PanelEdicionProducto extends javax.swing.JPanel {
 
         backgroundPanelEdicionProducto.add(panelMuestraTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 560, 330));
 
-        iconoPanelCarga.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cambiar (1).png"))); // NOI18N
+        iconoPanelCarga.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cambiar.png"))); // NOI18N
         backgroundPanelEdicionProducto.add(iconoPanelCarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 80, -1, -1));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Diseño sin título (4).png"))); // NOI18N
@@ -340,6 +337,11 @@ public class PanelEdicionProducto extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void edicionLetraColortexto(JTextField ingreso) {
+        ingreso.setText("");
+        ingreso.setForeground(Color.BLACK);
+    }
+    
     private void ingresoMarcaEdicionProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresoMarcaEdicionProductoMouseClicked
         // TODO add your handling code here:
         if(ingresoMarcaEdicionProducto.getText().equals("   Ingrese Marca del Producto")){
@@ -512,8 +514,4 @@ public class PanelEdicionProducto extends javax.swing.JPanel {
     private javax.swing.JLabel textoIngresoStock;
     private javax.swing.JLabel textoIngresoVencimiento;
     // End of variables declaration//GEN-END:variables
-
-    private void edicionLetraColortexto(JTextField ingresoStockEdicionProducto) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 }

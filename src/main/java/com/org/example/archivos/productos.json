@@ -1,0 +1,9 @@
+[ {
+  "idProducto" : 0,
+  "marca" : "Coca-Cola Company",
+  "nombre" : "Coca-Cola",
+  "fecheaDeVencimiento" : "20/09/2023",
+  "fechaElavoracion" : "19/06/2023",
+  "stock" : 500,
+  "precio" : 500
+} ]
