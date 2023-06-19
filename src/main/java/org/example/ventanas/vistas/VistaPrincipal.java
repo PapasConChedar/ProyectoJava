@@ -41,7 +41,7 @@ public class VistaPrincipal extends javax.swing.JPanel {
         backgroundPrincipal.setPreferredSize(new java.awt.Dimension(800, 560));
         backgroundPrincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Florsix\\Downloads\\Iconos Proyecto Java\\TEXTOLONG.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TEXTOLONG.png"))); // NOI18N
         jLabel1.setText(" ");
         backgroundPrincipal.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, -1, -1));
 
