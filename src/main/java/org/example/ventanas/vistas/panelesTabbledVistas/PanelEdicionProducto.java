@@ -4,6 +4,8 @@
  */
 package org.example.ventanas.vistas.panelesTabbledVistas;
 
+import javax.swing.JTextField;
+import java.awt.Color;
 /**
  *
  * @author Agus-Notebook
@@ -129,11 +131,6 @@ public class PanelEdicionProducto extends javax.swing.JPanel {
         ingresoNombreEdicionProducto.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ingresoNombreEdicionProducto.setForeground(new java.awt.Color(153, 153, 153));
         ingresoNombreEdicionProducto.setText("   Ingrese Nombre del Producto");
-        ingresoNombreEdicionProducto.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ingresoNombreEdicionProductoMouseClicked(evt);
-            }
-        });
 
         javax.swing.GroupLayout contentText2Layout = new javax.swing.GroupLayout(contentText2);
         contentText2.setLayout(contentText2Layout);
@@ -372,35 +369,6 @@ public class PanelEdicionProducto extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_ingresoMarcaEdicionProductoMouseClicked
 
-    private void ingresoNombreEdicionProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresoNombreEdicionProductoMouseClicked
-        // TODO add your handling code here:
-        if(ingresoMarcaEdicionProducto.getText().isEmpty()){
-            ingresoMarcaEdicionProducto.setForeground(new Color(153, 153, 153));
-            ingresoMarcaEdicionProducto.setText("   Ingrese Marca del Producto");
-        }
-        if(ingresoNombreEdicionProducto.getText().equals("   Ingrese Nombre del Producto")){
-            edicionLetraColortexto(ingresoNombreEdicionProducto);
-        }
-        if(ingresoElavoracionEdicionProducto.getText().isEmpty()){
-            ingresoElavoracionEdicionProducto.setForeground(new Color(153, 153, 153));
-            ingresoElavoracionEdicionProducto.setText("   Ingrese Fecha de Elaboracion xx/xx/xxxx");
-        }
-        if(ingresoVencimiento.getText().isEmpty()){
-            ingresoVencimiento.setForeground(new Color(153, 153, 153));
-            ingresoVencimiento.setText("   Ingrese Fecha de Vencimiento xx/xx/xxxx");
-        }
-        if(ingresoStockEdicionProducto.getText().isEmpty()){
-            ingresoStockEdicionProducto.setForeground(new Color(153, 153, 153));
-            ingresoStockEdicionProducto.setText("   Ingrese Stock Producto");
-
-        }
-        if(ingresoPrecioEdicionProducto.getText().isEmpty()){
-            ingresoPrecioEdicionProducto.setForeground(new Color(153, 153, 153));
-            ingresoPrecioEdicionProducto.setText("   Ingrese Precio Producto");
-
-        }
-    }//GEN-LAST:event_ingresoNombreEdicionProductoMouseClicked
-
     private void ingresoElavoracionEdicionProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresoElavoracionEdicionProductoMouseClicked
         // TODO add your handling code here:
         if(ingresoMarcaEdicionProducto.getText().isEmpty()){
@@ -544,4 +512,8 @@ public class PanelEdicionProducto extends javax.swing.JPanel {
     private javax.swing.JLabel textoIngresoStock;
     private javax.swing.JLabel textoIngresoVencimiento;
     // End of variables declaration//GEN-END:variables
+
+    private void edicionLetraColortexto(JTextField ingresoStockEdicionProducto) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

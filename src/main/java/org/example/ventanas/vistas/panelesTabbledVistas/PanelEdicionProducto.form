@@ -288,9 +288,6 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="   Ingrese Nombre del Producto"/>
                   </Properties>
-                  <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ingresoNombreEdicionProductoMouseClicked"/>
-                  </Events>
                 </Component>
               </SubComponents>
             </Container>
