@@ -37,23 +37,27 @@ public class ImpleClienteRepository implements GenericsRepository<Cliente> {
 
     @Override
     public Cliente getById(String id) {
+        cargar();
         return this.listClientes.stream().filter(cliente -> cliente.getIdCliente().equals(id)).findFirst().orElse(null);
     }
 
     @Override
     public List<Cliente> getAll() {
+        cargar();
         return this.listClientes;
 
     }
 
     @Override
     public void add(Cliente item) {
+        cargar();
         this.listClientes.add(item);
         guardar();
     }
 
     @Override
     public void update(Cliente item) {
+        cargar();
         for (Cliente i : listClientes) {
             if (i.getIdCliente().equals(item.getIdCliente())) {
                 i.setNombre(item.getNombre());
@@ -73,6 +77,7 @@ public class ImpleClienteRepository implements GenericsRepository<Cliente> {
 
     @Override
     public void delete(Cliente item) {
+        cargar();
         this.listClientes.removeIf(cliente -> Objects.equals(cliente.getDni(), item.getDni()));
         guardar();
     }

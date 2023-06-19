@@ -6,8 +6,10 @@ package org.example.ventanas.vistas;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+import org.example.ventanas.vistas.panelesTabbledVistas.PanelCargaProducto;
 import org.example.ventanas.vistas.panelesTabbledVistas.PanelCargaUsuario;
 import org.example.ventanas.vistas.panelesTabbledVistas.PanelEdicionUsuario;
+import org.example.ventanas.vistas.panelesTabbledVistas.PanelTablaProductos;
 import org.example.ventanas.vistas.panelesTabbledVistas.PanelTablaUsuarios;
 import org.example.ventanas.vistas.panelesTabbledVistas.UtilidadesPaneles;
 
@@ -88,12 +90,9 @@ public class VistaUsuarios extends javax.swing.JPanel implements UtilidadesPanel
 
     @Override
     public void iniciarPanales() {
-        PanelCargaUsuario panel1 = new PanelCargaUsuario();
-        PanelTablaUsuarios panel2 = new PanelTablaUsuarios();
-        PanelEdicionUsuario panel3 = new PanelEdicionUsuario();
-        contenedorPanelVistaUsuario.addTab("Carga Usuario", panel1);
-        contenedorPanelVistaUsuario.addTab("Ver Usuario", panel2);
-        contenedorPanelVistaUsuario.addTab("Editar Usuario", panel3);
+        contenedorPanelVistaUsuario.addTab("Carga Usuario", new PanelCargaUsuario());
+        contenedorPanelVistaUsuario.addTab("Ver Usuario", new PanelTablaUsuarios());
+        contenedorPanelVistaUsuario.addTab("Editar Usuario", new PanelEdicionUsuario());
         iconosSolapas();
         
         contenedorPanelVistaUsuario.setSelectedIndex(0);

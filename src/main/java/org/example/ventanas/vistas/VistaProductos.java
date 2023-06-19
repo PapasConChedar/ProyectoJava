@@ -6,6 +6,9 @@ package org.example.ventanas.vistas;
 
 import javax.swing.ImageIcon;
 import org.example.ventanas.vistas.panelesTabbledVistas.PanelCargaProducto;
+import org.example.ventanas.vistas.panelesTabbledVistas.PanelCargaUsuario;
+import org.example.ventanas.vistas.panelesTabbledVistas.PanelEdicionProducto;
+import org.example.ventanas.vistas.panelesTabbledVistas.PanelEdicionUsuario;
 import org.example.ventanas.vistas.panelesTabbledVistas.PanelTablaProductos;
 import org.example.ventanas.vistas.panelesTabbledVistas.UtilidadesPaneles;
 
@@ -92,10 +95,9 @@ public class VistaProductos extends javax.swing.JPanel implements UtilidadesPane
 
     @Override
     public void iniciarPanales() {
-        PanelCargaProducto panel1 = new PanelCargaProducto();
-        PanelTablaProductos panel2 = new PanelTablaProductos();
-        contenedorPanelVistaProducto.addTab("Carga Producto", panel1);
-        contenedorPanelVistaProducto.addTab("Ver Productos", panel2);
+        contenedorPanelVistaProducto.addTab("Carga Producto", new PanelCargaProducto());
+        contenedorPanelVistaProducto.addTab("Ver Productos", new PanelTablaProductos());
+        contenedorPanelVistaProducto.addTab("Editor Producto", new PanelEdicionProducto());
         iconosSolapas();
         contenedorPanelVistaProducto.setSelectedIndex(0);
     }
