@@ -40,7 +40,7 @@ public class PanelCargaUsuario extends javax.swing.JPanel {
         ingresoDireccionUsuario = new javax.swing.JTextField();
         ingresoEmailUsuario = new javax.swing.JTextField();
         ingresoTelefonoUsuario = new javax.swing.JTextField();
-        limparPanelCargaUsuario = new javax.swing.JButton();
+        btnLimpiarPanel = new javax.swing.JButton();
         guardarUsuarioNuevo = new javax.swing.JButton();
 
         setMaximumSize(new java.awt.Dimension(800, 560));
@@ -129,10 +129,10 @@ public class PanelCargaUsuario extends javax.swing.JPanel {
                 .addContainerGap(37, Short.MAX_VALUE))
         );
 
-        limparPanelCargaUsuario.setText("LIMPIAR");
-        limparPanelCargaUsuario.addActionListener(new java.awt.event.ActionListener() {
+        btnLimpiarPanel.setText("LIMPIAR");
+        btnLimpiarPanel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                limparPanelCargaUsuarioActionPerformed(evt);
+                btnLimpiarPanelActionPerformed(evt);
             }
         });
 
@@ -156,8 +156,8 @@ public class PanelCargaUsuario extends javax.swing.JPanel {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 170, Short.MAX_VALUE))
             .addGroup(backgroundPanelCargaUsuarioLayout.createSequentialGroup()
-                .addGap(241, 241, 241)
-                .addComponent(limparPanelCargaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(243, 243, 243)
+                .addComponent(btnLimpiarPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(56, 56, 56)
                 .addComponent(guardarUsuarioNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -169,11 +169,11 @@ public class PanelCargaUsuario extends javax.swing.JPanel {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addGap(26, 26, 26)
                 .addGroup(backgroundPanelCargaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(limparPanelCargaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLimpiarPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(guardarUsuarioNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -194,9 +194,13 @@ public class PanelCargaUsuario extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_ingresoNombreUsuarioActionPerformed
 
-    private void limparPanelCargaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limparPanelCargaUsuarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_limparPanelCargaUsuarioActionPerformed
+    private void btnLimpiarPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarPanelActionPerformed
+        ingresoNombreUsuario.setText("");
+        ingresoApellidoUsuario.setText("");
+        ingresoDireccionUsuario.setText("");
+        ingresoEmailUsuario.setText("");
+        ingresoTelefonoUsuario.setText("");
+    }//GEN-LAST:event_btnLimpiarPanelActionPerformed
 
     private void guardarUsuarioNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarUsuarioNuevoActionPerformed
         // TODO add your handling code here:
@@ -205,6 +209,7 @@ public class PanelCargaUsuario extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel backgroundPanelCargaUsuario;
+    private javax.swing.JButton btnLimpiarPanel;
     private javax.swing.JButton guardarUsuarioNuevo;
     private javax.swing.JTextField ingresoApellidoUsuario;
     private javax.swing.JTextField ingresoDireccionUsuario;
@@ -219,6 +224,5 @@ public class PanelCargaUsuario extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSlider jSlider1;
-    private javax.swing.JButton limparPanelCargaUsuario;
     // End of variables declaration//GEN-END:variables
 }

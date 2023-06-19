@@ -74,8 +74,8 @@
                   <EmptySpace min="0" pref="170" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="241" max="-2" attributes="0"/>
-                  <Component id="limparPanelCargaUsuario" min="-2" pref="132" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="243" max="-2" attributes="0"/>
+                  <Component id="btnLimpiarPanel" min="-2" pref="132" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                   <Component id="guardarUsuarioNuevo" min="-2" pref="130" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
@@ -89,12 +89,12 @@
                   <Component id="jLabel1" min="-2" pref="156" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="40" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="limparPanelCargaUsuario" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
+                      <Component id="btnLimpiarPanel" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
                       <Component id="guardarUsuarioNuevo" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                  <EmptySpace pref="52" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -228,12 +228,12 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="limparPanelCargaUsuario">
+        <Component class="javax.swing.JButton" name="btnLimpiarPanel">
           <Properties>
             <Property name="text" type="java.lang.String" value="LIMPIAR"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="limparPanelCargaUsuarioActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLimpiarPanelActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="guardarUsuarioNuevo">
