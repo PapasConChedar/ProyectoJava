@@ -3,6 +3,7 @@ package com.org.example.clases;
 import java.io.Serializable;
 
 public class Productos implements Serializable {
+    private int idProducto;
     private String marca;
     private String nombre;
     private String fecheaDeVencimiento;
@@ -13,7 +14,8 @@ public class Productos implements Serializable {
 
 
     //region CONSTRUCTOR VACIO
-    public Productos(String marca, String nombre, String fecheaDeVencimiento, String fechaElavoracion, int stock, int precio) {
+    public Productos(int id,String marca, String nombre, String fecheaDeVencimiento, String fechaElavoracion, int stock, int precio) {
+        this.idProducto = id;
         this.marca = marca;
         this.nombre = nombre;
         this.fecheaDeVencimiento = fecheaDeVencimiento;
@@ -24,6 +26,12 @@ public class Productos implements Serializable {
 //endregion
 
     // region GETTERS AND SETTERS
+    public Integer getIdProducto(){
+        return idProducto;
+    }
+    public void setIdProducto(int idProducto){
+        this.idProducto = idProducto;
+    }
 
     public String getMarca() {
         return marca;

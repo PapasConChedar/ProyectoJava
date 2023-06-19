@@ -1,28 +1,42 @@
 [
   {
-    "nombre": "Nombre1",
-    "apellido": "Apellido1",
+    "nombre": "Juan",
+    "apellido": "Perez",
     "dni": "12345678",
-    "direccion": "Dirección1",
-    "idCliente": "C001",
-    "numeroCuenta": "NC001",
-    "direccionEnte": "Dirección Ente1",
+    "direccion": "Calle Principal 123",
+    "idCliente": 1,
+    "numeroCuenta": "123456789",
+    "direccionEnte": "Calle Principal 123",
     "email": "cliente1@example.com",
-    "contraseña": "contraseña1",
-    "telefono": "123456789",
-    "listaDePedidos": "Pedido1, Pedido2"
+    "contraseña": "Secreto123",
+    "telefono": "1234567890",
+    "listaDePedidos": "Pedido 1"
   },
   {
-    "nombre": "Nombre2",
-    "apellido": "Apellido2",
-    "dni": "87654321",
-    "direccion": "Dirección2",
-    "idCliente": "C002",
-    "numeroCuenta": "NC002",
-    "direccionEnte": "Dirección Ente2",
+    "nombre": "María",
+    "apellido": "Gómez",
+    "dni": "98765432",
+    "direccion": "Avenida Secundaria 456",
+    "idCliente": 2,
+    "numeroCuenta": "987654321",
+    "direccionEnte": "Avenida Secundaria 456",
     "email": "cliente2@example.com",
-    "contraseña": "contraseña2",
-    "telefono": "987654321",
-    "listaDePedidos": "Pedido3, Pedido4"
+    "contraseña": "Secreto456",
+    "telefono": "9876543210",
+    "listaDePedidos": "Pedido 2"
+  },
+  {
+    "nombre": "Agustin",
+    "apellido": "Miranda",
+    "dni": "38439118",
+    "direccion": "Victor Hugo 832",
+    "idCliente": 3,
+    "numeroCuenta": "415653451",
+    "direccionEnte": "Pinzon 1780 y Espora",
+    "email": "PapasConCheddar@gmail.com",
+    "contraseña": "123123123",
+    "telefono": "2254596229",
+    "listaDePedidos": "Pedido 3"
+    
   }
 ]
