@@ -4,6 +4,7 @@
  */
 package org.example.ventanas.vistas.panelesTabbledVistas;
 
+import javax.swing.*;
 import java.awt.*;
 
 /**
@@ -52,6 +53,14 @@ public class PanelEdicionUsuario extends javax.swing.JPanel {
 
         jPanel2.setBackground(new java.awt.Color(255, 195, 98));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(246, 171, 98), 3));
+        jPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanel2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanel2MouseExited(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(96, 183, 252));
@@ -79,6 +88,9 @@ public class PanelEdicionUsuario extends javax.swing.JPanel {
         jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jPanel3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanel3MouseExited(evt);
             }
         });
 
@@ -316,12 +328,39 @@ public class PanelEdicionUsuario extends javax.swing.JPanel {
 
     private void jLabel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseEntered
         // TODO add your handling code here:
+        jLabel2.setForeground(new Color(139,202,255));
+        jPanel3.setBackground(new Color(255,235,145));
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255,195,98),3));
+
 
     }//GEN-LAST:event_jLabel2MouseEntered
 
     private void jPanel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseEntered
         // TODO add your handling code here:
+        jLabel2.setForeground(new Color(139,202,255));
+        jPanel3.setBackground(new Color(255,235,145));
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255,195,98),3));
+
     }//GEN-LAST:event_jPanel3MouseEntered
+
+    private void jPanel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseEntered
+        // TODO add your handling code here:
+        jLabel3.setForeground(new Color(139,202,255));
+        jPanel2.setBackground(new Color(255,235,145));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255,195,98),3));
+    }//GEN-LAST:event_jPanel2MouseEntered
+
+    private void jPanel2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseExited
+        // TODO add your handling code here:
+        jPanel2.setBackground(new java.awt.Color(255, 195, 98));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(246, 171, 98), 3));
+    }//GEN-LAST:event_jPanel2MouseExited
+
+    private void jPanel3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseExited
+        // TODO add your handling code here:
+        jPanel3.setBackground(new java.awt.Color(255, 195, 98));
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(246, 171, 49), 3));
+    }//GEN-LAST:event_jPanel3MouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
