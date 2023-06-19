@@ -6,7 +6,6 @@ package com.org.example.repository.imple;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.CollectionType;
-import com.org.example.clases.Cliente;
 import com.org.example.clases.Productos;
 import com.org.example.enums.Archivos;
 import com.org.example.repository.GenericsRepository;
@@ -18,7 +17,7 @@ import java.util.List;
  *
  * @author Agus-Notebook
  */
-public class impleProductoRepository implements GenericsRepository<Productos>{
+public class ImpleProductoRepository implements GenericsRepository<Productos>{
     
     private final File file = new File (Archivos.PRODUCTOS.getRuta());
     private final ObjectMapper objectMapper = new ObjectMapper();
