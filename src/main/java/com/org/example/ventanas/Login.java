@@ -180,31 +180,8 @@ public class Login extends javax.swing.JFrame {
         textoIngreso.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         textoIngreso.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                try {
-                    Boolean emailIsValid = Utils.validEmail(ingresoEmail.getText());
-                    Boolean passwordIsValid = Utils.validPassword(ingresoContrasenia.getText());
-                    GestionImpleCliente gestionImpleCliente = new GestionImpleCliente();
-                    if(!emailIsValid || !passwordIsValid || !gestionImpleCliente.verificarDatosLogin(ingresoEmail.getText(),
-                            String.valueOf(ingresoContrasenia.getPassword()))) {
-                        JOptionPane.showMessageDialog(null, "Email o contraseña invalidos");
-                        ingresoContrasenia.setText("");
-                        ingresoEmail.setText("");
-//                        Login.this.dispose();
-                    }else{
-                        Login.this.dispose();
-                        MenuInicio menuInicio = new MenuInicio();
-                        menuInicio.setVisible(true);
-
-                    }
-                } catch (UsuarioNoEncontradoException e) {
-                    JOptionPane.showMessageDialog(null,e.getMessage()+e.escribirMensaje());
-                }catch (Exception e ){
-                    System.out.println(e.getMessage());
-                }
+                textoIngresoMouseClicked(evt);
             }
-
-
-
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 textoIngresoMouseEntered(evt);
             }

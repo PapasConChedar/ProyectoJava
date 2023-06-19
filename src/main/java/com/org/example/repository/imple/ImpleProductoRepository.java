@@ -23,6 +23,10 @@ public class ImpleProductoRepository implements GenericsRepository<Productos>{
     private final ObjectMapper objectMapper = new ObjectMapper();
     private List<Productos> listaProductos;
     
+    public void ImpleClienteRepository(){
+        
+    }
+    
 
     @Override
     public void cargar() {

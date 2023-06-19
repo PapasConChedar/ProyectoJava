@@ -27,15 +27,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <Component id="backgroundPanelCargaProducto" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="-10" max="32767" attributes="0"/>
-          </Group>
+          <Component id="backgroundPanelCargaProducto" alignment="0" pref="800" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="backgroundPanelCargaProducto" max="32767" attributes="0"/>
+          <Component id="backgroundPanelCargaProducto" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -73,9 +70,9 @@
             </Property>
           </Properties>
           <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnGuardarIngresoMouseClicked"/>
             <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnGuardarIngresoMouseEntered"/>
             <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnGuardarIngresoMouseExited"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGuardarIngresoActionPerformed"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -236,7 +233,7 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ingresoMarcaActionPerformed"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ingresoMarcaMouseClicked"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -260,7 +257,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="textoIngresoNombre" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                          <Component id="IngresoNombre" max="32767" attributes="0"/>
+                          <Component id="ingresoNombre" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -268,7 +265,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="textoIngresoNombre" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                          <Component id="IngresoNombre" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                          <Component id="ingresoNombre" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -300,7 +297,7 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="IngresoNombre">
+                <Component class="javax.swing.JTextField" name="ingresoNombre">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -314,7 +311,7 @@
                     <Property name="text" type="java.lang.String" value="   Ingrese Nombre del Producto"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="IngresoNombreActionPerformed"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ingresoNombreMouseClicked"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -337,7 +334,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="textoIngresoElaboracion" min="-2" pref="160" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                          <Component id="IngresoElavoracion" max="32767" attributes="0"/>
+                          <Component id="ingresoElavoracion" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -345,13 +342,13 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                           <Component id="textoIngresoElaboracion" alignment="3" max="32767" attributes="0"/>
-                          <Component id="IngresoElavoracion" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                          <Component id="ingresoElavoracion" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JTextField" name="IngresoElavoracion">
+                <Component class="javax.swing.JTextField" name="ingresoElavoracion">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -362,8 +359,11 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="99" green="99" red="99" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="   Ingrese Fecha de Elaboracion xx/xx/xxxx "/>
+                    <Property name="text" type="java.lang.String" value="   Ingrese Fecha de Elaboracion xx/xx/xxxx"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ingresoElavoracionMouseClicked"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="textoIngresoElaboracion">
                   <Properties>
@@ -465,7 +465,7 @@
                     <Property name="text" type="java.lang.String" value="   Ingrese Fecha de Vencimiento xx/xx/xxxx"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ingresoVencimientoActionPerformed"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ingresoVencimientoMouseClicked"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -539,10 +539,10 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="99" green="99" red="99" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="   Ingrese Stock del Producto"/>
+                    <Property name="text" type="java.lang.String" value="   Ingrese Stock  Producto"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ingresoStockActionPerformed"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ingresoStockMouseClicked"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -618,6 +618,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="   Ingrese Precio Producto"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ingresoPrecioMouseClicked"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
