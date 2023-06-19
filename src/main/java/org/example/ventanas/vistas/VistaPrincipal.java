@@ -27,6 +27,7 @@ public class VistaPrincipal extends javax.swing.JPanel {
     private void initComponents() {
 
         backgroundPrincipal = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -38,33 +39,17 @@ public class VistaPrincipal extends javax.swing.JPanel {
         backgroundPrincipal.setMaximumSize(new java.awt.Dimension(800, 560));
         backgroundPrincipal.setMinimumSize(new java.awt.Dimension(800, 560));
         backgroundPrincipal.setPreferredSize(new java.awt.Dimension(800, 560));
+        backgroundPrincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tituloazulreal.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Florsix\\Downloads\\Iconos Proyecto Java\\TEXTOLONG.png")); // NOI18N
+        jLabel1.setText(" ");
+        backgroundPrincipal.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, -1, -1));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/almacendelcaos.png"))); // NOI18N
+        backgroundPrincipal.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 380, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/shoppin1bordergreen.png"))); // NOI18N
-
-        javax.swing.GroupLayout backgroundPrincipalLayout = new javax.swing.GroupLayout(backgroundPrincipal);
-        backgroundPrincipal.setLayout(backgroundPrincipalLayout);
-        backgroundPrincipalLayout.setHorizontalGroup(
-            backgroundPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundPrincipalLayout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 715, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
-            .addGroup(backgroundPrincipalLayout.createSequentialGroup()
-                .addGap(68, 68, 68)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        backgroundPrincipalLayout.setVerticalGroup(
-            backgroundPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundPrincipalLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
-        );
+        backgroundPrincipal.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 660, 333));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -83,6 +68,7 @@ public class VistaPrincipal extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel backgroundPrincipal;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
