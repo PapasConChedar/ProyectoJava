@@ -16,7 +16,10 @@ public class Persona implements Serializable {
         this.dni = dni;
         this.direccion = direccion;
     }
-// endregion
+
+    public Persona() {
+    }
+    // endregion
 
     //region GETTERS AND SETTERS
     public String getNombre() {

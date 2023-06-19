@@ -4,11 +4,11 @@
  */
 package com.org.example.ventanas;
 
+import com.org.example.Exceptions.UsuarioNoEncontradoException;
+import com.org.example.service.GestionImpleCliente;
 import com.org.example.service.Utils;
 
 import java.awt.Color;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
 /**
@@ -180,27 +180,8 @@ public class Login extends javax.swing.JFrame {
         textoIngreso.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         textoIngreso.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                try {
-                    Boolean emailIsValid = Utils.validEmail(ingresoEmail.getText());
-                    Boolean passwordIsValid = Utils.validPassword(ingresoContrasenia.getText());
-                    if(!emailIsValid || !passwordIsValid) {
-                        JOptionPane.showMessageDialog(null, "Email o contraseña invalidos");
-                        ingresoContrasenia.setText("");
-                        ingresoEmail.setText("");
-//                        Login.this.dispose();
-                    }else{
-                        Login.this.dispose();
-                        MenuInicio menuInicio = new MenuInicio();
-                        menuInicio.setVisible(true);
-
-                    }
-                } catch (Exception e) {
-                    System.out.println(e);
-                }
+                textoIngresoMouseClicked(evt);
             }
-
-
-
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 textoIngresoMouseEntered(evt);
             }
@@ -336,7 +317,6 @@ public class Login extends javax.swing.JFrame {
     private void textoIngresoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textoIngresoMouseClicked
         // TODO add your handling code here:
 
-        JOptionPane.showMessageDialog(null, "Ingresaste");
     }//GEN-LAST:event_textoIngresoMouseClicked
 
     private void ingresoEmailMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresoEmailMousePressed

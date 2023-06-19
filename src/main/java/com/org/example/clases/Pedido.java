@@ -10,8 +10,8 @@ public class Pedido extends Productos implements Serializable {
     private ArrayList<Productos> productos;
 
 //region CONSTRUCTOR VACIO
-    public Pedido(String marca, String nombre, String fecheaDeVencimiento, String fechaElavoracion, int stock, int precio, int numPedido, int precio1, ArrayList<Productos> productos) {
-        super(marca, nombre, fecheaDeVencimiento, fechaElavoracion, stock, precio);
+    public Pedido(int idProducto, String marca, String nombre, String fecheaDeVencimiento, String fechaElavoracion, int stock, int precio, int numPedido, int precio1, ArrayList<Productos> productos) {
+        super(idProducto, marca, nombre, fecheaDeVencimiento, fechaElavoracion, stock, precio);
         this.numPedido = numPedido;
         this.precio = precio1;
         this.productos = productos;
