@@ -113,4 +113,6 @@ public class GestionImpleCliente {
     public Integer crearIdUsuario(){
         return (impleClienteRepository.getAll()== null) ? 0 :  impleClienteRepository.getAll().size() ;
     }
+
+
 }

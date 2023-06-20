@@ -63,10 +63,12 @@ public class PanelCargaUsuario extends javax.swing.JPanel {
         backgroundPanelCargaUsuario.setPreferredSize(new java.awt.Dimension(800, 560));
         backgroundPanelCargaUsuario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lista-de-verificacion (1).png"))); // NOI18N
         backgroundPanelCargaUsuario.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, 130, 140));
 
-        jPanel1.setBackground(new java.awt.Color(153, 100, 232));
+        jPanel1.setBackground(new java.awt.Color(179, 139, 237));
+        jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 5, true));
 
         ingresoNombreUsuario.setBackground(new java.awt.Color(204, 204, 255));
         ingresoNombreUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
