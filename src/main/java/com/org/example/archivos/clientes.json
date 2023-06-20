@@ -58,4 +58,28 @@
   "contraseña" : "Secreto123",
   "telefono" : "111243211",
   "listaDePedidos" : null
+}, {
+  "nombre" : "Milei",
+  "apellido" : "asadsd",
+  "dni" : "12312312312",
+  "direccion" : "12312",
+  "idCliente" : 5,
+  "numeroCuenta" : "AGREGARDESP",
+  "direccionEnte" : "12312",
+  "email" : "Flor@gmail.com",
+  "contraseña" : "asdaweead",
+  "telefono" : "111222",
+  "listaDePedidos" : null
+}, {
+  "nombre" : "intentoCarga1",
+  "apellido" : "pepo",
+  "dni" : "213412314",
+  "direccion" : "233 434213",
+  "idCliente" : 6,
+  "numeroCuenta" : "AGREGARDESP",
+  "direccionEnte" : "233 434213",
+  "email" : "loqiesea@gmail.com",
+  "contraseña" : "Secreto123",
+  "telefono" : "22232211",
+  "listaDePedidos" : null
 } ]
