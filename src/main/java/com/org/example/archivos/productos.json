@@ -7,4 +7,13 @@
   "stock" : 3,
   "precio" : 760,
   "categoriaProducto" : "COMIDA"
+}, {
+  "idProducto" : 1,
+  "marca" : "El Bananero Company",
+  "nombre" : "JAPI",
+  "fecheaDeVencimiento" : "20/09/2023",
+  "fechaElavoracion" : "20/06/2023",
+  "stock" : 15620,
+  "precio" : 1500,
+  "categoriaProducto" : "BEBIDAS"
 } ]
