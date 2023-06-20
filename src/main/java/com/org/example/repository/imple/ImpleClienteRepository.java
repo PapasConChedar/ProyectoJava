@@ -38,7 +38,12 @@ public class ImpleClienteRepository implements GenericsRepository<Cliente> {
     @Override
     public Cliente getById(String id) {
         cargar();
-        return this.listClientes.stream().filter(cliente -> cliente.getIdCliente().equals(id)).findFirst().orElse(null);
+        for (Cliente i : listClientes) {
+            if (i.getIdCliente().equals(Integer.parseInt(id))) {
+                return i;
+            }
+        }
+        return null;
     }
 
     @Override
