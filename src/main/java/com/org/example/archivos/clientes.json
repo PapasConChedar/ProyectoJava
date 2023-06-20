@@ -1,42 +1,61 @@
-[
-  {
-    "nombre": "Juan",
-    "apellido": "Perez",
-    "dni": "12345678",
-    "direccion": "Calle Principal 123",
-    "idCliente": 1,
-    "numeroCuenta": "123456789",
-    "direccionEnte": "Calle Principal 123",
-    "email": "cliente1@example.com",
-    "contraseña": "Secreto123",
-    "telefono": "1234567890",
-    "listaDePedidos": "Pedido 1"
-  },
-  {
-    "nombre": "María",
-    "apellido": "Gómez",
-    "dni": "98765432",
-    "direccion": "Avenida Secundaria 456",
-    "idCliente": 2,
-    "numeroCuenta": "987654321",
-    "direccionEnte": "Avenida Secundaria 456",
-    "email": "cliente2@example.com",
-    "contraseña": "Secreto456",
-    "telefono": "9876543210",
-    "listaDePedidos": "Pedido 2"
-  },
-  {
-    "nombre": "Agustin",
-    "apellido": "Miranda",
-    "dni": "38439118",
-    "direccion": "Victor Hugo 832",
-    "idCliente": 3,
-    "numeroCuenta": "415653451",
-    "direccionEnte": "Pinzon 1780 y Espora",
-    "email": "PapasConCheddar@gmail.com",
-    "contraseña": "123123123",
-    "telefono": "2254596229",
-    "listaDePedidos": "Pedido 3"
-    
-  }
-]
+[ {
+  "nombre" : "Juan",
+  "apellido" : "Perez",
+  "dni" : "12345678",
+  "direccion" : "Calle Principal 123",
+  "idCliente" : 1,
+  "numeroCuenta" : "123456789",
+  "direccionEnte" : "Calle Principal 123",
+  "email" : "cliente1@example.com",
+  "contraseña" : "Secreto123",
+  "telefono" : "1234567890",
+  "listaDePedidos" : "Pedido 1"
+}, {
+  "nombre" : "María",
+  "apellido" : "Gómez",
+  "dni" : "98765432",
+  "direccion" : "Avenida Secundaria 456",
+  "idCliente" : 2,
+  "numeroCuenta" : "987654321",
+  "direccionEnte" : "Avenida Secundaria 456",
+  "email" : "cliente2@example.com",
+  "contraseña" : "Secreto456",
+  "telefono" : "9876543210",
+  "listaDePedidos" : "Pedido 2"
+}, {
+  "nombre" : "Agustin",
+  "apellido" : "Miranda",
+  "dni" : "38439118",
+  "direccion" : "Victor Hugo 832",
+  "idCliente" : 3,
+  "numeroCuenta" : "415653451",
+  "direccionEnte" : "Pinzon 1780 y Espora",
+  "email" : "PapasConCheddar@gmail.com",
+  "contraseña" : "123123123",
+  "telefono" : "2254596229",
+  "listaDePedidos" : "Pedido 3"
+}, {
+  "nombre" : "Levi",
+  "apellido" : "Ackerman",
+  "dni" : "407827344",
+  "direccion" : null,
+  "idCliente" : 4,
+  "numeroCuenta" : "AGREGARDESP",
+  "direccionEnte" : "Su casa",
+  "email" : "ErenNoSirve@gmail.com",
+  "contraseña" : "Secreto123",
+  "telefono" : "2262788374",
+  "listaDePedidos" : null
+}, {
+  "nombre" : "San",
+  "apellido" : "Choi",
+  "dni" : "234322341",
+  "direccion" : "Mi casa 123",
+  "idCliente" : 4,
+  "numeroCuenta" : "AGREGARDESP",
+  "direccionEnte" : null,
+  "email" : "MaBAMMUNA@gmail.com",
+  "contraseña" : "Secreto123",
+  "telefono" : "111243211",
+  "listaDePedidos" : null
+} ]

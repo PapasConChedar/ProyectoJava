@@ -4,6 +4,7 @@ import com.org.example.Exceptions.UsuarioNoEncontradoException;
 import com.org.example.clases.Cliente;
 import com.org.example.repository.imple.ImpleClienteRepository;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
 public class GestionImpleCliente {
@@ -69,5 +70,43 @@ public class GestionImpleCliente {
             }
         }
         return Optional.empty();
+    }
+
+
+    public boolean verificacionIngresoBases(String...textos){
+        ArrayList<String> bases = new ArrayList<>();
+        bases.add("   Ingrese Nombre del Usuario");
+        bases.add("   Ingrese Apellido del Usuario");
+        bases.add("   Ingrese Direccion del Usuario");
+        bases.add("   Ingrese Email del Usuario");
+        bases.add("   Ingrese Telefono del Usuario");
+        bases.add("   Ingrese Contraseña del Usuario");
+        bases.add("   Ingrese DNI del Usuario");
+        for(String texto: textos){
+            for (String base:bases){
+                if(textos.equals(base)){
+                    return false;
+                }
+            }
+        } return true;
+    }
+    public boolean verificacionFormatoInteger(String... cadenas){
+        for (String cadena : cadenas) {
+            if (!cadena.matches("\\d+")) {
+                return false;
+            }
+        }
+        return true;
+    }
+    public boolean verificarIngresosVacios(String... textos){
+        for(String i : textos){
+            if(i.equals("")){
+                return false;
+            }
+        }
+        return true;
+    }
+    public Integer crearIdUsuario(){
+        return (impleClienteRepository.getAll()== null) ? 0 :  impleClienteRepository.getAll().size() ;
     }
 }

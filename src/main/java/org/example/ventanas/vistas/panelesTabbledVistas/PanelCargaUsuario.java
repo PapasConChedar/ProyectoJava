@@ -4,11 +4,21 @@
  */
 package org.example.ventanas.vistas.panelesTabbledVistas;
 
+import com.org.example.Exceptions.UsuarioCargaDatosException;
+import com.org.example.clases.Cliente;
+import com.org.example.service.GestionImpleCliente;
+
+import javax.swing.*;
+import java.awt.*;
+
 /**
  *
  * @author Agus-Notebook
  */
 public class PanelCargaUsuario extends javax.swing.JPanel {
+    private final GestionImpleCliente gestor = new GestionImpleCliente();
+    private Cliente dato = new Cliente();
+
 
     /**
      * Creates new form PanelCargaUsuario
@@ -42,6 +52,8 @@ public class PanelCargaUsuario extends javax.swing.JPanel {
         ingresoTelefonoUsuario = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         ingresoContraseñaUsuario = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        ingresoDniUsuario = new javax.swing.JTextField();
         btnLimpiarPanel = new javax.swing.JButton();
         guardarUsuarioNuevo = new javax.swing.JButton();
 
@@ -76,6 +88,20 @@ public class PanelCargaUsuario extends javax.swing.JPanel {
 
         jLabel7.setText("Contraseña:");
 
+        ingresoContraseñaUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ingresoContraseñaUsuarioActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setText("dni");
+
+        ingresoDniUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ingresoDniUsuarioActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -96,7 +122,7 @@ public class PanelCargaUsuario extends javax.swing.JPanel {
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(ingresoTelefonoUsuario))
+                                    .addComponent(ingresoTelefonoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addGap(12, 12, 12)
                                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -105,14 +131,20 @@ public class PanelCargaUsuario extends javax.swing.JPanel {
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(jLabel3)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(ingresoApellidoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 56, Short.MAX_VALUE)))
+                                    .addComponent(ingresoApellidoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(ingresoDniUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 93, Short.MAX_VALUE)))
                 .addGap(6, 6, 6))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(33, 33, 33)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(ingresoContraseñaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ingresoContraseñaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -141,8 +173,13 @@ public class PanelCargaUsuario extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
-                    .addComponent(ingresoContraseñaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(33, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(ingresoContraseñaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel8)
+                            .addComponent(ingresoDniUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         btnLimpiarPanel.setText("LIMPIAR");
@@ -153,6 +190,11 @@ public class PanelCargaUsuario extends javax.swing.JPanel {
         });
 
         guardarUsuarioNuevo.setText("GUARDAR");
+        guardarUsuarioNuevo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                guardarUsuarioNuevoMouseClicked(evt);
+            }
+        });
         guardarUsuarioNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 guardarUsuarioNuevoActionPerformed(evt);
@@ -177,7 +219,7 @@ public class PanelCargaUsuario extends javax.swing.JPanel {
                     .addGroup(backgroundPanelCargaUsuarioLayout.createSequentialGroup()
                         .addGap(156, 156, 156)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(160, Short.MAX_VALUE))
+                .addContainerGap(119, Short.MAX_VALUE))
         );
         backgroundPanelCargaUsuarioLayout.setVerticalGroup(
             backgroundPanelCargaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -190,7 +232,7 @@ public class PanelCargaUsuario extends javax.swing.JPanel {
                 .addGroup(backgroundPanelCargaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLimpiarPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(guardarUsuarioNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -207,6 +249,71 @@ public class PanelCargaUsuario extends javax.swing.JPanel {
         getAccessibleContext().setAccessibleName("");
     }// </editor-fold>//GEN-END:initComponents
 
+
+    /**
+     * Funcion que setea color al texto ingresao
+     *
+     */
+    private void edicionLetraColorTexto(JTextField ingreso){
+        ingreso.setText("");
+        ingreso.setForeground(Color.BLACK);
+    }
+
+
+    /**
+     *  RestablecerParametros de los texto de ingreso
+     *
+     */
+    public void reestablecerTextoCargaUsuario(){
+        ingresoNombreUsuario.setText("   Ingrese Nombre del Usuario");
+        ingresoApellidoUsuario.setText("   Ingrese Apellido del Usuario");
+        ingresoDireccionUsuario.setText("   Ingrese Direccion del Usuario");
+        ingresoEmailUsuario.setText("   Ingrese Email del Usuario");
+        ingresoTelefonoUsuario.setText("   Ingrese Telefono del Usuario");
+        ingresoContraseñaUsuario.setText("   Ingrese Contraseña del Usuario");
+        ingresoDniUsuario.setText("   Ingrese DNI del Usuario");
+    }
+
+
+    private boolean verificacionFormato() throws UsuarioCargaDatosException {
+        if (gestor.verificacionIngresoBases(
+                ingresoNombreUsuario.getText(),
+                ingresoApellidoUsuario.getText(),
+                ingresoDireccionUsuario.getText(),
+                ingresoEmailUsuario.getText(),
+                ingresoTelefonoUsuario.getText(),
+                ingresoContraseñaUsuario.getText(),
+                ingresoDniUsuario.getText())) {
+            if (gestor.verificarIngresosVacios(
+                    ingresoNombreUsuario.getText(),
+                    ingresoApellidoUsuario.getText(),
+                    ingresoDireccionUsuario.getText(),
+                    ingresoEmailUsuario.getText(),
+                    ingresoTelefonoUsuario.getText(),
+                    ingresoContraseñaUsuario.getText(),
+                    ingresoDniUsuario.getText())) {
+                if (gestor.verificacionFormatoInteger(
+                        ingresoDniUsuario.getText(),
+                        ingresoTelefonoUsuario.getText())) {
+                    return true;
+                } else {
+                    throw new UsuarioCargaDatosException(
+                            8);
+                }
+            } else {
+                throw new UsuarioCargaDatosException(
+                        7);
+            }
+
+        } else {
+            throw new UsuarioCargaDatosException(
+                    7);
+        }
+    }
+
+
+
+
     private void ingresoNombreUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresoNombreUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ingresoNombreUsuarioActionPerformed
@@ -222,7 +329,39 @@ public class PanelCargaUsuario extends javax.swing.JPanel {
 
     private void guardarUsuarioNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarUsuarioNuevoActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_guardarUsuarioNuevoActionPerformed
+
+    private void ingresoContraseñaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresoContraseñaUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ingresoContraseñaUsuarioActionPerformed
+
+    private void ingresoDniUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresoDniUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ingresoDniUsuarioActionPerformed
+
+    private void guardarUsuarioNuevoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_guardarUsuarioNuevoMouseClicked
+        // TODO add your handling code here:
+        try{
+            if(verificacionFormato()){
+                dato.setIdCliente(gestor.crearIdUsuario());
+                dato.setNombre(ingresoNombreUsuario.getText());
+                dato.setApellido(ingresoApellidoUsuario.getText());
+                dato.setDireccion(ingresoDireccionUsuario.getText());
+                dato.setEmail(ingresoEmailUsuario.getText());
+                dato.setTelefono(ingresoTelefonoUsuario.getText());
+                dato.setContraseña(ingresoContraseñaUsuario.getText());
+                dato.setDni(ingresoDniUsuario.getText());
+                dato.setNumeroCuenta("AGREGARDESP");
+                dato.setDireccionEnte(ingresoDireccionUsuario.getText());
+                gestor.add(dato);
+                reestablecerTextoCargaUsuario();
+                dato = new Cliente();
+            }
+        }catch (UsuarioCargaDatosException e){
+            JOptionPane.showMessageDialog(null,e.getMessage()+e.escribirMensaje());
+        }
+    }//GEN-LAST:event_guardarUsuarioNuevoMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -232,6 +371,7 @@ public class PanelCargaUsuario extends javax.swing.JPanel {
     private javax.swing.JTextField ingresoApellidoUsuario;
     private javax.swing.JTextField ingresoContraseñaUsuario;
     private javax.swing.JTextField ingresoDireccionUsuario;
+    private javax.swing.JTextField ingresoDniUsuario;
     private javax.swing.JTextField ingresoEmailUsuario;
     private javax.swing.JTextField ingresoNombreUsuario;
     private javax.swing.JTextField ingresoTelefonoUsuario;
@@ -242,6 +382,7 @@ public class PanelCargaUsuario extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSlider jSlider1;
     // End of variables declaration//GEN-END:variables
