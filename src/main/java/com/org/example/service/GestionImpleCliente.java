@@ -5,6 +5,7 @@ import com.org.example.clases.Cliente;
 import com.org.example.repository.imple.ImpleClienteRepository;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 public class GestionImpleCliente {
@@ -47,7 +48,10 @@ public class GestionImpleCliente {
         impleClienteRepository.getAll().forEach(
                 System.out::println);
     }
-
+    
+    public List<Cliente> getList(){
+        return  impleClienteRepository.getAll();
+    }
 
     public Boolean verificarDatosLogin(String email, String Password) throws UsuarioNoEncontradoException {
         impleClienteRepository.cargar();
