@@ -79,13 +79,13 @@ public class GestionImpleCliente {
 
     public boolean verificacionIngresoBases(String...textos){
         ArrayList<String> bases = new ArrayList<>();
-        bases.add("   Ingrese Nombre del Usuario");
-        bases.add("   Ingrese Apellido del Usuario");
-        bases.add("   Ingrese Direccion del Usuario");
-        bases.add("   Ingrese Email del Usuario");
-        bases.add("   Ingrese Telefono del Usuario");
-        bases.add("   Ingrese Contraseña del Usuario");
-        bases.add("   Ingrese DNI del Usuario");
+        bases.add("NOMBRE");
+        bases.add("APELLIDO");
+        bases.add("DIRECCION");
+        bases.add("EMAIL");
+        bases.add("TELEFONO");
+        bases.add("CONTRASEÑA");
+        bases.add("DNI");
         for(String texto: textos){
             for (String base:bases){
                 if(textos.equals(base)){

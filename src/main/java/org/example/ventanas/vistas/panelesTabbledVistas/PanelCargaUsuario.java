@@ -73,7 +73,7 @@ public class PanelCargaUsuario extends javax.swing.JPanel {
         ingresoNombreUsuario.setBackground(new java.awt.Color(204, 204, 255));
         ingresoNombreUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ingresoNombreUsuario.setForeground(new java.awt.Color(153, 100, 232));
-        ingresoNombreUsuario.setText("   Ingrese Nombre del Usuario");
+        ingresoNombreUsuario.setText("NOMBRE");
         ingresoNombreUsuario.setBorder(null);
         ingresoNombreUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,13 +84,13 @@ public class PanelCargaUsuario extends javax.swing.JPanel {
         ingresoApellidoUsuario.setBackground(new java.awt.Color(205, 205, 255));
         ingresoApellidoUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ingresoApellidoUsuario.setForeground(new java.awt.Color(153, 100, 232));
-        ingresoApellidoUsuario.setText("   Ingrese Apellido del Usuario");
+        ingresoApellidoUsuario.setText("APELLIDO");
         ingresoApellidoUsuario.setBorder(null);
 
         ingresoDireccionUsuario.setBackground(new java.awt.Color(205, 205, 255));
         ingresoDireccionUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ingresoDireccionUsuario.setForeground(new java.awt.Color(153, 100, 232));
-        ingresoDireccionUsuario.setText("   Ingrese Direccion del Usuario");
+        ingresoDireccionUsuario.setText("DIRECCION");
         ingresoDireccionUsuario.setBorder(null);
         ingresoDireccionUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,19 +101,19 @@ public class PanelCargaUsuario extends javax.swing.JPanel {
         ingresoEmailUsuario.setBackground(new java.awt.Color(205, 205, 255));
         ingresoEmailUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ingresoEmailUsuario.setForeground(new java.awt.Color(153, 100, 232));
-        ingresoEmailUsuario.setText("   Ingrese Email del Usuario");
+        ingresoEmailUsuario.setText("EMAIL");
         ingresoEmailUsuario.setBorder(null);
 
         ingresoTelefonoUsuario.setBackground(new java.awt.Color(205, 205, 255));
         ingresoTelefonoUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ingresoTelefonoUsuario.setForeground(new java.awt.Color(153, 100, 232));
-        ingresoTelefonoUsuario.setText("   Ingrese Telefono del Usuario");
+        ingresoTelefonoUsuario.setText("TELEFONO");
         ingresoTelefonoUsuario.setBorder(null);
 
         ingresoContraseñaUsuario.setBackground(new java.awt.Color(205, 205, 255));
         ingresoContraseñaUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ingresoContraseñaUsuario.setForeground(new java.awt.Color(153, 100, 232));
-        ingresoContraseñaUsuario.setText("   Ingrese Contraseña del Usuario");
+        ingresoContraseñaUsuario.setText("CONTRASEÑA");
         ingresoContraseñaUsuario.setBorder(null);
         ingresoContraseñaUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,7 +124,7 @@ public class PanelCargaUsuario extends javax.swing.JPanel {
         ingresoDniUsuario.setBackground(new java.awt.Color(205, 205, 255));
         ingresoDniUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ingresoDniUsuario.setForeground(new java.awt.Color(153, 100, 232));
-        ingresoDniUsuario.setText("   Ingrese DNI del Usuario");
+        ingresoDniUsuario.setText("DNI");
         ingresoDniUsuario.setBorder(null);
         ingresoDniUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -277,13 +277,13 @@ public class PanelCargaUsuario extends javax.swing.JPanel {
      *
      */
     public void reestablecerTextoCargaUsuario(){
-        ingresoNombreUsuario.setText("   Ingrese Nombre del Usuario");
-        ingresoApellidoUsuario.setText("   Ingrese Apellido del Usuario");
-        ingresoDireccionUsuario.setText("   Ingrese Direccion del Usuario");
-        ingresoEmailUsuario.setText("   Ingrese Email del Usuario");
-        ingresoTelefonoUsuario.setText("   Ingrese Telefono del Usuario");
-        ingresoContraseñaUsuario.setText("   Ingrese Contraseña del Usuario");
-        ingresoDniUsuario.setText("   Ingrese DNI del Usuario");
+        ingresoNombreUsuario.setText("NOMBRE");
+        ingresoApellidoUsuario.setText("APELLIDO");
+        ingresoDireccionUsuario.setText("DIRECCION");
+        ingresoEmailUsuario.setText("EMAIL");
+        ingresoTelefonoUsuario.setText("TELEFONO");
+        ingresoContraseñaUsuario.setText("CONTRASEÑA");
+        ingresoDniUsuario.setText("DNI");
     }
 
 
