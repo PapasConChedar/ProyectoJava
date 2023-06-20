@@ -6,19 +6,24 @@ package org.example.ventanas.vistas.panelesTabbledVistas;
 
 import com.org.example.clases.Productos;
 import com.org.example.Exceptions.ProductoCargaDatosException;
+import com.org.example.clases.Pedido;
 import com.org.example.clases.Productos;
 import com.org.example.service.GestionImpleProducto;
 
 import java.awt.Color;
+import java.awt.Component;
 import javax.swing.JButton;
+import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.ListCellRenderer;
 
 /**
  * @author Agus-Notebook
  */
-public class PanelCargaProducto extends javax.swing.JPanel {
-
+public class PanelCargaProducto extends javax.swing.JPanel{
+    private final GestionImpleProducto gestor = new GestionImpleProducto();
+    private Productos dato = new Productos();
     /**
      * Creates new form PanelCargaProducto
      */
@@ -57,6 +62,9 @@ public class PanelCargaProducto extends javax.swing.JPanel {
         contentText6 = new javax.swing.JPanel();
         textoIngresoPrecio = new javax.swing.JLabel();
         ingresoPrecio = new javax.swing.JTextField();
+        contentText7 = new javax.swing.JPanel();
+        ingresoCategoria = new javax.swing.JLabel();
+        selectorCategoria = new javax.swing.JComboBox<>();
         iconoPanelCarga = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
 
@@ -77,11 +85,9 @@ public class PanelCargaProducto extends javax.swing.JPanel {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnGuardarIngresoMouseClicked(evt);
             }
-
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnGuardarIngresoMouseEntered(evt);
             }
-
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnGuardarIngresoMouseExited(evt);
             }
@@ -97,7 +103,6 @@ public class PanelCargaProducto extends javax.swing.JPanel {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnLimpiarIngreso1MouseEntered(evt);
             }
-
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnLimpiarIngreso1MouseExited(evt);
             }
@@ -137,17 +142,17 @@ public class PanelCargaProducto extends javax.swing.JPanel {
         javax.swing.GroupLayout contentText1Layout = new javax.swing.GroupLayout(contentText1);
         contentText1.setLayout(contentText1Layout);
         contentText1Layout.setHorizontalGroup(
-                contentText1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(contentText1Layout.createSequentialGroup()
-                                .addComponent(textoIngresoMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, 0)
-                                .addComponent(ingresoMarca))
+            contentText1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(contentText1Layout.createSequentialGroup()
+                .addComponent(textoIngresoMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(ingresoMarca))
         );
         contentText1Layout.setVerticalGroup(
-                contentText1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(contentText1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(textoIngresoMarca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(ingresoMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+            contentText1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(contentText1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(textoIngresoMarca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ingresoMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         contentText2.setBackground(new java.awt.Color(255, 255, 255));
@@ -174,17 +179,17 @@ public class PanelCargaProducto extends javax.swing.JPanel {
         javax.swing.GroupLayout contentText2Layout = new javax.swing.GroupLayout(contentText2);
         contentText2.setLayout(contentText2Layout);
         contentText2Layout.setHorizontalGroup(
-                contentText2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(contentText2Layout.createSequentialGroup()
-                                .addComponent(textoIngresoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, 0)
-                                .addComponent(ingresoNombre))
+            contentText2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(contentText2Layout.createSequentialGroup()
+                .addComponent(textoIngresoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(ingresoNombre))
         );
         contentText2Layout.setVerticalGroup(
-                contentText2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(contentText2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(textoIngresoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(ingresoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+            contentText2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(contentText2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(textoIngresoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ingresoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         contentText3.setBackground(new java.awt.Color(255, 255, 255));
@@ -210,17 +215,16 @@ public class PanelCargaProducto extends javax.swing.JPanel {
         javax.swing.GroupLayout contentText3Layout = new javax.swing.GroupLayout(contentText3);
         contentText3.setLayout(contentText3Layout);
         contentText3Layout.setHorizontalGroup(
-                contentText3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(contentText3Layout.createSequentialGroup()
-                                .addComponent(textoIngresoElaboracion, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, 0)
-                                .addComponent(ingresoElavoracion))
+            contentText3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(contentText3Layout.createSequentialGroup()
+                .addComponent(textoIngresoElaboracion, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(ingresoElavoracion))
         );
         contentText3Layout.setVerticalGroup(
-                contentText3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(contentText3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(textoIngresoElaboracion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(ingresoElavoracion, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+            contentText3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(textoIngresoElaboracion, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+            .addComponent(ingresoElavoracion)
         );
 
         contentText4.setBackground(new java.awt.Color(255, 255, 255));
@@ -242,21 +246,27 @@ public class PanelCargaProducto extends javax.swing.JPanel {
                 ingresoVencimientoMouseClicked(evt);
             }
         });
+        ingresoVencimiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ingresoVencimientoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout contentText4Layout = new javax.swing.GroupLayout(contentText4);
         contentText4.setLayout(contentText4Layout);
         contentText4Layout.setHorizontalGroup(
-                contentText4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(contentText4Layout.createSequentialGroup()
-                                .addComponent(textoIngresoVencimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, 0)
-                                .addComponent(ingresoVencimiento, javax.swing.GroupLayout.DEFAULT_SIZE, 396, Short.MAX_VALUE))
+            contentText4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(contentText4Layout.createSequentialGroup()
+                .addComponent(textoIngresoVencimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(ingresoVencimiento)
+                .addGap(0, 0, 0))
         );
         contentText4Layout.setVerticalGroup(
-                contentText4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(contentText4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(textoIngresoVencimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(ingresoVencimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+            contentText4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(contentText4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(textoIngresoVencimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ingresoVencimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         contentText5.setBackground(new java.awt.Color(255, 255, 255));
@@ -282,17 +292,17 @@ public class PanelCargaProducto extends javax.swing.JPanel {
         javax.swing.GroupLayout contentText5Layout = new javax.swing.GroupLayout(contentText5);
         contentText5.setLayout(contentText5Layout);
         contentText5Layout.setHorizontalGroup(
-                contentText5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(contentText5Layout.createSequentialGroup()
-                                .addComponent(textoIngresoStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, 0)
-                                .addComponent(ingresoStock))
+            contentText5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(contentText5Layout.createSequentialGroup()
+                .addComponent(textoIngresoStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(ingresoStock))
         );
         contentText5Layout.setVerticalGroup(
-                contentText5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(contentText5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(textoIngresoStock, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(ingresoStock, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+            contentText5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(contentText5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(textoIngresoStock, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ingresoStock, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         contentText6.setBackground(new java.awt.Color(255, 255, 255));
@@ -318,48 +328,89 @@ public class PanelCargaProducto extends javax.swing.JPanel {
         javax.swing.GroupLayout contentText6Layout = new javax.swing.GroupLayout(contentText6);
         contentText6.setLayout(contentText6Layout);
         contentText6Layout.setHorizontalGroup(
-                contentText6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(contentText6Layout.createSequentialGroup()
-                                .addComponent(textoIngresoPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, 0)
-                                .addComponent(ingresoPrecio))
+            contentText6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(contentText6Layout.createSequentialGroup()
+                .addComponent(textoIngresoPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(ingresoPrecio))
         );
         contentText6Layout.setVerticalGroup(
-                contentText6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(contentText6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(textoIngresoPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(ingresoPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+            contentText6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(contentText6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(textoIngresoPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ingresoPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+
+        contentText7.setBackground(new java.awt.Color(255, 255, 255));
+        contentText7.setMaximumSize(new java.awt.Dimension(160, 34));
+        contentText7.setMinimumSize(new java.awt.Dimension(160, 34));
+        contentText7.setPreferredSize(new java.awt.Dimension(160, 34));
+
+        ingresoCategoria.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        ingresoCategoria.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ingresoCategoria.setText("Categoria Producto :");
+        ingresoCategoria.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        ingresoCategoria.setMaximumSize(new java.awt.Dimension(160, 34));
+        ingresoCategoria.setMinimumSize(new java.awt.Dimension(160, 34));
+        ingresoCategoria.setPreferredSize(new java.awt.Dimension(160, 34));
+
+        javax.swing.GroupLayout contentText7Layout = new javax.swing.GroupLayout(contentText7);
+        contentText7.setLayout(contentText7Layout);
+        contentText7Layout.setHorizontalGroup(
+            contentText7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(ingresoCategoria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        contentText7Layout.setVerticalGroup(
+            contentText7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(ingresoCategoria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        selectorCategoria.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        selectorCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---", "LIMPIEZA", "COMIDA", "JUGUETERIA", "BEBIDAS", "CONGELADOS", "LACTEOS", "VARIOS" }));
+        selectorCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectorCategoriaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelMuestraTextoLayout = new javax.swing.GroupLayout(panelMuestraTexto);
         panelMuestraTexto.setLayout(panelMuestraTextoLayout);
         panelMuestraTextoLayout.setHorizontalGroup(
-                panelMuestraTextoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(contentText1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(contentText5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(contentText2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(contentText4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(contentText6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(contentText3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            panelMuestraTextoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(contentText1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(contentText2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(contentText3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(contentText4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(contentText5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(contentText6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(panelMuestraTextoLayout.createSequentialGroup()
+                .addComponent(contentText7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(selectorCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(79, Short.MAX_VALUE))
         );
         panelMuestraTextoLayout.setVerticalGroup(
-                panelMuestraTextoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMuestraTextoLayout.createSequentialGroup()
-                                .addComponent(contentText1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(contentText2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(contentText3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(contentText4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(contentText5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(contentText6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            panelMuestraTextoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelMuestraTextoLayout.createSequentialGroup()
+                .addComponent(contentText1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(contentText2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(contentText3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(contentText4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(contentText5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(contentText6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16)
+                .addGroup(panelMuestraTextoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(contentText7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(selectorCategoria))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
-        backgroundPanelCargaProducto.add(panelMuestraTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 560, 330));
+        backgroundPanelCargaProducto.add(panelMuestraTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 560, 370));
 
         iconoPanelCarga.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lista-de-verificacion (1).png"))); // NOI18N
         backgroundPanelCargaProducto.add(iconoPanelCarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 60, -1, -1));
@@ -370,12 +421,12 @@ public class PanelCargaProducto extends javax.swing.JPanel {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(backgroundPanelCargaProducto, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(backgroundPanelCargaProducto, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(backgroundPanelCargaProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(backgroundPanelCargaProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -407,6 +458,7 @@ public class PanelCargaProducto extends javax.swing.JPanel {
         ingreso.setText("");
         ingreso.setForeground(Color.BLACK);
     }
+    
 
     /**
      * Funcion que verifica si los datos ingresados son correctos
@@ -414,7 +466,6 @@ public class PanelCargaProducto extends javax.swing.JPanel {
      * @throws ProductoCargaDatosException
      */
     private boolean verificacionFormato() throws ProductoCargaDatosException {
-        GestionImpleProducto gestor = new GestionImpleProducto();
         if (gestor.verificacionIngresosBases(ingresoMarca.getText(),
                 ingresoNombre.getText(), ingresoElavoracion.getText(),
                 ingresoVencimiento.getText(), ingresoStock.getText(),
@@ -475,7 +526,9 @@ public class PanelCargaProducto extends javax.swing.JPanel {
         ingresoVencimiento.setText("");
         ingresoStock.setText("");
         ingresoPrecio.setText("");
+        selectorCategoria.setSelectedIndex(0);
         restablecerTextoIngreso();
+        
     }//GEN-LAST:event_btnLimpiarIngreso1ActionPerformed
 
     private void ingresoMarcaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresoMarcaMouseClicked
@@ -655,24 +708,32 @@ public class PanelCargaProducto extends javax.swing.JPanel {
     private void btnGuardarIngresoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarIngresoMouseClicked
         // TODO add your handling code here:
         try {
-            GestionImpleProducto gestionImpleProducto = new GestionImpleProducto();
-            Productos productoNuevo = new Productos();
             if (verificacionFormato()) {
-                productoNuevo.setIdProducto(gestionImpleProducto.crearIdProducto());
-                productoNuevo.setMarca(ingresoMarca.getText());
-                productoNuevo.setNombre(ingresoNombre.getText());
-                productoNuevo.setFechaElavoracion(ingresoElavoracion.getText());
-                productoNuevo.setFecheaDeVencimiento(ingresoVencimiento.getText());
-                productoNuevo.setStock(Integer.parseInt(ingresoStock.getText()));
-                productoNuevo.setPrecio(Integer.parseInt(ingresoPrecio.getText()));
-                gestionImpleProducto.add(productoNuevo);
+                dato.setIdProducto(gestor.crearIdProducto());
+                dato.setMarca(ingresoMarca.getText());
+                dato.setNombre(ingresoNombre.getText());
+                dato.setFechaElavoracion(ingresoElavoracion.getText());
+                dato.setFecheaDeVencimiento(ingresoVencimiento.getText());
+                dato.setStock(Integer.parseInt(ingresoStock.getText()));
+                dato.setPrecio(Integer.parseInt(ingresoPrecio.getText()));
+                gestor.add(dato);
                 JOptionPane.showMessageDialog(null, "Producto Ingresado Correctamente");
                 restablecerTextoIngreso();
+                dato = new Productos();
             }
         } catch (ProductoCargaDatosException e) {
             JOptionPane.showMessageDialog(null, e.escribirMensaje());
         }
     }//GEN-LAST:event_btnGuardarIngresoMouseClicked
+
+    private void ingresoVencimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresoVencimientoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ingresoVencimientoActionPerformed
+
+    private void selectorCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectorCategoriaActionPerformed
+        // TODO add your handling code here:
+        gestor.selecionarCategoriaProductos(dato, selectorCategoria.getSelectedIndex());
+    }//GEN-LAST:event_selectorCategoriaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -685,7 +746,9 @@ public class PanelCargaProducto extends javax.swing.JPanel {
     private javax.swing.JPanel contentText4;
     private javax.swing.JPanel contentText5;
     private javax.swing.JPanel contentText6;
+    private javax.swing.JPanel contentText7;
     private javax.swing.JLabel iconoPanelCarga;
+    private javax.swing.JLabel ingresoCategoria;
     private javax.swing.JTextField ingresoElavoracion;
     private javax.swing.JTextField ingresoMarca;
     private javax.swing.JTextField ingresoNombre;
@@ -694,6 +757,7 @@ public class PanelCargaProducto extends javax.swing.JPanel {
     private javax.swing.JTextField ingresoVencimiento;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel panelMuestraTexto;
+    private javax.swing.JComboBox<String> selectorCategoria;
     private javax.swing.JLabel textoIngresoElaboracion;
     private javax.swing.JLabel textoIngresoMarca;
     private javax.swing.JLabel textoIngresoNombre;
@@ -701,4 +765,5 @@ public class PanelCargaProducto extends javax.swing.JPanel {
     private javax.swing.JLabel textoIngresoStock;
     private javax.swing.JLabel textoIngresoVencimiento;
     // End of variables declaration//GEN-END:variables
+
 }

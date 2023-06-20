@@ -1,9 +1,10 @@
 [ {
   "idProducto" : 0,
-  "marca" : "Coca-Cola Company",
-  "nombre" : "Coca-Cola",
-  "fecheaDeVencimiento" : "20/09/2023",
+  "marca" : "Lays",
+  "nombre" : "Papas Con Cheddar",
+  "fecheaDeVencimiento" : "26/06/2023",
   "fechaElavoracion" : "19/06/2023",
-  "stock" : 500,
-  "precio" : 500
+  "stock" : 3,
+  "precio" : 760,
+  "categoriaProducto" : "COMIDA"
 } ]

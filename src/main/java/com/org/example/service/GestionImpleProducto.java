@@ -1,9 +1,9 @@
 package com.org.example.service;
 
 import com.org.example.clases.Productos;
+import com.org.example.enums.Categoria;
 import com.org.example.repository.imple.ImpleProductoRepository;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.regex.Pattern;
 
 public class GestionImpleProducto {
@@ -34,7 +34,7 @@ public class GestionImpleProducto {
      * @return 
      */
     public Integer crearIdProducto(){
-        return impleProductoRepository.getAll().size();
+        return (impleProductoRepository.getAll()== null) ? 0 :  impleProductoRepository.getAll().size() ;
     }
     /**
      * Verifica si alguno de los String ingresados son nulos
@@ -102,7 +102,35 @@ public class GestionImpleProducto {
         }
         return true;
     }
-
+    
+    public Productos selecionarCategoriaProductos(Productos item,int index){
+        switch (index) {
+            case 1:
+                item.setCategoriaProducto(Categoria.LIMPIEZA);
+                break;
+            case 2:
+                item.setCategoriaProducto(Categoria.COMIDA);
+                break;
+            case 3:
+                item.setCategoriaProducto(Categoria.JUGUETERIA);
+                break;
+            case 4:
+                item.setCategoriaProducto(Categoria.BEBIDAS);
+                break;
+            case 5:
+                item.setCategoriaProducto(Categoria.CONGELADOS);
+                break;
+            case 6:
+                item.setCategoriaProducto(Categoria.LACTEOS);
+                break;
+            case 7:
+                item.setCategoriaProducto(Categoria.VARIOS);
+                break;
+            default:
+                throw new AssertionError();
+        }
+        return item;
+    }
 
 
 }

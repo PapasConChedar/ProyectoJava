@@ -1,5 +1,6 @@
 package com.org.example.clases;
 
+import com.org.example.enums.Categoria;
 import java.io.Serializable;
 
 public class Productos implements Serializable {
@@ -10,7 +11,8 @@ public class Productos implements Serializable {
     private String fechaElavoracion;
     private int stock;
     private int precio;
-    enum Categoria {LIMPIEZA, COMIDA, JUGUETERIA}
+    private Categoria categoriaProducto;
+
 
 
     //region CONSTRUCTOR VACIO
@@ -18,7 +20,7 @@ public class Productos implements Serializable {
         
     }
     
-    public Productos(int id,String marca, String nombre, String fecheaDeVencimiento, String fechaElavoracion, int stock, int precio) {
+    public Productos(int id,String marca, String nombre, String fecheaDeVencimiento, String fechaElavoracion, int stock, int precio,Categoria categoriaProducCategoria) {
         this.idProducto = id;
         this.marca = marca;
         this.nombre = nombre;
@@ -26,6 +28,7 @@ public class Productos implements Serializable {
         this.fechaElavoracion = fechaElavoracion;
         this.stock = stock;
         this.precio = precio;
+        this.categoriaProducto= categoriaProducCategoria;
     }
 //endregion
 
@@ -84,6 +87,16 @@ public class Productos implements Serializable {
     public void setPrecio(int precio) {
         this.precio = precio;
     }
+    
+    public Categoria getCategoriaProducto(){
+        return this.categoriaProducto;
+    }
+    
+    public void setCategoriaProducto(Categoria categoria){
+        this.categoriaProducto = categoria;
+    }
+    
+    
     //endregion
 
     //region TOSTRING
