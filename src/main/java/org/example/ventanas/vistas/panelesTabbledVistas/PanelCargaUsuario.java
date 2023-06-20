@@ -72,6 +72,7 @@ public class PanelCargaUsuario extends javax.swing.JPanel {
         ingresoNombreUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ingresoNombreUsuario.setForeground(new java.awt.Color(153, 100, 232));
         ingresoNombreUsuario.setText("   Ingrese Nombre del Usuario");
+        ingresoNombreUsuario.setBorder(null);
         ingresoNombreUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ingresoNombreUsuarioActionPerformed(evt);
@@ -82,11 +83,13 @@ public class PanelCargaUsuario extends javax.swing.JPanel {
         ingresoApellidoUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ingresoApellidoUsuario.setForeground(new java.awt.Color(153, 100, 232));
         ingresoApellidoUsuario.setText("   Ingrese Apellido del Usuario");
+        ingresoApellidoUsuario.setBorder(null);
 
         ingresoDireccionUsuario.setBackground(new java.awt.Color(205, 205, 255));
         ingresoDireccionUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ingresoDireccionUsuario.setForeground(new java.awt.Color(153, 100, 232));
         ingresoDireccionUsuario.setText("   Ingrese Direccion del Usuario");
+        ingresoDireccionUsuario.setBorder(null);
         ingresoDireccionUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ingresoDireccionUsuarioActionPerformed(evt);
@@ -97,16 +100,19 @@ public class PanelCargaUsuario extends javax.swing.JPanel {
         ingresoEmailUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ingresoEmailUsuario.setForeground(new java.awt.Color(153, 100, 232));
         ingresoEmailUsuario.setText("   Ingrese Email del Usuario");
+        ingresoEmailUsuario.setBorder(null);
 
         ingresoTelefonoUsuario.setBackground(new java.awt.Color(205, 205, 255));
         ingresoTelefonoUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ingresoTelefonoUsuario.setForeground(new java.awt.Color(153, 100, 232));
         ingresoTelefonoUsuario.setText("   Ingrese Telefono del Usuario");
+        ingresoTelefonoUsuario.setBorder(null);
 
         ingresoContraseñaUsuario.setBackground(new java.awt.Color(205, 205, 255));
         ingresoContraseñaUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ingresoContraseñaUsuario.setForeground(new java.awt.Color(153, 100, 232));
         ingresoContraseñaUsuario.setText("   Ingrese Contraseña del Usuario");
+        ingresoContraseñaUsuario.setBorder(null);
         ingresoContraseñaUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ingresoContraseñaUsuarioActionPerformed(evt);
@@ -117,6 +123,7 @@ public class PanelCargaUsuario extends javax.swing.JPanel {
         ingresoDniUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ingresoDniUsuario.setForeground(new java.awt.Color(153, 100, 232));
         ingresoDniUsuario.setText("   Ingrese DNI del Usuario");
+        ingresoDniUsuario.setBorder(null);
         ingresoDniUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ingresoDniUsuarioActionPerformed(evt);
@@ -322,12 +329,7 @@ public class PanelCargaUsuario extends javax.swing.JPanel {
     }//GEN-LAST:event_ingresoNombreUsuarioActionPerformed
 
     private void btnLimpiarPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarPanelActionPerformed
-        ingresoNombreUsuario.setText("");
-        ingresoApellidoUsuario.setText("");
-        ingresoDireccionUsuario.setText("");
-        ingresoEmailUsuario.setText("");
-        ingresoTelefonoUsuario.setText("");
-        ingresoContraseñaUsuario.setText("");
+        reestablecerTextoCargaUsuario();
     }//GEN-LAST:event_btnLimpiarPanelActionPerformed
 
     private void guardarUsuarioNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarUsuarioNuevoActionPerformed

@@ -30,6 +30,7 @@ public class PanelEdicionUsuario extends javax.swing.JPanel {
     private void initComponents() {
 
         backgroundPanelEdicionUsuario = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -42,11 +43,14 @@ public class PanelEdicionUsuario extends javax.swing.JPanel {
         jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
         jTextField7 = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
 
         backgroundPanelEdicionUsuario.setBackground(new java.awt.Color(252, 237, 186));
         backgroundPanelEdicionUsuario.setMaximumSize(new java.awt.Dimension(800, 510));
         backgroundPanelEdicionUsuario.setMinimumSize(new java.awt.Dimension(800, 510));
+        backgroundPanelEdicionUsuario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/3804730mini.png"))); // NOI18N
+        backgroundPanelEdicionUsuario.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, -1, 89));
 
         jPanel1.setBackground(new java.awt.Color(252, 222, 81));
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 5, true));
@@ -125,7 +129,7 @@ public class PanelEdicionUsuario extends javax.swing.JPanel {
 
         jTextField1.setBackground(new java.awt.Color(255, 235, 145));
         jTextField1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(70, 90, 97));
+        jTextField1.setForeground(new java.awt.Color(246, 171, 49));
         jTextField1.setText("NOMBRE");
         jTextField1.setBorder(null);
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -136,7 +140,7 @@ public class PanelEdicionUsuario extends javax.swing.JPanel {
 
         jTextField2.setBackground(new java.awt.Color(255, 235, 145));
         jTextField2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(70, 90, 97));
+        jTextField2.setForeground(new java.awt.Color(246, 171, 49));
         jTextField2.setText("APELLIDO");
         jTextField2.setBorder(null);
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
@@ -147,7 +151,7 @@ public class PanelEdicionUsuario extends javax.swing.JPanel {
 
         jTextField3.setBackground(new java.awt.Color(255, 235, 145));
         jTextField3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jTextField3.setForeground(new java.awt.Color(70, 90, 97));
+        jTextField3.setForeground(new java.awt.Color(246, 171, 49));
         jTextField3.setText("DNI");
         jTextField3.setBorder(null);
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
@@ -158,7 +162,7 @@ public class PanelEdicionUsuario extends javax.swing.JPanel {
 
         jTextField4.setBackground(new java.awt.Color(255, 235, 145));
         jTextField4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jTextField4.setForeground(new java.awt.Color(70, 90, 97));
+        jTextField4.setForeground(new java.awt.Color(246, 171, 49));
         jTextField4.setText("DIRECCION");
         jTextField4.setBorder(null);
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
@@ -169,7 +173,7 @@ public class PanelEdicionUsuario extends javax.swing.JPanel {
 
         jTextField5.setBackground(new java.awt.Color(255, 235, 145));
         jTextField5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jTextField5.setForeground(new java.awt.Color(70, 90, 97));
+        jTextField5.setForeground(new java.awt.Color(246, 171, 49));
         jTextField5.setText("EMAIL");
         jTextField5.setBorder(null);
         jTextField5.addActionListener(new java.awt.event.ActionListener() {
@@ -180,7 +184,7 @@ public class PanelEdicionUsuario extends javax.swing.JPanel {
 
         jTextField6.setBackground(new java.awt.Color(255, 235, 145));
         jTextField6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jTextField6.setForeground(new java.awt.Color(70, 90, 97));
+        jTextField6.setForeground(new java.awt.Color(246, 171, 49));
         jTextField6.setText("CONTRASEÑA");
         jTextField6.setBorder(null);
         jTextField6.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -196,7 +200,7 @@ public class PanelEdicionUsuario extends javax.swing.JPanel {
 
         jTextField7.setBackground(new java.awt.Color(255, 235, 145));
         jTextField7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jTextField7.setForeground(new java.awt.Color(70, 90, 97));
+        jTextField7.setForeground(new java.awt.Color(246, 171, 49));
         jTextField7.setText("TELEFONO");
         jTextField7.setBorder(null);
         jTextField7.addActionListener(new java.awt.event.ActionListener() {
@@ -251,31 +255,7 @@ public class PanelEdicionUsuario extends javax.swing.JPanel {
                 .addGap(15, 15, 15))
         );
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/3804730mini.png"))); // NOI18N
-
-        javax.swing.GroupLayout backgroundPanelEdicionUsuarioLayout = new javax.swing.GroupLayout(backgroundPanelEdicionUsuario);
-        backgroundPanelEdicionUsuario.setLayout(backgroundPanelEdicionUsuarioLayout);
-        backgroundPanelEdicionUsuarioLayout.setHorizontalGroup(
-            backgroundPanelEdicionUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(backgroundPanelEdicionUsuarioLayout.createSequentialGroup()
-                .addGroup(backgroundPanelEdicionUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(backgroundPanelEdicionUsuarioLayout.createSequentialGroup()
-                        .addGap(222, 222, 222)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(backgroundPanelEdicionUsuarioLayout.createSequentialGroup()
-                        .addGap(338, 338, 338)
-                        .addComponent(jLabel1)))
-                .addContainerGap(271, Short.MAX_VALUE))
-        );
-        backgroundPanelEdicionUsuarioLayout.setVerticalGroup(
-            backgroundPanelEdicionUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(backgroundPanelEdicionUsuarioLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(80, Short.MAX_VALUE))
-        );
+        backgroundPanelEdicionUsuario.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(222, 101, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
