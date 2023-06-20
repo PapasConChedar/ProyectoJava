@@ -7,6 +7,9 @@ package com.org.example.ventanas;
 import org.example.ventanas.vistas.VistaPrincipal;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.io.File;
+import java.io.IOException;
+import javax.sound.sampled.*;
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -28,7 +31,19 @@ public class MenuInicio extends javax.swing.JFrame {
     public MenuInicio() {
         initComponents();
         iniciarVista(1,contenido);
+        reproducirMusica();
     }
+    public void reproducirMusica() {
+        try {
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/main/java/com/org/example/audio/Office.wav"));
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioInputStream);
+            clip.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     /**
      * Funcion que instancia un Jpanel Ventana seleccionado para que aparesca
      * en el Jpanel que lo "contenga" en el Menu Principal

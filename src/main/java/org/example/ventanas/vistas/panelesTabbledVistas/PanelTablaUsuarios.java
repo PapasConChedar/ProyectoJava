@@ -4,12 +4,18 @@
  */
 package org.example.ventanas.vistas.panelesTabbledVistas;
 
+import com.org.example.Exceptions.UsuarioTablaMuestraExcepciones;
 import com.org.example.clases.Cliente;
 import com.org.example.service.GestionImpleCliente;
+import java.awt.Component;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-import javax.swing.plaf.TableUI;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -19,58 +25,96 @@ import javax.swing.table.DefaultTableModel;
 public class PanelTablaUsuarios extends javax.swing.JPanel {
 
     private GestionImpleCliente gestor;
-    private DefaultTableModel modelo;
+    private final DefaultTableModel modelo;
     private Cliente clienteSeleccionado = new Cliente();
+
+    private class rederizadorTabla extends DefaultTableCellRenderer {
+
+        @Override
+        public Component getTableCellRendererComponent(JTable table, Object item, boolean isSelected, boolean hasFocus, int row, int column) {
+            if (item instanceof JCheckBox) {
+                JCheckBox checkBox = (JCheckBox) item;
+                return checkBox;
+            }
+            return super.getTableCellRendererComponent(table, item, isSelected, hasFocus, row, column); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+        }
+
+    }
 
     /**
      * Creates new form panelTablaUsuarios
      */
     public PanelTablaUsuarios() {
+        String[] titulos = {"ID", "Nombre", "Direccion", "Email", "Contraseña",
+            "Telefono", "Seleccion"};
+        Boolean[] titulosEditables = {false, false, false, false, false, false, true};
+        Class[] titulosObjetos = {String.class, String.class, String.class,
+            String.class, String.class, String.class, Boolean.class};
+
         initComponents();
         gestor = new GestionImpleCliente();
         modelo = new DefaultTableModel() {
             @Override
             public boolean isCellEditable(int row, int column) {
-                return column == getColumnCount(); // Hace que todas las celdas sean no editables, excepto la última columna (Seleccion)
+                return titulosEditables[column];
+            }
+
+            public Class getColumnClass(int indice) {
+                return titulosObjetos[indice];
             }
         };
-        modelo.addColumn("ID");
-        modelo.addColumn("Nombre");
-        modelo.addColumn("Direccion");
-        modelo.addColumn("Email");
-        modelo.addColumn("Contraseña");
-        modelo.addColumn("Telefono");
+
+        modelo.setColumnIdentifiers(titulos);
         cargarTabla();
         tablaUsuarios.setModel(modelo);
-        tablaUsuarios.setRowSelectionAllowed(true);
-        tablaUsuarios.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
-            @Override
-            public void valueChanged(ListSelectionEvent e) {
-                if (!e.getValueIsAdjusting()) {
-                    int selectedRow = tablaUsuarios.getSelectedRow();
-                    String idCliente = tablaUsuarios.getValueAt(selectedRow, 0).toString();
-                    clienteSeleccionado = gestor.getById(idCliente);
-                }
-            }
-        });
     }
-    
-    
 
     /**
      * Carga la tabla con los valores que contiene el repositorio
      */
     private void cargarTabla() {
         for (Cliente i : gestor.getList()) {
-            Object[] infDatos = new Object[6];
+            Object[] infDatos = new Object[7];
             infDatos[0] = i.getIdCliente();
             infDatos[1] = i.getNombre() + " " + i.getApellido();
             infDatos[2] = i.getDireccion();
             infDatos[3] = i.getEmail();
             infDatos[4] = i.getContraseña();
             infDatos[5] = i.getTelefono();
+            infDatos[6] = false;
             modelo.addRow(infDatos);
         }
+    }
+
+    public int verificarSeleccionados(int posicion) {
+        int contador = 0;
+        for (int i = 0; i < tablaUsuarios.getRowCount(); i++) {
+            boolean seleccion = (boolean) tablaUsuarios.getValueAt(i, posicion);
+            if (seleccion) {
+                contador++;
+            }
+        }
+        return contador;
+    }
+
+    public Cliente obtenerClienteDeTabla(int posicion){
+        boolean seleccion = (boolean) tablaUsuarios.getValueAt(posicion, 6);
+        if (seleccion) {
+            String idCliente = tablaUsuarios.getValueAt(posicion, 0).toString();
+            return gestor.getById(idCliente);
+        }
+        return null;
+    }
+
+    public ArrayList<Cliente> clientesSeleccionados() {
+        ArrayList<Cliente> selecionados = new ArrayList<>();
+        for (int i = 0; i < tablaUsuarios.getRowCount(); i++) {
+                clienteSeleccionado = obtenerClienteDeTabla(i);
+                if(clienteSeleccionado != null){
+                    selecionados.add(clienteSeleccionado);
+                }
+        }
+        return selecionados;
     }
 
     /**
@@ -127,6 +171,11 @@ public class PanelTablaUsuarios extends javax.swing.JPanel {
         btnBorrarSeleccionados1.setForeground(new java.awt.Color(255, 255, 255));
         btnBorrarSeleccionados1.setText("BORRAR");
         btnBorrarSeleccionados1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnBorrarSeleccionados1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBorrarSeleccionados1MouseClicked(evt);
+            }
+        });
 
         tablaUsuarios.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         scrollTabla.setViewportView(tablaUsuarios);
@@ -145,8 +194,8 @@ public class PanelTablaUsuarios extends javax.swing.JPanel {
                     .addComponent(scrollTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 769, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(backgroundPanelTablaUsuariosLayout.createSequentialGroup()
                         .addComponent(btnEditarSeleccionados, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnBorrarSeleccionados1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnBorrarSeleccionados1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(16, 16, 16))
         );
         backgroundPanelTablaUsuariosLayout.setVerticalGroup(
@@ -186,6 +235,20 @@ public class PanelTablaUsuarios extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, clienteSeleccionado.getNumeroCuenta());
         }
     }//GEN-LAST:event_btnEditarSeleccionadosMouseClicked
+
+    private void btnBorrarSeleccionados1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBorrarSeleccionados1MouseClicked
+        // TODO add your handling code here:
+        if(verificarSeleccionados(6) >= 1){
+            int confimar = JOptionPane.showConfirmDialog(null, "Seguro de Eliminar: "+verificarSeleccionados(6));
+            if(confimar == 1){
+                for(Cliente i : clientesSeleccionados()){
+                    gestor.delete(i);
+                }
+            }
+        }
+
+
+    }//GEN-LAST:event_btnBorrarSeleccionados1MouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel backgroundPanelTablaUsuarios;

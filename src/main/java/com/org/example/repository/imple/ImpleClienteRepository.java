@@ -83,7 +83,12 @@ public class ImpleClienteRepository implements GenericsRepository<Cliente> {
     @Override
     public void delete(Cliente item) {
         cargar();
-        this.listClientes.removeIf(cliente -> Objects.equals(cliente.getDni(), item.getDni()));
+        for (Cliente i : listClientes) {
+            if (Objects.equals(i.getIdCliente(), item.getIdCliente())) {
+                listClientes.remove(i);
+                break;
+            }
+        }
         guardar();
     }
 }
