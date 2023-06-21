@@ -325,9 +325,6 @@ public class PanelEdicionUsuario extends javax.swing.JPanel {
                     ingresoTelefonoUsuario.getText(),
                     ingresoPasswordUsuario.getText(),
                     ingresoDniUsuario.getText())) {
-                if (gestor.verificacionFormatoInteger(
-                        ingresoDniUsuario.getText(),
-                        ingresoTelefonoUsuario.getText())) {
                     return true;
                 } else {
                     throw new UsuarioCargaDatosException(
@@ -338,11 +335,7 @@ public class PanelEdicionUsuario extends javax.swing.JPanel {
                         7);
             }
 
-        } else {
-            throw new UsuarioCargaDatosException(
-                    7);
         }
-    }
 
 
     private void ingresoNombreClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresoNombreClienteActionPerformed

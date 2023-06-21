@@ -8,7 +8,7 @@ import com.org.example.ventanas.MenuUsuario;
 
 public class Main {
     public static void main(String[] args) {     
-        MenuUsuario menu = new MenuUsuario();
+        MenuInicio menu = new MenuInicio();
             menu.setVisible(true);
 
     }
