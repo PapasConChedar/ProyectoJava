@@ -45,8 +45,8 @@ public class VistaMiUsuario extends javax.swing.JPanel {
         txtEmailUsuario = new javax.swing.JTextField();
         jTextField13 = new javax.swing.JTextField();
         txtContraseniauSUARIO = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnEditar = new javax.swing.JButton();
+        btnGuardar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(242, 100, 100));
         setMaximumSize(new java.awt.Dimension(800, 560));
@@ -72,8 +72,14 @@ public class VistaMiUsuario extends javax.swing.JPanel {
             }
         });
 
+        txtNombreUusario.setEditable(false);
         txtNombreUusario.setBackground(new java.awt.Color(255, 184, 184));
         txtNombreUusario.setBorder(null);
+        txtNombreUusario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtNombreUusarioMouseClicked(evt);
+            }
+        });
 
         jTextField3.setEditable(false);
         jTextField3.setBackground(new java.awt.Color(255, 184, 184));
@@ -87,8 +93,14 @@ public class VistaMiUsuario extends javax.swing.JPanel {
             }
         });
 
+        txtApellidoUsuario.setEditable(false);
         txtApellidoUsuario.setBackground(new java.awt.Color(255, 184, 184));
         txtApellidoUsuario.setBorder(null);
+        txtApellidoUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtApellidoUsuarioMouseClicked(evt);
+            }
+        });
 
         jTextField5.setEditable(false);
         jTextField5.setBackground(new java.awt.Color(255, 184, 184));
@@ -100,6 +112,11 @@ public class VistaMiUsuario extends javax.swing.JPanel {
         txtDniUsuario.setEditable(false);
         txtDniUsuario.setBackground(new java.awt.Color(255, 184, 184));
         txtDniUsuario.setBorder(null);
+        txtDniUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtDniUsuarioMouseClicked(evt);
+            }
+        });
 
         jTextField7.setBackground(new java.awt.Color(255, 184, 184));
         jTextField7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -112,8 +129,14 @@ public class VistaMiUsuario extends javax.swing.JPanel {
             }
         });
 
+        txtDireccionUsuario.setEditable(false);
         txtDireccionUsuario.setBackground(new java.awt.Color(255, 184, 184));
         txtDireccionUsuario.setBorder(null);
+        txtDireccionUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtDireccionUsuarioMouseClicked(evt);
+            }
+        });
 
         jTextField9.setBackground(new java.awt.Color(255, 184, 184));
         jTextField9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -126,8 +149,14 @@ public class VistaMiUsuario extends javax.swing.JPanel {
             }
         });
 
+        txtTelefonoUsuario.setEditable(false);
         txtTelefonoUsuario.setBackground(new java.awt.Color(255, 184, 184));
         txtTelefonoUsuario.setBorder(null);
+        txtTelefonoUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtTelefonoUsuarioMouseClicked(evt);
+            }
+        });
         txtTelefonoUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTelefonoUsuarioActionPerformed(evt);
@@ -141,8 +170,14 @@ public class VistaMiUsuario extends javax.swing.JPanel {
         jTextField11.setText("EMAIL");
         jTextField11.setBorder(null);
 
+        txtEmailUsuario.setEditable(false);
         txtEmailUsuario.setBackground(new java.awt.Color(255, 184, 184));
         txtEmailUsuario.setBorder(null);
+        txtEmailUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtEmailUsuarioMouseClicked(evt);
+            }
+        });
 
         jTextField13.setEditable(false);
         jTextField13.setBackground(new java.awt.Color(255, 184, 184));
@@ -152,37 +187,49 @@ public class VistaMiUsuario extends javax.swing.JPanel {
         jTextField13.setToolTipText("");
         jTextField13.setBorder(null);
 
+        txtContraseniauSUARIO.setEditable(false);
         txtContraseniauSUARIO.setBackground(new java.awt.Color(255, 184, 184));
         txtContraseniauSUARIO.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txtContraseniauSUARIO.setForeground(new java.awt.Color(242, 100, 100));
         txtContraseniauSUARIO.setBorder(null);
-
-        jButton1.setBackground(new java.awt.Color(255, 184, 184));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(242, 100, 100));
-        jButton1.setText("EDITAR");
-        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(242, 100, 100), 4));
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jButton1MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jButton1MouseExited(evt);
+        txtContraseniauSUARIO.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtContraseniauSUARIOMouseClicked(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(255, 184, 184));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(242, 100, 100));
-        jButton2.setText("GUARDAR");
-        jButton2.setToolTipText("");
-        jButton2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(242, 100, 100), 4));
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnEditar.setBackground(new java.awt.Color(255, 184, 184));
+        btnEditar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnEditar.setForeground(new java.awt.Color(242, 100, 100));
+        btnEditar.setText("EDITAR");
+        btnEditar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(242, 100, 100), 4));
+        btnEditar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEditarMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jButton2MouseEntered(evt);
+                btnEditarMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jButton2MouseExited(evt);
+                btnEditarMouseExited(evt);
+            }
+        });
+
+        btnGuardar.setBackground(new java.awt.Color(255, 184, 184));
+        btnGuardar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnGuardar.setForeground(new java.awt.Color(242, 100, 100));
+        btnGuardar.setText("GUARDAR");
+        btnGuardar.setToolTipText("");
+        btnGuardar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(242, 100, 100), 4));
+        btnGuardar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnGuardarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnGuardarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnGuardarMouseExited(evt);
             }
         });
 
@@ -223,9 +270,9 @@ public class VistaMiUsuario extends javax.swing.JPanel {
                                 .addComponent(txtApellidoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(23, 23, 23)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -264,8 +311,8 @@ public class VistaMiUsuario extends javax.swing.JPanel {
                     .addComponent(txtContraseniauSUARIO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+                    .addComponent(btnEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(35, 35, 35))
         );
 
@@ -292,33 +339,101 @@ public class VistaMiUsuario extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField3ActionPerformed
 
-    private void jButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseEntered
+    private void btnGuardarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarMouseEntered
         // TODO add your handling code here:
-        jButton2.setBackground(new Color(255, 212,212));
+        btnGuardar.setBackground(new Color(255, 212,212));
 
-    }//GEN-LAST:event_jButton2MouseEntered
+    }//GEN-LAST:event_btnGuardarMouseEntered
 
-    private void jButton2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseExited
+    private void btnGuardarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarMouseExited
         // TODO add your handling code here:
-        jButton2.setBackground(new Color(255,184,184));
-    }//GEN-LAST:event_jButton2MouseExited
+        btnGuardar.setBackground(new Color(255,184,184));
+    }//GEN-LAST:event_btnGuardarMouseExited
 
-    private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
+    private void btnEditarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditarMouseEntered
         // TODO add your handling code here:
-        jButton1.setBackground(new Color(255, 212,212));
+        btnEditar.setBackground(new Color(255, 212,212));
 
-    }//GEN-LAST:event_jButton1MouseEntered
+    }//GEN-LAST:event_btnEditarMouseEntered
 
-    private void jButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseExited
+    private void btnEditarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditarMouseExited
         // TODO add your handling code here:
-        jButton1.setBackground(new Color(255,184,184));
+        btnEditar.setBackground(new Color(255,184,184));
 
-    }//GEN-LAST:event_jButton1MouseExited
+    }//GEN-LAST:event_btnEditarMouseExited
 
+    private void txtNombreUusarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombreUusarioMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreUusarioMouseClicked
 
+    private void txtApellidoUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtApellidoUsuarioMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtApellidoUsuarioMouseClicked
+
+    private void txtDniUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDniUsuarioMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDniUsuarioMouseClicked
+
+    private void txtDireccionUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDireccionUsuarioMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDireccionUsuarioMouseClicked
+
+    private void txtTelefonoUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTelefonoUsuarioMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTelefonoUsuarioMouseClicked
+
+    private void txtEmailUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEmailUsuarioMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEmailUsuarioMouseClicked
+
+    private void txtContraseniauSUARIOMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtContraseniauSUARIOMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtContraseniauSUARIOMouseClicked
+
+    private void btnEditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditarMouseClicked
+        // TODO add your handling code here:
+        habilitarEditable();
+        limpiarCampos();
+    }//GEN-LAST:event_btnEditarMouseClicked
+
+    private void btnGuardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarMouseClicked
+        // TODO add your handling code here:
+
+       deshabilitarEditable();
+
+        
+    }//GEN-LAST:event_btnGuardarMouseClicked
+
+public void habilitarEditable(){
+        txtNombreUusario.setEditable(true);
+        txtApellidoUsuario.setEditable(true);
+        txtDireccionUsuario.setEditable(true);
+        txtDniUsuario.setEditable(true);
+        txtTelefonoUsuario.setEditable(true);
+        txtEmailUsuario.setEditable(true);
+        txtContraseniauSUARIO.setEditable(true);
+}
+    public void deshabilitarEditable(){
+        txtNombreUusario.setEditable(false);
+        txtApellidoUsuario.setEditable(false);
+        txtDireccionUsuario.setEditable(false);
+        txtDniUsuario.setEditable(false);
+        txtTelefonoUsuario.setEditable(false);
+        txtEmailUsuario.setEditable(false);
+        txtContraseniauSUARIO.setEditable(false);
+    }
+    public void limpiarCampos(){
+        txtNombreUusario.setText(" ");
+        txtApellidoUsuario.setText(" ");
+        txtDireccionUsuario.setText(" ");
+        txtDniUsuario.setEditable(false);
+        txtTelefonoUsuario.setText(" ");
+        txtEmailUsuario.setText(" ");
+        txtContraseniauSUARIO.setText(" ");
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnEditar;
+    private javax.swing.JButton btnGuardar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;

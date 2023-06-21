@@ -57,7 +57,7 @@ public class GestionImpleCliente {
         impleClienteRepository.cargar();
         boolean encontrado = false;
         for (Cliente cliente : impleClienteRepository.getAll()) {
-            if (cliente.getEmail().equals(email) && cliente.getContraseña().equals(Password)) {
+            if (cliente.getEmail().equals(email) && cliente.getContrasenia().equals(Password)) {
                 encontrado = true;
                 break;
             }
@@ -69,7 +69,7 @@ public class GestionImpleCliente {
     public Optional<Cliente> encontrarCliente(String email, String password) {
         impleClienteRepository.cargar();
         for (Cliente cliente : impleClienteRepository.getAll()) {
-            if (cliente.getEmail().equals(email) && cliente.getContraseña().equals(password)) {
+            if (cliente.getEmail().equals(email) && cliente.getContrasenia().equals(password)) {
                 return Optional.of(cliente);
             }
         }
