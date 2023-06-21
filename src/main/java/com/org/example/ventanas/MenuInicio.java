@@ -35,7 +35,7 @@ public class MenuInicio extends javax.swing.JFrame {
     }
     public void reproducirMusica() {
         try {
-            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/main/java/com/org/example/audio/Office.wav"));
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/main/java/com/org/example/audio/asd.wav"));
             Clip clip = AudioSystem.getClip();
             clip.open(audioInputStream);
             clip.start();
