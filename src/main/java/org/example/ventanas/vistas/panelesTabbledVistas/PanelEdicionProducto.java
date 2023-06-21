@@ -121,6 +121,11 @@ public class PanelEdicionProducto extends javax.swing.JPanel {
         ingresoNombreEdicionProducto.setForeground(new java.awt.Color(18, 138, 92));
         ingresoNombreEdicionProducto.setText("   Ingrese Nombre del Producto");
         ingresoNombreEdicionProducto.setBorder(null);
+        ingresoNombreEdicionProducto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ingresoNombreEdicionProductoMouseClicked(evt);
+            }
+        });
 
         selectorCategoria.setBackground(new java.awt.Color(178, 228, 211));
         selectorCategoria.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -384,6 +389,7 @@ public class PanelEdicionProducto extends javax.swing.JPanel {
     private void btnGuardarEdicionProductoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarEdicionProductoMouseEntered
         // TODO add your handling code here:
         btnGuardarEdicionProducto.setBackground(new java.awt.Color( 227, 255, 247));
+        btnGuardarEdicionProducto.setForeground(new java.awt.Color(115,190,165));
         btnGuardarEdicionProducto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(178, 240, 222), 4));
     }//GEN-LAST:event_btnGuardarEdicionProductoMouseEntered
 
@@ -413,12 +419,17 @@ public class PanelEdicionProducto extends javax.swing.JPanel {
         // TODO add your handling code here: btnLimpiarEdicionProducto.setBackground(new java.awt.Color(178, 240, 222));
 
         btnLimpiarEdicionProducto.setBackground(new java.awt.Color( 227, 255, 247));
+         btnLimpiarEdicionProducto.setForeground(new java.awt.Color(115,190,165));
         btnLimpiarEdicionProducto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(178, 240, 222), 4));
     }//GEN-LAST:event_btnLimpiarEdicionProductoMouseEntered
 
     private void btnLimpiarEdicionProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLimpiarEdicionProductoMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_btnLimpiarEdicionProductoMouseClicked
+
+    private void ingresoNombreEdicionProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresoNombreEdicionProductoMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ingresoNombreEdicionProductoMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
