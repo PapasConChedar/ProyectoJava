@@ -82,4 +82,28 @@
   "contraseña" : "Secreto123",
   "telefono" : "22232211",
   "listaDePedidos" : null
+}, {
+  "nombre" : "Martina",
+  "apellido" : "Romero",
+  "dni" : "41889822",
+  "direccion" : "554 4432",
+  "idCliente" : 7,
+  "numeroCuenta" : "AGREGARDESP",
+  "direccionEnte" : "554 4432",
+  "email" : "marti@example.com",
+  "contraseña" : "Secreto123",
+  "telefono" : "2234432",
+  "listaDePedidos" : null
+}, {
+  "nombre" : "Nico",
+  "apellido" : "Vercellone",
+  "dni" : "2223445212",
+  "direccion" : "Elm street 233",
+  "idCliente" : 8,
+  "numeroCuenta" : "AGREGARDESP",
+  "direccionEnte" : "Elm street 233",
+  "email" : "nico@example.com",
+  "contraseña" : "Secreto123",
+  "telefono" : "223443533",
+  "listaDePedidos" : null
 } ]

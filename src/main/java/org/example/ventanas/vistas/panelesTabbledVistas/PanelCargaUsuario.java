@@ -364,6 +364,7 @@ public class PanelCargaUsuario extends javax.swing.JPanel {
                 gestor.add(dato);
                 reestablecerTextoCargaUsuario();
                 dato = new Cliente();
+                JOptionPane.showMessageDialog(null,"Usuario Cargado Con exito!");
             }
         }catch (UsuarioCargaDatosException e){
             JOptionPane.showMessageDialog(null,e.getMessage()+e.escribirMensaje());
