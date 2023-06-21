@@ -4,6 +4,9 @@
  */
 package org.example.ventanas.vistas.panelesTabbledVistas;
 
+import com.org.example.clases.Productos;
+import com.org.example.service.GestionImpleProducto;
+
 import java.awt.Color;
 import javax.swing.JTextField;
 
@@ -12,6 +15,8 @@ import javax.swing.JTextField;
  * @author Agus-Notebook
  */
 public class PanelEdicionProducto extends javax.swing.JPanel {
+    private static GestionImpleProducto gestor = new GestionImpleProducto();
+     private Productos dato = new Productos();
 
     /**
      * Creates new form NewPanelEdicionProducto
@@ -30,300 +35,184 @@ public class PanelEdicionProducto extends javax.swing.JPanel {
     private void initComponents() {
 
         backgroundPanelEdicionProducto = new javax.swing.JPanel();
+        iconoPanelCarga = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        ingresoMarcaEdicionProducto = new javax.swing.JTextField();
+        ingresoElavoracionEdicionProducto = new javax.swing.JTextField();
+        ingresoPrecioEdicionProducto = new javax.swing.JTextField();
+        ingresoVencimiento = new javax.swing.JTextField();
+        ingresoStockEdicionProducto = new javax.swing.JTextField();
+        ingresoNombreEdicionProducto = new javax.swing.JTextField();
+        selectorCategoria = new javax.swing.JComboBox<>();
         btnLimpiarEdicionProducto = new javax.swing.JButton();
         btnGuardarEdicionProducto = new javax.swing.JButton();
-        panelMuestraTexto = new javax.swing.JPanel();
-        contentText1 = new javax.swing.JPanel();
-        textoIngresoMarca = new javax.swing.JLabel();
-        ingresoMarcaEdicionProducto = new javax.swing.JTextField();
-        contentText2 = new javax.swing.JPanel();
-        textoIngresoNombre = new javax.swing.JLabel();
-        ingresoNombreEdicionProducto = new javax.swing.JTextField();
-        contentText3 = new javax.swing.JPanel();
-        ingresoElavoracionEdicionProducto = new javax.swing.JTextField();
-        textoIngresoElaboracion = new javax.swing.JLabel();
-        contentText4 = new javax.swing.JPanel();
-        textoIngresoVencimiento = new javax.swing.JLabel();
-        ingresoVencimiento = new javax.swing.JTextField();
-        contentText5 = new javax.swing.JPanel();
-        textoIngresoStock = new javax.swing.JLabel();
-        ingresoStockEdicionProducto = new javax.swing.JTextField();
-        contentText6 = new javax.swing.JPanel();
-        textoIngresoPrecio = new javax.swing.JLabel();
-        ingresoPrecioEdicionProducto = new javax.swing.JTextField();
-        iconoPanelCarga = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
 
+        backgroundPanelEdicionProducto.setBackground(new java.awt.Color(160, 229, 220));
         backgroundPanelEdicionProducto.setMaximumSize(new java.awt.Dimension(800, 560));
         backgroundPanelEdicionProducto.setMinimumSize(new java.awt.Dimension(800, 560));
         backgroundPanelEdicionProducto.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnLimpiarEdicionProducto.setBackground(new java.awt.Color(57, 136, 158));
-        btnLimpiarEdicionProducto.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnLimpiarEdicionProducto.setForeground(new java.awt.Color(255, 255, 255));
-        btnLimpiarEdicionProducto.setText("LIMPIAR");
-        btnLimpiarEdicionProducto.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        backgroundPanelEdicionProducto.add(btnLimpiarEdicionProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 450, 140, 50));
+        iconoPanelCarga.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cambiar.png"))); // NOI18N
+        backgroundPanelEdicionProducto.add(iconoPanelCarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 0, -1, -1));
 
-        btnGuardarEdicionProducto.setBackground(new java.awt.Color(57, 136, 158));
-        btnGuardarEdicionProducto.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnGuardarEdicionProducto.setForeground(new java.awt.Color(255, 255, 255));
-        btnGuardarEdicionProducto.setText("GUARDAR");
-        btnGuardarEdicionProducto.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        backgroundPanelEdicionProducto.add(btnGuardarEdicionProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 450, 140, 50));
+        jPanel2.setBackground(new java.awt.Color(115, 190, 165));
+        jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(230, 251, 243), 5, true));
 
-        panelMuestraTexto.setBackground(new java.awt.Color(51, 51, 255));
-        panelMuestraTexto.setOpaque(false);
-        panelMuestraTexto.setPreferredSize(new java.awt.Dimension(560, 400));
-
-        contentText1.setBackground(new java.awt.Color(255, 255, 255));
-        contentText1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        textoIngresoMarca.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        textoIngresoMarca.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        textoIngresoMarca.setText("Marca :");
-        textoIngresoMarca.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        textoIngresoMarca.setMaximumSize(new java.awt.Dimension(160, 34));
-        textoIngresoMarca.setMinimumSize(new java.awt.Dimension(160, 34));
-        textoIngresoMarca.setPreferredSize(new java.awt.Dimension(160, 34));
-
+        ingresoMarcaEdicionProducto.setBackground(new java.awt.Color(178, 228, 211));
         ingresoMarcaEdicionProducto.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        ingresoMarcaEdicionProducto.setForeground(new java.awt.Color(153, 153, 153));
+        ingresoMarcaEdicionProducto.setForeground(new java.awt.Color(18, 138, 92));
         ingresoMarcaEdicionProducto.setText("   Ingrese Marca del Producto");
-        ingresoMarcaEdicionProducto.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        ingresoMarcaEdicionProducto.setBorder(null);
         ingresoMarcaEdicionProducto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ingresoMarcaEdicionProductoMouseClicked(evt);
             }
         });
 
-        javax.swing.GroupLayout contentText1Layout = new javax.swing.GroupLayout(contentText1);
-        contentText1.setLayout(contentText1Layout);
-        contentText1Layout.setHorizontalGroup(
-            contentText1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contentText1Layout.createSequentialGroup()
-                .addComponent(textoIngresoMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(ingresoMarcaEdicionProducto))
-        );
-        contentText1Layout.setVerticalGroup(
-            contentText1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contentText1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(textoIngresoMarca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ingresoMarcaEdicionProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        contentText2.setBackground(new java.awt.Color(255, 255, 255));
-        contentText2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        contentText2.setFocusable(false);
-
-        textoIngresoNombre.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        textoIngresoNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        textoIngresoNombre.setText("Nombre :");
-        textoIngresoNombre.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        textoIngresoNombre.setMaximumSize(new java.awt.Dimension(160, 34));
-        textoIngresoNombre.setMinimumSize(new java.awt.Dimension(160, 34));
-        textoIngresoNombre.setPreferredSize(new java.awt.Dimension(160, 34));
-
-        ingresoNombreEdicionProducto.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        ingresoNombreEdicionProducto.setForeground(new java.awt.Color(153, 153, 153));
-        ingresoNombreEdicionProducto.setText("   Ingrese Nombre del Producto");
-
-        javax.swing.GroupLayout contentText2Layout = new javax.swing.GroupLayout(contentText2);
-        contentText2.setLayout(contentText2Layout);
-        contentText2Layout.setHorizontalGroup(
-            contentText2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contentText2Layout.createSequentialGroup()
-                .addComponent(textoIngresoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(ingresoNombreEdicionProducto))
-        );
-        contentText2Layout.setVerticalGroup(
-            contentText2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contentText2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(textoIngresoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(ingresoNombreEdicionProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        contentText3.setBackground(new java.awt.Color(255, 255, 255));
-        contentText3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
+        ingresoElavoracionEdicionProducto.setBackground(new java.awt.Color(178, 228, 211));
         ingresoElavoracionEdicionProducto.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        ingresoElavoracionEdicionProducto.setForeground(new java.awt.Color(153, 153, 153));
+        ingresoElavoracionEdicionProducto.setForeground(new java.awt.Color(18, 138, 92));
         ingresoElavoracionEdicionProducto.setText("   Ingrese Fecha de Elaboracion xx/xx/xxxx");
+        ingresoElavoracionEdicionProducto.setBorder(null);
         ingresoElavoracionEdicionProducto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ingresoElavoracionEdicionProductoMouseClicked(evt);
             }
         });
 
-        textoIngresoElaboracion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        textoIngresoElaboracion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        textoIngresoElaboracion.setText("Fecha Elaboracion :");
-        textoIngresoElaboracion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        textoIngresoElaboracion.setMaximumSize(new java.awt.Dimension(160, 34));
-        textoIngresoElaboracion.setMinimumSize(new java.awt.Dimension(160, 34));
-        textoIngresoElaboracion.setPreferredSize(new java.awt.Dimension(160, 34));
-
-        javax.swing.GroupLayout contentText3Layout = new javax.swing.GroupLayout(contentText3);
-        contentText3.setLayout(contentText3Layout);
-        contentText3Layout.setHorizontalGroup(
-            contentText3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contentText3Layout.createSequentialGroup()
-                .addComponent(textoIngresoElaboracion, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(ingresoElavoracionEdicionProducto))
-        );
-        contentText3Layout.setVerticalGroup(
-            contentText3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contentText3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(textoIngresoElaboracion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ingresoElavoracionEdicionProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        contentText4.setBackground(new java.awt.Color(255, 255, 255));
-        contentText4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        textoIngresoVencimiento.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        textoIngresoVencimiento.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        textoIngresoVencimiento.setText("FechaVencimiento :");
-        textoIngresoVencimiento.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        textoIngresoVencimiento.setMaximumSize(new java.awt.Dimension(160, 34));
-        textoIngresoVencimiento.setMinimumSize(new java.awt.Dimension(160, 34));
-        textoIngresoVencimiento.setPreferredSize(new java.awt.Dimension(160, 34));
-
-        ingresoVencimiento.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        ingresoVencimiento.setForeground(new java.awt.Color(153, 153, 153));
-        ingresoVencimiento.setText("   Ingrese Fecha de Vencimiento xx/xx/xxxx");
-        ingresoVencimiento.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ingresoVencimientoMouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout contentText4Layout = new javax.swing.GroupLayout(contentText4);
-        contentText4.setLayout(contentText4Layout);
-        contentText4Layout.setHorizontalGroup(
-            contentText4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contentText4Layout.createSequentialGroup()
-                .addComponent(textoIngresoVencimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(ingresoVencimiento, javax.swing.GroupLayout.DEFAULT_SIZE, 396, Short.MAX_VALUE))
-        );
-        contentText4Layout.setVerticalGroup(
-            contentText4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contentText4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(textoIngresoVencimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ingresoVencimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        contentText5.setBackground(new java.awt.Color(255, 255, 255));
-        contentText5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        textoIngresoStock.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        textoIngresoStock.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        textoIngresoStock.setText("Cantidad Producto :");
-        textoIngresoStock.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        textoIngresoStock.setMaximumSize(new java.awt.Dimension(160, 34));
-        textoIngresoStock.setMinimumSize(new java.awt.Dimension(160, 34));
-        textoIngresoStock.setPreferredSize(new java.awt.Dimension(160, 34));
-
-        ingresoStockEdicionProducto.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        ingresoStockEdicionProducto.setForeground(new java.awt.Color(153, 153, 153));
-        ingresoStockEdicionProducto.setText("   Ingrese Stock  Producto");
-        ingresoStockEdicionProducto.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ingresoStockEdicionProductoMouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout contentText5Layout = new javax.swing.GroupLayout(contentText5);
-        contentText5.setLayout(contentText5Layout);
-        contentText5Layout.setHorizontalGroup(
-            contentText5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contentText5Layout.createSequentialGroup()
-                .addComponent(textoIngresoStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(ingresoStockEdicionProducto))
-        );
-        contentText5Layout.setVerticalGroup(
-            contentText5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contentText5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(textoIngresoStock, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ingresoStockEdicionProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        contentText6.setBackground(new java.awt.Color(255, 255, 255));
-        contentText6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        textoIngresoPrecio.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        textoIngresoPrecio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        textoIngresoPrecio.setText("Precio del Producto :");
-        textoIngresoPrecio.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        textoIngresoPrecio.setMaximumSize(new java.awt.Dimension(160, 34));
-        textoIngresoPrecio.setMinimumSize(new java.awt.Dimension(160, 34));
-        textoIngresoPrecio.setPreferredSize(new java.awt.Dimension(160, 34));
-
+        ingresoPrecioEdicionProducto.setBackground(new java.awt.Color(178, 228, 211));
         ingresoPrecioEdicionProducto.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        ingresoPrecioEdicionProducto.setForeground(new java.awt.Color(153, 153, 153));
+        ingresoPrecioEdicionProducto.setForeground(new java.awt.Color(18, 138, 92));
         ingresoPrecioEdicionProducto.setText("   Ingrese Precio Producto");
+        ingresoPrecioEdicionProducto.setBorder(null);
         ingresoPrecioEdicionProducto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ingresoPrecioEdicionProductoMouseClicked(evt);
             }
         });
 
-        javax.swing.GroupLayout contentText6Layout = new javax.swing.GroupLayout(contentText6);
-        contentText6.setLayout(contentText6Layout);
-        contentText6Layout.setHorizontalGroup(
-            contentText6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contentText6Layout.createSequentialGroup()
-                .addComponent(textoIngresoPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(ingresoPrecioEdicionProducto))
+        ingresoVencimiento.setEditable(false);
+        ingresoVencimiento.setBackground(new java.awt.Color(178, 228, 211));
+        ingresoVencimiento.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        ingresoVencimiento.setForeground(new java.awt.Color(18, 138, 92));
+        ingresoVencimiento.setText("   Ingrese Fecha de Vencimiento xx/xx/xxxx");
+        ingresoVencimiento.setBorder(null);
+        ingresoVencimiento.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ingresoVencimientoMouseClicked(evt);
+            }
+        });
+
+        ingresoStockEdicionProducto.setBackground(new java.awt.Color(178, 228, 211));
+        ingresoStockEdicionProducto.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        ingresoStockEdicionProducto.setForeground(new java.awt.Color(18, 138, 92));
+        ingresoStockEdicionProducto.setText("   Ingrese Stock  Producto");
+        ingresoStockEdicionProducto.setToolTipText("");
+        ingresoStockEdicionProducto.setBorder(null);
+        ingresoStockEdicionProducto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ingresoStockEdicionProductoMouseClicked(evt);
+            }
+        });
+
+        ingresoNombreEdicionProducto.setEditable(false);
+        ingresoNombreEdicionProducto.setBackground(new java.awt.Color(178, 228, 211));
+        ingresoNombreEdicionProducto.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        ingresoNombreEdicionProducto.setForeground(new java.awt.Color(18, 138, 92));
+        ingresoNombreEdicionProducto.setText("   Ingrese Nombre del Producto");
+        ingresoNombreEdicionProducto.setBorder(null);
+
+        selectorCategoria.setBackground(new java.awt.Color(178, 228, 211));
+        selectorCategoria.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        selectorCategoria.setForeground(new java.awt.Color(8, 138, 92));
+        selectorCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---", "LIMPIEZA", "COMIDA", "JUGUETERIA", "BEBIDAS", "CONGELADOS", "LACTEOS", "VARIOS" }));
+        selectorCategoria.setBorder(null);
+        selectorCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectorCategoriaActionPerformed(evt);
+            }
+        });
+
+        btnLimpiarEdicionProducto.setBackground(new java.awt.Color(178, 240, 222));
+        btnLimpiarEdicionProducto.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnLimpiarEdicionProducto.setForeground(new java.awt.Color(255, 255, 255));
+        btnLimpiarEdicionProducto.setText("LIMPIAR");
+        btnLimpiarEdicionProducto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(227, 255, 247), 4));
+        btnLimpiarEdicionProducto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnLimpiarEdicionProductoMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnLimpiarEdicionProductoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnLimpiarEdicionProductoMouseExited(evt);
+            }
+        });
+
+        btnGuardarEdicionProducto.setBackground(new java.awt.Color(178, 240, 222));
+        btnGuardarEdicionProducto.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnGuardarEdicionProducto.setForeground(new java.awt.Color(255, 255, 255));
+        btnGuardarEdicionProducto.setText("GUARDAR");
+        btnGuardarEdicionProducto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(227, 255, 247), 4));
+        btnGuardarEdicionProducto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnGuardarEdicionProductoMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnGuardarEdicionProductoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnGuardarEdicionProductoMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(btnLimpiarEdicionProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(63, 63, 63)
+                        .addComponent(btnGuardarEdicionProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(ingresoStockEdicionProducto)
+                        .addComponent(ingresoMarcaEdicionProducto)
+                        .addComponent(ingresoPrecioEdicionProducto)
+                        .addComponent(ingresoElavoracionEdicionProducto)
+                        .addComponent(ingresoNombreEdicionProducto)
+                        .addComponent(ingresoVencimiento, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE)
+                        .addComponent(selectorCategoria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
-        contentText6Layout.setVerticalGroup(
-            contentText6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contentText6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(textoIngresoPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ingresoPrecioEdicionProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addComponent(ingresoNombreEdicionProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ingresoVencimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ingresoPrecioEdicionProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ingresoElavoracionEdicionProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ingresoMarcaEdicionProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ingresoStockEdicionProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(selectorCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnLimpiarEdicionProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnGuardarEdicionProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19))
         );
 
-        javax.swing.GroupLayout panelMuestraTextoLayout = new javax.swing.GroupLayout(panelMuestraTexto);
-        panelMuestraTexto.setLayout(panelMuestraTextoLayout);
-        panelMuestraTextoLayout.setHorizontalGroup(
-            panelMuestraTextoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(contentText1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(contentText5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(contentText2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(contentText4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(contentText6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(contentText3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        panelMuestraTextoLayout.setVerticalGroup(
-            panelMuestraTextoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMuestraTextoLayout.createSequentialGroup()
-                .addComponent(contentText1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(contentText2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(contentText3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(contentText4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(contentText5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(contentText6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        backgroundPanelEdicionProducto.add(panelMuestraTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 560, 330));
-
-        iconoPanelCarga.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cambiar.png"))); // NOI18N
-        backgroundPanelEdicionProducto.add(iconoPanelCarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 80, -1, -1));
-
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Diseño sin título (4).png"))); // NOI18N
-        backgroundPanelEdicionProducto.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, -1));
+        backgroundPanelEdicionProducto.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 50, 370, 440));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -370,6 +259,36 @@ public class PanelEdicionProducto extends javax.swing.JPanel {
 
         }
     }//GEN-LAST:event_ingresoMarcaEdicionProductoMouseClicked
+
+    private void ingresoStockEdicionProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresoStockEdicionProductoMouseClicked
+        // TODO add your handling code here:
+
+        if(ingresoMarcaEdicionProducto.getText().isEmpty()){
+            ingresoMarcaEdicionProducto.setForeground(new Color(153, 153, 153));
+            ingresoMarcaEdicionProducto.setText("   Ingrese Marca del Producto");
+        }
+        if(ingresoNombreEdicionProducto.getText().isEmpty()){
+            ingresoNombreEdicionProducto.setForeground(new Color(153, 153, 153));
+            ingresoNombreEdicionProducto.setText("   Ingrese Nombre del Producto");
+        }
+        if(ingresoElavoracionEdicionProducto.getText().isEmpty()){
+            ingresoElavoracionEdicionProducto.setForeground(new Color(153, 153, 153));
+            ingresoElavoracionEdicionProducto.setText("   Ingrese Fecha de Elaboracion xx/xx/xxxx");
+        }
+        if(ingresoVencimiento.getText().isEmpty()){
+            ingresoVencimiento.setForeground(new Color(153, 153, 153));
+            ingresoVencimiento.setText("   Ingrese Fecha de Vencimiento xx/xx/xxxx");
+        }
+        if(ingresoStockEdicionProducto.getText().equals("   Ingrese Stock Producto")){
+            edicionLetraColortexto(ingresoStockEdicionProducto);
+
+        }
+        if(ingresoPrecioEdicionProducto.getText().isEmpty()){
+            ingresoPrecioEdicionProducto.setForeground(new Color(153, 153, 153));
+            ingresoPrecioEdicionProducto.setText("   Ingrese Precio Producto");
+
+        }
+    }//GEN-LAST:event_ingresoStockEdicionProductoMouseClicked
 
     private void ingresoElavoracionEdicionProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresoElavoracionEdicionProductoMouseClicked
         // TODO add your handling code here:
@@ -430,36 +349,6 @@ public class PanelEdicionProducto extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_ingresoVencimientoMouseClicked
 
-    private void ingresoStockEdicionProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresoStockEdicionProductoMouseClicked
-        // TODO add your handling code here:
-
-        if(ingresoMarcaEdicionProducto.getText().isEmpty()){
-            ingresoMarcaEdicionProducto.setForeground(new Color(153, 153, 153));
-            ingresoMarcaEdicionProducto.setText("   Ingrese Marca del Producto");
-        }
-        if(ingresoNombreEdicionProducto.getText().isEmpty()){
-            ingresoNombreEdicionProducto.setForeground(new Color(153, 153, 153));
-            ingresoNombreEdicionProducto.setText("   Ingrese Nombre del Producto");
-        }
-        if(ingresoElavoracionEdicionProducto.getText().isEmpty()){
-            ingresoElavoracionEdicionProducto.setForeground(new Color(153, 153, 153));
-            ingresoElavoracionEdicionProducto.setText("   Ingrese Fecha de Elaboracion xx/xx/xxxx");
-        }
-        if(ingresoVencimiento.getText().isEmpty()){
-            ingresoVencimiento.setForeground(new Color(153, 153, 153));
-            ingresoVencimiento.setText("   Ingrese Fecha de Vencimiento xx/xx/xxxx");
-        }
-        if(ingresoStockEdicionProducto.getText().equals("   Ingrese Stock Producto")){
-            edicionLetraColortexto(ingresoStockEdicionProducto);
-
-        }
-        if(ingresoPrecioEdicionProducto.getText().isEmpty()){
-            ingresoPrecioEdicionProducto.setForeground(new Color(153, 153, 153));
-            ingresoPrecioEdicionProducto.setText("   Ingrese Precio Producto");
-
-        }
-    }//GEN-LAST:event_ingresoStockEdicionProductoMouseClicked
-
     private void ingresoPrecioEdicionProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresoPrecioEdicionProductoMouseClicked
         // TODO add your handling code here:
         if(ingresoMarcaEdicionProducto.getText().isEmpty()){
@@ -487,17 +376,55 @@ public class PanelEdicionProducto extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_ingresoPrecioEdicionProductoMouseClicked
 
+    private void selectorCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectorCategoriaActionPerformed
+        // TODO add your handling code here:
+     gestor.selecionarCategoriaProductos(dato, selectorCategoria.getSelectedIndex());
+    }//GEN-LAST:event_selectorCategoriaActionPerformed
+
+    private void btnGuardarEdicionProductoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarEdicionProductoMouseEntered
+        // TODO add your handling code here:
+        btnGuardarEdicionProducto.setBackground(new java.awt.Color( 227, 255, 247));
+        btnGuardarEdicionProducto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(178, 240, 222), 4));
+    }//GEN-LAST:event_btnGuardarEdicionProductoMouseEntered
+
+    private void btnGuardarEdicionProductoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarEdicionProductoMouseExited
+        // TODO add your handling code here:
+        btnGuardarEdicionProducto.setBackground(new java.awt.Color(178, 240, 222));
+        btnGuardarEdicionProducto.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnGuardarEdicionProducto.setForeground(new java.awt.Color(255, 255, 255));
+        btnGuardarEdicionProducto.setText("GUARDAR");
+        btnGuardarEdicionProducto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(227, 255, 247), 4));
+    }//GEN-LAST:event_btnGuardarEdicionProductoMouseExited
+
+    private void btnGuardarEdicionProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarEdicionProductoMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGuardarEdicionProductoMouseClicked
+
+    private void btnLimpiarEdicionProductoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLimpiarEdicionProductoMouseExited
+        // TODO add your handling code here:
+         btnLimpiarEdicionProducto.setBackground(new java.awt.Color(178, 240, 222));
+        btnLimpiarEdicionProducto.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnLimpiarEdicionProducto.setForeground(new java.awt.Color(255, 255, 255));
+        btnLimpiarEdicionProducto.setText("LIMPIAR");
+        btnLimpiarEdicionProducto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(227, 255, 247), 4));
+    }//GEN-LAST:event_btnLimpiarEdicionProductoMouseExited
+
+    private void btnLimpiarEdicionProductoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLimpiarEdicionProductoMouseEntered
+        // TODO add your handling code here: btnLimpiarEdicionProducto.setBackground(new java.awt.Color(178, 240, 222));
+
+        btnLimpiarEdicionProducto.setBackground(new java.awt.Color( 227, 255, 247));
+        btnLimpiarEdicionProducto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(178, 240, 222), 4));
+    }//GEN-LAST:event_btnLimpiarEdicionProductoMouseEntered
+
+    private void btnLimpiarEdicionProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLimpiarEdicionProductoMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLimpiarEdicionProductoMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel backgroundPanelEdicionProducto;
     private javax.swing.JButton btnGuardarEdicionProducto;
     private javax.swing.JButton btnLimpiarEdicionProducto;
-    private javax.swing.JPanel contentText1;
-    private javax.swing.JPanel contentText2;
-    private javax.swing.JPanel contentText3;
-    private javax.swing.JPanel contentText4;
-    private javax.swing.JPanel contentText5;
-    private javax.swing.JPanel contentText6;
     private javax.swing.JLabel iconoPanelCarga;
     private javax.swing.JTextField ingresoElavoracionEdicionProducto;
     private javax.swing.JTextField ingresoMarcaEdicionProducto;
@@ -505,13 +432,7 @@ public class PanelEdicionProducto extends javax.swing.JPanel {
     private javax.swing.JTextField ingresoPrecioEdicionProducto;
     private javax.swing.JTextField ingresoStockEdicionProducto;
     private javax.swing.JTextField ingresoVencimiento;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel panelMuestraTexto;
-    private javax.swing.JLabel textoIngresoElaboracion;
-    private javax.swing.JLabel textoIngresoMarca;
-    private javax.swing.JLabel textoIngresoNombre;
-    private javax.swing.JLabel textoIngresoPrecio;
-    private javax.swing.JLabel textoIngresoStock;
-    private javax.swing.JLabel textoIngresoVencimiento;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JComboBox<String> selectorCategoria;
     // End of variables declaration//GEN-END:variables
 }
