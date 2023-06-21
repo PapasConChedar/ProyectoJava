@@ -21,15 +21,19 @@ public class PanelEdicionUsuario extends javax.swing.JPanel {
 
     public GestionImpleCliente gestor = new GestionImpleCliente();
     public static Cliente dato = new Cliente();
-    private static ArrayList <Cliente> listaTabla = new ArrayList<>();
+    private static  Cliente  clienteSeleccionado;
+
+    public PanelEdicionUsuario(Cliente cliente) {
+        clienteSeleccionado = cliente;
+        initComponents();
+    }
+
+
 
     /**
      * Creates new form PanelEdicionUsuario
      */
-    public PanelEdicionUsuario(ArrayList<Cliente> listaTabla)  {
-        this.listaTabla = listaTabla;
-        initComponents();
-    }
+
     public PanelEdicionUsuario(){
         initComponents();
     }
@@ -417,20 +421,30 @@ public class PanelEdicionUsuario extends javax.swing.JPanel {
     private void botonAceptarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonAceptarMouseClicked
         // TODO add your handling code here:
         try{
-
-            for (Cliente cliente:this.listaTabla){
+            Cliente cliente = new Cliente();
+            while (clienteSeleccionado != null){
                 verificacionFormato();
-                cliente.setNombre(ingresoNombreCliente.getText());
-                cliente.setApellido(ingresoApellidoUsuario.getText());
-                cliente.setDireccionEnte(ingresoDireccionUsuario.getText());
-                cliente.setDni(ingresoDniUsuario.getText());
-                cliente.setEmail(ingresoEmailUsuario.getText());
-                cliente.setTelefono(ingresoTelefonoUsuario.getText());
-                cliente.setContraseña(ingresoPasswordUsuario.getText());
-                gestor.update(cliente);
+                cliente.setNombre(
+                        ingresoNombreCliente.getText());
+                cliente.setApellido(
+                        ingresoApellidoUsuario.getText());
+                cliente.setDireccionEnte(
+                        ingresoDireccionUsuario.getText());
+                cliente.setDni(
+                        ingresoDniUsuario.getText());
+                cliente.setEmail(
+                        ingresoEmailUsuario.getText());
+                cliente.setTelefono(
+                        ingresoTelefonoUsuario.getText());
+                cliente.setContraseña(
+                        ingresoPasswordUsuario.getText());
+                gestor.update(
+                        cliente);
+                gestor.cargar();
+                //this.listaTabla.remove(cliente);
                 reestablecerTextoCargaUsuario();
-
             }
+
 
 
 
