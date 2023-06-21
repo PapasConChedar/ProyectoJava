@@ -75,7 +75,7 @@ public class PanelTablaUsuarios extends javax.swing.JPanel {
             infDatos[1] = i.getNombre() + " " + i.getApellido();
             infDatos[2] = i.getDireccion();
             infDatos[3] = i.getEmail();
-            infDatos[4] = i.getContraseña();
+            infDatos[4] = i.getContrasenia();
             infDatos[5] = i.getTelefono();
             infDatos[6] = false;
             modelo.addRow(infDatos);
@@ -250,7 +250,7 @@ public class PanelTablaUsuarios extends javax.swing.JPanel {
             if(confimar == 0){
                 borrarSeleccionados();
                 for(Cliente i : clientesSeleccionados()){
-                    gestor.delete(i);
+                    gestor.deleteById(i);
                 }
             }
         }else{

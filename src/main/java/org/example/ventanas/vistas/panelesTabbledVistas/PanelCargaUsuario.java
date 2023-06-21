@@ -354,10 +354,9 @@ public class PanelCargaUsuario extends javax.swing.JPanel {
                 dato.setDireccion(ingresoDireccionUsuario.getText());
                 dato.setEmail(ingresoEmailUsuario.getText());
                 dato.setTelefono(ingresoTelefonoUsuario.getText());
-                dato.setContraseña(ingresoContraseñaUsuario.getText());
+                dato.setContrasenia(ingresoContraseñaUsuario.getText());
                 dato.setDni(ingresoDniUsuario.getText());
-                dato.setNumeroCuenta("AGREGARDESP");
-                dato.setDireccionEnte(ingresoDireccionUsuario.getText());
+                dato.setNumeroCuenta(String.valueOf(dato.hashCode()));
                 gestor.add(dato);
                 reestablecerTextoCargaUsuario();
                 dato = new Cliente();
