@@ -5,10 +5,13 @@
 package org.example.ventanas.vistas.panelesTabbledVistas;
 
 import com.org.example.Exceptions.UsuarioCargaDatosException;
+import com.org.example.Exceptions.UsuarioNoEncontradoException;
+import com.org.example.clases.Cliente;
 import com.org.example.service.GestionImpleCliente;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 /**
  *
@@ -16,13 +19,24 @@ import java.awt.*;
  */
 public class PanelEdicionUsuario extends javax.swing.JPanel {
 
+    public GestionImpleCliente gestor = new GestionImpleCliente();
+    public static Cliente dato = new Cliente();
+    private static ArrayList <Cliente> listaTabla = new ArrayList<>();
+
     /**
      * Creates new form PanelEdicionUsuario
      */
-    public PanelEdicionUsuario() {
+    public PanelEdicionUsuario(ArrayList<Cliente> listaTabla)  {
+        this.listaTabla = listaTabla;
         initComponents();
     }
-    public GestionImpleCliente gestor = new GestionImpleCliente();
+    public PanelEdicionUsuario(){
+        initComponents();
+    }
+
+
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -281,6 +295,52 @@ public class PanelEdicionUsuario extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    public void reestablecerTextoCargaUsuario(){
+        ingresoNombreCliente.setText("NOMBRE");
+        ingresoApellidoUsuario.setText("APELLIDO");
+        ingresoDireccionUsuario.setText("DIRECCION");
+        ingresoEmailUsuario.setText("EMAIL");
+        ingresoTelefonoUsuario.setText("TELEFONO");
+        ingresoPasswordUsuario.setText("CONTRASEÑA");
+        ingresoDniUsuario.setText("DNI");
+    }
+    private boolean verificacionFormato() throws UsuarioCargaDatosException {
+        if (gestor.verificacionIngresoBases(
+                ingresoNombreCliente.getText(),
+                ingresoApellidoUsuario.getText(),
+                ingresoDireccionUsuario.getText(),
+                ingresoEmailUsuario.getText(),
+                ingresoTelefonoUsuario.getText(),
+                ingresoPasswordUsuario.getText(),
+                ingresoDniUsuario.getText())) {
+            if (gestor.verificarIngresosVacios(
+                    ingresoPasswordUsuario.getText(),
+                    ingresoApellidoUsuario.getText(),
+                    ingresoDireccionUsuario.getText(),
+                    ingresoEmailUsuario.getText(),
+                    ingresoTelefonoUsuario.getText(),
+                    ingresoPasswordUsuario.getText(),
+                    ingresoDniUsuario.getText())) {
+                if (gestor.verificacionFormatoInteger(
+                        ingresoDniUsuario.getText(),
+                        ingresoTelefonoUsuario.getText())) {
+                    return true;
+                } else {
+                    throw new UsuarioCargaDatosException(
+                            8);
+                }
+            } else {
+                throw new UsuarioCargaDatosException(
+                        7);
+            }
+
+        } else {
+            throw new UsuarioCargaDatosException(
+                    7);
+        }
+    }
+
+
     private void ingresoNombreClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresoNombreClienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ingresoNombreClienteActionPerformed
@@ -356,15 +416,36 @@ public class PanelEdicionUsuario extends javax.swing.JPanel {
 
     private void botonAceptarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonAceptarMouseClicked
         // TODO add your handling code here:
-       // try{
+        try{
 
-       // }catch (UsuarioCargaDatosException e){}
+            for (Cliente cliente:this.listaTabla){
+                verificacionFormato();
+                cliente.setNombre(ingresoNombreCliente.getText());
+                cliente.setApellido(ingresoApellidoUsuario.getText());
+                cliente.setDireccionEnte(ingresoDireccionUsuario.getText());
+                cliente.setDni(ingresoDniUsuario.getText());
+                cliente.setEmail(ingresoEmailUsuario.getText());
+                cliente.setTelefono(ingresoTelefonoUsuario.getText());
+                cliente.setContraseña(ingresoPasswordUsuario.getText());
+                gestor.update(cliente);
+                reestablecerTextoCargaUsuario();
+
+            }
+
+
+
+       }catch (UsuarioCargaDatosException e){
+            JOptionPane.showMessageDialog(null, e.getMessage()+e.escribirMensaje());
+        }
+
+
         
         
     }//GEN-LAST:event_botonAceptarMouseClicked
 
     private void BotonCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonCancelarMouseClicked
         // TODO add your handling code here:
+
     }//GEN-LAST:event_BotonCancelarMouseClicked
 
 

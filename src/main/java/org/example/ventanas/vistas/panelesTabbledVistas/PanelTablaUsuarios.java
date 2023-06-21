@@ -72,7 +72,7 @@ public class PanelTablaUsuarios extends javax.swing.JPanel {
     /**
      * Carga la tabla con los valores que contiene el repositorio
      */
-    private void cargarTabla() {
+    public void cargarTabla() {
         for (Cliente i : gestor.getList()) {
             Object[] infDatos = new Object[7];
             infDatos[0] = i.getIdCliente();
