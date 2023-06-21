@@ -106,7 +106,7 @@ public class PanelEdicionProducto extends javax.swing.JPanel {
         ingresoStockEdicionProducto.setBackground(new java.awt.Color(178, 228, 211));
         ingresoStockEdicionProducto.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ingresoStockEdicionProducto.setForeground(new java.awt.Color(18, 138, 92));
-        ingresoStockEdicionProducto.setText("   Ingrese Stock  Producto");
+        ingresoStockEdicionProducto.setText("   Ingrese Stock Producto");
         ingresoStockEdicionProducto.setToolTipText("");
         ingresoStockEdicionProducto.setBorder(null);
         ingresoStockEdicionProducto.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -233,7 +233,7 @@ public class PanelEdicionProducto extends javax.swing.JPanel {
 
     private void edicionLetraColortexto(JTextField ingreso) {
         ingreso.setText("");
-        ingreso.setForeground(Color.BLACK);
+        ingreso.setForeground(new Color(18,138,92));
     }
     
     private void ingresoMarcaEdicionProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresoMarcaEdicionProductoMouseClicked
@@ -242,24 +242,24 @@ public class PanelEdicionProducto extends javax.swing.JPanel {
             edicionLetraColortexto(ingresoMarcaEdicionProducto);
         }
         if(ingresoNombreEdicionProducto.getText().isEmpty()){
-            ingresoNombreEdicionProducto.setForeground(new Color(153, 153, 153));
+            ingresoNombreEdicionProducto.setForeground(new Color( 18,138,92));
             ingresoNombreEdicionProducto.setText("   Ingrese Nombre del Producto");
         }
         if(ingresoElavoracionEdicionProducto.getText().isEmpty()){
-            ingresoElavoracionEdicionProducto.setForeground(new Color(153, 153, 153));
+            ingresoElavoracionEdicionProducto.setForeground(new Color( 18,138,92));
             ingresoElavoracionEdicionProducto.setText("   Ingrese Fecha de Elaboracion xx/xx/xxxx");
         }
         if(ingresoVencimiento.getText().isEmpty()){
-            ingresoVencimiento.setForeground(new Color(153, 153, 153));
+            ingresoVencimiento.setForeground(new Color( 18,138,92));
             ingresoVencimiento.setText("   Ingrese Fecha de Vencimiento xx/xx/xxxx");
         }
         if(ingresoStockEdicionProducto.getText().isEmpty()){
-            ingresoStockEdicionProducto.setForeground(new Color(153, 153, 153));
+            ingresoStockEdicionProducto.setForeground(new Color( 18,138,92));
             ingresoStockEdicionProducto.setText("   Ingrese Stock Producto");
 
         }
         if(ingresoPrecioEdicionProducto.getText().isEmpty()){
-            ingresoPrecioEdicionProducto.setForeground(new Color(153, 153, 153));
+            ingresoPrecioEdicionProducto.setForeground(new Color( 18,138,92));
             ingresoPrecioEdicionProducto.setText("   Ingrese Precio Producto");
 
         }
@@ -269,19 +269,19 @@ public class PanelEdicionProducto extends javax.swing.JPanel {
         // TODO add your handling code here:
 
         if(ingresoMarcaEdicionProducto.getText().isEmpty()){
-            ingresoMarcaEdicionProducto.setForeground(new Color(153, 153, 153));
+            ingresoMarcaEdicionProducto.setForeground(new Color( 18,138,92));
             ingresoMarcaEdicionProducto.setText("   Ingrese Marca del Producto");
         }
         if(ingresoNombreEdicionProducto.getText().isEmpty()){
-            ingresoNombreEdicionProducto.setForeground(new Color(153, 153, 153));
+            ingresoNombreEdicionProducto.setForeground(new Color( 18,138,92));
             ingresoNombreEdicionProducto.setText("   Ingrese Nombre del Producto");
         }
         if(ingresoElavoracionEdicionProducto.getText().isEmpty()){
-            ingresoElavoracionEdicionProducto.setForeground(new Color(153, 153, 153));
+            ingresoElavoracionEdicionProducto.setForeground(new Color( 18,138,92));
             ingresoElavoracionEdicionProducto.setText("   Ingrese Fecha de Elaboracion xx/xx/xxxx");
         }
         if(ingresoVencimiento.getText().isEmpty()){
-            ingresoVencimiento.setForeground(new Color(153, 153, 153));
+            ingresoVencimiento.setForeground(new Color( 18,138,92));
             ingresoVencimiento.setText("   Ingrese Fecha de Vencimiento xx/xx/xxxx");
         }
         if(ingresoStockEdicionProducto.getText().equals("   Ingrese Stock Producto")){
@@ -289,36 +289,36 @@ public class PanelEdicionProducto extends javax.swing.JPanel {
 
         }
         if(ingresoPrecioEdicionProducto.getText().isEmpty()){
-            ingresoPrecioEdicionProducto.setForeground(new Color(153, 153, 153));
+            ingresoPrecioEdicionProducto.setForeground(new Color( 18,138,92));
             ingresoPrecioEdicionProducto.setText("   Ingrese Precio Producto");
 
         }
-    }//GEN-LAST:event_ingresoStockEdicionProductoMouseClicked
+    }//GEN-LAST:evnt_ingresoStockEdicionProductoMouseClicked
 
     private void ingresoElavoracionEdicionProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresoElavoracionEdicionProductoMouseClicked
         // TODO add your handling code here:
         if(ingresoMarcaEdicionProducto.getText().isEmpty()){
-            ingresoMarcaEdicionProducto.setForeground(new Color(153, 153, 153));
+            ingresoMarcaEdicionProducto.setForeground(new Color( 18,138,92));
             ingresoMarcaEdicionProducto.setText("   Ingrese Marca del Producto");
         }
         if(ingresoNombreEdicionProducto.getText().isEmpty()){
-            ingresoNombreEdicionProducto.setForeground(new Color(153, 153, 153));
+            ingresoNombreEdicionProducto.setForeground(new Color( 18,138,92));
             ingresoNombreEdicionProducto.setText("   Ingrese Nombre del Producto");
         }
         if(ingresoElavoracionEdicionProducto.getText().equals("   Ingrese Fecha de Elaboracion xx/xx/xxxx")){
             edicionLetraColortexto(ingresoElavoracionEdicionProducto);
         }
         if(ingresoVencimiento.getText().isEmpty()){
-            ingresoVencimiento.setForeground(new Color(153, 153, 153));
+            ingresoVencimiento.setForeground(new Color( 18,138,92));
             ingresoVencimiento.setText("   Ingrese Fecha de Vencimiento xx/xx/xxxx");
         }
         if(ingresoStockEdicionProducto.getText().isEmpty()){
-            ingresoStockEdicionProducto.setForeground(new Color(153, 153, 153));
+            ingresoStockEdicionProducto.setForeground(new Color( 18,138,92));
             ingresoStockEdicionProducto.setText("   Ingrese Stock Producto");
 
         }
         if(ingresoPrecioEdicionProducto.getText().isEmpty()){
-            ingresoPrecioEdicionProducto.setForeground(new Color(153, 153, 153));
+            ingresoPrecioEdicionProducto.setForeground(new Color( 18,138,92));
             ingresoPrecioEdicionProducto.setText("   Ingrese Precio Producto");
 
         }
@@ -327,28 +327,28 @@ public class PanelEdicionProducto extends javax.swing.JPanel {
     private void ingresoVencimientoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresoVencimientoMouseClicked
         // TODO add your handling code here:
         if(ingresoMarcaEdicionProducto.getText().isEmpty()){
-            ingresoMarcaEdicionProducto.setForeground(new Color(153, 153, 153));
+            ingresoMarcaEdicionProducto.setForeground(new Color(18,138,92));
 
             ingresoMarcaEdicionProducto.setText("   Ingrese Marca del Producto");
         }
         if(ingresoNombreEdicionProducto.getText().isEmpty()){
-            ingresoNombreEdicionProducto.setForeground(new Color(153, 153, 153));
+            ingresoNombreEdicionProducto.setForeground(new Color( 18,138,92));
             ingresoNombreEdicionProducto.setText("   Ingrese Nombre del Producto");
         }
         if(ingresoElavoracionEdicionProducto.getText().isEmpty()){
-            ingresoElavoracionEdicionProducto.setForeground(new Color(153, 153, 153));
+            ingresoElavoracionEdicionProducto.setForeground(new Color( 18,138,92));
             ingresoElavoracionEdicionProducto.setText("   Ingrese Fecha de Elaboracion xx/xx/xxxx");
         }
         if(ingresoVencimiento.getText().equals("   Ingrese Fecha de Vencimiento xx/xx/xxxx")){
             edicionLetraColortexto(ingresoVencimiento);
         }
         if(ingresoStockEdicionProducto.getText().isEmpty()){
-            ingresoStockEdicionProducto.setForeground(new Color(153, 153, 153));
+            ingresoStockEdicionProducto.setForeground(new Color( 18,138,92));
             ingresoStockEdicionProducto.setText("   Ingrese Stock Producto");
 
         }
         if(ingresoPrecioEdicionProducto.getText().isEmpty()){
-            ingresoPrecioEdicionProducto.setForeground(new Color(153, 153, 153));
+            ingresoPrecioEdicionProducto.setForeground(new Color( 18,138,92));
             ingresoPrecioEdicionProducto.setText("   Ingrese Precio Producto");
 
         }
@@ -357,23 +357,23 @@ public class PanelEdicionProducto extends javax.swing.JPanel {
     private void ingresoPrecioEdicionProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresoPrecioEdicionProductoMouseClicked
         // TODO add your handling code here:
         if(ingresoMarcaEdicionProducto.getText().isEmpty()){
-            ingresoMarcaEdicionProducto.setForeground(new Color(153, 153, 153));
+            ingresoMarcaEdicionProducto.setForeground(new Color( 18,138,92));
             ingresoMarcaEdicionProducto.setText("   Ingrese Marca del Producto");
         }
         if(ingresoNombreEdicionProducto.getText().isEmpty()){
-            ingresoNombreEdicionProducto.setForeground(new Color(153, 153, 153));
+            ingresoNombreEdicionProducto.setForeground(new Color( 18,138,92));
             ingresoNombreEdicionProducto.setText("   Ingrese Nombre del Producto");
         }
         if(ingresoElavoracionEdicionProducto.getText().isEmpty()){
-            ingresoElavoracionEdicionProducto.setForeground(new Color(153, 153, 153));
+            ingresoElavoracionEdicionProducto.setForeground(new Color( 18,138,92));
             ingresoElavoracionEdicionProducto.setText("   Ingrese Fecha de Elaboracion xx/xx/xxxx");
         }
         if(ingresoVencimiento.getText().isEmpty()){
-            ingresoVencimiento.setForeground(new Color(153, 153, 153));
+            ingresoVencimiento.setForeground(new Color( 18,138,92));
             ingresoVencimiento.setText("   Ingrese Fecha de Vencimiento xx/xx/xxxx");
         }
         if(ingresoStockEdicionProducto.getText().isEmpty()){
-            ingresoStockEdicionProducto.setForeground(new Color(153, 153, 153));
+            ingresoStockEdicionProducto.setForeground(new Color( 18,138,92));
             ingresoStockEdicionProducto.setText("   Ingrese Stock Producto");
         }
         if(ingresoPrecioEdicionProducto.getText().equals("   Ingrese Precio Producto")){
@@ -423,12 +423,47 @@ public class PanelEdicionProducto extends javax.swing.JPanel {
         btnLimpiarEdicionProducto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(178, 240, 222), 4));
     }//GEN-LAST:event_btnLimpiarEdicionProductoMouseEntered
 
+
+
+
+    public void resetTexto(){
+        ingresoNombreEdicionProducto.setText("   Ingrese Nombre del Producto");
+        ingresoMarcaEdicionProducto.setText("   Ingrese Marca del Producto");
+        ingresoElavoracionEdicionProducto.setText("   Ingrese Fecha de Elaboracion xx/xx/xxxx");
+        ingresoVencimiento.setText("   Ingrese Fecha de Vencimiento xx/xx/xxxx");
+        ingresoStockEdicionProducto.setText("   Ingrese Stock Producto");
+        ingresoPrecioEdicionProducto.setText("   Ingrese Precio Producto");
+
+    }
     private void btnLimpiarEdicionProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLimpiarEdicionProductoMouseClicked
         // TODO add your handling code here:
+        resetTexto();
+
     }//GEN-LAST:event_btnLimpiarEdicionProductoMouseClicked
 
     private void ingresoNombreEdicionProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresoNombreEdicionProductoMouseClicked
         // TODO add your handling code here:
+        if(ingresoMarcaEdicionProducto.getText().isEmpty()){
+            ingresoMarcaEdicionProducto.setForeground(new Color( 18,138,92));
+            ingresoMarcaEdicionProducto.setText("   Ingrese Marca del Producto");
+        }
+
+        if(ingresoElavoracionEdicionProducto.getText().isEmpty()){
+            ingresoElavoracionEdicionProducto.setForeground(new Color( 18,138,92));
+            ingresoElavoracionEdicionProducto.setText("   Ingrese Fecha de Elaboracion xx/xx/xxxx");
+        }
+        if(ingresoVencimiento.getText().isEmpty()){
+            ingresoVencimiento.setForeground(new Color( 18,138,92));
+            ingresoVencimiento.setText("   Ingrese Fecha de Vencimiento xx/xx/xxxx");
+        }
+        if(ingresoStockEdicionProducto.getText().isEmpty()){
+            ingresoStockEdicionProducto.setForeground(new Color( 18,138,92));
+            ingresoStockEdicionProducto.setText("   Ingrese Stock Producto");
+        }
+        if(ingresoNombreEdicionProducto.getText().equals("   Ingrese Nombre del Producto")){
+            edicionLetraColortexto(ingresoNombreEdicionProducto);
+        }
+
     }//GEN-LAST:event_ingresoNombreEdicionProductoMouseClicked
 
 

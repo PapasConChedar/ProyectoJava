@@ -428,7 +428,7 @@ public class PanelEdicionUsuario extends javax.swing.JPanel {
                         ingresoNombreCliente.getText());
                 cliente.setApellido(
                         ingresoApellidoUsuario.getText());
-                cliente.setDireccionEnte(
+                cliente.setDireccion(
                         ingresoDireccionUsuario.getText());
                 cliente.setDni(
                         ingresoDniUsuario.getText());
@@ -436,7 +436,7 @@ public class PanelEdicionUsuario extends javax.swing.JPanel {
                         ingresoEmailUsuario.getText());
                 cliente.setTelefono(
                         ingresoTelefonoUsuario.getText());
-                cliente.setContraseña(
+                cliente.setContrasenia(
                         ingresoPasswordUsuario.getText());
                 gestor.update(
                         cliente);
