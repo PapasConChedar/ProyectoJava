@@ -4,17 +4,13 @@
  */
 package org.example.ventanas.vistas.panelesTabbledVistas;
 
-import com.org.example.Exceptions.UsuarioTablaMuestraExcepciones;
 import com.org.example.clases.Cliente;
 import com.org.example.service.GestionImpleCliente;
 import java.awt.Component;
 import java.util.ArrayList;
-import java.util.List;
 import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
@@ -116,7 +112,14 @@ public class PanelTablaUsuarios extends javax.swing.JPanel {
         }
         return selecionados;
     }
-
+    
+    public void borrarSeleccionados(){
+        for(int i = 0; i < tablaUsuarios.getRowCount();i++){
+            if((boolean)tablaUsuarios.getValueAt(i, 6)){
+                modelo.removeRow(i);
+            }
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -233,21 +236,26 @@ public class PanelTablaUsuarios extends javax.swing.JPanel {
         System.out.println(clienteSeleccionado.toString());
         if (clienteSeleccionado != null) {
             JOptionPane.showMessageDialog(null, clienteSeleccionado.getNumeroCuenta());
+        }else{
+            JOptionPane.showMessageDialog(null, "Seleccione al menos un elemento");
         }
     }//GEN-LAST:event_btnEditarSeleccionadosMouseClicked
 
     private void btnBorrarSeleccionados1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBorrarSeleccionados1MouseClicked
         // TODO add your handling code here:
         if(verificarSeleccionados(6) >= 1){
-            int confimar = JOptionPane.showConfirmDialog(null, "Seguro de Eliminar: "+verificarSeleccionados(6));
-            if(confimar == 1){
+            int confimar = JOptionPane.showConfirmDialog(null, 
+                    "¿Seguro de Eliminar?\n("+verificarSeleccionados(6)+
+                            ") Elementos Seleccionados...");
+            if(confimar == 0){
+                borrarSeleccionados();
                 for(Cliente i : clientesSeleccionados()){
                     gestor.delete(i);
                 }
             }
+        }else{
+            JOptionPane.showMessageDialog(null, "Seleccione al menos un elemento");
         }
-
-
     }//GEN-LAST:event_btnBorrarSeleccionados1MouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
