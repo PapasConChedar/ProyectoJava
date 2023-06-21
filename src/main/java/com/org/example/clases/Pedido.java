@@ -1,12 +1,14 @@
 package com.org.example.clases;
 
+import com.org.example.enums.EstadoPedido;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Pedido extends Productos implements Serializable {
     private int numPedido;
     private int precio;
-    enum EstadoPago {PAGO, IMPAGO, PENDIENTE}
+    private EstadoPedido Estado;
     private ArrayList<Productos> productos;
 
 //region CONSTRUCTOR VACIO
@@ -45,6 +47,13 @@ public class Pedido extends Productos implements Serializable {
         this.productos = productos;
     }
 
-    //endregion
+    public EstadoPedido getEstado() {
+        return Estado;
+    }
+
+    public void setEstado(EstadoPedido estado) {
+        Estado = estado;
+    }
+//endregion
     
 }

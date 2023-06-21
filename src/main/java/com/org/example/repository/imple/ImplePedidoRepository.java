@@ -80,12 +80,12 @@ public class ImplePedidoRepository implements GenericsRepository<Pedido> {
                     item.getPrecio());
             i.setProductos(
                     item.getProductos());
+            i.setEstado(item.getEstado());
 
             break;
         }
         guardar();
     }
-
 
     @Override
     public void delete(Pedido item) {
