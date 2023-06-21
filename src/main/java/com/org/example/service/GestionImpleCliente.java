@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class GestionImpleCliente {
+
     ImpleClienteRepository impleClienteRepository = new ImpleClienteRepository();
 
     public void cargar() {
@@ -43,13 +44,8 @@ public class GestionImpleCliente {
         impleClienteRepository.delete(getById(String.valueOf(cliente.getIdCliente())));
     }
 
-    public void getAll() {
-        impleClienteRepository.getAll().forEach(
-                System.out::println);
-    }
-    
-    public List<Cliente> getList(){
-        return  impleClienteRepository.getAll();
+    public List<Cliente> getList() {
+        return impleClienteRepository.getAll();
     }
 
     public Boolean verificarDatosLogin(String email, String Password) throws UsuarioNoEncontradoException {
@@ -64,7 +60,6 @@ public class GestionImpleCliente {
         return encontrado;
     }
 
-
     public Optional<Cliente> encontrarCliente(String email, String password) {
         impleClienteRepository.cargar();
         for (Cliente cliente : impleClienteRepository.getAll()) {
@@ -75,45 +70,58 @@ public class GestionImpleCliente {
         return Optional.empty();
     }
 
-
-    public boolean verificacionIngresoBases(String...textos){
+    public boolean verificacionIngresoBases(String... textos) {
+        boolean estado = true;
         ArrayList<String> bases = new ArrayList<>();
-        bases.add("   Ingrese Nombre del Usuario");
-        bases.add("   Ingrese Apellido del Usuario");
-        bases.add("   Ingrese Direccion del Usuario");
-        bases.add("   Ingrese Email del Usuario");
-        bases.add("   Ingrese Telefono del Usuario");
-        bases.add("   Ingrese Contraseña del Usuario");
-        bases.add("   Ingrese DNI del Usuario");
-        for(String texto: textos){
-            for (String base:bases){
-                if(textos.equals(base)){
-                    return false;
-                }
+        bases.add("  Ingrese Nombre Cliente");
+        bases.add("  Ingrese Apellido Cliente");
+        bases.add("  Ingrese Direccion Cliente");
+        bases.add("  Ingrese Email Cliente");
+        bases.add("  Ingrese Telefono Cliente");
+        bases.add("  Ingrese Dni Cliente");
+        bases.add("  Ingrese Contraseña Cliente");
+        int i = 0;
+        for (String texto : textos) {
+            if (texto.equals(bases.get(i))) {
+                estado = false;
             }
-        } return true;
+        }
+        return estado;
     }
-    public boolean verificacionFormatoInteger(String... cadenas){
+
+    public boolean verificacionFormatoIngresos(String... cadenas) {
         for (String cadena : cadenas) {
-            if (!cadena.matches("\\d+")) {
+            if (8 > cadena.length()) {
                 return false;
             }
         }
         return true;
     }
-    public boolean verificarIngresosVacios(String... textos){
-        for(String i : textos){
-            if(i.equals("")){
+
+    public boolean verificarIngresosVacios(String... textos) {
+        for (String i : textos) {
+            if (i.equals("")) {
                 return false;
             }
         }
         return true;
     }
-    public Integer crearIdUsuario(){
-        return (impleClienteRepository.getAll()== null) ? 0 :  impleClienteRepository.getAll().size() ;
+
+    public Integer crearIdUsuario() {
+        return (getList() == null) ? 0 : getList().size() - 1;
     }
-    
-    public Integer crearNumeroCuentaUsuarios(Cliente item){
-        return (item.hashCode() < 0) ? item.hashCode() : item.hashCode()*-1;
+
+    public Integer crearNumeroCuentaUsuarios(Cliente item) {
+        return (item.hashCode() < 0) ? item.hashCode() * -1 : item.hashCode();
     }
+
+    public boolean verificarUsuarioRepetido(Cliente item) {
+        for (Cliente i : impleClienteRepository.getAll()) {
+            if (i.getDni().equals(item.getDni())) {
+                return false;
+            }
+        }
+        return true;
+    }
+
 }

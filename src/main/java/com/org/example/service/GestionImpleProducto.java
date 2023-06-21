@@ -21,7 +21,7 @@ public class GestionImpleProducto {
         impleProductoRepository.add(item);
     }
 
-    public void uodate(Productos item){
+    public void update(Productos item){
         impleProductoRepository.update(item);
     }
 

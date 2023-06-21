@@ -4,9 +4,9 @@
   "dni" : "165686445",
   "direccion" : "V.Hugo832",
   "idCliente" : 0,
-  "numeroCuenta" : "-384023842",
+  "numeroCuenta" : "384023842",
   "email" : "papasconcheddar@gmail.com",
-  "contrasenia" : "1234",
+  "contrasenia" : "123456789",
   "telefono" : "2254596229",
   "listaDePedidos" : [ ]
-} ]
+}]

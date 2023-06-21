@@ -1,20 +1,17 @@
-[
-  {
-    "nombre": "Nombre1",
-    "apellido": "Apellido1",
-    "dni": "12345678",
-    "direccion": "Dirección1",
-    "idEmpleado": "E001",
-    "email": "empleado1@example.com",
-    "contraseña": "contraseña1"
-  },
-  {
-    "nombre": "Nombre2",
-    "apellido": "Apellido2",
-    "dni": "87654321",
-    "direccion": "Dirección2",
-    "idEmpleado": "E002",
-    "email": "empleado2@example.com",
-    "contraseña": "contraseña2"
-  }
-]
+[ {
+  "nombre" : "Flor",
+  "apellido" : "Aguilar",
+  "dni" : "48446315",
+  "direccion" : "Lambertiana 1838",
+  "idEmpleado" : 0,
+  "email" : "FlorAguilar@gmail.com",
+  "contraseña" : "123456789"
+}, {
+  "nombre" : "Nicolas",
+  "apellido" : "Vercellone",
+  "dni" : "43488434",
+  "direccion" : "Acacia 811",
+  "idEmpleado" : 0,
+  "email" : "nicoMaquinaDestructoraDeDonas@gmail.com",
+  "contraseña" : "123456789"
+} ]

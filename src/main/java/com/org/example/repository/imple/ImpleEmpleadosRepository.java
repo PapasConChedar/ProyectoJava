@@ -15,6 +15,7 @@ public class ImpleEmpleadosRepository implements GenericsRepository<Empleado> {
     private final File file = new File(Archivos.EMPLEADOS.getRuta());
     private final ObjectMapper objectMapper = new ObjectMapper();
     private List<Empleado> listEmpleados;
+
     @Override
     public void cargar() {
         try {
@@ -27,7 +28,7 @@ public class ImpleEmpleadosRepository implements GenericsRepository<Empleado> {
 
     @Override
     public void guardar() {
-        try{
+        try {
             objectMapper.writerWithDefaultPrettyPrinter().writeValue(file, this.listEmpleados);
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -36,20 +37,23 @@ public class ImpleEmpleadosRepository implements GenericsRepository<Empleado> {
 
     @Override
     public Empleado getById(String id) {
-            return this.listEmpleados
-                    .stream()
-                    .filter(empleado -> empleado.getIdEmpleado().equals(id))
-                    .findFirst()
-                    .orElse(null);
+        cargar();
+        return this.listEmpleados
+                .stream()
+                .filter(empleado -> empleado.getIdEmpleado().equals(id))
+                .findFirst()
+                .orElse(null);
     }
 
     @Override
     public List<Empleado> getAll() {
+        cargar();
         return this.listEmpleados;
     }
 
     @Override
     public void add(Empleado item) {
+        cargar();
         this.listEmpleados.add(item);
         guardar();
     }

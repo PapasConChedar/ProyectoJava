@@ -90,7 +90,6 @@ public class Cliente extends Persona implements Serializable {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 47 * hash + Objects.hashCode(this.idCliente);
         hash = 47 * hash + Objects.hashCode(this.numeroCuenta);
         hash = 47 * hash + Objects.hashCode(this.email);
         hash = 47 * hash + Objects.hashCode(this.contrasenia);
