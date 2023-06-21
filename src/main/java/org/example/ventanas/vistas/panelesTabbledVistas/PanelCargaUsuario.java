@@ -328,6 +328,7 @@ public class PanelCargaUsuario extends javax.swing.JPanel {
         ingresoEmailUsuario.setText("");
         ingresoTelefonoUsuario.setText("");
         ingresoContraseñaUsuario.setText("");
+        ingresoDniUsuario.setText("");
     }//GEN-LAST:event_btnLimpiarPanelActionPerformed
 
     private void guardarUsuarioNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarUsuarioNuevoActionPerformed
