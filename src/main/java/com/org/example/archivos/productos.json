@@ -16,4 +16,13 @@
   "stock" : 15620,
   "precio" : 1500,
   "categoriaProducto" : "BEBIDAS"
+}, {
+  "idProducto" : 2,
+  "marca" : "Manolo",
+  "nombre" : "Churro",
+  "fecheaDeVencimiento" : "21/06/2023",
+  "fechaElavoracion" : "21/06/2023",
+  "stock" : 200,
+  "precio" : 200,
+  "categoriaProducto" : "COMIDA"
 } ]

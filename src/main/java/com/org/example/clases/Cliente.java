@@ -1,15 +1,16 @@
 package com.org.example.clases;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Objects;
 
 public class Cliente extends Persona implements Serializable {
     private Integer idCliente;
     private String numeroCuenta;
-    private String direccionEnte;
     private String email;
-    private String contraseña;
+    private String contrasenia;
     private String telefono;
-    private String listaDePedidos;
+    private ArrayList<Pedido> listaDePedidos = new ArrayList<>();
 
 
     //region CONSTRUCTOR VACIO
@@ -18,24 +19,16 @@ public class Cliente extends Persona implements Serializable {
     public Cliente() {
     }
 
-    public Cliente(String nombre, String apellido, String dni, String direccion, Integer idCliente, String numeroCuenta, String direccionEnte, String email, String contraseña, String telefono, String listaDePedidos) {
-        super(nombre,
-                apellido,
-                dni,
-                direccion);
-        this.idCliente = idCliente;
-        this.numeroCuenta = numeroCuenta;
-        this.direccionEnte = direccionEnte;
-        this.email = email;
-        this.contraseña = contraseña;
-        this.telefono = telefono;
-        this.listaDePedidos = listaDePedidos;
+    public Cliente(String nombre, String apellido,String dni, 
+            String direccion, int idCliente,String numeroCuenta,String email,String contrasenia
+            ,String telefono){
+        super(nombre, apellido, dni, direccion);
+        setIdCliente(idCliente);
+        setNumeroCuenta(numeroCuenta);
+        setEmail(email);
+        setContrasenia(contrasenia);
+        setTelefono(telefono);
     }
-
-
-    //endregion
-
-    //region GETTERS AND SETTERS
 
     public Integer getIdCliente() {
         return idCliente;
@@ -53,14 +46,6 @@ public class Cliente extends Persona implements Serializable {
         this.numeroCuenta = numeroCuenta;
     }
 
-    public String getDireccionEnte() {
-        return direccionEnte;
-    }
-
-    public void setDireccionEnte(String direccionEnte) {
-        this.direccionEnte = direccionEnte;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -69,12 +54,12 @@ public class Cliente extends Persona implements Serializable {
         this.email = email;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getContrasenia() {
+        return contrasenia;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setContrasenia(String contraseña) {
+        this.contrasenia = contraseña;
     }
 
     public String getTelefono() {
@@ -85,21 +70,33 @@ public class Cliente extends Persona implements Serializable {
         this.telefono = telefono;
     }
 
-    public String getListaDePedidos() {
+    public ArrayList<Pedido> getListaDePedidos() {
         return listaDePedidos;
     }
 
-    public void setListaDePedidos(String listaDePedidos) {
+    public void setListaDePedidos(ArrayList<Pedido> listaDePedidos) {
         this.listaDePedidos = listaDePedidos;
     }
 
+   
+    
     //endregion
 
-    //region TOSTRING
     @Override
-    public String toString() {
-        return "Cliente{" + "idCliente='" + idCliente + '\'' + ", numeroCuenta='" + numeroCuenta + '\'' + ", direccionEnte='" + direccionEnte + '\'' + ", email='" + email + '\'' + ", contraseña='" + contraseña + '\'' + ", telefono='" + telefono + '\'' + ", listaDePedidos='" + listaDePedidos + '\'' + '}';
+    public boolean equals(Object obj) {
+        return super.equals(obj); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
     }
 
-    //endregion
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 47 * hash + Objects.hashCode(this.idCliente);
+        hash = 47 * hash + Objects.hashCode(this.numeroCuenta);
+        hash = 47 * hash + Objects.hashCode(this.email);
+        hash = 47 * hash + Objects.hashCode(this.contrasenia);
+        hash = 47 * hash + Objects.hashCode(this.telefono);
+        return hash;
+    }
+    
+    
 }

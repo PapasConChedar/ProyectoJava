@@ -71,7 +71,7 @@ public class ImpleClienteRepository implements GenericsRepository<Cliente> {
                 i.setDireccion(item.getDireccion());
                 i.setTelefono(item.getTelefono());
                 i.setEmail(item.getEmail());
-                i.setContraseña(item.getContraseña());
+                i.setContrasenia(item.getContrasenia());
                 i.setTelefono(item.getTelefono());
                 i.setListaDePedidos(item.getListaDePedidos());
                 break;
@@ -82,11 +82,14 @@ public class ImpleClienteRepository implements GenericsRepository<Cliente> {
 
     @Override
     public void delete(Cliente item) {
+        int contador = 0;
         cargar();
         for (Cliente i : listClientes) {
-            if (Objects.equals(i.getIdCliente(), item.getIdCliente())) {
+            if(i.equals(item)){
+                System.out.println("Entro" + i);
                 listClientes.remove(i);
-                break;
+            }else{
+                System.out.println("salio"+ i);
             }
         }
         guardar();
