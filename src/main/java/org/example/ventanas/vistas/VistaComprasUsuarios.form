@@ -116,7 +116,7 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnBorrarSeleccionados" min="-2" pref="46" max="-2" attributes="0"/>
-                  <EmptySpace pref="23" max="32767" attributes="0"/>
+                  <EmptySpace pref="24" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
