@@ -9,6 +9,7 @@ import com.org.example.clases.Empleado;
 import com.org.example.service.GestionImpleCliente;
 import com.org.example.service.GestionImpleEmpleado;
 import java.awt.Component;
+import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -106,8 +107,6 @@ public class PanelTablaUsuarios extends javax.swing.JPanel {
             modelo.addRow(infDatos);
         }
     }
-
-
 
     public int verificarSeleccionados(int posicion) {
         int contador = 0;
@@ -218,6 +217,22 @@ public class PanelTablaUsuarios extends javax.swing.JPanel {
         scrollTabla.setViewportView(tablaUsuarios);
 
         selectosTotal.setText("Selecionar Todos");
+        selectosTotal.addActionListener(new java.awt.event.ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                for(int i = 0; i < tablaUsuarios.getRowCount(); i++){
+                    if(selectosTotal.isSelected()){
+                        for (int j = 0; j < tablaUsuarios.getRowCount(); j++) {
+                            tablaUsuarios.setValueAt(true, j, 7);
+                        }
+                    }else{
+                        for (int j = 0; j < tablaUsuarios.getRowCount(); j++) {
+                            tablaUsuarios.setValueAt(false, j, 7);
+                        }
+                    }
+                }
+            }
+        });
 
         javax.swing.GroupLayout backgroundPanelTablaUsuariosLayout = new javax.swing.GroupLayout(backgroundPanelTablaUsuarios);
         backgroundPanelTablaUsuarios.setLayout(backgroundPanelTablaUsuariosLayout);
