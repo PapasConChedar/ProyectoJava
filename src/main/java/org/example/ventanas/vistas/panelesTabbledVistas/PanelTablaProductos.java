@@ -3,12 +3,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package org.example.ventanas.vistas.panelesTabbledVistas;
+import com.org.example.service.GestionImpleProducto;
+import com.org.example.clases.Productos;
+
+import javax.swing.table.DefaultTableModel;
+
 
 /**
  *
  * @author Agus-Notebook
  */
 public class PanelTablaProductos extends javax.swing.JPanel {
+    private GestionImpleProducto gestor = new GestionImpleProducto();
+    private final DefaultTableModel modelo = new DefaultTableModel();
+    private final Productos productoSeleccionado = new Productos();
 
     /**
      * Creates new form PanelTablaProductos
