@@ -161,8 +161,9 @@ public class PanelTablaUsuarios extends javax.swing.JPanel {
         scrollTabla = new javax.swing.JScrollPane();
         tablaUsuarios = new javax.swing.JTable();
         selectosTotal = new javax.swing.JCheckBox();
+        btnActualizar = new javax.swing.JButton();
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Item 1", "Item 2", "Item 3", "Item 4"}));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         setMaximumSize(new java.awt.Dimension(800, 510));
         setMinimumSize(new java.awt.Dimension(800, 510));
@@ -214,27 +215,57 @@ public class PanelTablaUsuarios extends javax.swing.JPanel {
         scrollTabla.setViewportView(tablaUsuarios);
 
         selectosTotal.setText("Selecionar Todos");
-        selectosTotal.addActionListener(new java.awt.event.ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                for (int i = 0; i < tablaUsuarios.getRowCount(); i++) {
-                    if (selectosTotal.isSelected()) {
-                        for (int j = 0; j < tablaUsuarios.getRowCount(); j++) {
-                            tablaUsuarios.setValueAt(true, j, 7);
-                        }
-                    } else {
-                        for (int j = 0; j < tablaUsuarios.getRowCount(); j++) {
-                            tablaUsuarios.setValueAt(false, j, 7);
-                        }
-                    }
-                }
+
+        btnActualizar.setBackground(new java.awt.Color(57, 136, 158));
+        btnActualizar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnActualizar.setForeground(new java.awt.Color(255, 255, 255));
+        btnActualizar.setText("ACTUALIZAR");
+        btnActualizar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnActualizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnActualizarMouseClicked(evt);
             }
         });
 
         javax.swing.GroupLayout backgroundPanelTablaUsuariosLayout = new javax.swing.GroupLayout(backgroundPanelTablaUsuarios);
         backgroundPanelTablaUsuarios.setLayout(backgroundPanelTablaUsuariosLayout);
-        backgroundPanelTablaUsuariosLayout.setHorizontalGroup(backgroundPanelTablaUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundPanelTablaUsuariosLayout.createSequentialGroup().addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addGroup(backgroundPanelTablaUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(backgroundPanelTablaUsuariosLayout.createSequentialGroup().addGroup(backgroundPanelTablaUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING).addComponent(btnBorrarSeleccionados, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE).addComponent(scrollTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 769, javax.swing.GroupLayout.PREFERRED_SIZE)).addGap(16, 16, 16)).addGroup(backgroundPanelTablaUsuariosLayout.createSequentialGroup().addComponent(btnBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(buscador, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 187, Short.MAX_VALUE).addComponent(selectosTotal).addGap(33, 33, 33)))));
-        backgroundPanelTablaUsuariosLayout.setVerticalGroup(backgroundPanelTablaUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(backgroundPanelTablaUsuariosLayout.createSequentialGroup().addGap(49, 49, 49).addGroup(backgroundPanelTablaUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE).addComponent(btnBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE).addComponent(buscador, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE).addComponent(selectosTotal)).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addComponent(scrollTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(btnBorrarSeleccionados, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE).addGap(33, 33, 33)));
+        backgroundPanelTablaUsuariosLayout.setHorizontalGroup(
+            backgroundPanelTablaUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundPanelTablaUsuariosLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(backgroundPanelTablaUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(backgroundPanelTablaUsuariosLayout.createSequentialGroup()
+                        .addGroup(backgroundPanelTablaUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(backgroundPanelTablaUsuariosLayout.createSequentialGroup()
+                                .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnBorrarSeleccionados, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(scrollTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 769, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(16, 16, 16))
+                    .addGroup(backgroundPanelTablaUsuariosLayout.createSequentialGroup()
+                        .addComponent(btnBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buscador, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 187, Short.MAX_VALUE)
+                        .addComponent(selectosTotal)
+                        .addGap(33, 33, 33))))
+        );
+        backgroundPanelTablaUsuariosLayout.setVerticalGroup(
+            backgroundPanelTablaUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(backgroundPanelTablaUsuariosLayout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addGroup(backgroundPanelTablaUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buscador, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(selectosTotal))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(scrollTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(backgroundPanelTablaUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBorrarSeleccionados, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33))
+        );
 
         add(backgroundPanelTablaUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 791, 537));
     }// </editor-fold>//GEN-END:initComponents
@@ -252,7 +283,8 @@ public class PanelTablaUsuarios extends javax.swing.JPanel {
                 }
             }
         }
-
+        modelo.setRowCount(0);
+        cargarTabla();
     }//GEN-LAST:event_btnBorrarSeleccionadosMouseClicked
 
     private void buscadorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscadorKeyTyped
@@ -280,6 +312,13 @@ public class PanelTablaUsuarios extends javax.swing.JPanel {
         buscador.setText("");
     }//GEN-LAST:event_buscadorMouseClicked
 
+    private void btnActualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarMouseClicked
+        // TODO add your handling code here:
+        modelo.setRowCount(0);
+        cargarTabla();
+        
+    }//GEN-LAST:event_btnActualizarMouseClicked
+
     public void filtro() {
         filtro = buscador.getText();
         tablaFiltro.setRowFilter(RowFilter.regexFilter(buscador.getText(), 2));
@@ -288,6 +327,7 @@ public class PanelTablaUsuarios extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel backgroundPanelTablaUsuarios;
+    private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnBorrarSeleccionados;
     private javax.swing.JButton btnBusqueda;
     private javax.swing.JTextField buscador;

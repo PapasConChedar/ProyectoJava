@@ -91,7 +91,9 @@ public class ImpleProductoRepository implements GenericsRepository<Productos>{
 
     @Override
     public void delete(Productos item) {
-
+        cargar();
+        listaProductos.removeIf(i -> i.getIdProducto().equals(item.getIdProducto()));
+        guardar();
     }
     
 }

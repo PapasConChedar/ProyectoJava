@@ -54,9 +54,9 @@ public class PanelTablaProductos extends javax.swing.JPanel {
          * Creates new form PanelTablaProductos
          */
         public  PanelTablaProductos() {
-            String[] titulos = {"Marca", "Nombre", "Fecha de Vencimiento", "Fecha de Elaboracion", "Stock", "Precio", "Categoria","Cant Sleccionada", "Seleccion"};
-            Boolean[] titulosEditables = {false, false, false, false, false, false, false, true,true};
-            Class[] titulosObjetos = {String.class, String.class, String.class, String.class, int.class, int.class, Categoria.class,Integer.class, Boolean.class};
+            String[] titulos = {"Marca", "Nombre", "Fecha de Vencimiento", "Fecha de Elaboracion", "Stock", "Precio", "Categoria", "Seleccion"};
+            Boolean[] titulosEditables = {false, false, false, false, false, false, false,true};
+            Class[] titulosObjetos = {String.class, String.class, String.class, String.class, int.class, int.class, Categoria.class, Boolean.class};
 
             initComponents();
             gestor = new GestionImpleProducto();
@@ -149,9 +149,8 @@ public class PanelTablaProductos extends javax.swing.JPanel {
         txtBuscarTablaPruductos = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaProductos = new javax.swing.JTable();
-        btnBorrar = new javax.swing.JButton();
-        btnEditar = new javax.swing.JButton();
-        btnGuardar = new javax.swing.JButton();
+        btnActualizar = new javax.swing.JButton();
+        btnBorrar1 = new javax.swing.JButton();
 
         setMaximumSize(new java.awt.Dimension(800, 510));
         setMinimumSize(new java.awt.Dimension(800, 510));
@@ -187,36 +186,44 @@ public class PanelTablaProductos extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tablaProductos);
 
-        btnBorrar.setBackground(new java.awt.Color(22, 135, 167));
-        btnBorrar.setText("BORRAR");
+        btnActualizar.setBackground(new java.awt.Color(22, 135, 167));
+        btnActualizar.setText("ACTUALIZAR");
+        btnActualizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnActualizarMouseClicked(evt);
+            }
+        });
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
 
-        btnEditar.setBackground(new java.awt.Color(22, 135, 167));
-        btnEditar.setText("EDITAR");
-
-        btnGuardar.setBackground(new java.awt.Color(22, 135, 167));
-        btnGuardar.setText("GUARDAR");
+        btnBorrar1.setBackground(new java.awt.Color(22, 135, 167));
+        btnBorrar1.setText("BORRAR");
+        btnBorrar1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBorrar1MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout backgrounPanelTablaProductosLayout = new javax.swing.GroupLayout(backgrounPanelTablaProductos);
         backgrounPanelTablaProductos.setLayout(backgrounPanelTablaProductosLayout);
         backgrounPanelTablaProductosLayout.setHorizontalGroup(
             backgrounPanelTablaProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backgrounPanelTablaProductosLayout.createSequentialGroup()
-                .addGroup(backgrounPanelTablaProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGap(47, 47, 47)
+                .addGroup(backgrounPanelTablaProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 707, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(backgrounPanelTablaProductosLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, backgrounPanelTablaProductosLayout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addGroup(backgrounPanelTablaProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 707, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(backgrounPanelTablaProductosLayout.createSequentialGroup()
-                                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtBuscarTablaPruductos, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtBuscarTablaPruductos, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgrounPanelTablaProductosLayout.createSequentialGroup()
+                        .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnBorrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(4, 4, 4)))
                 .addContainerGap(46, Short.MAX_VALUE))
         );
         backgrounPanelTablaProductosLayout.setVerticalGroup(
@@ -227,13 +234,12 @@ public class PanelTablaProductos extends javax.swing.JPanel {
                     .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtBuscarTablaPruductos, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(backgrounPanelTablaProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33))
+                    .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBorrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -271,6 +277,27 @@ public class PanelTablaProductos extends javax.swing.JPanel {
         trsfiltro = new TableRowSorter(tablaProductos.getModel());
       tablaProductos.setRowSorter(trsfiltro);
     }//GEN-LAST:event_txtBuscarTablaPruductosKeyTyped
+
+    private void btnActualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarMouseClicked
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_btnActualizarMouseClicked
+
+    private void btnBorrar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBorrar1MouseClicked
+        // TODO add your handling code here:
+        for(int i = 0; i < tablaProductos.getRowCount();i++){
+            if((boolean) tablaProductos.getValueAt(i, 7)){
+                gestor.delete(productoSeleccionado);
+            }
+        }
+    }//GEN-LAST:event_btnBorrar1MouseClicked
+
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+        // TODO add your handling code here:
+        modelo.setRowCount(0);
+        cargarTabla();
+    }//GEN-LAST:event_btnActualizarActionPerformed
         
    public void filtro(){
      filtro = txtBuscarTablaPruductos.getText();
@@ -279,10 +306,9 @@ public class PanelTablaProductos extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel backgrounPanelTablaProductos;
-    private javax.swing.JButton btnBorrar;
+    private javax.swing.JButton btnActualizar;
+    private javax.swing.JButton btnBorrar1;
     private javax.swing.JButton btnBuscar;
-    private javax.swing.JButton btnEditar;
-    private javax.swing.JButton btnGuardar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tablaProductos;
     private javax.swing.JTextField txtBuscarTablaPruductos;

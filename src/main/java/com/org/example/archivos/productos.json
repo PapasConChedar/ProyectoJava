@@ -1,13 +1,4 @@
 [ {
-  "idProducto" : 0,
-  "marca" : "Lays",
-  "nombre" : "Papas Con Cheddar",
-  "fecheaDeVencimiento" : "26/06/2023",
-  "fechaElavoracion" : "19/06/2023",
-  "stock" : 0,
-  "precio" : 760,
-  "categoriaProducto" : "COMIDA"
-}, {
   "idProducto" : 1,
   "marca" : "El Bananero Company",
   "nombre" : "JAPI",
