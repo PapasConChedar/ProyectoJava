@@ -537,10 +537,7 @@ public class PanelEdicionUsuario extends javax.swing.JPanel {
                 clienteSeleccionado.setContrasenia(
                         ingresoPasswordUsuario.getText());
                 gestor.update(clienteSeleccionado);
-                System.out.println("Llega");
                 gestor.guardar();
-                System.out.println("Guardo");
-                //this.listaTabla.remove(cliente);
                 reestablecerTextoCargaUsuario();
             }
 
