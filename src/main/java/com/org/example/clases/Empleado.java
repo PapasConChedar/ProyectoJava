@@ -6,7 +6,7 @@ import java.util.Objects;
 public class Empleado extends Persona implements Serializable {
     private Integer idEmpleado;
     private String email;
-    private String contraseña;
+    private String contrasenia;
 
 
     public Empleado(String persona, String apellido, String dni, String direccion) {
@@ -33,12 +33,12 @@ public class Empleado extends Persona implements Serializable {
         this.email = email;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getContrasenia() {
+        return contrasenia;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
     }
 
     @Override
@@ -46,7 +46,7 @@ public class Empleado extends Persona implements Serializable {
         return "Empleado{" +
                 "idEmpleado='" + idEmpleado + '\'' +
                 ", email='" + email + '\'' +
-                ", contraseña='" + contraseña + '\'' +
+                ", contraseña='" + contrasenia + '\'' +
                 '}';
     }
 
@@ -55,7 +55,7 @@ public class Empleado extends Persona implements Serializable {
         int hash = 7;
         hash = 31 * hash + Objects.hashCode(this.idEmpleado);
         hash = 31 * hash + Objects.hashCode(this.email);
-        hash = 31 * hash + Objects.hashCode(this.contraseña);
+        hash = 31 * hash + Objects.hashCode(this.contrasenia);
         return hash;
     }
 
@@ -74,7 +74,7 @@ public class Empleado extends Persona implements Serializable {
         if (!Objects.equals(this.email, other.email)) {
             return false;
         }
-        if (!Objects.equals(this.contraseña, other.contraseña)) {
+        if (!Objects.equals(this.contrasenia, other.contrasenia)) {
             return false;
         }
         return Objects.equals(this.idEmpleado, other.idEmpleado);

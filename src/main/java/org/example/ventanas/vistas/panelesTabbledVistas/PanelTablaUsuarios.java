@@ -96,7 +96,7 @@ public class PanelTablaUsuarios extends javax.swing.JPanel {
             infDatos[2] = j.getNombre() + " " + j.getApellido();
             infDatos[3] = j.getDireccion();
             infDatos[4] = j.getEmail();
-            infDatos[5] = j.getContraseña();
+            infDatos[5] = j.getContrasenia();
             infDatos[6] = "-------";
             infDatos[7] = false;
             modelo.addRow(infDatos);

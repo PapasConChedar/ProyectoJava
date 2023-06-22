@@ -5,20 +5,28 @@
 package com.org.example.ventanas;
 
 import com.org.example.Exceptions.UsuarioNoEncontradoException;
+import com.org.example.clases.Cliente;
+import com.org.example.clases.Empleado;
+import com.org.example.clases.User;
 import com.org.example.service.GestionImpleCliente;
+import com.org.example.service.GestionImpleEmpleado;
 import com.org.example.service.Utils;
+import com.org.example.session.SessionManager;
 
 import java.awt.Color;
+import java.util.Objects;
+import java.util.Optional;
 import javax.swing.JOptionPane;
 
 /**
- *
  * @author Agus-Notebook
  */
 public class Login extends javax.swing.JFrame {
     int mouseX;
     int mouseY;
-   
+
+    private SessionManager sessionManager = SessionManager.getInstance();
+
     /**
      * Creates new form Login
      */
@@ -89,9 +97,11 @@ public class Login extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 botonExitVentanaMouseClicked(evt);
             }
+
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 botonExitVentanaMouseEntered(evt);
             }
+
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 botonExitVentanaMouseExited(evt);
             }
@@ -104,27 +114,13 @@ public class Login extends javax.swing.JFrame {
 
         javax.swing.GroupLayout botonExitVentanaLayout = new javax.swing.GroupLayout(botonExitVentana);
         botonExitVentana.setLayout(botonExitVentanaLayout);
-        botonExitVentanaLayout.setHorizontalGroup(
-            botonExitVentanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(exitTexto, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE)
-        );
-        botonExitVentanaLayout.setVerticalGroup(
-            botonExitVentanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(exitTexto, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-        );
+        botonExitVentanaLayout.setHorizontalGroup(botonExitVentanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(exitTexto, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE));
+        botonExitVentanaLayout.setVerticalGroup(botonExitVentanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(exitTexto, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE));
 
         javax.swing.GroupLayout barraSuperiorLayout = new javax.swing.GroupLayout(barraSuperior);
         barraSuperior.setLayout(barraSuperiorLayout);
-        barraSuperiorLayout.setHorizontalGroup(
-            barraSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, barraSuperiorLayout.createSequentialGroup()
-                .addGap(0, 1001, Short.MAX_VALUE)
-                .addComponent(botonExitVentana, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        barraSuperiorLayout.setVerticalGroup(
-            barraSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(botonExitVentana, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        barraSuperiorLayout.setHorizontalGroup(barraSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(javax.swing.GroupLayout.Alignment.TRAILING, barraSuperiorLayout.createSequentialGroup().addGap(0, 1001, Short.MAX_VALUE).addComponent(botonExitVentana, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)));
+        barraSuperiorLayout.setVerticalGroup(barraSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(botonExitVentana, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
 
         panelFondoLogin.add(barraSuperior, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1070, 40));
 
@@ -182,9 +178,11 @@ public class Login extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 textoIngresoMouseClicked(evt);
             }
+
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 textoIngresoMouseEntered(evt);
             }
+
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 textoIngresoMouseExited(evt);
             }
@@ -192,63 +190,13 @@ public class Login extends javax.swing.JFrame {
 
         javax.swing.GroupLayout botonIngresoLayout = new javax.swing.GroupLayout(botonIngreso);
         botonIngreso.setLayout(botonIngresoLayout);
-        botonIngresoLayout.setHorizontalGroup(
-            botonIngresoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(textoIngreso, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-        );
-        botonIngresoLayout.setVerticalGroup(
-            botonIngresoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(textoIngreso, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
-        );
+        botonIngresoLayout.setHorizontalGroup(botonIngresoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(textoIngreso, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE));
+        botonIngresoLayout.setVerticalGroup(botonIngresoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(textoIngreso, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE));
 
         javax.swing.GroupLayout PanelIngresoDatosLayout = new javax.swing.GroupLayout(PanelIngresoDatos);
         PanelIngresoDatos.setLayout(PanelIngresoDatosLayout);
-        PanelIngresoDatosLayout.setHorizontalGroup(
-            PanelIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelIngresoDatosLayout.createSequentialGroup()
-                .addGap(132, 132, 132)
-                .addComponent(textoTitulo)
-                .addGap(137, 137, 137))
-            .addGroup(PanelIngresoDatosLayout.createSequentialGroup()
-                .addGap(123, 123, 123)
-                .addComponent(iconoLogin)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(PanelIngresoDatosLayout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addGroup(PanelIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(botonIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(PanelIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(separador2)
-                        .addComponent(textoContraseña)
-                        .addComponent(separador1)
-                        .addComponent(textoEmail)
-                        .addComponent(ingresoEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
-                        .addComponent(ingresoContrasenia)))
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        PanelIngresoDatosLayout.setVerticalGroup(
-            PanelIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelIngresoDatosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(textoTitulo)
-                .addGap(0, 0, 0)
-                .addComponent(iconoLogin)
-                .addGap(4, 4, 4)
-                .addComponent(textoEmail)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ingresoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(2, 2, 2)
-                .addComponent(separador1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(textoContraseña)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ingresoContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(2, 2, 2)
-                .addComponent(separador2, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(botonIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(82, Short.MAX_VALUE))
-        );
+        PanelIngresoDatosLayout.setHorizontalGroup(PanelIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelIngresoDatosLayout.createSequentialGroup().addGap(132, 132, 132).addComponent(textoTitulo).addGap(137, 137, 137)).addGroup(PanelIngresoDatosLayout.createSequentialGroup().addGap(123, 123, 123).addComponent(iconoLogin).addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)).addGroup(PanelIngresoDatosLayout.createSequentialGroup().addGap(48, 48, 48).addGroup(PanelIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING).addComponent(botonIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE).addGroup(PanelIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false).addComponent(separador2).addComponent(textoContraseña).addComponent(separador1).addComponent(textoEmail).addComponent(ingresoEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE).addComponent(ingresoContrasenia))).addGap(0, 0, Short.MAX_VALUE)));
+        PanelIngresoDatosLayout.setVerticalGroup(PanelIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(PanelIngresoDatosLayout.createSequentialGroup().addContainerGap().addComponent(textoTitulo).addGap(0, 0, 0).addComponent(iconoLogin).addGap(4, 4, 4).addComponent(textoEmail).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(ingresoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE).addGap(2, 2, 2).addComponent(separador1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(textoContraseña).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(ingresoContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE).addGap(2, 2, 2).addComponent(separador2, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(botonIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE).addContainerGap(82, Short.MAX_VALUE)));
 
         panelFondoLogin.add(PanelIngresoDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, 380, 460));
 
@@ -262,17 +210,30 @@ public class Login extends javax.swing.JFrame {
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelFondoLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 1066, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelFondoLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(panelFondoLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 1066, Short.MAX_VALUE));
+        layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(panelFondoLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    public void validarLogin() {
+        String email = ingresoEmail.getText();
+        String pass = String.valueOf(ingresoContrasenia.getPassword());
+
+        sessionManager.setCurrentUser(new User(email, pass));
+
+        Optional<Cliente> cliente = new GestionImpleCliente().encontrarCliente(email, pass);
+        Optional<Empleado> empleado = new GestionImpleEmpleado().encontrarEmpleado(email, pass);
+
+        if (cliente.isPresent() || empleado.isPresent()) {
+            JOptionPane.showMessageDialog(null, "Bienvenido");
+            MenuInicio ventana = new MenuInicio();
+            ventana.setVisible(true);
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos");
+        }
+    }
 
     private void barraSuperiorMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_barraSuperiorMousePressed
         // TODO add your handling code here:
@@ -284,7 +245,7 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
-        this.setLocation(x-mouseX,y-mouseY);
+        this.setLocation(x - mouseX, y - mouseY);
     }//GEN-LAST:event_barraSuperiorMouseDragged
 
     private void botonExitVentanaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonExitVentanaMouseClicked
@@ -294,52 +255,51 @@ public class Login extends javax.swing.JFrame {
 
     private void botonExitVentanaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonExitVentanaMouseEntered
         // TODO add your handling code here:
-      botonExitVentana.setBackground(new Color(237,80,122));
-      exitTexto.setForeground(new Color(232,246,255));
+        botonExitVentana.setBackground(new Color(237, 80, 122));
+        exitTexto.setForeground(new Color(232, 246, 255));
     }//GEN-LAST:event_botonExitVentanaMouseEntered
 
     private void botonExitVentanaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonExitVentanaMouseExited
         // TODO add your handling code here:
-        botonExitVentana.setBackground(new Color(232,246,255));
+        botonExitVentana.setBackground(new Color(232, 246, 255));
         exitTexto.setForeground(Color.BLACK);
     }//GEN-LAST:event_botonExitVentanaMouseExited
 
     private void textoIngresoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textoIngresoMouseEntered
         // TODO add your handling code here:
-        botonIngreso.setBackground(new Color(81,204,210));
+        botonIngreso.setBackground(new Color(81, 204, 210));
     }//GEN-LAST:event_textoIngresoMouseEntered
 
     private void textoIngresoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textoIngresoMouseExited
         // TODO add your handling code here:
-        botonIngreso.setBackground(new Color(57,136,158));
+        botonIngreso.setBackground(new Color(57, 136, 158));
     }//GEN-LAST:event_textoIngresoMouseExited
 
     private void textoIngresoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textoIngresoMouseClicked
         // TODO add your handling code here:
-
+        validarLogin();
     }//GEN-LAST:event_textoIngresoMouseClicked
 
     private void ingresoEmailMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresoEmailMousePressed
         // TODO add your handling code here:
-        if(ingresoEmail.getText().equals("Ingrese Email del Usuario")){
+        if (ingresoEmail.getText().equals("Ingrese Email del Usuario")) {
             ingresoEmail.setText("");
-            if(String.valueOf(ingresoContrasenia.getPassword()).isEmpty()){
+            if (String.valueOf(ingresoContrasenia.getPassword()).isEmpty()) {
                 ingresoContrasenia.setText("***************");
-                
+
             }
         }
     }//GEN-LAST:event_ingresoEmailMousePressed
 
     private void ingresoContraseniaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresoContraseniaMousePressed
         // TODO add your handling code here:
-        if(String.valueOf(ingresoContrasenia.getPassword()).equals("***************")){
+        if (String.valueOf(ingresoContrasenia.getPassword()).equals("***************")) {
             ingresoContrasenia.setText("");
         }
-        if(ingresoEmail.getText().isEmpty()){
+        if (ingresoEmail.getText().isEmpty()) {
             ingresoEmail.setText("Ingrese Email del Usuario");
         }
     }//GEN-LAST:event_ingresoContraseniaMousePressed
-
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

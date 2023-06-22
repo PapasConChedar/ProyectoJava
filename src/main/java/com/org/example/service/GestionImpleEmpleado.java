@@ -4,10 +4,12 @@
  */
 package com.org.example.service;
 
+import com.org.example.clases.Cliente;
 import com.org.example.clases.Empleado;
 import com.org.example.repository.imple.ImpleEmpleadosRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @author Agus-Notebook
@@ -54,5 +56,15 @@ public class GestionImpleEmpleado {
 
     public void deleteById(int id) {
         impleEmpleadosRepository.deleteById(id);
+    }
+
+    public Optional<Empleado> encontrarEmpleado(String email, String contraseña) {
+        impleEmpleadosRepository.cargar();
+        for (Empleado empleado : impleEmpleadosRepository.getAll()) {
+            if (empleado.getEmail().equals(email) && empleado.getContrasenia().equals(contraseña)) {
+                return Optional.of(empleado);
+            }
+        }
+        return Optional.empty();
     }
 }
