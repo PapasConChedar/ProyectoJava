@@ -7,7 +7,6 @@ package org.example.ventanas.vistas;
 import com.org.example.clases.Cliente;
 import com.org.example.clases.Pedido;
 import com.org.example.clases.Productos;
-import com.org.example.enums.EstadoPedido;
 import com.org.example.service.GestionImpleCliente;
 import com.org.example.service.GestionImplePedido;
 import com.org.example.service.Utils;
@@ -17,7 +16,6 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import javax.swing.JCheckBox;
-import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.RowFilter;
 import javax.swing.event.ListSelectionEvent;
@@ -33,7 +31,7 @@ import javax.swing.table.TableRowSorter;
 public class VistaComprasUsuarios extends javax.swing.JPanel {
 
     private GestionImpleCliente gestorCliente;
-    private GestionImplePedido gestor;
+    private GestionImplePedido gestionImplePedido;
     private DefaultTableModel modeloTablaPedido;
     private DefaultTableModel modeloTablaProductos;
     private TableRowSorter tablaFlitro;
@@ -65,7 +63,7 @@ public class VistaComprasUsuarios extends javax.swing.JPanel {
      */
     public VistaComprasUsuarios(Cliente user) {
         cliente = user;
-        gestor = new GestionImplePedido();
+        gestionImplePedido = new GestionImplePedido();
         gestorCliente = new GestionImpleCliente();
         String[] titulosPedidos = {"N° Pedido", "Total", "Cant Productos","Estado", "Selecionado"};
         Boolean[] tiposPedidos = {false, false, false,false, true};
@@ -400,17 +398,15 @@ public class VistaComprasUsuarios extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBuscadorActionPerformed
 
     private void btnBorrarSeleccionadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBorrarSeleccionadosMouseClicked
-        // TODO add your handling code here:
 
         for (int i = 0; i < tablaPedidos.getRowCount(); i++) {
-            if ((boolean) tablaPedidos.getValueAt(i, 3)) {
-                gestor.borrarPedido(Integer.parseInt(String.valueOf(tablaPedidos.getValueAt(i, 0)).toString()), cliente);
-
+            if (tablaPedidos.getValueAt(i, 4).equals(true)) {
+                gestionImplePedido.borrarPedido(Integer.parseInt(String.valueOf(tablaPedidos.getValueAt(i, 0))), cliente);
                 Utils.borrarFilaDeTabla(tablaPedidos, i);
-
             }
         }
-    }//GEN-LAST:event_btnBorrarSeleccionadosMouseClicked
+
+    }
 
     private void btnConfirmarPedidoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConfirmarPedidoMouseClicked
         // TODO add your handling code here:
