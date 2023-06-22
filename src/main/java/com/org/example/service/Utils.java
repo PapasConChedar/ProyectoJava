@@ -52,4 +52,10 @@ public class Utils {
         }
         return response;
     }
+
+    public static void seleccionarTodosCheckbox(JTable tabla, boolean seleccionado, int columna){
+        for (int i = 0; i < tabla.getRowCount(); i++) {
+            tabla.setValueAt(seleccionado, i, columna);
+        }
+    }
 }

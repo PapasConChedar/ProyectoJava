@@ -71,6 +71,7 @@ public class GestionImplePedido {
                 cliente.getListaDePedidos().remove(item);
             }
         }
+        guardar();
     }
     
 
