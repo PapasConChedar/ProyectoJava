@@ -110,6 +110,7 @@ public class VistaComprasUsuarios extends javax.swing.JPanel {
                     int filaSeleccionada = tablaPedidos.getSelectedRow();
                     modeloTablaProductos.setRowCount(0);
                     cargarTablaProductos(cliente.getListaDePedidos().get(filaSeleccionada).getProductos());
+                    precioTotalPedido.setText("$ "+String.valueOf(tablaPedidos.getValueAt(filaSeleccionada, 1)));
                 }
             }
         });
@@ -125,6 +126,23 @@ public class VistaComprasUsuarios extends javax.swing.JPanel {
                     } else {
                         for (int j = 0; j < tablaProductoDePedidos.getRowCount(); j++) {
                             tablaProductoDePedidos.setValueAt(false, j, 3);
+                        }
+                    }
+                }
+            }
+        });
+        
+        selecionTotal.addActionListener(new java.awt.event.ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                for (int i = 0; i < tablaPedidos.getRowCount(); i++) {
+                    if (selecionTotal.isSelected()) {
+                        for (int j = 0; j < tablaPedidos.getRowCount(); j++) {
+                            tablaPedidos.setValueAt(true, j, 4);
+                        }
+                    } else {
+                        for (int j = 0; j < tablaPedidos.getRowCount(); j++) {
+                            tablaPedidos.setValueAt(false, j, 4);
                         }
                     }
                 }
@@ -161,6 +179,7 @@ public class VistaComprasUsuarios extends javax.swing.JPanel {
         filtro = buscadorElementos.getText();
         tablaFlitro.setRowFilter(RowFilter.regexFilter(buscadorElementos.getText(), 0));
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -176,13 +195,15 @@ public class VistaComprasUsuarios extends javax.swing.JPanel {
         buscadorElementos = new javax.swing.JTextField();
         btnBorrarSeleccionados = new javax.swing.JButton();
         textoPrecioTotal = new javax.swing.JLabel();
-        precioTotalPedido = new javax.swing.JTextField();
         btnConfirmarPedido = new javax.swing.JButton();
         selecionTotal = new javax.swing.JCheckBox();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaPedidos = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaProductoDePedidos = new javax.swing.JTable();
+        icono = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        precioTotalPedido = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(800, 510));
         setMinimumSize(new java.awt.Dimension(800, 510));
@@ -196,6 +217,7 @@ public class VistaComprasUsuarios extends javax.swing.JPanel {
         backgroundVistaCompras.setPreferredSize(new java.awt.Dimension(800, 560));
 
         btnBuscador.setBackground(new java.awt.Color(204, 255, 204));
+        btnBuscador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lupa.png"))); // NOI18N
         btnBuscador.setText("Buscar:");
         btnBuscador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -226,15 +248,13 @@ public class VistaComprasUsuarios extends javax.swing.JPanel {
         textoPrecioTotal.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         textoPrecioTotal.setText("TOTAL:");
 
-        precioTotalPedido.setText("$");
-        precioTotalPedido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                precioTotalPedidoActionPerformed(evt);
-            }
-        });
-
         btnConfirmarPedido.setBackground(new java.awt.Color(189, 205, 214));
         btnConfirmarPedido.setText("PAGAR");
+        btnConfirmarPedido.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnConfirmarPedidoMouseClicked(evt);
+            }
+        });
 
         selecionTotal.setBackground(new java.awt.Color(134, 150, 254));
         selecionTotal.setText("Seleccionar Todos");
@@ -265,55 +285,78 @@ public class VistaComprasUsuarios extends javax.swing.JPanel {
         ));
         jScrollPane2.setViewportView(tablaProductoDePedidos);
 
+        icono.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        icono.setForeground(new java.awt.Color(0, 0, 0));
+        icono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/comprasMini.png"))); // NOI18N
+        icono.setText("  MIS COMPRAS");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(precioTotalPedido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(precioTotalPedido, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout backgroundVistaComprasLayout = new javax.swing.GroupLayout(backgroundVistaCompras);
         backgroundVistaCompras.setLayout(backgroundVistaComprasLayout);
         backgroundVistaComprasLayout.setHorizontalGroup(
             backgroundVistaComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundVistaComprasLayout.createSequentialGroup()
-                .addGroup(backgroundVistaComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(20, 20, 20)
+                .addGroup(backgroundVistaComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(backgroundVistaComprasLayout.createSequentialGroup()
+                        .addComponent(icono)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundVistaComprasLayout.createSequentialGroup()
                         .addGroup(backgroundVistaComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(backgroundVistaComprasLayout.createSequentialGroup()
+                                .addComponent(btnBorrarSeleccionados, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 46, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundVistaComprasLayout.createSequentialGroup()
-                                .addContainerGap(153, Short.MAX_VALUE)
-                                .addComponent(textoPrecioTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(precioTotalPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(backgroundVistaComprasLayout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addGroup(backgroundVistaComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                    .addGroup(backgroundVistaComprasLayout.createSequentialGroup()
-                                        .addComponent(btnBorrarSeleccionados, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnConfirmarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(12, 12, 12)
-                        .addGroup(backgroundVistaComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(backgroundVistaComprasLayout.createSequentialGroup()
-                                .addComponent(btnBuscador, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(buscadorElementos, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(backgroundVistaComprasLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(selecionTotal)))
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(textoPrecioTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(backgroundVistaComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnConfirmarPedido, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE))))
+                .addGap(12, 12, 12)
+                .addGroup(backgroundVistaComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundVistaComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundVistaComprasLayout.createSequentialGroup()
+                            .addComponent(btnBuscador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(buscadorElementos, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(selecionTotal, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(21, 21, 21))
         );
         backgroundVistaComprasLayout.setVerticalGroup(
             backgroundVistaComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backgroundVistaComprasLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(backgroundVistaComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buscadorElementos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(4, 4, 4)
-                .addComponent(selecionTotal)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(backgroundVistaComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(backgroundVistaComprasLayout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addGroup(backgroundVistaComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(buscadorElementos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnBuscador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(13, 13, 13)
+                        .addComponent(selecionTotal)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundVistaComprasLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(icono)
+                        .addGap(30, 30, 30)))
                 .addGroup(backgroundVistaComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(backgroundVistaComprasLayout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(backgroundVistaComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(precioTotalPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(backgroundVistaComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(textoPrecioTotal))
                         .addGap(18, 18, 18)
                         .addGroup(backgroundVistaComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -325,10 +368,6 @@ public class VistaComprasUsuarios extends javax.swing.JPanel {
 
         add(backgroundVistaCompras, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
-
-    private void precioTotalPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_precioTotalPedidoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_precioTotalPedidoActionPerformed
 
     private void buscadorElementosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscadorElementosKeyTyped
         // TODO add your handling code here:
@@ -369,6 +408,11 @@ public class VistaComprasUsuarios extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnBorrarSeleccionadosMouseClicked
 
+    private void btnConfirmarPedidoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConfirmarPedidoMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnConfirmarPedidoMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel backgroundVistaCompras;
@@ -376,9 +420,11 @@ public class VistaComprasUsuarios extends javax.swing.JPanel {
     private javax.swing.JButton btnBuscador;
     private javax.swing.JButton btnConfirmarPedido;
     private javax.swing.JTextField buscadorElementos;
+    private javax.swing.JLabel icono;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField precioTotalPedido;
+    private javax.swing.JLabel precioTotalPedido;
     private javax.swing.JCheckBox selecionTotal;
     private javax.swing.JTable tablaPedidos;
     private javax.swing.JTable tablaProductoDePedidos;

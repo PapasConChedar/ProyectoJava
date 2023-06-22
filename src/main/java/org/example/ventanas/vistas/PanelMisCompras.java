@@ -150,41 +150,37 @@ public class PanelMisCompras extends javax.swing.JPanel {
         return null;
     }
 
-    public ArrayList<Productos> productosSeleccionados() throws ProductoCargaDatosException {
+    public ArrayList<Productos> obtenerProductosSeleccionados() {
         ArrayList<Productos> seleccionados = new ArrayList<>();
         for (int i = 0; i < tablaElementos.getRowCount(); i++) {
-            item = obtenerProductoDeTabla(i);
-            if (item != null && corroborarDescontar(Integer.parseInt((String) tablaElementos.getValueAt(i, 8)), item.getStock())) {
-                item.setStock((int) tablaElementos.getValueAt(i, 8));
-                seleccionados.add(item);
-            } else {
-                throw new ProductoCargaDatosException(10);
+            Productos producto = obtenerProductoDeTabla(i);
+            int solicitado =Integer.parseInt(String.valueOf(tablaElementos.getValueAt(i, 8)));
+            System.out.println(solicitado);
+            if (producto != null && corroborarDescontar(solicitado, producto.getStock())) {
+                producto.setStock(solicitado);
+                seleccionados.add(producto);
             }
-
         }
         return seleccionados;
     }
 
-    public Pedido crearPedido() throws ProductoCargaDatosException{
-            Pedido compra = new Pedido();
-            compra.setEstado(EstadoPedido.IMPAGO);
-            compra.setPrecio(calcularPrecio(productosSeleccionados()));
-            compra.setProductos(productosSeleccionados());
-            compra.setNumPedido((dato.hashCode() < 0) ? dato.hashCode() * -1 : dato.hashCode());
-            JOptionPane.showMessageDialog(null, "Pedido Agregado...");
+    public boolean corroborarDescontar(int solicitado, int pedido) {
+        return pedido >= solicitado;
+    }
+
+    public Pedido crearPedido() throws ProductoCargaDatosException {
+        Pedido compra = new Pedido();
+        compra.setEstado(EstadoPedido.IMPAGO);
+        compra.setPrecio(calcularPrecio(obtenerProductosSeleccionados()));
+        compra.setProductos(obtenerProductosSeleccionados());
+        compra.setNumPedido((compra.hashCode()<0) ? compra.hashCode()+-1:compra.hashCode());
+        JOptionPane.showMessageDialog(null, "Pedido Agregado...");
         return compra;
     }
 
     public void actualizarTabla() {
         modelo.setRowCount(0);
         cargarTabla();
-    }
-
-    public boolean corroborarDescontar(int solicitado, int pedido) {
-        if (pedido < solicitado) {
-            return false;
-        }
-        return true;
     }
 
     /**
@@ -373,7 +369,7 @@ public class PanelMisCompras extends javax.swing.JPanel {
         int confirmar = JOptionPane.showConfirmDialog(null, "¿Quiere agregar a su pedido " + verificarSeleccionados(9) + " Productos ?");
         if (confirmar == 0) {
             try {
-                gestorProductos.restarProductosLista(productosSeleccionados());
+                gestorProductos.restarProductosLista(obtenerProductosSeleccionados());
                 dato.getListaDePedidos().add(crearPedido());
                 gestorCliente.update(dato);
                 actualizarTabla();
