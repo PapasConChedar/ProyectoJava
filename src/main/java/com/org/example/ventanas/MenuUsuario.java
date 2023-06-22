@@ -5,6 +5,7 @@
 package com.org.example.ventanas;
 
 import com.org.example.clases.Cliente;
+import com.org.example.enums.Archivos;
 import org.example.ventanas.vistas.VistaPrincipal;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -39,7 +40,7 @@ public class MenuUsuario extends javax.swing.JFrame {
     }
     public void reproducirMusica() {
         try {
-            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/main/java/com/org/example/audio/asd.wav"));
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File(Archivos.CANCION.getRuta()));
             Clip clip = AudioSystem.getClip();
             clip.open(audioInputStream);
             clip.start();
@@ -62,10 +63,10 @@ public class MenuUsuario extends javax.swing.JFrame {
                 componentesVista(new VistaMiUsuario(dato),contPanel);
                 break;
             case 3:
-                componentesVista(new PanelMisCompras(),contPanel);
+                componentesVista(new VistaCompras(dato),contPanel);
                 break;
             case 4:
-                componentesVista(new VistaCompras(),contPanel);
+                componentesVista(new PanelMisCompras(),contPanel);
                 break;
             default:
                 throw new AssertionError();

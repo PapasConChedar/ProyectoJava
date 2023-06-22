@@ -9,4 +9,15 @@
   "contrasenia" : "123456789",
   "telefono" : "2254596229",
   "listaDePedidos" : [ ]
-}]
+}, {
+  "nombre" : "Franco",
+  "apellido" : "Lelox",
+  "dni" : "56777898",
+  "direccion" : "13 3344",
+  "idCliente" : 0,
+  "numeroCuenta" : "559862699",
+  "email" : "franco@gmail.com",
+  "contrasenia" : "123123123",
+  "telefono" : "2252667879",
+  "listaDePedidos" : [ ]
+} ]

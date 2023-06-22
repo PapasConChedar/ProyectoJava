@@ -18,6 +18,9 @@ public class Utils {
         return password.length() >= 8;
     }
 
+    public static Boolean verificarDatos(String email, String password) {
+        return validEmail(email) && validPassword(password);
+    }
     public static void borrarFilaDeTabla(JTable tabla, int fila){
         try {
             ((javax.swing.table.DefaultTableModel) tabla.getModel()).removeRow(fila);

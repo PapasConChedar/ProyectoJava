@@ -14,12 +14,4 @@
   "idEmpleado" : 1,
   "email" : "florenciaAguiar@gmail.com",
   "contrasenia" : "112345789"
-}, {
-  "nombre" : "asdasdasdasda",
-  "apellido" : "asdasdasdasdad",
-  "dni" : "1231231231",
-  "direccion" : "123asdasdasdasdas",
-  "idEmpleado" : 2,
-  "email" : "asdasdasdasd@gmail.com",
-  "contrasenia" : "123123123123"
 } ]
