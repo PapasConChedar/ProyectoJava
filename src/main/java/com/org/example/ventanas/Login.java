@@ -222,15 +222,14 @@ public class Login extends javax.swing.JFrame {
 
         sessionManager.setCurrentUser(new User(email, pass));
 
-        Optional<Cliente> cliente = new GestionImpleCliente().encontrarCliente(email, pass);
-        Optional<Empleado> empleado = new GestionImpleEmpleado().encontrarEmpleado(email, pass);
+        Integer response = Utils.verificarEntidad(email, pass);
 
-        if (cliente.isPresent() || empleado.isPresent()) {
+        if(response == 1 || response == 2){
             JOptionPane.showMessageDialog(null, "Bienvenido");
             MenuInicio ventana = new MenuInicio();
             ventana.setVisible(true);
             this.dispose();
-        } else {
+        }else if(response == 0){
             JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos");
         }
     }

@@ -1,6 +1,10 @@
 package com.org.example.service;
 
+import com.org.example.clases.Cliente;
+import com.org.example.clases.Empleado;
+
 import javax.swing.*;
+import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -27,5 +31,25 @@ public class Utils {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error al borrar la fila.");
         }
+    }
+
+    /**
+     * Devuelve 1 si es cliente, 2 si es empleado y 0 si no existe
+     * @param email
+     * @param pass
+     * @return
+     */
+    public static Integer verificarEntidad(String email, String pass) {
+        Optional<Cliente> cliente = new GestionImpleCliente().encontrarCliente(email, pass);
+        Optional<Empleado> empleado = new GestionImpleEmpleado().encontrarEmpleado(email, pass);
+        Integer response;
+        if (cliente.isPresent()) {
+            response = 1;
+        } else if (empleado.isPresent()) {
+            response = 2;
+        } else {
+            response = 0;
+        }
+        return response;
     }
 }
