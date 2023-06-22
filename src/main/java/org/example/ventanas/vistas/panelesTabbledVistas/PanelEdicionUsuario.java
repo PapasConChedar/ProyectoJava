@@ -65,6 +65,8 @@ public class PanelEdicionUsuario extends javax.swing.JPanel {
         ingresoEmailUsuario = new javax.swing.JTextField();
         ingresoPasswordUsuario = new javax.swing.JTextField();
         ingresoTelefonoUsuario = new javax.swing.JTextField();
+        BuscarPorId = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         backgroundPanelEdicionUsuario.setBackground(new java.awt.Color(252, 237, 186));
         backgroundPanelEdicionUsuario.setMaximumSize(new java.awt.Dimension(800, 510));
@@ -239,6 +241,38 @@ public class PanelEdicionUsuario extends javax.swing.JPanel {
             }
         });
 
+        BuscarPorId.setBackground(new java.awt.Color(255, 235, 145));
+        BuscarPorId.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        BuscarPorId.setForeground(new java.awt.Color(246, 171, 49));
+        BuscarPorId.setText("ID USUARIO");
+        BuscarPorId.setBorder(null);
+        BuscarPorId.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BuscarPorIdMouseClicked(evt);
+            }
+        });
+        BuscarPorId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarPorIdActionPerformed(evt);
+            }
+        });
+
+        jButton1.setBackground(new java.awt.Color(255, 235, 145));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lupa.png"))); // NOI18N
+        jButton1.setText("BUSCAR");
+        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(246, 171, 98), 3));
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -250,42 +284,51 @@ public class PanelEdicionUsuario extends javax.swing.JPanel {
                 .addComponent(botonAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ingresoPasswordUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ingresoNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ingresoApellidoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ingresoDniUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ingresoDireccionUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ingresoEmailUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ingresoTelefonoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addGap(28, 28, 28)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(BuscarPorId))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(ingresoPasswordUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ingresoNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ingresoApellidoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ingresoDniUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ingresoDireccionUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ingresoEmailUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ingresoTelefonoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(48, 48, 48)
+                .addContainerGap(75, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BuscarPorId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
+                .addGap(25, 25, 25)
                 .addComponent(ingresoNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ingresoApellidoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ingresoDniUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ingresoDireccionUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ingresoEmailUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ingresoPasswordUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ingresoTelefonoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(botonAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BotonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15))
         );
 
-        backgroundPanelEdicionUsuario.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, -1, -1));
+        backgroundPanelEdicionUsuario.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 320, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -433,7 +476,7 @@ public class PanelEdicionUsuario extends javax.swing.JPanel {
                         ingresoPasswordUsuario.getText());
                 gestor.update(
                         cliente);
-                gestor.cargar();
+                gestor.guardar();
                 //this.listaTabla.remove(cliente);
                 reestablecerTextoCargaUsuario();
             }
@@ -455,9 +498,69 @@ public class PanelEdicionUsuario extends javax.swing.JPanel {
 
     }//GEN-LAST:event_BotonCancelarMouseClicked
 
+    private void BuscarPorIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarPorIdActionPerformed
+        // TODO add your handling code here:
+        BuscarPorId.setText("");
+        
+    }//GEN-LAST:event_BuscarPorIdActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+            String id =  BuscarPorId.getText();
+            gestor.cargar();
+            clienteSeleccionado = gestor.getById(id);
+            if(clienteSeleccionado!= null) {
+                ingresoNombreCliente.setText(
+                        clienteSeleccionado.getNombre());
+                ingresoApellidoUsuario.setText(
+                        clienteSeleccionado.getApellido());
+                ingresoDniUsuario.setText(
+                        clienteSeleccionado.getDni());
+                ingresoDireccionUsuario.setText(
+                        clienteSeleccionado.getDireccion());
+                ingresoEmailUsuario.setText(
+                        clienteSeleccionado.getEmail());
+                ingresoPasswordUsuario.setText(
+                        "*********");
+                ingresoTelefonoUsuario.setText(
+                        clienteSeleccionado.getTelefono());
+            }else
+                System.out.println("NO HAY CLIENTE");
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void BuscarPorIdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BuscarPorIdMouseClicked
+        // TODO add your handling code here:
+        BuscarPorId.setText("");
+    }//GEN-LAST:event_BuscarPorIdMouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+            String id =  BuscarPorId.getText();
+            gestor.cargar();
+            Cliente cliente = gestor.getById("1");
+            if(cliente!= null) {
+                ingresoNombreCliente.setText(
+                        cliente.getNombre());
+                ingresoApellidoUsuario.setText(
+                        cliente.getApellido());
+                ingresoDniUsuario.setText(
+                        cliente.getDni());
+                ingresoDireccionUsuario.setText(
+                        cliente.getDireccion());
+                ingresoEmailUsuario.setText(
+                        cliente.getEmail());
+                ingresoPasswordUsuario.setText(
+                        "*********");
+                ingresoTelefonoUsuario.setText(
+                        cliente.getTelefono());
+            }else
+                System.out.println("NO HAY CLIENTE");                 
+
+    }//GEN-LAST:event_jButton1MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BotonCancelar;
+    private javax.swing.JTextField BuscarPorId;
     private javax.swing.JPanel backgroundPanelEdicionUsuario;
     private javax.swing.JPanel botonAceptar;
     private javax.swing.JTextField ingresoApellidoUsuario;
@@ -467,6 +570,7 @@ public class PanelEdicionUsuario extends javax.swing.JPanel {
     private javax.swing.JTextField ingresoNombreCliente;
     private javax.swing.JTextField ingresoPasswordUsuario;
     private javax.swing.JTextField ingresoTelefonoUsuario;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel txtAceptar;
