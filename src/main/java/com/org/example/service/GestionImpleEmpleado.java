@@ -43,12 +43,6 @@ public class GestionImpleEmpleado {
         return impleEmpleadosRepository.getAll();
     }
     
-    public Integer crearIdEmpleado(){
-        if(getList() != null)
-            return getList().size()-1;
-        return 0; 
-    }
-    
     public boolean verificarUsuarioRepetido(Empleado item) {
         for (Empleado i : impleEmpleadosRepository.getAll()) {
             if (i.getDni().equals(item.getDni())) {

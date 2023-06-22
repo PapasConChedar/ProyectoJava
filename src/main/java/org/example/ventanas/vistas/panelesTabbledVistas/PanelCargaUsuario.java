@@ -109,7 +109,7 @@ public class PanelCargaUsuario extends javax.swing.JPanel {
     
     public void cargaEmpleadoAlSistema() throws UsuarioCargaDatosException {
         if (verificacionIngresos()) {
-            empleado.setIdEmpleado(gestor.crearIdUsuario());
+            empleado.setIdEmpleado(gestorEmpleado.getList().size());
             empleado.setNombre(ingresoNombre.getText());
             empleado.setApellido(ingresoApellido.getText());
             empleado.setDireccion(ingresoDireccion.getText());
