@@ -599,7 +599,7 @@ public class PanelEdicionUsuario extends javax.swing.JPanel {
         // TODO add your handling code here:
             String id =  BuscarPorId.getText();
             gestor.cargar();
-            Cliente cliente = gestor.getById("1");
+            Cliente cliente = gestor.getById(id);
             if(cliente!= null) {
                 ingresoNombreCliente.setText(
                         cliente.getNombre());
@@ -616,7 +616,7 @@ public class PanelEdicionUsuario extends javax.swing.JPanel {
                 ingresoTelefonoUsuario.setText(
                         cliente.getTelefono());
             }else
-                System.out.println("NO HAY CLIENTE");                 
+               JOptionPane.showMessageDialog(null,"El usuario No existe");
 
     }//GEN-LAST:event_jButton1MouseClicked
 
