@@ -9,21 +9,28 @@ import com.org.example.clases.Pedido;
 import com.org.example.clases.Productos;
 import com.org.example.service.GestionImpleCliente;
 import com.org.example.service.GestionImplePedido;
+import com.org.example.service.Utils;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
+import javax.swing.RowFilter;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-import javax.swing.plaf.basic.BasicListUI;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
  * @author Agus-Notebook
  */
 public class VistaComprasUsuarios extends javax.swing.JPanel {
-
-    private GestionImplePedido gestorPedido;
+    private GestionImpleCliente gestorCliente;
+    private GestionImplePedido gestor;
     private DefaultTableModel modeloTablaPedido;
     private DefaultTableModel modeloTablaProductos;
+    private TableRowSorter tablaFlitro;
+    private String filtro;
     private Cliente cliente;
 
     /**
@@ -33,7 +40,8 @@ public class VistaComprasUsuarios extends javax.swing.JPanel {
         cliente = user;
         modeloTablaPedido = new DefaultTableModel();
         modeloTablaProductos = new DefaultTableModel();
-        gestorPedido = new GestionImplePedido();
+        gestor = new GestionImplePedido();
+        gestorCliente = new GestionImpleCliente();
         initComponents();
         cargarTablaPedido();
         tablaPedidos.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
@@ -45,6 +53,23 @@ public class VistaComprasUsuarios extends javax.swing.JPanel {
                 }
             }
         });
+        selecionTotal.addActionListener(new java.awt.event.ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                for (int i = 0; i < tablaPedidos.getRowCount(); i++) {
+                    if (selecionTotal.isSelected()) {
+                        for (int j = 0; j < tablaPedidos.getRowCount(); j++) {
+                            tablaPedidos.setValueAt(true, j, 3);
+                        }
+                    } else {
+                        for (int j = 0; j < tablaPedidos.getRowCount(); j++) {
+                            tablaPedidos.setValueAt(false, j, 3);
+                        }
+                    }
+                }
+            }
+        });
+        
     }
 
     public void cargarTablaPedido() {
@@ -69,6 +94,11 @@ public class VistaComprasUsuarios extends javax.swing.JPanel {
                 modeloTablaPedido.addRow(infoDatos);
         }
     }
+    
+    public void filtro(){
+        filtro = buscadorElementos.getText();
+        tablaFlitro.setRowFilter(RowFilter.regexFilter(buscadorElementos.getText(), 0));
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -81,7 +111,7 @@ public class VistaComprasUsuarios extends javax.swing.JPanel {
 
         backgroundVistaCompras = new javax.swing.JPanel();
         btnBuscador = new javax.swing.JButton();
-        filtroTablas = new javax.swing.JTextField();
+        buscadorElementos = new javax.swing.JTextField();
         contenedorTabla1 = new javax.swing.JScrollPane();
         tablaProductosDelPedido = new javax.swing.JTable();
         contenedorTabla2 = new javax.swing.JScrollPane();
@@ -103,15 +133,27 @@ public class VistaComprasUsuarios extends javax.swing.JPanel {
         backgroundVistaCompras.setPreferredSize(new java.awt.Dimension(800, 510));
 
         btnBuscador.setText("Buscar:");
+        btnBuscador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscadorActionPerformed(evt);
+            }
+        });
 
-        filtroTablas.setText("Ingrese N°Pedido");
+        buscadorElementos.setText("Ingrese N°Pedido");
+        buscadorElementos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buscadorElementosMouseClicked(evt);
+            }
+        });
+        buscadorElementos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                buscadorElementosKeyTyped(evt);
+            }
+        });
 
         tablaProductosDelPedido.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Productos", "Cantidad", "Precio Unitario"
@@ -121,9 +163,7 @@ public class VistaComprasUsuarios extends javax.swing.JPanel {
 
         tablaPedidos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "N° Pedido", "Estado", "cantProductos", "Seleccionado"
@@ -147,6 +187,11 @@ public class VistaComprasUsuarios extends javax.swing.JPanel {
         contenedorTabla2.setViewportView(tablaPedidos);
 
         btnBorrarSeleccionados.setText("BORRAR");
+        btnBorrarSeleccionados.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBorrarSeleccionadosMouseClicked(evt);
+            }
+        });
 
         textoPrecioTotal.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         textoPrecioTotal.setText("TOTAL:");
@@ -158,26 +203,26 @@ public class VistaComprasUsuarios extends javax.swing.JPanel {
             }
         });
 
-        btnConfirmarPedido.setText("COMPRAR");
+        btnConfirmarPedido.setText("PAGAR");
 
-        selecionTotal.setText("Selecionar Todos");
+        selecionTotal.setText("Seleccionar Todos");
 
         javax.swing.GroupLayout backgroundVistaComprasLayout = new javax.swing.GroupLayout(backgroundVistaCompras);
         backgroundVistaCompras.setLayout(backgroundVistaComprasLayout);
         backgroundVistaComprasLayout.setHorizontalGroup(
             backgroundVistaComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backgroundVistaComprasLayout.createSequentialGroup()
-                .addGroup(backgroundVistaComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(backgroundVistaComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(backgroundVistaComprasLayout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addGroup(backgroundVistaComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(contenedorTabla1, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(backgroundVistaComprasLayout.createSequentialGroup()
                                 .addComponent(btnBuscador, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(filtroTablas, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(buscadorElementos, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(selecionTotal))
-                            .addComponent(contenedorTabla1, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(selecionTotal))))
                     .addGroup(backgroundVistaComprasLayout.createSequentialGroup()
                         .addGap(135, 135, 135)
                         .addGroup(backgroundVistaComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -197,7 +242,7 @@ public class VistaComprasUsuarios extends javax.swing.JPanel {
             .addGroup(backgroundVistaComprasLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addGroup(backgroundVistaComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(filtroTablas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buscadorElementos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(selecionTotal))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -213,7 +258,7 @@ public class VistaComprasUsuarios extends javax.swing.JPanel {
                     .addComponent(contenedorTabla2, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnBorrarSeleccionados, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -232,15 +277,54 @@ public class VistaComprasUsuarios extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_precioTotalPedidoActionPerformed
 
+    private void buscadorElementosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscadorElementosKeyTyped
+        // TODO add your handling code here:
+        tablaFlitro = new TableRowSorter(tablaPedidos.getModel());
+        tablaPedidos.setRowSorter(tablaFlitro);
+        
+    }//GEN-LAST:event_buscadorElementosKeyTyped
+
+    private void buscadorElementosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buscadorElementosMouseClicked
+        // TODO add your handling code here:
+        buscadorElementos.setText("");
+    }//GEN-LAST:event_buscadorElementosMouseClicked
+
+    private void btnBuscadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscadorActionPerformed
+        // TODO add your handling code here:
+
+        buscadorElementos.addKeyListener(new KeyAdapter(){
+            @Override
+            public void keyReleased(final KeyEvent e) {
+                String cadena = buscadorElementos.getText();
+                repaint();
+                filtro();
+            }
+
+        });
+    }//GEN-LAST:event_btnBuscadorActionPerformed
+
+    private void btnBorrarSeleccionadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBorrarSeleccionadosMouseClicked
+        // TODO add your handling code here:
+        
+        for (int i = 0; i < tablaPedidos.getRowCount(); i++) {
+            if ((boolean) tablaPedidos.getValueAt(i, 3)) {
+                    gestor.borrarPedido(Integer.parseInt(String.valueOf(tablaPedidos.getValueAt(i, 0)).toString()), cliente);
+                    
+                    Utils.borrarFilaDeTabla(tablaPedidos, i);
+
+            }
+        }
+    }//GEN-LAST:event_btnBorrarSeleccionadosMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel backgroundVistaCompras;
     private javax.swing.JButton btnBorrarSeleccionados;
     private javax.swing.JButton btnBuscador;
     private javax.swing.JButton btnConfirmarPedido;
+    private javax.swing.JTextField buscadorElementos;
     private javax.swing.JScrollPane contenedorTabla1;
     private javax.swing.JScrollPane contenedorTabla2;
-    private javax.swing.JTextField filtroTablas;
     private javax.swing.JTextField precioTotalPedido;
     private javax.swing.JCheckBox selecionTotal;
     private javax.swing.JTable tablaPedidos;

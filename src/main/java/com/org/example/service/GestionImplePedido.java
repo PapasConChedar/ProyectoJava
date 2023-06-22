@@ -1,5 +1,6 @@
 package com.org.example.service;
 
+import com.org.example.clases.Cliente;
 import com.org.example.clases.Pedido;
 import com.org.example.clases.Productos;
 import com.org.example.enums.EstadoPedido;
@@ -62,6 +63,14 @@ public class GestionImplePedido {
     public void pagarPedido(String id){
         implePedidoRepository.getAll();
       implePedidoRepository.getById(id).setEstado(EstadoPedido.PAGO);
+    }
+    
+     public void borrarPedido(int numPedido,Cliente cliente){
+        for(Pedido item : cliente.getListaDePedidos()){
+            if(item.getNumPedido() == numPedido){
+                cliente.getListaDePedidos().remove(item);
+            }
+        }
     }
     
 
