@@ -121,15 +121,7 @@ public class VistaComprasUsuarios extends javax.swing.JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 for (int i = 0; i < tablaProductoDePedidos.getRowCount(); i++) {
-                    if (selecionTotal.isSelected()) {
-                        for (int j = 0; j < tablaProductoDePedidos.getRowCount(); j++) {
-                            tablaProductoDePedidos.setValueAt(true, j, 3);
-                        }
-                    } else {
-                        for (int j = 0; j < tablaProductoDePedidos.getRowCount(); j++) {
-                            tablaProductoDePedidos.setValueAt(false, j, 3);
-                        }
-                    }
+                    Utils.seleccionarTodosCheckbox(tablaProductoDePedidos, selecionTotal.isSelected(), 3);
                 }
             }
         });
