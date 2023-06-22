@@ -1,5 +1,6 @@
 package com.org.example.service;
 
+import javax.swing.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -17,4 +18,11 @@ public class Utils {
         return password.length() >= 8;
     }
 
+    public static void borrarFilaDeTabla(JTable tabla, int fila){
+        try {
+            ((javax.swing.table.DefaultTableModel) tabla.getModel()).removeRow(fila);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al borrar la fila.");
+        }
+    }
 }

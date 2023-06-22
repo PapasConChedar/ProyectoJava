@@ -8,6 +8,7 @@ import com.org.example.clases.Cliente;
 import com.org.example.clases.Empleado;
 import com.org.example.service.GestionImpleCliente;
 import com.org.example.service.GestionImpleEmpleado;
+import com.org.example.service.Utils;
 
 import java.awt.Component;
 import java.awt.event.ActionEvent;
@@ -244,8 +245,10 @@ public class PanelTablaUsuarios extends javax.swing.JPanel {
             if ((boolean) tablaUsuarios.getValueAt(i, 7)) {
                 if (tablaUsuarios.getValueAt(i, 1).equals("Cliente")) {
                     gestionImpleCliente.deleteById((int) tablaUsuarios.getValueAt(i, 0));
+                    Utils.borrarFilaDeTabla(tablaUsuarios, i);
                 } else {
                     gestionImpleEmpleado.deleteById((int) tablaUsuarios.getValueAt(i, 0));
+                    Utils.borrarFilaDeTabla(tablaUsuarios, i);
                 }
             }
         }
