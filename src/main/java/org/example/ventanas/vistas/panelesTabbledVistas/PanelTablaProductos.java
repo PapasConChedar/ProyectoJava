@@ -171,6 +171,12 @@ public class PanelTablaProductos extends javax.swing.JPanel {
             }
         });
 
+        txtBuscarTablaPruductos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtBuscarTablaPruductosKeyTyped(evt);
+            }
+        });
+
         tablaProductos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
@@ -256,11 +262,21 @@ public class PanelTablaProductos extends javax.swing.JPanel {
                 String cadena = txtBuscarTablaPruductos.getText();
                 txtBuscarTablaPruductos.setText(cadena);
                 repaint();
-               filtro();
+                filtro();
             }
         });
     }//GEN-LAST:event_btnBuscarActionPerformed
 
+    private void txtBuscarTablaPruductosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarTablaPruductosKeyTyped
+        // TODO add your handling code here:
+        trsfiltro = new TableRowSorter(tablaProductos.getModel());
+      tablaProductos.setRowSorter(trsfiltro);
+    }//GEN-LAST:event_txtBuscarTablaPruductosKeyTyped
+        
+   public void filtro(){
+     filtro = txtBuscarTablaPruductos.getText();
+     trsfiltro.setRowFilter(RowFilter.regexFilter(txtBuscarTablaPruductos.getText(),1));
+   }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel backgrounPanelTablaProductos;
