@@ -4,6 +4,7 @@ import com.org.example.clases.Productos;
 import com.org.example.enums.Categoria;
 import com.org.example.repository.imple.ImpleProductoRepository;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Pattern;
 
 public class GestionImpleProducto {
@@ -41,6 +42,11 @@ public Productos getById(String id){
     public void delete(Productos item){
         impleProductoRepository.delete(item);
     }
+    
+    public List<Productos> getList(){
+        return impleProductoRepository.getAll();
+    }
+    
     /**
      * Cuenta la cantidad de elementos de una lista y devuelve un Integer
      * que le daria al id al producto.

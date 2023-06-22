@@ -27,7 +27,7 @@ public class PanelTablaProductos extends javax.swing.JPanel {
     private DefaultTableModel modelo = new DefaultTableModel();
     private Productos productoSeleccionado = new Productos();
     private TableRowSorter trsfiltro;
-    String filtro;
+    private String filtro;
 
 
     private class renderizadorTabla extends
@@ -54,9 +54,9 @@ public class PanelTablaProductos extends javax.swing.JPanel {
          * Creates new form PanelTablaProductos
          */
         public  PanelTablaProductos() {
-            String[] titulos = {"Marca", "Nombre", "Fecha de Vencimiento", "Fecha de Elaboracion", "Stock", "Precio", "Stock", "Seleccion"};
-            Boolean[] titulosEditables = {false, false, false, false, false, false, false, true};
-            Class[] titulosObjetos = {String.class, String.class, String.class, String.class, int.class, int.class, Categoria.class, Boolean.class};
+            String[] titulos = {"Marca", "Nombre", "Fecha de Vencimiento", "Fecha de Elaboracion", "Stock", "Precio", "Categoria","Cant Sleccionada", "Seleccion"};
+            Boolean[] titulosEditables = {false, false, false, false, false, false, false, true,true};
+            Class[] titulosObjetos = {String.class, String.class, String.class, String.class, int.class, int.class, Categoria.class,Integer.class, Boolean.class};
 
             initComponents();
             gestor = new GestionImpleProducto();

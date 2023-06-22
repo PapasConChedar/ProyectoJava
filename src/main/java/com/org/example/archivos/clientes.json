@@ -8,5 +8,10 @@
   "email" : "banana@gmail.com",
   "contrasenia" : "sapeeeee",
   "telefono" : "591654643",
-  "listaDePedidos" : [ ]
+  "listaDePedidos" : [ {
+    "numPedido" : 2078601652,
+    "precio" : 0.0,
+    "productos" : [ ],
+    "estado" : "IMPAGO"
+  } ]
 } ]
