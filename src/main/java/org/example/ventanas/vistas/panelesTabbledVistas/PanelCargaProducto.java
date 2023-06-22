@@ -313,8 +313,7 @@ public class PanelCargaProducto extends javax.swing.JPanel{
                             ingresoStock.getText())) {
                         return true;
                     } else {
-                        throw new ProductoCargaDatosException(9);
-                    }
+                        throw new ProductoCargaDatosException(9);}
                 } else {
                     throw new ProductoCargaDatosException(8);
                 }

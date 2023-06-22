@@ -4,10 +4,12 @@
  */
 package org.example.ventanas.vistas.panelesTabbledVistas;
 
+import com.org.example.Exceptions.ProductoCargaDatosException;
 import com.org.example.clases.Productos;
 import com.org.example.service.GestionImpleProducto;
 
 import java.awt.Color;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 /**
@@ -15,8 +17,8 @@ import javax.swing.JTextField;
  * @author Agus-Notebook
  */
 public class PanelEdicionProducto extends javax.swing.JPanel {
-    private static GestionImpleProducto gestor = new GestionImpleProducto();
-     private Productos dato = new Productos();
+    private  GestionImpleProducto gestor = new GestionImpleProducto();
+     private static Productos dato = new Productos();
 
     /**
      * Creates new form NewPanelEdicionProducto
@@ -46,6 +48,8 @@ public class PanelEdicionProducto extends javax.swing.JPanel {
         selectorCategoria = new javax.swing.JComboBox<>();
         btnLimpiarEdicionProducto = new javax.swing.JButton();
         btnGuardarEdicionProducto = new javax.swing.JButton();
+        idABuscar = new javax.swing.JTextField();
+        btnBuscar = new javax.swing.JButton();
 
         backgroundPanelEdicionProducto.setBackground(new java.awt.Color(160, 229, 220));
         backgroundPanelEdicionProducto.setMaximumSize(new java.awt.Dimension(800, 560));
@@ -91,7 +95,6 @@ public class PanelEdicionProducto extends javax.swing.JPanel {
             }
         });
 
-        ingresoVencimiento.setEditable(false);
         ingresoVencimiento.setBackground(new java.awt.Color(178, 228, 211));
         ingresoVencimiento.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ingresoVencimiento.setForeground(new java.awt.Color(18, 138, 92));
@@ -106,7 +109,7 @@ public class PanelEdicionProducto extends javax.swing.JPanel {
         ingresoStockEdicionProducto.setBackground(new java.awt.Color(178, 228, 211));
         ingresoStockEdicionProducto.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ingresoStockEdicionProducto.setForeground(new java.awt.Color(18, 138, 92));
-        ingresoStockEdicionProducto.setText("   Ingrese Stock Producto");
+        ingresoStockEdicionProducto.setText("   Ingrese Stock  Producto");
         ingresoStockEdicionProducto.setToolTipText("");
         ingresoStockEdicionProducto.setBorder(null);
         ingresoStockEdicionProducto.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -115,7 +118,6 @@ public class PanelEdicionProducto extends javax.swing.JPanel {
             }
         });
 
-        ingresoNombreEdicionProducto.setEditable(false);
         ingresoNombreEdicionProducto.setBackground(new java.awt.Color(178, 228, 211));
         ingresoNombreEdicionProducto.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ingresoNombreEdicionProducto.setForeground(new java.awt.Color(18, 138, 92));
@@ -172,31 +174,61 @@ public class PanelEdicionProducto extends javax.swing.JPanel {
             }
         });
 
+        idABuscar.setBackground(new java.awt.Color(178, 228, 211));
+        idABuscar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        idABuscar.setForeground(new java.awt.Color(18, 138, 92));
+        idABuscar.setText("ID PRODUCTO");
+        idABuscar.setBorder(null);
+        idABuscar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                idABuscarMouseClicked(evt);
+            }
+        });
+
+        btnBuscar.setBackground(new java.awt.Color(178, 240, 222));
+        btnBuscar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnBuscar.setForeground(new java.awt.Color(255, 255, 255));
+        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lupa.png"))); // NOI18N
+        btnBuscar.setText("BUSCAR");
+        btnBuscar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(227, 255, 247), 3));
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(btnLimpiarEdicionProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(63, 63, 63)
                         .addComponent(btnGuardarEdicionProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(ingresoStockEdicionProducto)
-                        .addComponent(ingresoMarcaEdicionProducto)
-                        .addComponent(ingresoPrecioEdicionProducto)
-                        .addComponent(ingresoElavoracionEdicionProducto)
-                        .addComponent(ingresoNombreEdicionProducto)
-                        .addComponent(ingresoVencimiento, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE)
-                        .addComponent(selectorCategoria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(ingresoStockEdicionProducto)
+                    .addComponent(ingresoMarcaEdicionProducto)
+                    .addComponent(ingresoPrecioEdicionProducto)
+                    .addComponent(ingresoElavoracionEdicionProducto)
+                    .addComponent(ingresoNombreEdicionProducto)
+                    .addComponent(ingresoVencimiento)
+                    .addComponent(selectorCategoria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(idABuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(55, 55, 55)
+                .addContainerGap(31, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(idABuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscar))
+                .addGap(18, 18, 18)
                 .addComponent(ingresoNombreEdicionProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ingresoVencimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -210,7 +242,7 @@ public class PanelEdicionProducto extends javax.swing.JPanel {
                 .addComponent(ingresoStockEdicionProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(selectorCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLimpiarEdicionProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnGuardarEdicionProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -265,7 +297,7 @@ public class PanelEdicionProducto extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_ingresoMarcaEdicionProductoMouseClicked
 
-    private void ingresoStockEdicionProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresoStockEdicionProductoMouseClicked
+    private void ingresoStockEdicionProductoMouseClicked(java.awt.event.MouseEvent evt) {                                                         
         // TODO add your handling code here:
 
         if(ingresoMarcaEdicionProducto.getText().isEmpty()){
@@ -293,7 +325,7 @@ public class PanelEdicionProducto extends javax.swing.JPanel {
             ingresoPrecioEdicionProducto.setText("   Ingrese Precio Producto");
 
         }
-    }//GEN-LAST:evnt_ingresoStockEdicionProductoMouseClicked
+    }                                                       
 
     private void ingresoElavoracionEdicionProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresoElavoracionEdicionProductoMouseClicked
         // TODO add your handling code here:
@@ -404,7 +436,54 @@ public class PanelEdicionProducto extends javax.swing.JPanel {
 
     private void btnGuardarEdicionProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarEdicionProductoMouseClicked
         // TODO add your handling code here:
+        try{
+            if(dato !=null){
+                verificacionFormato();
+                dato.setNombre(ingresoNombreEdicionProducto.getText());
+                dato.setMarca(ingresoMarcaEdicionProducto.getText());
+                dato.setStock(Integer.parseInt(ingresoStockEdicionProducto.getText()));
+                dato.setPrecio(Integer.parseInt(ingresoPrecioEdicionProducto.getText()));
+                dato.setFechaElavoracion(ingresoElavoracionEdicionProducto.getText());
+                dato.setFecheaDeVencimiento(ingresoVencimiento.getText());
+                gestor.selecionarCategoriaProductos(dato,selectorCategoria.getSelectedIndex());
+                gestor.update(dato);
+                gestor.guardar();
+                resetTexto();
+            }
+        }catch(ProductoCargaDatosException e){
+          JOptionPane.showMessageDialog(null,e.getMessage()+e.escribirMensaje());
+
+        }
     }//GEN-LAST:event_btnGuardarEdicionProductoMouseClicked
+
+    private boolean verificacionFormato() throws ProductoCargaDatosException {
+        if (gestor.verificacionIngresosBases(ingresoMarcaEdicionProducto.getText(),
+                ingresoNombreEdicionProducto.getText(), ingresoElavoracionEdicionProducto.getText(),
+                ingresoVencimiento.getText(), ingresoStockEdicionProducto.getText(),
+                ingresoPrecioEdicionProducto.getText())) {
+            if (gestor.verificarIngresosVacios(ingresoMarcaEdicionProducto.getText(),
+                    ingresoNombreEdicionProducto.getText(), ingresoElavoracionEdicionProducto.getText(),
+                    ingresoVencimiento.getText(), ingresoStockEdicionProducto.getText(),
+                    ingresoPrecioEdicionProducto.getText())) {
+                if (gestor.verificacionFormatoFechas(ingresoElavoracionEdicionProducto.getText(),
+                        ingresoVencimiento.getText())) {
+                    if (gestor.verificacionFormatoInteger(ingresoPrecioEdicionProducto.getText(),
+                            ingresoStockEdicionProducto.getText())) {
+                        return true;
+                    } else {
+                        throw new ProductoCargaDatosException(9);
+                    }
+                } else {
+                    throw new ProductoCargaDatosException(8);
+                }
+            } else {
+                throw new ProductoCargaDatosException(7);
+            }
+        } else {
+            throw new ProductoCargaDatosException(7);
+        }
+    }
+
 
     private void btnLimpiarEdicionProductoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLimpiarEdicionProductoMouseExited
         // TODO add your handling code here:
@@ -466,12 +545,38 @@ public class PanelEdicionProducto extends javax.swing.JPanel {
 
     }//GEN-LAST:event_ingresoNombreEdicionProductoMouseClicked
 
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        // TODO add your handling code here:
+        String id = idABuscar.getText();
+        gestor.cargar();
+       dato = gestor.getById(id);
+        if (dato!= null){
+           ingresoMarcaEdicionProducto.setText(dato.getMarca());
+           ingresoNombreEdicionProducto.setText(dato.getNombre());
+           ingresoElavoracionEdicionProducto.setText(dato.getFechaElavoracion());
+           ingresoVencimiento.setText(dato.getFecheaDeVencimiento());
+           ingresoStockEdicionProducto.setText(String.valueOf(dato.getStock()));
+           ingresoPrecioEdicionProducto.setText(String.valueOf(dato.getPrecio()));
+           selectorCategoria.setSelectedItem(dato.getCategoriaProducto());
+        }
+        else {JOptionPane.showMessageDialog(jPanel2, "Producto No encontrado");
+        }
+       
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void idABuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_idABuscarMouseClicked
+        // TODO add your handling code here:
+        idABuscar.setText("");
+    }//GEN-LAST:event_idABuscarMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel backgroundPanelEdicionProducto;
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnGuardarEdicionProducto;
     private javax.swing.JButton btnLimpiarEdicionProducto;
     private javax.swing.JLabel iconoPanelCarga;
+    private javax.swing.JTextField idABuscar;
     private javax.swing.JTextField ingresoElavoracionEdicionProducto;
     private javax.swing.JTextField ingresoMarcaEdicionProducto;
     private javax.swing.JTextField ingresoNombreEdicionProducto;

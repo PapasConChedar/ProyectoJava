@@ -17,7 +17,11 @@ public class GestionImpleProducto {
     public void setImpleProductoRepository(ImpleProductoRepository impleProductoRepository) {
         this.impleProductoRepository = impleProductoRepository;
     }
+public Productos getById(String id){
+        return impleProductoRepository.getById(id);
 
+
+}
     public void cargar(){
         impleProductoRepository.cargar();
     }

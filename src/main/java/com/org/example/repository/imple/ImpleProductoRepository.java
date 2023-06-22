@@ -51,7 +51,13 @@ public class ImpleProductoRepository implements GenericsRepository<Productos>{
     @Override
     public Productos getById(String id) {
         cargar();
-        return this.listaProductos.stream().filter(producto -> producto.getIdProducto().equals(id)).findFirst().orElse(null);
+        for (Productos producto:listaProductos){
+            if( producto.getIdProducto().equals(Integer.parseInt(id))){
+                return producto;
+            }
+        }return null;
+
+       // return this.listaProductos.stream().filter(producto -> producto.getIdProducto().equals(id)).findFirst().orElse(null);
     }
 
     @Override

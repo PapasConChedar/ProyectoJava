@@ -295,7 +295,7 @@ public class PanelEdicionUsuario extends javax.swing.JPanel {
         jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(246, 171, 98), 3));
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+
             }
         });
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -595,30 +595,7 @@ public class PanelEdicionUsuario extends javax.swing.JPanel {
         BuscarPorId.setText("");
     }//GEN-LAST:event_BuscarPorIdMouseClicked
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        // TODO add your handling code here:
-            String id =  BuscarPorId.getText();
-            gestor.cargar();
-            Cliente cliente = gestor.getById(id);
-            if(cliente!= null) {
-                ingresoNombreCliente.setText(
-                        cliente.getNombre());
-                ingresoApellidoUsuario.setText(
-                        cliente.getApellido());
-                ingresoDniUsuario.setText(
-                        cliente.getDni());
-                ingresoDireccionUsuario.setText(
-                        cliente.getDireccion());
-                ingresoEmailUsuario.setText(
-                        cliente.getEmail());
-                ingresoPasswordUsuario.setText(
-                        "*********");
-                ingresoTelefonoUsuario.setText(
-                        cliente.getTelefono());
-            }else
-               JOptionPane.showMessageDialog(null,"El usuario No existe");
 
-    }//GEN-LAST:event_jButton1MouseClicked
 
     private void ingresoNombreClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresoNombreClienteMouseClicked
         // TODO add your handling code here:
