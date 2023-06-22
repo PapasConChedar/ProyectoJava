@@ -1,23 +1,12 @@
 [ {
-  "nombre" : "Agustin",
-  "apellido" : "Miranda",
-  "dni" : "V.Hugo832",
-  "direccion" : "emailejemplo@gmail.com",
-  "idCliente" : 0,
-  "numeroCuenta" : "384023842",
-  "email" : "38439118",
-  "contrasenia" : "123456789",
-  "telefono" : "2254596229",
-  "listaDePedidos" : [ ]
-}, {
-  "nombre" : "Franco",
-  "apellido" : "Lelox",
-  "dni" : "56777898",
-  "direccion" : "13 3344",
-  "idCliente" : 0,
-  "numeroCuenta" : "559862699",
-  "email" : "franco@gmail.com",
-  "contrasenia" : "123123123",
-  "telefono" : "2252667879",
+  "nombre" : "El",
+  "apellido" : "Bananero",
+  "dni" : "20554555",
+  "direccion" : "Miami 334",
+  "idCliente" : 1,
+  "numeroCuenta" : "1033333175",
+  "email" : "banana@gmail.com",
+  "contrasenia" : "sapeeeee",
+  "telefono" : "591654643",
   "listaDePedidos" : [ ]
 } ]
