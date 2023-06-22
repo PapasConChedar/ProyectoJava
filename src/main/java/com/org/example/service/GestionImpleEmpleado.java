@@ -6,43 +6,43 @@ package com.org.example.service;
 
 import com.org.example.clases.Empleado;
 import com.org.example.repository.imple.ImpleEmpleadosRepository;
+
 import java.util.List;
 
 /**
- *
  * @author Agus-Notebook
  */
 public class GestionImpleEmpleado {
     private ImpleEmpleadosRepository impleEmpleadosRepository = new ImpleEmpleadosRepository();
-    
-    public void cargar(){
+
+    public void cargar() {
         impleEmpleadosRepository.cargar();
     }
-    
-    public void guardar(){
+
+    public void guardar() {
         impleEmpleadosRepository.guardar();
     }
-    
-    public Empleado getByid(String id){
+
+    public Empleado getByid(String id) {
         return impleEmpleadosRepository.getById(id);
     }
-    
-    public void add(Empleado item){
+
+    public void add(Empleado item) {
         impleEmpleadosRepository.add(item);
     }
-    
-    public void update(Empleado item){
+
+    public void update(Empleado item) {
         impleEmpleadosRepository.update(item);
     }
-    
-    public void delete(Empleado item){
+
+    public void delete(Empleado item) {
         impleEmpleadosRepository.delete(getByid(String.valueOf(item.getIdEmpleado())));
     }
-    
-    public List<Empleado> getList(){
+
+    public List<Empleado> getList() {
         return impleEmpleadosRepository.getAll();
     }
-    
+
     public boolean verificarUsuarioRepetido(Empleado item) {
         for (Empleado i : impleEmpleadosRepository.getAll()) {
             if (i.getDni().equals(item.getDni())) {
@@ -51,5 +51,8 @@ public class GestionImpleEmpleado {
         }
         return true;
     }
-    
+
+    public void deleteById(int id) {
+        impleEmpleadosRepository.deleteById(id);
+    }
 }

@@ -78,4 +78,10 @@ public class ImpleEmpleadosRepository implements GenericsRepository<Empleado> {
         this.listEmpleados.removeIf(i -> i.getDni().equals(item.getDni()));
         guardar();
     }
+
+
+    public void deleteById(int id) {
+        this.listEmpleados.removeIf(i -> i.getIdEmpleado().equals(id));
+        guardar();
+    }
 }

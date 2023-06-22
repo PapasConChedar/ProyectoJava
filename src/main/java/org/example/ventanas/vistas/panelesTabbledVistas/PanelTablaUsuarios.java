@@ -8,14 +8,13 @@ import com.org.example.clases.Cliente;
 import com.org.example.clases.Empleado;
 import com.org.example.service.GestionImpleCliente;
 import com.org.example.service.GestionImpleEmpleado;
+
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import javax.swing.JCheckBox;
-import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -23,13 +22,12 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 
 /**
- *
  * @author Agus-Notebook
  */
 public class PanelTablaUsuarios extends javax.swing.JPanel {
 
-    private GestionImpleEmpleado gestorEmple;
-    private GestionImpleCliente gestor;
+    private GestionImpleEmpleado gestionImpleEmpleado;
+    private GestionImpleCliente gestionImpleCliente;
     private final DefaultTableModel modelo;
     private Cliente clienteSeleccionado = new Cliente();
     private TableRowSorter tablaFiltro = new TableRowSorter();
@@ -52,23 +50,20 @@ public class PanelTablaUsuarios extends javax.swing.JPanel {
      * Creates new form panelTablaUsuarios
      */
     public PanelTablaUsuarios() {
-        String[] titulos = {"ID", "Tipo", "Nombre", "Direccion", "Email", "Contraseña",
-            "Telefono", "Seleccion"};
+        String[] titulos = {"ID", "Tipo", "Nombre", "Direccion", "Email", "Contraseña", "Telefono", "Seleccion"};
         Boolean[] titulosEditables = {false, false, false, false, false, false, false, true};
-        Class[] titulosObjetos = {String.class, String.class, String.class, String.class,
-            String.class, String.class, String.class, Boolean.class};
+        Class[] titulosObjetos = {String.class, String.class, String.class, String.class, String.class, String.class, String.class, Boolean.class};
 
         initComponents();
-        gestorEmple = new GestionImpleEmpleado();
-        gestor = new GestionImpleCliente();
+        gestionImpleEmpleado = new GestionImpleEmpleado();
+        gestionImpleCliente = new GestionImpleCliente();
         modelo = new DefaultTableModel() {
             @Override
             public boolean isCellEditable(int row, int column) {
                 return titulosEditables[column];
             }
 
-            public Class getColumnClass(int indice
-            ) {
+            public Class getColumnClass(int indice) {
                 return titulosObjetos[indice];
             }
         };
@@ -82,7 +77,7 @@ public class PanelTablaUsuarios extends javax.swing.JPanel {
      * Carga la tabla con los valores que contiene el repositorio
      */
     public void cargarTabla() {
-        for (Cliente i : gestor.getList()) {
+        for (Cliente i : gestionImpleCliente.getList()) {
             Object[] infDatos = new Object[8];
             infDatos[0] = i.getIdCliente();
             infDatos[1] = "Cliente";
@@ -94,7 +89,7 @@ public class PanelTablaUsuarios extends javax.swing.JPanel {
             infDatos[7] = false;
             modelo.addRow(infDatos);
         }
-        for (Empleado j : gestorEmple.getList()) {
+        for (Empleado j : gestionImpleEmpleado.getList()) {
             Object[] infDatos = new Object[8];
             infDatos[0] = j.getIdEmpleado();
             infDatos[1] = "Empleado";
@@ -107,6 +102,7 @@ public class PanelTablaUsuarios extends javax.swing.JPanel {
             modelo.addRow(infDatos);
         }
     }
+
 
     public int verificarSeleccionados(int posicion) {
         int contador = 0;
@@ -123,7 +119,7 @@ public class PanelTablaUsuarios extends javax.swing.JPanel {
         boolean seleccion = (boolean) tablaUsuarios.getValueAt(posicion, 6);
         if (seleccion) {
             String idCliente = tablaUsuarios.getValueAt(posicion, 0).toString();
-            return gestor.getById(idCliente);
+            return gestionImpleCliente.getById(idCliente);
         }
         return null;
     }
@@ -165,7 +161,7 @@ public class PanelTablaUsuarios extends javax.swing.JPanel {
         tablaUsuarios = new javax.swing.JTable();
         selectosTotal = new javax.swing.JCheckBox();
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Item 1", "Item 2", "Item 3", "Item 4"}));
 
         setMaximumSize(new java.awt.Dimension(800, 510));
         setMinimumSize(new java.awt.Dimension(800, 510));
@@ -220,12 +216,12 @@ public class PanelTablaUsuarios extends javax.swing.JPanel {
         selectosTotal.addActionListener(new java.awt.event.ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                for(int i = 0; i < tablaUsuarios.getRowCount(); i++){
-                    if(selectosTotal.isSelected()){
+                for (int i = 0; i < tablaUsuarios.getRowCount(); i++) {
+                    if (selectosTotal.isSelected()) {
                         for (int j = 0; j < tablaUsuarios.getRowCount(); j++) {
                             tablaUsuarios.setValueAt(true, j, 7);
                         }
-                    }else{
+                    } else {
                         for (int j = 0; j < tablaUsuarios.getRowCount(); j++) {
                             tablaUsuarios.setValueAt(false, j, 7);
                         }
@@ -236,57 +232,24 @@ public class PanelTablaUsuarios extends javax.swing.JPanel {
 
         javax.swing.GroupLayout backgroundPanelTablaUsuariosLayout = new javax.swing.GroupLayout(backgroundPanelTablaUsuarios);
         backgroundPanelTablaUsuarios.setLayout(backgroundPanelTablaUsuariosLayout);
-        backgroundPanelTablaUsuariosLayout.setHorizontalGroup(
-            backgroundPanelTablaUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundPanelTablaUsuariosLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(backgroundPanelTablaUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(backgroundPanelTablaUsuariosLayout.createSequentialGroup()
-                        .addGroup(backgroundPanelTablaUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnBorrarSeleccionados, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(scrollTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 769, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(16, 16, 16))
-                    .addGroup(backgroundPanelTablaUsuariosLayout.createSequentialGroup()
-                        .addComponent(btnBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buscador, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 187, Short.MAX_VALUE)
-                        .addComponent(selectosTotal)
-                        .addGap(33, 33, 33))))
-        );
-        backgroundPanelTablaUsuariosLayout.setVerticalGroup(
-            backgroundPanelTablaUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(backgroundPanelTablaUsuariosLayout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addGroup(backgroundPanelTablaUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buscador, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(selectosTotal))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(scrollTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnBorrarSeleccionados, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33))
-        );
+        backgroundPanelTablaUsuariosLayout.setHorizontalGroup(backgroundPanelTablaUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundPanelTablaUsuariosLayout.createSequentialGroup().addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addGroup(backgroundPanelTablaUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(backgroundPanelTablaUsuariosLayout.createSequentialGroup().addGroup(backgroundPanelTablaUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING).addComponent(btnBorrarSeleccionados, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE).addComponent(scrollTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 769, javax.swing.GroupLayout.PREFERRED_SIZE)).addGap(16, 16, 16)).addGroup(backgroundPanelTablaUsuariosLayout.createSequentialGroup().addComponent(btnBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(buscador, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 187, Short.MAX_VALUE).addComponent(selectosTotal).addGap(33, 33, 33)))));
+        backgroundPanelTablaUsuariosLayout.setVerticalGroup(backgroundPanelTablaUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(backgroundPanelTablaUsuariosLayout.createSequentialGroup().addGap(49, 49, 49).addGroup(backgroundPanelTablaUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE).addComponent(btnBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE).addComponent(buscador, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE).addComponent(selectosTotal)).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addComponent(scrollTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(btnBorrarSeleccionados, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE).addGap(33, 33, 33)));
 
         add(backgroundPanelTablaUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 791, 537));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBorrarSeleccionadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBorrarSeleccionadosMouseClicked
         // TODO add your handling code here:
-        if (verificarSeleccionados(6) >= 1) {
-            int confimar = JOptionPane.showConfirmDialog(null,
-                "¿Seguro de Eliminar?\n(" + verificarSeleccionados(6)
-                + ") Elementos Seleccionados...");
-            if (confimar == 0) {
-                borrarSeleccionados();
-                for (Cliente i : clientesSeleccionados()) {
-                    gestor.deleteById(i);
+        for (int i = 0; i < tablaUsuarios.getRowCount(); i++) {
+            if ((boolean) tablaUsuarios.getValueAt(i, 7)) {
+                if (tablaUsuarios.getValueAt(i, 1).equals("Cliente")) {
+                    gestionImpleCliente.deleteById((int) tablaUsuarios.getValueAt(i, 0));
+                } else {
+                    gestionImpleEmpleado.deleteById((int) tablaUsuarios.getValueAt(i, 0));
                 }
             }
-        } else {
-            JOptionPane.showMessageDialog(null, "Seleccione al menos un elemento");
         }
+
     }//GEN-LAST:event_btnBorrarSeleccionadosMouseClicked
 
     private void buscadorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscadorKeyTyped
@@ -297,7 +260,7 @@ public class PanelTablaUsuarios extends javax.swing.JPanel {
 
     private void btnBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusquedaActionPerformed
         // TODO add your handling code here:
-        buscador.addKeyListener(new KeyAdapter(){
+        buscador.addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(final KeyEvent e) {
                 String cadena = buscador.getText();
@@ -314,12 +277,12 @@ public class PanelTablaUsuarios extends javax.swing.JPanel {
         buscador.setText("");
     }//GEN-LAST:event_buscadorMouseClicked
 
-    public void filtro(){
+    public void filtro() {
         filtro = buscador.getText();
-        tablaFiltro.setRowFilter(RowFilter.regexFilter(buscador.getText(),2));
+        tablaFiltro.setRowFilter(RowFilter.regexFilter(buscador.getText(), 2));
     }
-    
-    
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel backgroundPanelTablaUsuarios;
     private javax.swing.JButton btnBorrarSeleccionados;
