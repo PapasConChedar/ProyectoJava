@@ -150,6 +150,28 @@ public Productos getById(String id){
         }
         return item;
     }
-
-
+    
+    public Productos restarProductos(Productos solicitado, Productos archivo){
+        Productos auxiliar = archivo;
+        auxiliar.setStock(archivo.getStock()-solicitado.getStock());
+        return auxiliar;
+    }
+    
+    public void restarProductosLista(List<Productos> solicitados){
+        cargar();
+        for(Productos item : solicitados){
+            for(Productos elemArchivo : impleProductoRepository.getAll()){
+                if(elemArchivo.getNombre().equals(item.getNombre())){
+                    impleProductoRepository.update(restarProductos(item, elemArchivo));
+                    guardar();
+                }
+            }
+        }
+    }
+    
+    
+    
+    
+    
+    
 }

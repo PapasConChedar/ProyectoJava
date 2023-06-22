@@ -2,6 +2,7 @@ package com.org.example.clases;
 
 import com.org.example.enums.Categoria;
 import java.io.Serializable;
+import java.util.Objects;
 
 public class Productos implements Serializable {
     private int idProducto;
@@ -112,4 +113,27 @@ public class Productos implements Serializable {
                 '}';
     }
     //endregion
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Productos other = (Productos) obj;
+        if (this.idProducto != other.idProducto) {
+            return false;
+        }
+        if (!Objects.equals(this.precio, other.precio)) {
+            return false;
+        }
+        return this.nombre == other.nombre;
+    }
+    
+    
 }

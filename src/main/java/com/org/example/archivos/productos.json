@@ -4,7 +4,7 @@
   "nombre" : "Papas Con Cheddar",
   "fecheaDeVencimiento" : "26/06/2023",
   "fechaElavoracion" : "19/06/2023",
-  "stock" : 3,
+  "stock" : 0,
   "precio" : 760,
   "categoriaProducto" : "COMIDA"
 }, {
@@ -13,7 +13,7 @@
   "nombre" : "JAPI",
   "fecheaDeVencimiento" : "20/09/2023",
   "fechaElavoracion" : "20/06/2023",
-  "stock" : 15620,
+  "stock" : 15000,
   "precio" : 1500,
   "categoriaProducto" : "BEBIDAS"
 }, {
@@ -22,7 +22,7 @@
   "nombre" : "Churro",
   "fecheaDeVencimiento" : "21/06/2023",
   "fechaElavoracion" : "21/06/2023",
-  "stock" : 200,
+  "stock" : 150,
   "precio" : 200,
   "categoriaProducto" : "COMIDA"
 } ]

@@ -10,8 +10,54 @@
   "telefono" : "591654643",
   "listaDePedidos" : [ {
     "numPedido" : 2078601652,
+    "precio" : 2280.0,
+    "productos" : [ {
+      "idProducto" : 0,
+      "marca" : "Lays",
+      "nombre" : "Papas Con Cheddar",
+      "fecheaDeVencimiento" : "26/06/2023",
+      "fechaElavoracion" : "19/06/2023",
+      "stock" : 3,
+      "precio" : 760,
+      "categoriaProducto" : "COMIDA"
+    } ],
+    "estado" : "IMPAGO"
+  }, {
+    "numPedido" : 2078601652,
+    "precio" : 940000.0,
+    "productos" : [ {
+      "idProducto" : 1,
+      "marca" : "El Bananero Company",
+      "nombre" : "JAPI",
+      "fecheaDeVencimiento" : "20/09/2023",
+      "fechaElavoracion" : "20/06/2023",
+      "stock" : 620,
+      "precio" : 1500,
+      "categoriaProducto" : "BEBIDAS"
+    }, {
+      "idProducto" : 2,
+      "marca" : "Manolo",
+      "nombre" : "Churro",
+      "fecheaDeVencimiento" : "21/06/2023",
+      "fechaElavoracion" : "21/06/2023",
+      "stock" : 50,
+      "precio" : 200,
+      "categoriaProducto" : "COMIDA"
+    } ],
+    "estado" : "IMPAGO"
+  }, {
+    "numPedido" : 2078601652,
     "precio" : 0.0,
-    "productos" : [ ],
+    "productos" : [ {
+      "idProducto" : 1,
+      "marca" : "El Bananero Company",
+      "nombre" : "JAPI",
+      "fecheaDeVencimiento" : "20/09/2023",
+      "fechaElavoracion" : "20/06/2023",
+      "stock" : 0,
+      "precio" : 1500,
+      "categoriaProducto" : "BEBIDAS"
+    } ],
     "estado" : "IMPAGO"
   } ]
 } ]

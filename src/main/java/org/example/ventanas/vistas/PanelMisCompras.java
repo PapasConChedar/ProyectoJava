@@ -68,7 +68,7 @@ public class PanelMisCompras extends javax.swing.JPanel {
             "Seleccion"};
         Boolean[] editables = {false, false, false, false, false, false, false, false, true, true};
         Class[] tipoObjetos = {String.class, String.class, String.class, String.class,
-             String.class, String.class, String.class, String.class, Integer.class, Boolean.class};
+            String.class, String.class, String.class, String.class, Integer.class, Boolean.class};
         gestorProductos = new GestionImpleProducto();
         gestorCliente = new GestionImpleCliente();
         modelo = new DefaultTableModel() {
@@ -88,16 +88,15 @@ public class PanelMisCompras extends javax.swing.JPanel {
         addCheckBox(9, tablaElementos);
 
     }
-    
-    public Double calcularPrecio(ArrayList<Productos> listProductos){
-        double total= 0;
-        for (Productos producto:listProductos) {
-            total += producto.getPrecio();
+
+    public Double calcularPrecio(ArrayList<Productos> listProductos) {
+        double total = 0;
+        for (Productos producto : listProductos) {
+            total += producto.getPrecio() * producto.getStock();
         }
         return total;
 
     }
-    
 
     public void addCheckBox(int columna, JTable tabla) {
         TableColumn tc = tabla.getColumnModel().getColumn(columna);
@@ -108,59 +107,86 @@ public class PanelMisCompras extends javax.swing.JPanel {
     public void cargarTabla() {
         gestorProductos.cargar();
         for (Productos item : gestorProductos.getImpleProductoRepository().getAll()) {
-            Object[] infoDatos = new Object[10];
-            infoDatos[0] = item.getIdProducto();
-            infoDatos[1] = item.getMarca();
-            infoDatos[2] = item.getNombre();
-            infoDatos[3] = item.getFecheaDeVencimiento();
-            infoDatos[4] = item.getFechaElavoracion();
-            infoDatos[5] = item.getStock();
-            infoDatos[6] = item.getPrecio();
-            infoDatos[7] = item.getCategoriaProducto();
-            infoDatos[8] = 0;
-            infoDatos[9] = false;
-            modelo.addRow(infoDatos);
+            if (item.getStock() > 0) {
+                Object[] infoDatos = new Object[10];
+                infoDatos[0] = item.getIdProducto();
+                infoDatos[1] = item.getMarca();
+                infoDatos[2] = item.getNombre();
+                infoDatos[3] = item.getFecheaDeVencimiento();
+                infoDatos[4] = item.getFechaElavoracion();
+                infoDatos[5] = item.getStock();
+                infoDatos[6] = item.getPrecio();
+                infoDatos[7] = item.getCategoriaProducto();
+                infoDatos[8] = 0;
+                infoDatos[9] = false;
+                modelo.addRow(infoDatos);
+            }
         }
     }
-    
+
     public int verificarSeleccionados(int posicion) {
-            int contador = 0;
-            for (int i = 0; i < tablaElementos.getRowCount(); i++) {
-                boolean seleccion = (boolean) tablaElementos.getValueAt(
-                        i,
-                        posicion);
-                if (seleccion) {
-                    contador++;
-                }
-            }
-            return contador;
-        }
-    
-    public Productos obtenerProductoDeTabla(int posicion) {
-            boolean seleccion = ( boolean) tablaElementos.getValueAt(posicion,9);
+        int contador = 0;
+        for (int i = 0; i < tablaElementos.getRowCount(); i++) {
+            boolean seleccion = (boolean) tablaElementos.getValueAt(
+                    i,
+                    posicion);
             if (seleccion) {
-                String idProducto =tablaElementos.getValueAt(
-                        posicion,
-                        0).toString();
-                return gestorProductos.getImpleProductoRepository().getById(
-                        idProducto);
+                contador++;
             }
-            return null;
         }
-    
-    public ArrayList<Productos> productosSeleccionados(){
-            ArrayList<Productos> seleccionados = new ArrayList<>();
-            for (int i =0; i<tablaElementos.getRowCount(); i++){
-                item =obtenerProductoDeTabla(i);
-                if(item != null){
-                    item.setStock(Integer.parseInt(String.valueOf(tablaElementos.getValueAt(i, 8))));
-                    tablaElementos.setValueAt(Integer.parseInt(String.valueOf(tablaElementos.getValueAt(i, 5)))-Integer.parseInt(String.valueOf(tablaElementos.getValueAt(i, 8))), i, 5);
+        return contador;
+    }
+
+    public Productos obtenerProductoDeTabla(int posicion) {
+        boolean seleccion = (boolean) tablaElementos.getValueAt(posicion, 9);
+        if (seleccion) {
+            String idProducto = tablaElementos.getValueAt(
+                    posicion,
+                    0).toString();
+            return gestorProductos.getImpleProductoRepository().getById(
+                    idProducto);
+        }
+        return null;
+    }
+
+    public ArrayList<Productos> productosSeleccionados() {
+        ArrayList<Productos> seleccionados = new ArrayList<>();
+        for (int i = 0; i < tablaElementos.getRowCount(); i++) {
+            item = obtenerProductoDeTabla(i);
+            if (item != null) {
+                if (corroborarDescontar((int) tablaElementos.getValueAt(i, 8), item.getStock())) {
+                    item.setStock((int) tablaElementos.getValueAt(i, 8));
                     seleccionados.add((item));
+                } else {
+                    JOptionPane.showMessageDialog(null, "No contamos con el Stock suficiente");
+                    break;
                 }
             }
-            return seleccionados;
         }
-    
+        return seleccionados;
+    }
+
+    public Pedido crearPedido() {
+        Pedido compra = new Pedido();
+        compra.setEstado(EstadoPedido.IMPAGO);
+        compra.setPrecio(calcularPrecio(productosSeleccionados()));
+        compra.setProductos(productosSeleccionados());
+        compra.setNumPedido((dato.hashCode() < 0) ? dato.hashCode() * -1 : dato.hashCode());
+        JOptionPane.showMessageDialog(null, "Pedido Agregado...");
+        return compra;
+    }
+
+    public void actualizarTabla() {
+        modelo.setRowCount(0);
+        cargarTabla();
+    }
+
+    public boolean corroborarDescontar(int solicitado, int pedido) {
+        if ( pedido < solicitado) {
+            return false;
+        }
+        return true;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -345,17 +371,12 @@ public class PanelMisCompras extends javax.swing.JPanel {
 
     private void btnAñadirPedidoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAñadirPedidoMouseClicked
         // TODO add your handling code here:
-        int confirmar = JOptionPane.showConfirmDialog(null, "¿Quiere agregar a su pedido "+verificarSeleccionados(9)+" Productos ?");
-        if(confirmar == 0){
-            Pedido compra = new Pedido();
-            compra.setEstado(EstadoPedido.IMPAGO);
-            compra.setPrecio(calcularPrecio(productosSeleccionados()));
-            compra.setProductos(productosSeleccionados());
-            compra.setNumPedido((dato.hashCode()<0) ? dato.hashCode()*-1 : dato.hashCode());
-            dato.getListaDePedidos().add(compra);
-            JOptionPane.showMessageDialog(null, "Pedido Agendada...");
+        int confirmar = JOptionPane.showConfirmDialog(null, "¿Quiere agregar a su pedido " + verificarSeleccionados(9) + " Productos ?");
+        if (confirmar == 0) {
+            dato.getListaDePedidos().add(crearPedido());
             gestorCliente.update(dato);
-            
+            gestorProductos.restarProductosLista(productosSeleccionados());
+            actualizarTabla();
         }
     }//GEN-LAST:event_btnAñadirPedidoMouseClicked
 
