@@ -4,6 +4,10 @@
  */
 package org.example.ventanas.vistas;
 
+import com.org.example.Exceptions.UsuarioCargaDatosException;
+import com.org.example.clases.Cliente;
+import com.org.example.service.GestionImpleCliente;
+import com.org.example.service.Utils;
 import javax.swing.*;
 import java.awt.*;
 
@@ -12,12 +16,32 @@ import java.awt.*;
  * @author Florsix
  */
 public class VistaMiUsuario extends javax.swing.JPanel {
-
+    private Utils utilidades = new Utils();
+    private GestionImpleCliente gestorCliente;
     /**
      * Creates new form VistaMiUsuario
      */
-    public VistaMiUsuario() {
+    public VistaMiUsuario(Cliente usuario) {
+        gestorCliente = new GestionImpleCliente();
         initComponents();
+        deshabilitarEditable();
+        setTextos(usuario);
+    }
+    
+    public boolean verificarCampos() throws UsuarioCargaDatosException{
+        if(utilidades.validEmail(ingresoEmail.getText())){
+            if(utilidades.validPassword(ingresoApellido.getText())){
+                if(gestorCliente.verificarIngresosVacios()){
+                    return true;
+                }else{
+                    throw new UsuarioCargaDatosException(7);
+                } 
+            }else{
+                throw new UsuarioCargaDatosException(6);
+            }
+        }else{
+            throw new UsuarioCargaDatosException(3);
+        }
     }
 
     /**
@@ -29,24 +53,18 @@ public class VistaMiUsuario extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        txtNombreUusario = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        txtApellidoUsuario = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        txtDniUsuario = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        txtDireccionUsuario = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        txtTelefonoUsuario = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
-        txtEmailUsuario = new javax.swing.JTextField();
-        jTextField13 = new javax.swing.JTextField();
-        txtContraseniauSUARIO = new javax.swing.JTextField();
+        iconoMenu = new javax.swing.JLabel();
+        contenedor = new javax.swing.JPanel();
         btnEditar = new javax.swing.JButton();
         btnGuardar = new javax.swing.JButton();
+        titulo = new javax.swing.JLabel();
+        ingresoNombre = new javax.swing.JTextField();
+        ingresoApellido = new javax.swing.JTextField();
+        ingresoDni = new javax.swing.JTextField();
+        ingresoDireccion = new javax.swing.JTextField();
+        ingresoTelefono = new javax.swing.JTextField();
+        ingresoEmail = new javax.swing.JTextField();
+        ingresoContraseña = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(242, 100, 100));
         setMaximumSize(new java.awt.Dimension(800, 560));
@@ -54,149 +72,11 @@ public class VistaMiUsuario extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(800, 560));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/8131374mini2.png"))); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, -1, -1));
+        iconoMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/8131374mini2.png"))); // NOI18N
+        add(iconoMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 30, -1, -1));
 
-        jPanel1.setBackground(new java.awt.Color(242, 142, 142));
-        jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 240, 240), 4, true));
-
-        jTextField1.setEditable(false);
-        jTextField1.setBackground(new java.awt.Color(255, 184, 184));
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(242, 100, 100));
-        jTextField1.setText("NOMBRE");
-        jTextField1.setBorder(null);
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-
-        txtNombreUusario.setEditable(false);
-        txtNombreUusario.setBackground(new java.awt.Color(255, 184, 184));
-        txtNombreUusario.setBorder(null);
-        txtNombreUusario.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtNombreUusarioMouseClicked(evt);
-            }
-        });
-
-        jTextField3.setEditable(false);
-        jTextField3.setBackground(new java.awt.Color(255, 184, 184));
-        jTextField3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jTextField3.setForeground(new java.awt.Color(242, 100, 100));
-        jTextField3.setText("APELLIDO");
-        jTextField3.setBorder(null);
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
-            }
-        });
-
-        txtApellidoUsuario.setEditable(false);
-        txtApellidoUsuario.setBackground(new java.awt.Color(255, 184, 184));
-        txtApellidoUsuario.setBorder(null);
-        txtApellidoUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtApellidoUsuarioMouseClicked(evt);
-            }
-        });
-
-        jTextField5.setEditable(false);
-        jTextField5.setBackground(new java.awt.Color(255, 184, 184));
-        jTextField5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jTextField5.setForeground(new java.awt.Color(242, 100, 100));
-        jTextField5.setText("DNI");
-        jTextField5.setBorder(null);
-
-        txtDniUsuario.setEditable(false);
-        txtDniUsuario.setBackground(new java.awt.Color(255, 184, 184));
-        txtDniUsuario.setBorder(null);
-        txtDniUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtDniUsuarioMouseClicked(evt);
-            }
-        });
-
-        jTextField7.setBackground(new java.awt.Color(255, 184, 184));
-        jTextField7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jTextField7.setForeground(new java.awt.Color(242, 100, 100));
-        jTextField7.setText("DIRECCION");
-        jTextField7.setBorder(null);
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
-            }
-        });
-
-        txtDireccionUsuario.setEditable(false);
-        txtDireccionUsuario.setBackground(new java.awt.Color(255, 184, 184));
-        txtDireccionUsuario.setBorder(null);
-        txtDireccionUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtDireccionUsuarioMouseClicked(evt);
-            }
-        });
-
-        jTextField9.setBackground(new java.awt.Color(255, 184, 184));
-        jTextField9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jTextField9.setForeground(new java.awt.Color(242, 100, 100));
-        jTextField9.setText("TELEFONO");
-        jTextField9.setBorder(null);
-        jTextField9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField9ActionPerformed(evt);
-            }
-        });
-
-        txtTelefonoUsuario.setEditable(false);
-        txtTelefonoUsuario.setBackground(new java.awt.Color(255, 184, 184));
-        txtTelefonoUsuario.setBorder(null);
-        txtTelefonoUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtTelefonoUsuarioMouseClicked(evt);
-            }
-        });
-        txtTelefonoUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTelefonoUsuarioActionPerformed(evt);
-            }
-        });
-
-        jTextField11.setEditable(false);
-        jTextField11.setBackground(new java.awt.Color(255, 184, 184));
-        jTextField11.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jTextField11.setForeground(new java.awt.Color(242, 100, 100));
-        jTextField11.setText("EMAIL");
-        jTextField11.setBorder(null);
-
-        txtEmailUsuario.setEditable(false);
-        txtEmailUsuario.setBackground(new java.awt.Color(255, 184, 184));
-        txtEmailUsuario.setBorder(null);
-        txtEmailUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtEmailUsuarioMouseClicked(evt);
-            }
-        });
-
-        jTextField13.setEditable(false);
-        jTextField13.setBackground(new java.awt.Color(255, 184, 184));
-        jTextField13.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jTextField13.setForeground(new java.awt.Color(242, 100, 100));
-        jTextField13.setText("CONTRASEÑA");
-        jTextField13.setToolTipText("");
-        jTextField13.setBorder(null);
-
-        txtContraseniauSUARIO.setEditable(false);
-        txtContraseniauSUARIO.setBackground(new java.awt.Color(255, 184, 184));
-        txtContraseniauSUARIO.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        txtContraseniauSUARIO.setForeground(new java.awt.Color(242, 100, 100));
-        txtContraseniauSUARIO.setBorder(null);
-        txtContraseniauSUARIO.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtContraseniauSUARIOMouseClicked(evt);
-            }
-        });
+        contenedor.setBackground(new java.awt.Color(242, 142, 142));
+        contenedor.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 240, 240), 4, true));
 
         btnEditar.setBackground(new java.awt.Color(255, 184, 184));
         btnEditar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -233,111 +113,146 @@ public class VistaMiUsuario extends javax.swing.JPanel {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+        titulo.setBackground(new java.awt.Color(255, 184, 184));
+        titulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        titulo.setForeground(new java.awt.Color(242, 100, 100));
+        titulo.setText("MIS DATOS");
+
+        ingresoNombre.setBackground(new java.awt.Color(255, 184, 184));
+        ingresoNombre.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        ingresoNombre.setForeground(new java.awt.Color(242, 100, 100));
+        ingresoNombre.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        ingresoNombre.setBorder(null);
+        ingresoNombre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ingresoNombreMouseClicked(evt);
+            }
+        });
+
+        ingresoApellido.setEditable(false);
+        ingresoApellido.setBackground(new java.awt.Color(255, 184, 184));
+        ingresoApellido.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        ingresoApellido.setForeground(new java.awt.Color(242, 100, 100));
+        ingresoApellido.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        ingresoApellido.setBorder(null);
+        ingresoApellido.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ingresoApellidoMouseClicked(evt);
+            }
+        });
+
+        ingresoDni.setEditable(false);
+        ingresoDni.setBackground(new java.awt.Color(255, 184, 184));
+        ingresoDni.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        ingresoDni.setForeground(new java.awt.Color(242, 100, 100));
+        ingresoDni.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        ingresoDni.setBorder(null);
+        ingresoDni.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ingresoDniMouseClicked(evt);
+            }
+        });
+
+        ingresoDireccion.setBackground(new java.awt.Color(255, 184, 184));
+        ingresoDireccion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        ingresoDireccion.setForeground(new java.awt.Color(242, 100, 100));
+        ingresoDireccion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        ingresoDireccion.setBorder(null);
+        ingresoDireccion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ingresoDireccionMouseClicked(evt);
+            }
+        });
+
+        ingresoTelefono.setBackground(new java.awt.Color(255, 184, 184));
+        ingresoTelefono.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        ingresoTelefono.setForeground(new java.awt.Color(242, 100, 100));
+        ingresoTelefono.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        ingresoTelefono.setBorder(null);
+        ingresoTelefono.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ingresoTelefonoMouseClicked(evt);
+            }
+        });
+
+        ingresoEmail.setEditable(false);
+        ingresoEmail.setBackground(new java.awt.Color(255, 184, 184));
+        ingresoEmail.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        ingresoEmail.setForeground(new java.awt.Color(242, 100, 100));
+        ingresoEmail.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        ingresoEmail.setBorder(null);
+        ingresoEmail.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ingresoEmailMouseClicked(evt);
+            }
+        });
+
+        ingresoContraseña.setEditable(false);
+        ingresoContraseña.setBackground(new java.awt.Color(255, 184, 184));
+        ingresoContraseña.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        ingresoContraseña.setForeground(new java.awt.Color(242, 100, 100));
+        ingresoContraseña.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        ingresoContraseña.setToolTipText("");
+        ingresoContraseña.setBorder(null);
+        ingresoContraseña.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ingresoContraseñaMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout contenedorLayout = new javax.swing.GroupLayout(contenedor);
+        contenedor.setLayout(contenedorLayout);
+        contenedorLayout.setHorizontalGroup(
+            contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(contenedorLayout.createSequentialGroup()
+                .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(contenedorLayout.createSequentialGroup()
+                        .addGap(99, 99, 99)
+                        .addComponent(titulo))
+                    .addGroup(contenedorLayout.createSequentialGroup()
                         .addGap(26, 26, 26)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jTextField5)
-                                        .addComponent(jTextField7)
-                                        .addComponent(jTextField11)
-                                        .addComponent(jTextField13)
-                                        .addComponent(jTextField9))
-                                    .addGap(0, 0, 0)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtContraseniauSUARIO)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                            .addGap(0, 0, Short.MAX_VALUE)
-                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(txtTelefonoUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
-                                                .addComponent(txtEmailUsuario)
-                                                .addComponent(txtDireccionUsuario)
-                                                .addComponent(txtDniUsuario)))))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(0, 0, 0)
-                                    .addComponent(txtNombreUusario)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, 0)
-                                .addComponent(txtApellidoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(ingresoNombre)
+                            .addComponent(ingresoApellido)
+                            .addComponent(ingresoDni)
+                            .addComponent(ingresoDireccion)
+                            .addComponent(ingresoTelefono)
+                            .addComponent(ingresoEmail)
+                            .addComponent(ingresoContraseña)
+                            .addGroup(contenedorLayout.createSequentialGroup()
+                                .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                                .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(90, 90, 90)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(txtNombreUusario, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        contenedorLayout.setVerticalGroup(
+            contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(contenedorLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(titulo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ingresoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField3)
-                    .addComponent(txtApellidoUsuario))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField5)
-                    .addComponent(txtDniUsuario))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField7)
-                    .addComponent(txtDireccionUsuario))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField9)
-                    .addComponent(txtTelefonoUsuario))
-                .addGap(8, 8, 8)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField11)
-                    .addComponent(txtEmailUsuario))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtContraseniauSUARIO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
-                    .addComponent(btnEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(35, 35, 35))
+                .addComponent(ingresoApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ingresoDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ingresoDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ingresoTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ingresoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ingresoContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, -1, -1));
+        add(contenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, -1, 380));
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
-    private void txtTelefonoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoUsuarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTelefonoUsuarioActionPerformed
-
-    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField9ActionPerformed
-
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
-
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
 
     private void btnGuardarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarMouseEntered
         // TODO add your handling code here:
@@ -362,93 +277,122 @@ public class VistaMiUsuario extends javax.swing.JPanel {
 
     }//GEN-LAST:event_btnEditarMouseExited
 
-    private void txtNombreUusarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombreUusarioMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreUusarioMouseClicked
-
-    private void txtApellidoUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtApellidoUsuarioMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtApellidoUsuarioMouseClicked
-
-    private void txtDniUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDniUsuarioMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtDniUsuarioMouseClicked
-
-    private void txtDireccionUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDireccionUsuarioMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtDireccionUsuarioMouseClicked
-
-    private void txtTelefonoUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTelefonoUsuarioMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTelefonoUsuarioMouseClicked
-
-    private void txtEmailUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEmailUsuarioMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtEmailUsuarioMouseClicked
-
-    private void txtContraseniauSUARIOMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtContraseniauSUARIOMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtContraseniauSUARIOMouseClicked
-
     private void btnEditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditarMouseClicked
         // TODO add your handling code here:
         habilitarEditable();
-        limpiarCampos();
     }//GEN-LAST:event_btnEditarMouseClicked
 
     private void btnGuardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarMouseClicked
         // TODO add your handling code here:
-
+        try{
+            if(verificarCampos()){
+                
+            }
+        }catch(UsuarioCargaDatosException e){
+            JOptionPane.showMessageDialog(null, e.escribirMensaje());
+        }
        deshabilitarEditable();
-
-        
     }//GEN-LAST:event_btnGuardarMouseClicked
 
+    private void ingresoNombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresoNombreMouseClicked
+        // TODO add your handling code here:
+        if(ingresoNombre.isEditable()){
+            ingresoNombre.setText("");
+        }
+    }//GEN-LAST:event_ingresoNombreMouseClicked
+
+    private void ingresoApellidoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresoApellidoMouseClicked
+        // TODO add your handling code here:
+        if(ingresoApellido.isEditable()){
+            ingresoApellido.setText("");
+        }
+    }//GEN-LAST:event_ingresoApellidoMouseClicked
+
+    private void ingresoDniMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresoDniMouseClicked
+        // TODO add your handling code here:
+        if(ingresoDni.isEditable()){
+            ingresoDni.setText("");
+        }
+    }//GEN-LAST:event_ingresoDniMouseClicked
+
+    private void ingresoDireccionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresoDireccionMouseClicked
+        // TODO add your handling code here:
+        if(ingresoDireccion.isEditable()){
+            ingresoDireccion.setText("");
+        }
+    }//GEN-LAST:event_ingresoDireccionMouseClicked
+
+    private void ingresoTelefonoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresoTelefonoMouseClicked
+        // TODO add your handling code here:
+        if(ingresoTelefono.isEditable()){
+            ingresoTelefono.setText("");
+        }
+    }//GEN-LAST:event_ingresoTelefonoMouseClicked
+
+    private void ingresoEmailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresoEmailMouseClicked
+        // TODO add your handling code here:
+        if(ingresoEmail.isEditable()){
+            ingresoEmail.setText("");
+        }
+    }//GEN-LAST:event_ingresoEmailMouseClicked
+
+    private void ingresoContraseñaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresoContraseñaMouseClicked
+        // TODO add your handling code here:
+        if(ingresoContraseña.isEditable()){
+            ingresoContraseña.setText("");
+        }
+    }//GEN-LAST:event_ingresoContraseñaMouseClicked
+
 public void habilitarEditable(){
-        txtNombreUusario.setEditable(true);
-        txtApellidoUsuario.setEditable(true);
-        txtDireccionUsuario.setEditable(true);
-        txtDniUsuario.setEditable(true);
-        txtTelefonoUsuario.setEditable(true);
-        txtEmailUsuario.setEditable(true);
-        txtContraseniauSUARIO.setEditable(true);
+        ingresoNombre.setEditable(true);
+        ingresoApellido.setEditable(true);
+        ingresoDireccion.setEditable(true);
+        ingresoEmail.setEditable(true);
+        ingresoDni.setEditable(true);
+        ingresoTelefono.setEditable(true);
+        ingresoContraseña.setEditable(true);
 }
     public void deshabilitarEditable(){
-        txtNombreUusario.setEditable(false);
-        txtApellidoUsuario.setEditable(false);
-        txtDireccionUsuario.setEditable(false);
-        txtDniUsuario.setEditable(false);
-        txtTelefonoUsuario.setEditable(false);
-        txtEmailUsuario.setEditable(false);
-        txtContraseniauSUARIO.setEditable(false);
+        ingresoNombre.setEditable(false);
+        ingresoApellido.setEditable(false);
+        ingresoDireccion.setEditable(false);
+        ingresoEmail.setEditable(false);
+        ingresoDni.setEditable(false);
+        ingresoTelefono.setEditable(false);
+        ingresoContraseña.setEditable(false);
     }
     public void limpiarCampos(){
-        txtNombreUusario.setText(" ");
-        txtApellidoUsuario.setText(" ");
-        txtDireccionUsuario.setText(" ");
-        txtDniUsuario.setEditable(false);
-        txtTelefonoUsuario.setText(" ");
-        txtEmailUsuario.setText(" ");
-        txtContraseniauSUARIO.setText(" ");
+        ingresoNombre.setText("");
+        ingresoApellido.setText("");
+        ingresoDireccion.setText("");
+        ingresoEmail.setText("");
+        ingresoDni.setText("");
+        ingresoTelefono.setText("");
+        ingresoContraseña.setText("");
     }
+    
+    public void setTextos(Cliente user){
+        ingresoNombre.setText(user.getNombre());
+        ingresoApellido.setText(user.getApellido());
+        ingresoDireccion.setText(user.getDireccion());
+        ingresoEmail.setText(user.getEmail());
+        ingresoDni.setText(user.getDni());
+        ingresoTelefono.setText(user.getTelefono());
+        ingresoContraseña.setText(user.getContrasenia());
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnGuardar;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField9;
-    private javax.swing.JTextField txtApellidoUsuario;
-    private javax.swing.JTextField txtContraseniauSUARIO;
-    private javax.swing.JTextField txtDireccionUsuario;
-    private javax.swing.JTextField txtDniUsuario;
-    private javax.swing.JTextField txtEmailUsuario;
-    private javax.swing.JTextField txtNombreUusario;
-    private javax.swing.JTextField txtTelefonoUsuario;
+    private javax.swing.JPanel contenedor;
+    private javax.swing.JLabel iconoMenu;
+    private javax.swing.JTextField ingresoApellido;
+    private javax.swing.JTextField ingresoContraseña;
+    private javax.swing.JTextField ingresoDireccion;
+    private javax.swing.JTextField ingresoDni;
+    private javax.swing.JTextField ingresoEmail;
+    private javax.swing.JTextField ingresoNombre;
+    private javax.swing.JTextField ingresoTelefono;
+    private javax.swing.JLabel titulo;
     // End of variables declaration//GEN-END:variables
 }
