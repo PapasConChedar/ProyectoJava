@@ -7,9 +7,12 @@ package org.example.ventanas.vistas;
 import com.org.example.clases.Cliente;
 import com.org.example.clases.Pedido;
 import com.org.example.clases.Productos;
+import com.org.example.enums.EstadoPedido;
 import com.org.example.service.GestionImpleCliente;
 import com.org.example.service.GestionImplePedido;
 import com.org.example.service.Utils;
+import com.org.example.session.SessionManager;
+
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
@@ -143,6 +146,7 @@ public class VistaComprasUsuarios extends javax.swing.JPanel {
     }
 
     public void cargarTablaPedido() {
+        Cliente cliente = gestorCliente.encontrarCliente(SessionManager.getInstance().getCurrentUser().getEmail(),SessionManager.getInstance().getCurrentUser().getPassword());
         if (cliente.getListaDePedidos() != null) {
             for (Pedido item : cliente.getListaDePedidos()) {
                 Object[] infoDatos = new Object[5];
@@ -214,7 +218,8 @@ public class VistaComprasUsuarios extends javax.swing.JPanel {
         btnActualizar.setText("ACTUALIZAR");
         btnActualizar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnActualizarMouseClicked(evt);
+                //btnActualizarMouseClicked(evt);
+                resetearYcargarTabla(cliente);
             }
         });
 
@@ -254,7 +259,15 @@ public class VistaComprasUsuarios extends javax.swing.JPanel {
         btnConfirmarPedido.setText("PAGAR");
         btnConfirmarPedido.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnConfirmarPedidoMouseClicked(evt);
+                Cliente c = new Cliente();
+                for (int i = 0; i < tablaPedidos.getRowCount(); i++) {
+                    if (tablaPedidos.getValueAt(i, 3).equals(EstadoPedido.IMPAGO) && tablaPedidos.getValueAt(i, 4).equals(true)) {
+                        c = new GestionImpleCliente().encontrarCliente(cliente.getEmail(),cliente.getContrasenia());
+                        int idPedido = Integer.parseInt(String.valueOf(tablaPedidos.getValueAt(i, 0)));
+                        gestorCliente.cambiarEstadoPedido(c, EstadoPedido.PAGO, idPedido);
+                        Utils.borrarFilaDeTabla(tablaPedidos, i);
+                    }
+                }
             }
         });
 
@@ -414,7 +427,8 @@ public class VistaComprasUsuarios extends javax.swing.JPanel {
 
         for (int i = 0; i < tablaPedidos.getRowCount(); i++) {
             if (tablaPedidos.getValueAt(i, 4).equals(true)) {
-                gestionImplePedido.borrarPedido(Integer.parseInt(String.valueOf(tablaPedidos.getValueAt(i, 0))), cliente);
+                gestionImplePedido.borrarPedido((Integer) tablaPedidos.getValueAt(i, 0),
+                        new GestionImpleCliente().encontrarCliente(cliente.getEmail(), cliente.getContrasenia()));
                 Utils.borrarFilaDeTabla(tablaPedidos, i);
             }
         }
@@ -423,7 +437,7 @@ public class VistaComprasUsuarios extends javax.swing.JPanel {
 
     private void btnConfirmarPedidoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConfirmarPedidoMouseClicked
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_btnConfirmarPedidoMouseClicked
 
     private void btnActualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarMouseClicked
@@ -431,6 +445,12 @@ public class VistaComprasUsuarios extends javax.swing.JPanel {
         modeloTablaPedido.setRowCount(0);
         cargarTablaPedido();
     }//GEN-LAST:event_btnActualizarMouseClicked
+
+    private void resetearYcargarTabla(Cliente cliente) {
+        this.cliente = cliente;
+        modeloTablaPedido.setRowCount(0);
+        cargarTablaPedido();
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

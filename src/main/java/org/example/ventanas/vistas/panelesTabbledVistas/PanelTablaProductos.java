@@ -6,6 +6,7 @@ package org.example.ventanas.vistas.panelesTabbledVistas;
 import com.org.example.enums.Categoria;
 import com.org.example.service.GestionImpleProducto;
 import com.org.example.clases.Productos;
+import com.org.example.service.Utils;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -289,6 +290,7 @@ public class PanelTablaProductos extends javax.swing.JPanel {
         for(int i = 0; i < tablaProductos.getRowCount();i++){
             if((boolean) tablaProductos.getValueAt(i, 7)){
                 gestor.delete(productoSeleccionado);
+                Utils.borrarFilaDeTabla(tablaProductos,i);
             }
         }
     }//GEN-LAST:event_btnBorrar1MouseClicked
