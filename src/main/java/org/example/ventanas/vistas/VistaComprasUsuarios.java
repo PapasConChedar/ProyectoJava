@@ -7,6 +7,7 @@ package org.example.ventanas.vistas;
 import com.org.example.clases.Cliente;
 import com.org.example.clases.Pedido;
 import com.org.example.clases.Productos;
+import com.org.example.enums.EstadoPedido;
 import com.org.example.service.GestionImpleCliente;
 import com.org.example.service.GestionImplePedido;
 import com.org.example.service.Utils;
@@ -38,6 +39,7 @@ public class VistaComprasUsuarios extends javax.swing.JPanel {
     private TableRowSorter tablaFlitro;
     private String filtro;
     private Cliente cliente;
+
 
     private class renderizadorTabla extends
             DefaultTableCellRenderer {
@@ -180,6 +182,8 @@ public class VistaComprasUsuarios extends javax.swing.JPanel {
         tablaFlitro.setRowFilter(RowFilter.regexFilter(buscadorElementos.getText(), 0));
     }
     
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -208,7 +212,6 @@ public class VistaComprasUsuarios extends javax.swing.JPanel {
         setMaximumSize(new java.awt.Dimension(800, 510));
         setMinimumSize(new java.awt.Dimension(800, 510));
         setName(""); // NOI18N
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         backgroundVistaCompras.setBackground(new java.awt.Color(134, 150, 254));
         backgroundVistaCompras.setMaximumSize(new java.awt.Dimension(800, 560));
@@ -366,7 +369,16 @@ public class VistaComprasUsuarios extends javax.swing.JPanel {
                 .addGap(32, 32, 32))
         );
 
-        add(backgroundVistaCompras, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(backgroundVistaCompras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(backgroundVistaCompras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
     }// </editor-fold>//GEN-END:initComponents
 
     private void buscadorElementosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscadorElementosKeyTyped
