@@ -17,6 +17,9 @@ public class Pedido extends Productos implements Serializable {
         this.precio = precio1;
         this.productos = productos;
     }
+
+    public Pedido() {
+    }
     //endregion
 
     //region GETTERS AND SETTERS

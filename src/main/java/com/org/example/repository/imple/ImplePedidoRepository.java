@@ -73,8 +73,6 @@ public class ImplePedidoRepository implements GenericsRepository<Pedido> {
         cargar();
         for (Pedido i : listPedidos) {
             if (i.getNumPedido() == item.getNumPedido()) {
-                i.setNumPedido(
-                        item.getNumPedido());
             }
             i.setPrecio(
                     item.getPrecio());
