@@ -3,7 +3,8 @@ package com.org.example.enums;
 public enum Archivos {
     CLIENTES("src\\main\\java\\com\\org\\example\\archivos\\clientes.json"),
     EMPLEADOS("src\\main\\java\\com\\org\\example\\archivos\\empleados.json"),
-    PRODUCTOS("src\\main\\java\\com\\org\\example\\archivos\\productos.json");
+    PRODUCTOS("src\\main\\java\\com\\org\\example\\archivos\\productos.json"),
+    CANCION("src/main/java/com/org/example/audio/asd.wav");
     private final String ruta;
 
     Archivos(String ruta) {
