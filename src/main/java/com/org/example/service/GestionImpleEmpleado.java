@@ -44,7 +44,9 @@ public class GestionImpleEmpleado {
     }
     
     public Integer crearIdEmpleado(){
-        return (getList() == null ) ? 0 : getList().size()-1; 
+        if(getList() != null)
+            return getList().size()-1;
+        return 0; 
     }
     
     public boolean verificarUsuarioRepetido(Empleado item) {

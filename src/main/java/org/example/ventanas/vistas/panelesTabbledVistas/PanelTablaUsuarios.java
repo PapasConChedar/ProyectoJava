@@ -5,7 +5,9 @@
 package org.example.ventanas.vistas.panelesTabbledVistas;
 
 import com.org.example.clases.Cliente;
+import com.org.example.clases.Empleado;
 import com.org.example.service.GestionImpleCliente;
+import com.org.example.service.GestionImpleEmpleado;
 import java.awt.Component;
 import java.util.ArrayList;
 import javax.swing.JCheckBox;
@@ -19,7 +21,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Agus-Notebook
  */
 public class PanelTablaUsuarios extends javax.swing.JPanel {
-
+    private GestionImpleEmpleado gestorEmple;
     private GestionImpleCliente gestor;
     private final DefaultTableModel modelo;
     private Cliente clienteSeleccionado = new Cliente();
@@ -41,13 +43,14 @@ public class PanelTablaUsuarios extends javax.swing.JPanel {
      * Creates new form panelTablaUsuarios
      */
     public PanelTablaUsuarios() {
-        String[] titulos = {"ID", "Nombre", "Direccion", "Email", "Contraseña",
+        String[] titulos = {"ID","Tipo", "Nombre", "Direccion", "Email", "Contraseña",
             "Telefono", "Seleccion"};
-        Boolean[] titulosEditables = {false, false, false, false, false, false, true};
-        Class[] titulosObjetos = {String.class, String.class, String.class,
+        Boolean[] titulosEditables = {false,false, false, false, false, false, false, true};
+        Class[] titulosObjetos = {String.class,String.class, String.class, String.class,
             String.class, String.class, String.class, Boolean.class};
 
         initComponents();
+        gestorEmple = new GestionImpleEmpleado();
         gestor = new GestionImpleCliente();
         modelo = new DefaultTableModel() {
             @Override
@@ -70,14 +73,27 @@ public class PanelTablaUsuarios extends javax.swing.JPanel {
      */
     public void cargarTabla() {
         for (Cliente i : gestor.getList()) {
-            Object[] infDatos = new Object[7];
+            Object[] infDatos = new Object[8];
             infDatos[0] = i.getIdCliente();
-            infDatos[1] = i.getNombre() + " " + i.getApellido();
-            infDatos[2] = i.getDireccion();
-            infDatos[3] = i.getEmail();
-            infDatos[4] = i.getContrasenia();
-            infDatos[5] = i.getTelefono();
-            infDatos[6] = false;
+            infDatos[1] = "Cliente";
+            infDatos[2] = i.getNombre() + " " + i.getApellido();
+            infDatos[3] = i.getDireccion();
+            infDatos[4] = i.getEmail();
+            infDatos[5] = i.getContrasenia();
+            infDatos[6] = i.getTelefono();
+            infDatos[7] = false;
+            modelo.addRow(infDatos);
+        }
+        for(Empleado j : gestorEmple.getList()){
+            Object[] infDatos = new Object[8];
+            infDatos[0] = j.getIdEmpleado();
+            infDatos[1] = "Empleado";
+            infDatos[2] = j.getNombre() + " " + j.getApellido();
+            infDatos[3] = j.getDireccion();
+            infDatos[4] = j.getEmail();
+            infDatos[5] = j.getContraseña();
+            infDatos[6] = "-------";
+            infDatos[7] = false;
             modelo.addRow(infDatos);
         }
     }

@@ -5,11 +5,8 @@
 package org.example.ventanas.vistas;
 
 import javax.swing.ImageIcon;
-import javax.swing.JPanel;
-import org.example.ventanas.vistas.panelesTabbledVistas.PanelCargaProducto;
 import org.example.ventanas.vistas.panelesTabbledVistas.PanelCargaUsuario;
 import org.example.ventanas.vistas.panelesTabbledVistas.PanelEdicionUsuario;
-import org.example.ventanas.vistas.panelesTabbledVistas.PanelTablaProductos;
 import org.example.ventanas.vistas.panelesTabbledVistas.PanelTablaUsuarios;
 import org.example.ventanas.vistas.panelesTabbledVistas.UtilidadesPaneles;
 

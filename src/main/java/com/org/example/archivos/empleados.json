@@ -1,17 +1,25 @@
 [ {
-  "nombre" : "Flor",
-  "apellido" : "Aguilar",
-  "dni" : "48446315",
-  "direccion" : "Lambertiana 1838",
-  "idEmpleado" : 0,
-  "email" : "FlorAguilar@gmail.com",
-  "contraseña" : "123456789"
-}, {
   "nombre" : "Nicolas",
   "apellido" : "Vercellone",
-  "dni" : "43488434",
-  "direccion" : "Acacia 811",
+  "dni" : "46824826",
+  "direccion" : "Lambertiana 345",
   "idEmpleado" : 0,
-  "email" : "nicoMaquinaDestructoraDeDonas@gmail.com",
+  "email" : "nico@gmail.com",
+  "contraseña" : "123456789"
+}, {
+  "nombre" : "Florencia",
+  "apellido" : "Aguiar",
+  "dni" : "45564645",
+  "direccion" : "Rey del Bosque 1080",
+  "idEmpleado" : 1,
+  "email" : "florenciaAguiar@gmail.com",
+  "contraseña" : "123456789"
+}, {
+  "nombre" : "asdasdasdasdasd",
+  "apellido" : "asdasdasdasdasdasd",
+  "dni" : "62464824",
+  "direccion" : "asdasdasdasd123",
+  "idEmpleado" : 0,
+  "email" : "asdasdasdas@gmail.com",
   "contraseña" : "123456789"
 } ]
