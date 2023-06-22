@@ -11,7 +11,9 @@ import org.example.ventanas.vistas.VistaMiUsuario;
 
 public class Main {
     public static void main(String[] args) {
-        Login login = new Login();
+        GestionImpleCliente gestor = new GestionImpleCliente();
+        
+        MenuUsuario login = new MenuUsuario(gestor.getList().get(0));
         login.setVisible(true);
         
      //   MenuInicio menu = new MenuInicio();

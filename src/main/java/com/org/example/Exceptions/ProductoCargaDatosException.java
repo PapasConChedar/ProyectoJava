@@ -25,6 +25,7 @@ public class ProductoCargaDatosException extends  Exception{
             case 7: return ("Campos Vacios");
             case 8: return ("Formato Fechas no Permitidos");
             case 9: return ("Ingreso Caracteres en Lugar de Numero");
+            case 10: return("Producto solicitado no cumple con los requisitos");
         }
         return ("");
     }
