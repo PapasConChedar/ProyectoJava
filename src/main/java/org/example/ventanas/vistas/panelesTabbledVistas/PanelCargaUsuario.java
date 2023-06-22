@@ -229,7 +229,7 @@ public class PanelCargaUsuario extends javax.swing.JPanel {
 
         backgroundPanelCargaProducto.add(panelBotones, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 430, 350, -1));
 
-        panelIngreso.setBackground(new java.awt.Color(232, 147, 207));
+        panelIngreso.setBackground(new java.awt.Color(188, 140, 242));
         panelIngreso.setBorder(javax.swing.BorderFactory.createMatteBorder(10, 10, 10, 10, new java.awt.Color(255, 204, 255)));
 
         ingresoNombre.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
