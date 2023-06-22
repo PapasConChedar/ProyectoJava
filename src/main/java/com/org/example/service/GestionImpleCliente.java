@@ -2,6 +2,7 @@ package com.org.example.service;
 
 import com.org.example.Exceptions.UsuarioNoEncontradoException;
 import com.org.example.clases.Cliente;
+import com.org.example.enums.EstadoPedido;
 import com.org.example.repository.imple.ImpleClienteRepository;
 
 import java.util.ArrayList;
@@ -123,5 +124,13 @@ public class GestionImpleCliente {
         return true;
     }
 
-
+    public void cambiarEstadoPedido(Cliente cliente, EstadoPedido estado, int idPedido) {
+        Cliente c = impleClienteRepository.getById(String.valueOf(cliente.getIdCliente()));
+        c.getListaDePedidos().forEach(pedido -> {
+            if (pedido.getNumPedido() == idPedido) {
+                pedido.setEstado(estado);
+            }
+        });
+        guardar();
+    }
 }

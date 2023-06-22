@@ -11,39 +11,47 @@ import java.util.List;
 
 public class GestionImplePedido {
     ImplePedidoRepository implePedidoRepository = new ImplePedidoRepository();
-    public void cargar(){
+
+    public void cargar() {
         implePedidoRepository.cargar();
     }
 
+    public Pedido getById(String id) {
+        return implePedidoRepository.getById(id);
+    }
 
-    public void guardar(){
+    public void guardar() {
         implePedidoRepository.guardar();
     }
-    public void add (Pedido item){
+
+    public void add(Pedido item) {
         implePedidoRepository.add(item);
     }
-    public void Update(Pedido item){
+
+    public void Update(Pedido item) {
         implePedidoRepository.update(item);
 
     }
-    public void delete(Pedido item){
+
+    public void delete(Pedido item) {
         implePedidoRepository.delete(item);
     }
-    
-    public List<Pedido> getList(){
+
+    public List<Pedido> getList() {
         return implePedidoRepository.getAll();
     }
 
 
-    public Integer crearNumPedido(){
-        return((implePedidoRepository.getAll())==null) ? 0:implePedidoRepository.getAll().size();
+    public Integer crearNumPedido() {
+        return ((implePedidoRepository.getAll()) == null) ? 0 : implePedidoRepository.getAll().size();
     }
 
 
-    public void cambiarEstadoPedido(EstadoPedido estado, Pedido pedido){
+    public void cambiarEstadoPedido(EstadoPedido estado, Pedido pedido) {
         pedido.setEstado(estado);
     }
-    public Pedido crearPedido(ArrayList<Productos> listProducto){
+
+    public Pedido crearPedido(ArrayList<Productos> listProducto) {
         Pedido i = new Pedido();
         i.setNumPedido(crearNumPedido());
         i.setProductos(listProducto);
@@ -52,27 +60,24 @@ public class GestionImplePedido {
         return i;
     }
 
-    public Double calcularPrecio(ArrayList<Productos> listProductos){
-        double total= 0;
-        for (Productos producto:listProductos) {
+    public Double calcularPrecio(ArrayList<Productos> listProductos) {
+        double total = 0;
+        for (Productos producto : listProductos) {
             total += producto.getPrecio();
         }
         return total;
 
     }
-    public void pagarPedido(String id){
+
+    public void pagarPedido(String id) {
         implePedidoRepository.getAll();
-      implePedidoRepository.getById(id).setEstado(EstadoPedido.PAGO);
+        implePedidoRepository.getById(id).setEstado(EstadoPedido.PAGO);
     }
-    
-     public void borrarPedido(int numPedido,Cliente cliente){
-        for(Pedido item : cliente.getListaDePedidos()){
-            if(item.getNumPedido() == numPedido){
-                cliente.getListaDePedidos().remove(item);
-            }
-        }
+
+    public void borrarPedido(int numPedido, Cliente cliente) {
+        cliente.getListaDePedidos().removeIf(item -> item.getNumPedido() == numPedido);
         guardar();
     }
-    
+
 
 }

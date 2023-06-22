@@ -5,13 +5,16 @@
 package org.example.ventanas.vistas;
 
 
-
 import com.org.example.clases.Cliente;
 import com.org.example.clases.Pedido;
 import com.org.example.clases.Productos;
+import com.org.example.enums.EstadoPedido;
+import com.org.example.repository.imple.ImplePedidoRepository;
 import com.org.example.service.GestionImpleCliente;
 import com.org.example.service.GestionImplePedido;
 import com.org.example.service.Utils;
+import com.org.example.session.SessionManager;
+
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
@@ -28,7 +31,6 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 
 /**
- *
  * @author Agus-Notebook
  */
 public class VistasCompras extends javax.swing.JPanel {
@@ -67,9 +69,9 @@ public class VistasCompras extends javax.swing.JPanel {
     public VistasCompras() {
         gestorPedidos.cargar();
         gestorCliente.cargar();
-        String[] titulosPedidos = {"Id Clienta","N° Pedido", "Total", "Cant Productos","Estado", "Selecionado"};
-        Boolean[] tiposPedidos = {false,false, false, false,false, true};
-        Class[] objetosPedidos = {String.class,String.class, String.class, String.class, String.class, Boolean.class};
+        String[] titulosPedidos = {"Id Clienta", "N° Pedido", "Total", "Cant Productos", "Estado", "Selecionado"};
+        Boolean[] tiposPedidos = {false, false, false, false, false, true};
+        Class[] objetosPedidos = {String.class, String.class, String.class, String.class, String.class, Boolean.class};
 
         String[] titulosProductos = {"Nombre", "Cant Productos", "Precio Unitario"};
         Boolean[] titulosProductosClass = {false, false, false};
@@ -117,39 +119,30 @@ public class VistasCompras extends javax.swing.JPanel {
         });
 
 
-
         selecionTotal.addActionListener(new java.awt.event.ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 for (int i = 0; i < tablaPedidos.getRowCount(); i++) {
-                    if (selecionTotal.isSelected()) {
-                        for (int j = 0; j < tablaPedidos.getRowCount(); j++) {
-                            tablaPedidos.setValueAt(true, j, 4);
-                        }
-                    } else {
-                        for (int j = 0; j < tablaPedidos.getRowCount(); j++) {
-                            tablaPedidos.setValueAt(false, j, 4);
-                        }
-                    }
+                    Utils.seleccionarTodosCheckbox(tablaPedidos, selecionTotal.isSelected(), 5);
                 }
             }
         });
     }
 
     public void cargarTablaPedido() {
-        for (Cliente cliente: gestorCliente.getList()){
-        if (cliente.getListaDePedidos() != null) {
-            for (Pedido item : cliente.getListaDePedidos()) {
-                Object[] infoDatos = new Object[6];
-                infoDatos[0] = cliente.getIdCliente();
-                infoDatos[1] = item.getNumPedido();
-                infoDatos[2] = item.getPrecio();
-                infoDatos[3] = item.getProductos().size();
-                infoDatos[4] = item.getEstado();
-                infoDatos[5] = false;
-                modeloTablaPedido.addRow(infoDatos);
+        for (Cliente cliente : gestorCliente.getList()) {
+            if (cliente.getListaDePedidos() != null) {
+                for (Pedido item : cliente.getListaDePedidos()) {
+                    Object[] infoDatos = new Object[6];
+                    infoDatos[0] = cliente.getIdCliente();
+                    infoDatos[1] = item.getNumPedido();
+                    infoDatos[2] = item.getPrecio();
+                    infoDatos[3] = item.getProductos().size();
+                    infoDatos[4] = item.getEstado();
+                    infoDatos[5] = false;
+                    modeloTablaPedido.addRow(infoDatos);
 
-             }
+                }
             }
         }
     }
@@ -173,9 +166,9 @@ public class VistasCompras extends javax.swing.JPanel {
     /**
      * Creates new form VistasCompras
      */
-   // public VistasCompras() {
-   //     initComponents();
-   // }
+    // public VistasCompras() {
+    //     initComponents();
+    // }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -247,15 +240,15 @@ public class VistasCompras extends javax.swing.JPanel {
         selecionTotal.setText("Seleccionar Todos");
 
         tablaPedidos.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
+                new Object[][]{
+                        {null, null, null, null},
+                        {null, null, null, null},
+                        {null, null, null, null},
+                        {null, null, null, null}
+                },
+                new String[]{
+                        "Title 1", "Title 2", "Title 3", "Title 4"
+                }
         ));
         jScrollPane1.setViewportView(tablaPedidos);
 
@@ -266,62 +259,62 @@ public class VistasCompras extends javax.swing.JPanel {
         javax.swing.GroupLayout backgroundVistaComprasLayout = new javax.swing.GroupLayout(backgroundVistaCompras);
         backgroundVistaCompras.setLayout(backgroundVistaComprasLayout);
         backgroundVistaComprasLayout.setHorizontalGroup(
-            backgroundVistaComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundVistaComprasLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(backgroundVistaComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnConfirmarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(icono)
-                    .addGroup(backgroundVistaComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(selecionTotal)
-                        .addComponent(btnBorrarSeleccionados, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(backgroundVistaComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(backgroundVistaComprasLayout.createSequentialGroup()
-                        .addGap(0, 182, Short.MAX_VALUE)
-                        .addComponent(btnBuscador, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buscadorElementos, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(21, 21, 21))
-                    .addGroup(backgroundVistaComprasLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                backgroundVistaComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundVistaComprasLayout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addGroup(backgroundVistaComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(btnConfirmarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(icono)
+                                        .addGroup(backgroundVistaComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(selecionTotal)
+                                                .addComponent(btnBorrarSeleccionados, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(backgroundVistaComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(backgroundVistaComprasLayout.createSequentialGroup()
+                                                .addGap(0, 182, Short.MAX_VALUE)
+                                                .addComponent(btnBuscador, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(buscadorElementos, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(21, 21, 21))
+                                        .addGroup(backgroundVistaComprasLayout.createSequentialGroup()
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         backgroundVistaComprasLayout.setVerticalGroup(
-            backgroundVistaComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(backgroundVistaComprasLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(icono)
-                .addGap(58, 58, 58)
-                .addComponent(btnConfirmarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnBorrarSeleccionados, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(selecionTotal)
-                .addGap(288, 288, 288))
-            .addGroup(backgroundVistaComprasLayout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addGroup(backgroundVistaComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buscadorElementos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(44, 44, 44)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 437, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35))
+                backgroundVistaComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(backgroundVistaComprasLayout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(icono)
+                                .addGap(58, 58, 58)
+                                .addComponent(btnConfirmarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnBorrarSeleccionados, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(27, 27, 27)
+                                .addComponent(selecionTotal)
+                                .addGap(288, 288, 288))
+                        .addGroup(backgroundVistaComprasLayout.createSequentialGroup()
+                                .addGap(37, 37, 37)
+                                .addGroup(backgroundVistaComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(buscadorElementos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnBuscador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(44, 44, 44)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 437, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(35, 35, 35))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(backgroundVistaCompras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(backgroundVistaCompras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(backgroundVistaCompras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addComponent(backgroundVistaCompras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -351,22 +344,25 @@ public class VistasCompras extends javax.swing.JPanel {
     }//GEN-LAST:event_buscadorElementosKeyTyped
 
     private void btnBorrarSeleccionadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBorrarSeleccionadosMouseClicked
-        // TODO add your handling code here:
-
         for (int i = 0; i < tablaPedidos.getRowCount(); i++) {
-            if ((boolean) tablaPedidos.getValueAt(i, 3)) {
-                gestorPedidos.borrarPedido(Integer.parseInt(String.valueOf(tablaPedidos.getValueAt(i, 0)).toString()), cliente);
-
+            if (tablaPedidos.getValueAt(i, 5).equals(true)) {
+                gestorPedidos.borrarPedido(Integer.parseInt(String.valueOf(tablaPedidos.getValueAt(i, 1))),
+                        new GestionImpleCliente().getById((String.valueOf(tablaPedidos.getValueAt(i, 0)))));
                 Utils.borrarFilaDeTabla(tablaPedidos, i);
-
             }
         }
-    }//GEN-LAST:event_btnBorrarSeleccionadosMouseClicked
+    }
 
     private void btnConfirmarPedidoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConfirmarPedidoMouseClicked
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_btnConfirmarPedidoMouseClicked
+        for (int i = 0; i < tablaPedidos.getRowCount(); i++) {
+            if (tablaPedidos.getValueAt(i, 4).equals(EstadoPedido.IMPAGO) && tablaPedidos.getValueAt(i, 5).equals(true)) {
+                Cliente c = new GestionImpleCliente().getById((String.valueOf(tablaPedidos.getValueAt(i, 0))));
+                int idPedido = Integer.parseInt(String.valueOf(tablaPedidos.getValueAt(i, 1)));
+                gestorCliente.cambiarEstadoPedido(c, EstadoPedido.PAGO, idPedido);
+                Utils.borrarFilaDeTabla(tablaPedidos, i);
+            }
+        }
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
