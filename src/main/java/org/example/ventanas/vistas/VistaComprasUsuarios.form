@@ -38,17 +38,17 @@
     <Container class="javax.swing.JPanel" name="backgroundVistaCompras">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+          <Color blue="fe" green="96" red="86" type="rgb"/>
         </Property>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[800, 510]"/>
+          <Dimension value="[800, 560]"/>
         </Property>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[800, 510]"/>
+          <Dimension value="[800, 560]"/>
         </Property>
         <Property name="name" type="java.lang.String" value="" noResource="true"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[800, 510]"/>
+          <Dimension value="[800, 560]"/>
         </Property>
       </Properties>
 
@@ -56,36 +56,34 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="contenedorTabla1" min="-2" pref="318" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="btnBuscador" min="-2" pref="111" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="buscadorElementos" min="-2" pref="388" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="selecionTotal" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
+                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="btnBuscador" min="-2" pref="111" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="buscadorElementos" min="-2" pref="388" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="253" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="btnConfirmarPedido" alignment="1" min="-2" pref="138" max="-2" attributes="0"/>
-                              <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
                                   <Component id="textoPrecioTotal" min="-2" pref="84" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="precioTotalPedido" min="-2" pref="117" max="-2" attributes="0"/>
                               </Group>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="contenedorTabla1" min="-2" pref="318" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="btnConfirmarPedido" min="-2" pref="138" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                                      <Component id="btnBorrarSeleccionados" min="-2" pref="138" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="contenedorTabla2" min="-2" pref="422" max="-2" attributes="0"/>
-                              <Component id="btnBorrarSeleccionados" min="-2" pref="138" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="contenedorTabla2" min="-2" pref="422" max="-2" attributes="0"/>
                       </Group>
+                      <Component id="selecionTotal" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="18" max="32767" attributes="0"/>
               </Group>
@@ -98,25 +96,29 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="buscadorElementos" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnBuscador" alignment="3" max="32767" attributes="0"/>
-                      <Component id="selecionTotal" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Group type="102" attributes="0">
+                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                  <Component id="selecionTotal" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="contenedorTabla2" min="-2" pref="372" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="btnBorrarSeleccionados" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
+                              <Component id="btnConfirmarPedido" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
                           <Component id="contenedorTabla1" min="-2" pref="278" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="precioTotalPedido" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="textoPrecioTotal" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="btnConfirmarPedido" min="-2" pref="46" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="contenedorTabla2" min="-2" pref="372" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btnBorrarSeleccionados" min="-2" pref="46" max="-2" attributes="0"/>
-                  <EmptySpace pref="23" max="32767" attributes="0"/>
+                  <EmptySpace pref="43" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -124,6 +126,9 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="btnBuscador">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="ff" red="cc" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Buscar:"/>
           </Properties>
           <Events>
@@ -231,6 +236,9 @@
         </Container>
         <Component class="javax.swing.JButton" name="btnBorrarSeleccionados">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="d6" green="cd" red="bd" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="BORRAR"/>
           </Properties>
           <Events>
@@ -255,11 +263,17 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnConfirmarPedido">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="d6" green="cd" red="bd" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="PAGAR"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="selecionTotal">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="fe" green="96" red="86" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Seleccionar Todos"/>
           </Properties>
         </Component>
