@@ -9,6 +9,9 @@ import com.org.example.clases.Empleado;
 import com.org.example.service.GestionImpleCliente;
 import com.org.example.service.GestionImpleEmpleado;
 import java.awt.Component;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
@@ -28,6 +31,8 @@ public class PanelTablaUsuarios extends javax.swing.JPanel {
     private GestionImpleCliente gestor;
     private final DefaultTableModel modelo;
     private Cliente clienteSeleccionado = new Cliente();
+    private TableRowSorter tablaFiltro = new TableRowSorter();
+    private String filtro;
 
     private class rederizadorTabla extends DefaultTableCellRenderer {
 
@@ -102,8 +107,7 @@ public class PanelTablaUsuarios extends javax.swing.JPanel {
         }
     }
 
-    private void filtrarTabla(String busqueda) {
-    }
+
 
     public int verificarSeleccionados(int posicion) {
         int contador = 0;
@@ -155,7 +159,7 @@ public class PanelTablaUsuarios extends javax.swing.JPanel {
 
         jComboBox1 = new javax.swing.JComboBox<>();
         backgroundPanelTablaUsuarios = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
+        buscador = new javax.swing.JTextField();
         btnBusqueda = new javax.swing.JButton();
         btnBorrarSeleccionados = new javax.swing.JButton();
         scrollTabla = new javax.swing.JScrollPane();
@@ -164,9 +168,10 @@ public class PanelTablaUsuarios extends javax.swing.JPanel {
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        setMaximumSize(new java.awt.Dimension(800, 560));
-        setMinimumSize(new java.awt.Dimension(800, 560));
-        setPreferredSize(new java.awt.Dimension(800, 560));
+        setMaximumSize(new java.awt.Dimension(800, 510));
+        setMinimumSize(new java.awt.Dimension(800, 510));
+        setPreferredSize(new java.awt.Dimension(800, 510));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         backgroundPanelTablaUsuarios.setBackground(new java.awt.Color(204, 255, 204));
         backgroundPanelTablaUsuarios.setMaximumSize(new java.awt.Dimension(800, 560));
@@ -174,7 +179,17 @@ public class PanelTablaUsuarios extends javax.swing.JPanel {
         backgroundPanelTablaUsuarios.setName(""); // NOI18N
         backgroundPanelTablaUsuarios.setPreferredSize(new java.awt.Dimension(800, 560));
 
-        jTextField1.setText("Ingrese datos buscados");
+        buscador.setText("Ingrese datos buscados");
+        buscador.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buscadorMouseClicked(evt);
+            }
+        });
+        buscador.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                buscadorKeyTyped(evt);
+            }
+        });
 
         btnBusqueda.setBackground(new java.awt.Color(57, 136, 158));
         btnBusqueda.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -209,56 +224,45 @@ public class PanelTablaUsuarios extends javax.swing.JPanel {
         backgroundPanelTablaUsuariosLayout.setHorizontalGroup(
             backgroundPanelTablaUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundPanelTablaUsuariosLayout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
-                .addGroup(backgroundPanelTablaUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(backgroundPanelTablaUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(backgroundPanelTablaUsuariosLayout.createSequentialGroup()
+                        .addGroup(backgroundPanelTablaUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnBorrarSeleccionados, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(scrollTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 769, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(16, 16, 16))
                     .addGroup(backgroundPanelTablaUsuariosLayout.createSequentialGroup()
                         .addComponent(btnBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(selectosTotal))
-                    .addGroup(backgroundPanelTablaUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(btnBorrarSeleccionados, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(scrollTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 769, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(16, 16, 16))
+                        .addComponent(buscador, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 187, Short.MAX_VALUE)
+                        .addComponent(selectosTotal)
+                        .addGap(33, 33, 33))))
         );
         backgroundPanelTablaUsuariosLayout.setVerticalGroup(
             backgroundPanelTablaUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backgroundPanelTablaUsuariosLayout.createSequentialGroup()
                 .addGap(49, 49, 49)
                 .addGroup(backgroundPanelTablaUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBusqueda)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buscador, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(selectosTotal))
-                .addGap(27, 27, 27)
-                .addComponent(scrollTabla, javax.swing.GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(scrollTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnBorrarSeleccionados, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
+                .addGap(33, 33, 33))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(backgroundPanelTablaUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(backgroundPanelTablaUsuarios, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        add(backgroundPanelTablaUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 791, 537));
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusquedaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBusquedaActionPerformed
 
     private void btnBorrarSeleccionadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBorrarSeleccionadosMouseClicked
         // TODO add your handling code here:
         if (verificarSeleccionados(6) >= 1) {
             int confimar = JOptionPane.showConfirmDialog(null,
-                    "¿Seguro de Eliminar?\n(" + verificarSeleccionados(6)
-                    + ") Elementos Seleccionados...");
+                "¿Seguro de Eliminar?\n(" + verificarSeleccionados(6)
+                + ") Elementos Seleccionados...");
             if (confimar == 0) {
                 borrarSeleccionados();
                 for (Cliente i : clientesSeleccionados()) {
@@ -270,12 +274,43 @@ public class PanelTablaUsuarios extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnBorrarSeleccionadosMouseClicked
 
+    private void buscadorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscadorKeyTyped
+        // TODO add your handling code here:
+        tablaFiltro = new TableRowSorter(tablaUsuarios.getModel());
+        tablaUsuarios.setRowSorter(tablaFiltro);
+    }//GEN-LAST:event_buscadorKeyTyped
+
+    private void btnBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusquedaActionPerformed
+        // TODO add your handling code here:
+        buscador.addKeyListener(new KeyAdapter(){
+            @Override
+            public void keyReleased(final KeyEvent e) {
+                String cadena = buscador.getText();
+                buscador.setText(cadena);
+                repaint();
+                filtro();
+            }
+
+        });
+    }//GEN-LAST:event_btnBusquedaActionPerformed
+
+    private void buscadorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buscadorMouseClicked
+        // TODO add your handling code here:
+        buscador.setText("");
+    }//GEN-LAST:event_buscadorMouseClicked
+
+    public void filtro(){
+        filtro = buscador.getText();
+        tablaFiltro.setRowFilter(RowFilter.regexFilter(buscador.getText(),2));
+    }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel backgroundPanelTablaUsuarios;
     private javax.swing.JButton btnBorrarSeleccionados;
     private javax.swing.JButton btnBusqueda;
+    private javax.swing.JTextField buscador;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JScrollPane scrollTabla;
     private javax.swing.JCheckBox selectosTotal;
     private javax.swing.JTable tablaUsuarios;
