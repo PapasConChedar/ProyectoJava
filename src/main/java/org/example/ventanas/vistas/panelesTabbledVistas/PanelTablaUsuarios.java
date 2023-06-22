@@ -58,7 +58,8 @@ public class PanelTablaUsuarios extends javax.swing.JPanel {
                 return titulosEditables[column];
             }
 
-            public Class getColumnClass(int indice) {
+            public Class getColumnClass(int indice
+            ) {
                 return titulosObjetos[indice];
             }
         };

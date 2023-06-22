@@ -9,6 +9,15 @@ import java.util.regex.Pattern;
 public class GestionImpleProducto {
     ImpleProductoRepository impleProductoRepository = new ImpleProductoRepository();
 
+
+    public ImpleProductoRepository getImpleProductoRepository() {
+        return impleProductoRepository;
+    }
+
+    public void setImpleProductoRepository(ImpleProductoRepository impleProductoRepository) {
+        this.impleProductoRepository = impleProductoRepository;
+    }
+
     public void cargar(){
         impleProductoRepository.cargar();
     }
