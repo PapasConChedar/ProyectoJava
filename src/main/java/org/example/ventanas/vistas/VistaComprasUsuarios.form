@@ -55,19 +55,19 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
+                              <Component id="contenedorTabla1" min="-2" pref="318" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
                                   <Component id="btnBuscador" min="-2" pref="111" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="filtroTablas" min="-2" pref="388" max="-2" attributes="0"/>
+                                  <Component id="buscadorElementos" min="-2" pref="388" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Component id="selecionTotal" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="contenedorTabla1" min="-2" pref="318" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" attributes="0">
@@ -96,9 +96,9 @@
               <Group type="102" attributes="0">
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="filtroTablas" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="buscadorElementos" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnBuscador" alignment="3" max="32767" attributes="0"/>
-                      <Component id="selecionTotal" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="selecionTotal" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -126,11 +126,18 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Buscar:"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscadorActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="filtroTablas">
+        <Component class="javax.swing.JTextField" name="buscadorElementos">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ingrese N&#xb0;Pedido"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buscadorElementosMouseClicked"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="buscadorElementosKeyTyped"/>
+          </Events>
         </Component>
         <Container class="javax.swing.JScrollPane" name="contenedorTabla1">
           <AuxValues>
@@ -142,7 +149,7 @@
             <Component class="javax.swing.JTable" name="tablaProductosDelPedido">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="3" rowCount="4">
+                  <Table columnCount="3" rowCount="0">
                     <Column editable="true" title="Productos" type="java.lang.Object"/>
                     <Column editable="true" title="Cantidad" type="java.lang.Object"/>
                     <Column editable="true" title="Precio Unitario" type="java.lang.Object"/>
@@ -184,7 +191,7 @@
             <Component class="javax.swing.JTable" name="tablaPedidos">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="4" rowCount="3">
+                  <Table columnCount="4" rowCount="0">
                     <Column editable="false" title="N&#xb0; Pedido" type="java.lang.Object"/>
                     <Column editable="true" title="Estado" type="java.lang.Object"/>
                     <Column editable="false" title="cantProductos" type="java.lang.Object"/>
@@ -226,6 +233,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="BORRAR"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnBorrarSeleccionadosMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="textoPrecioTotal">
           <Properties>
@@ -245,12 +255,12 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnConfirmarPedido">
           <Properties>
-            <Property name="text" type="java.lang.String" value="COMPRAR"/>
+            <Property name="text" type="java.lang.String" value="PAGAR"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="selecionTotal">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Selecionar Todos"/>
+            <Property name="text" type="java.lang.String" value="Seleccionar Todos"/>
           </Properties>
         </Component>
       </SubComponents>
