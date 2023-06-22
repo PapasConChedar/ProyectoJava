@@ -9,17 +9,17 @@
 }, {
   "nombre" : "Florencia",
   "apellido" : "Aguiar",
-  "dni" : "45564645",
-  "direccion" : "Rey del Bosque 1080",
+  "dni" : "862486468824",
+  "direccion" : "cualquiercalle 87",
   "idEmpleado" : 1,
   "email" : "florenciaAguiar@gmail.com",
-  "contraseña" : "123456789"
+  "contraseña" : "112345789"
 }, {
-  "nombre" : "asdasdasdasdasd",
-  "apellido" : "asdasdasdasdasdasd",
-  "dni" : "62464824",
-  "direccion" : "asdasdasdasd123",
-  "idEmpleado" : 0,
-  "email" : "asdasdasdas@gmail.com",
-  "contraseña" : "123456789"
+  "nombre" : "asdasdasdasda",
+  "apellido" : "asdasdasdasdad",
+  "dni" : "1231231231",
+  "direccion" : "123asdasdasdasdas",
+  "idEmpleado" : 2,
+  "email" : "asdasdasdasd@gmail.com",
+  "contraseña" : "123123123123"
 } ]
