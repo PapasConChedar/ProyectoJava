@@ -10,6 +10,7 @@ import com.org.example.clases.Cliente;
 import com.org.example.service.GestionImpleCliente;
 
 import javax.swing.*;
+import javax.swing.plaf.synth.SynthOptionPaneUI;
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -164,6 +165,11 @@ public class PanelEdicionUsuario extends javax.swing.JPanel {
         ingresoNombreCliente.setForeground(new java.awt.Color(246, 171, 49));
         ingresoNombreCliente.setText("NOMBRE");
         ingresoNombreCliente.setBorder(null);
+        ingresoNombreCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ingresoNombreClienteMouseClicked(evt);
+            }
+        });
         ingresoNombreCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ingresoNombreClienteActionPerformed(evt);
@@ -175,6 +181,11 @@ public class PanelEdicionUsuario extends javax.swing.JPanel {
         ingresoApellidoUsuario.setForeground(new java.awt.Color(246, 171, 49));
         ingresoApellidoUsuario.setText("APELLIDO");
         ingresoApellidoUsuario.setBorder(null);
+        ingresoApellidoUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ingresoApellidoUsuarioMouseClicked(evt);
+            }
+        });
         ingresoApellidoUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ingresoApellidoUsuarioActionPerformed(evt);
@@ -186,6 +197,11 @@ public class PanelEdicionUsuario extends javax.swing.JPanel {
         ingresoDniUsuario.setForeground(new java.awt.Color(246, 171, 49));
         ingresoDniUsuario.setText("DNI");
         ingresoDniUsuario.setBorder(null);
+        ingresoDniUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ingresoDniUsuarioMouseClicked(evt);
+            }
+        });
         ingresoDniUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ingresoDniUsuarioActionPerformed(evt);
@@ -197,6 +213,11 @@ public class PanelEdicionUsuario extends javax.swing.JPanel {
         ingresoDireccionUsuario.setForeground(new java.awt.Color(246, 171, 49));
         ingresoDireccionUsuario.setText("DIRECCION");
         ingresoDireccionUsuario.setBorder(null);
+        ingresoDireccionUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ingresoDireccionUsuarioMouseClicked(evt);
+            }
+        });
         ingresoDireccionUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ingresoDireccionUsuarioActionPerformed(evt);
@@ -208,6 +229,11 @@ public class PanelEdicionUsuario extends javax.swing.JPanel {
         ingresoEmailUsuario.setForeground(new java.awt.Color(246, 171, 49));
         ingresoEmailUsuario.setText("EMAIL");
         ingresoEmailUsuario.setBorder(null);
+        ingresoEmailUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ingresoEmailUsuarioMouseClicked(evt);
+            }
+        });
         ingresoEmailUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ingresoEmailUsuarioActionPerformed(evt);
@@ -235,6 +261,11 @@ public class PanelEdicionUsuario extends javax.swing.JPanel {
         ingresoTelefonoUsuario.setForeground(new java.awt.Color(246, 171, 49));
         ingresoTelefonoUsuario.setText("TELEFONO");
         ingresoTelefonoUsuario.setBorder(null);
+        ingresoTelefonoUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ingresoTelefonoUsuarioMouseClicked(evt);
+            }
+        });
         ingresoTelefonoUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ingresoTelefonoUsuarioActionPerformed(evt);
@@ -410,11 +441,41 @@ public class PanelEdicionUsuario extends javax.swing.JPanel {
     }//GEN-LAST:event_ingresoTelefonoUsuarioActionPerformed
 
     private void txtAceptarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAceptarMouseClicked
+
         // TODO add your handling code here:
+        try{
+            if (clienteSeleccionado != null){
+                verificacionFormato();
+                clienteSeleccionado.setNombre(
+                        ingresoNombreCliente.getText());
+                clienteSeleccionado.setApellido(
+                        ingresoApellidoUsuario.getText());
+                clienteSeleccionado.setDireccion(
+                        ingresoDireccionUsuario.getText());
+                clienteSeleccionado.setDni(
+                        ingresoDniUsuario.getText());
+                clienteSeleccionado.setEmail(
+                        ingresoEmailUsuario.getText());
+                clienteSeleccionado.setTelefono(
+                        ingresoTelefonoUsuario.getText());
+                clienteSeleccionado.setContrasenia(
+                        ingresoPasswordUsuario.getText());
+                gestor.update(clienteSeleccionado);
+                System.out.println("Llega");
+                gestor.guardar();
+                System.out.println("Guardo");
+                //this.listaTabla.remove(cliente);
+                reestablecerTextoCargaUsuario();
+            }
+
+        }catch (UsuarioCargaDatosException e){
+            JOptionPane.showMessageDialog(null, e.getMessage()+e.escribirMensaje());
+        }
     }//GEN-LAST:event_txtAceptarMouseClicked
 
     private void ingresoPasswordUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresoPasswordUsuarioMouseClicked
    // TODO add your handling code here:
+   ingresoPasswordUsuario.setText("");
 
     }//GEN-LAST:event_ingresoPasswordUsuarioMouseClicked
 
@@ -456,27 +517,29 @@ public class PanelEdicionUsuario extends javax.swing.JPanel {
 
     private void botonAceptarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonAceptarMouseClicked
         // TODO add your handling code here:
+
         try{
-            Cliente cliente = new Cliente();
-            while (clienteSeleccionado != null){
+
+            if (clienteSeleccionado != null){
                 verificacionFormato();
-                cliente.setNombre(
+                clienteSeleccionado.setNombre(
                         ingresoNombreCliente.getText());
-                cliente.setApellido(
+                clienteSeleccionado.setApellido(
                         ingresoApellidoUsuario.getText());
-                cliente.setDireccion(
+                clienteSeleccionado.setDireccion(
                         ingresoDireccionUsuario.getText());
-                cliente.setDni(
+                clienteSeleccionado.setDni(
                         ingresoDniUsuario.getText());
-                cliente.setEmail(
+                clienteSeleccionado.setEmail(
                         ingresoEmailUsuario.getText());
-                cliente.setTelefono(
+                clienteSeleccionado.setTelefono(
                         ingresoTelefonoUsuario.getText());
-                cliente.setContrasenia(
+                clienteSeleccionado.setContrasenia(
                         ingresoPasswordUsuario.getText());
-                gestor.update(
-                        cliente);
+                gestor.update(clienteSeleccionado);
+                System.out.println("Llega");
                 gestor.guardar();
+                System.out.println("Guardo");
                 //this.listaTabla.remove(cliente);
                 reestablecerTextoCargaUsuario();
             }
@@ -556,6 +619,36 @@ public class PanelEdicionUsuario extends javax.swing.JPanel {
                 System.out.println("NO HAY CLIENTE");                 
 
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void ingresoNombreClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresoNombreClienteMouseClicked
+        // TODO add your handling code here:
+        ingresoNombreCliente.setText("");
+    }//GEN-LAST:event_ingresoNombreClienteMouseClicked
+
+    private void ingresoApellidoUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresoApellidoUsuarioMouseClicked
+ingresoApellidoUsuario.setText("");        // TODO add your handling code here:
+    }//GEN-LAST:event_ingresoApellidoUsuarioMouseClicked
+
+    private void ingresoDniUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresoDniUsuarioMouseClicked
+        // TODO add your handling code here:
+        ingresoDniUsuario.setText("");
+    }//GEN-LAST:event_ingresoDniUsuarioMouseClicked
+
+    private void ingresoDireccionUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresoDireccionUsuarioMouseClicked
+        // TODO add your handling code here:
+        ingresoDireccionUsuario.setText("");
+       
+    }//GEN-LAST:event_ingresoDireccionUsuarioMouseClicked
+
+    private void ingresoEmailUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresoEmailUsuarioMouseClicked
+        // TODO add your handling code here:
+        ingresoEmailUsuario.setText("");
+    }//GEN-LAST:event_ingresoEmailUsuarioMouseClicked
+
+    private void ingresoTelefonoUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresoTelefonoUsuarioMouseClicked
+        // TODO add your handling code here:
+        ingresoTelefonoUsuario.setText("");
+    }//GEN-LAST:event_ingresoTelefonoUsuarioMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -1,13 +1,13 @@
 [ {
-  "nombre" : "Agustin",
-  "apellido" : "Miranda",
-  "dni" : "165686445",
-  "direccion" : "V.Hugo832",
+  "nombre" : "Agustintin",
+  "apellido" : "Mirinda",
+  "dni" : "22323",
+  "direccion" : "asadwe",
   "idCliente" : 0,
   "numeroCuenta" : "384023842",
-  "email" : "papasconcheddar@gmail.com",
-  "contrasenia" : "123456789",
-  "telefono" : "2254596229",
+  "email" : "adwawd",
+  "contrasenia" : "*********",
+  "telefono" : "22545962291123",
   "listaDePedidos" : [ ]
 }, {
   "nombre" : "Franco",
