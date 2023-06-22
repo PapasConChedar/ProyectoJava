@@ -1,48 +1,51 @@
-[
-  {
-    "nombre": "Agustin",
-    "apellido": "Miranda",
-    "dni": "20554555",
-    "direccion": "Miami 334",
-    "idCliente": 1,
-    "numeroCuenta": "1033333175",
-    "email": "banana@gmail.com",
-    "contrasenia": "123456789",
-    "telefono": "591654643",
-    "listaDePedidos": [
-      {
-        "numPedido": 771846591,
-        "precio": 37500.0,
-        "productos": [
-          {
-            "idProducto": 1,
-            "marca": "El Bananero Company",
-            "nombre": "JAPI",
-            "fecheaDeVencimiento": "20/09/2023",
-            "fechaElavoracion": "20/06/2023",
-            "stock": 10,
-            "precio": 1500,
-            "categoriaProducto": "BEBIDAS"
-          }
-        ],
-        "estado": "IMPAGO"
-      },
-      {
-        "numPedido": 1018235294,
-        "precio": 75000.0,
-        "productos": [
-          {
-            "idProducto": 2,
-            "marca": "El Bananero Company",
-            "nombre": "JAPI",
-            "fecheaDeVencimiento": "20/09/2023",
-            "fechaElavoracion": "20/06/2023",
-            "stock": 50,
-            "precio": 1500,
-            "categoriaProducto": "BEBIDAS"
-          }
-        ],
-        "estado": "IMPAGO"
-      }
-    ]
-  }]
+[ {
+  "nombre" : "Agustin",
+  "apellido" : "Miranda",
+  "dni" : "20554555",
+  "direccion" : "Miami 334",
+  "idCliente" : 1,
+  "numeroCuenta" : "1033333175",
+  "email" : "banana@gmail.com",
+  "contrasenia" : "123456789",
+  "telefono" : "591654643",
+  "listaDePedidos" : [ {
+    "numPedido" : 771846591,
+    "precio" : 37500.0,
+    "productos" : [ {
+      "idProducto" : 1,
+      "marca" : "El Bananero Company",
+      "nombre" : "JAPI",
+      "fecheaDeVencimiento" : "20/09/2023",
+      "fechaElavoracion" : "20/06/2023",
+      "stock" : 10,
+      "precio" : 1500,
+      "categoriaProducto" : "BEBIDAS"
+    } ],
+    "estado" : "PAGO"
+  }, {
+    "numPedido" : 1018235294,
+    "precio" : 75000.0,
+    "productos" : [ {
+      "idProducto" : 2,
+      "marca" : "El Bananero Company",
+      "nombre" : "JAPI",
+      "fecheaDeVencimiento" : "20/09/2023",
+      "fechaElavoracion" : "20/06/2023",
+      "stock" : 50,
+      "precio" : 1500,
+      "categoriaProducto" : "BEBIDAS"
+    } ],
+    "estado" : "PAGO"
+  } ]
+}, {
+  "nombre" : "Mario",
+  "apellido" : "Santos",
+  "dni" : "12233445",
+  "direccion" : "Earl Gray 123",
+  "idCliente" : 0,
+  "numeroCuenta" : "579318888",
+  "email" : "marioSantos@example.com",
+  "contrasenia" : "*********",
+  "telefono" : "225267384",
+  "listaDePedidos" : [ ]
+} ]

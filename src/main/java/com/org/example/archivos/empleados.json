@@ -6,4 +6,36 @@
   "idEmpleado" : 0,
   "email" : "florenciaaguiar@gmail.com",
   "contrasenia" : "123456789"
+}, {
+  "nombre" : "Maximo ",
+  "apellido" : "Cosetti",
+  "dni" : "22123432",
+  "direccion" : "Pernambuco 202",
+  "idEmpleado" : 1,
+  "email" : "TortugaMaritima@example.com",
+  "contrasenia" : "NoSoyUnBuey"
+}, {
+  "nombre" : "Pablo",
+  "apellido" : "Lamponne",
+  "dni" : "20987764",
+  "direccion" : "Los Toldos 223",
+  "idEmpleado" : 2,
+  "email" : "mepidieronuntigre@example.com",
+  "contrasenia" : "noesgiratoriamaestro"
+}, {
+  "nombre" : "Pedro",
+  "apellido" : "Pascal",
+  "dni" : "34556323",
+  "direccion" : "Elm St 1234",
+  "idEmpleado" : 3,
+  "email" : "pedo@example.com",
+  "contrasenia" : "Secreto123"
+}, {
+  "nombre" : "Levi",
+  "apellido" : "Ackerman",
+  "dni" : "22345643",
+  "direccion" : "Maria 123",
+  "idEmpleado" : 4,
+  "email" : "attackontitans@gmail.com",
+  "contrasenia" : "Secreto123"
 } ]
