@@ -67,7 +67,7 @@ public class ImpleEmpleadosRepository implements GenericsRepository<Empleado> {
                 i.setDni(item.getDni());
                 i.setDireccion(item.getDireccion());
                 i.setEmail(item.getEmail());
-                i.setContraseña(item.getContraseña());
+                i.setContrasenia(item.getContrasenia());
                 guardar();
             }
         }
@@ -76,6 +76,12 @@ public class ImpleEmpleadosRepository implements GenericsRepository<Empleado> {
     @Override
     public void delete(Empleado item) {
         this.listEmpleados.removeIf(i -> i.getDni().equals(item.getDni()));
+        guardar();
+    }
+
+
+    public void deleteById(int id) {
+        this.listEmpleados.removeIf(i -> i.getIdEmpleado().equals(id));
         guardar();
     }
 }

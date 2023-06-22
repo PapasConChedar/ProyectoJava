@@ -21,27 +21,27 @@ public class GestionImpleCliente {
     }
 
     public Cliente getById(String id) {
-        return impleClienteRepository.getById(
-                id);
+        return impleClienteRepository.getById(id);
     }
 
     public void add(Cliente item) {
-        impleClienteRepository.add(
-                item);
+        impleClienteRepository.add(item);
     }
 
     public void update(Cliente item) {
-        impleClienteRepository.update(
-                item);
+        impleClienteRepository.update(item);
     }
 
     public void delete(Cliente item) {
-        impleClienteRepository.delete(
-                item);
+        impleClienteRepository.delete(item);
     }
 
     public void deleteById(Cliente cliente) {
         impleClienteRepository.delete(getById(String.valueOf(cliente.getIdCliente())));
+    }
+
+    public void deleteById(Integer id) {
+        impleClienteRepository.delete(id);
     }
 
     public List<Cliente> getList() {

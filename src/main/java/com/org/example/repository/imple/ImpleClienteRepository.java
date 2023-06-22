@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.type.CollectionType;
 import com.org.example.clases.Cliente;
 import com.org.example.enums.Archivos;
 import com.org.example.repository.GenericsRepository;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -84,10 +85,16 @@ public class ImpleClienteRepository implements GenericsRepository<Cliente> {
     public void delete(Cliente item) {
         cargar();
         for (Cliente i : listClientes) {
-            if(i.equals(item)){
+            if (i.equals(item)) {
                 listClientes.remove(i);
             }
         }
+        guardar();
+    }
+
+    public void delete(Integer id) {
+        cargar();
+        listClientes.removeIf(i -> i.getIdCliente().equals(id));
         guardar();
     }
 }

@@ -15,6 +15,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.MatteBorder;
+import org.example.ventanas.vistas.PanelMisCompras;
 import org.example.ventanas.vistas.VistaCompras;
 import org.example.ventanas.vistas.VistaProductos;
 import org.example.ventanas.vistas.VistaUsuarios;
@@ -30,10 +31,11 @@ public class MenuUsuario extends javax.swing.JFrame {
     /**
      * Creates new form Menu
      */
-    public MenuUsuario() {
+    public MenuUsuario(Cliente user) {
         initComponents();
         iniciarVista(1,contenido);
         reproducirMusica();
+        dato = user;
     }
     public void reproducirMusica() {
         try {
@@ -57,10 +59,10 @@ public class MenuUsuario extends javax.swing.JFrame {
                 componentesVista(new VistaPrincipal(),contPanel);
                 break;
             case 2:
-                componentesVista(new VistaMiUsuario(),contPanel);
+                componentesVista(new VistaMiUsuario(dato),contPanel);
                 break;
             case 3:
-                componentesVista(new VistaProductos(),contPanel);
+                componentesVista(new PanelMisCompras(),contPanel);
                 break;
             case 4:
                 componentesVista(new VistaCompras(),contPanel);
@@ -238,7 +240,7 @@ public class MenuUsuario extends javax.swing.JFrame {
         tituloMenu.setBackground(new java.awt.Color(57, 136, 158));
         tituloMenu.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         tituloMenu.setForeground(new java.awt.Color(255, 255, 255));
-        tituloMenu.setText("Menu");
+        tituloMenu.setText("BIENVENIDO");
 
         separadorMenu1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
@@ -429,20 +431,19 @@ public class MenuUsuario extends javax.swing.JFrame {
             .addComponent(opcionMenu1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(opcionMenu2, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
             .addComponent(opcionMenu3, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+            .addComponent(opcionMenu5, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
             .addComponent(opcionMenu4, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
             .addGroup(panelOpcionesLayout.createSequentialGroup()
                 .addGroup(panelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelOpcionesLayout.createSequentialGroup()
-                        .addGap(96, 96, 96)
-                        .addComponent(separadorMenu1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelOpcionesLayout.createSequentialGroup()
-                        .addGap(111, 111, 111)
-                        .addComponent(tituloMenu))
-                    .addGroup(panelOpcionesLayout.createSequentialGroup()
                         .addGap(113, 113, 113)
-                        .addComponent(iconoMenu)))
-                .addContainerGap(70, Short.MAX_VALUE))
-            .addComponent(opcionMenu5, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+                        .addComponent(iconoMenu))
+                    .addGroup(panelOpcionesLayout.createSequentialGroup()
+                        .addGap(62, 62, 62)
+                        .addGroup(panelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(tituloMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(separadorMenu1))))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
         panelOpcionesLayout.setVerticalGroup(
             panelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -458,10 +459,10 @@ public class MenuUsuario extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(opcionMenu2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(opcionMenu3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(opcionMenu4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 127, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(opcionMenu3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 191, Short.MAX_VALUE)
                 .addComponent(opcionMenu5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
         );

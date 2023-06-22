@@ -115,7 +115,7 @@ public class PanelCargaUsuario extends javax.swing.JPanel {
             empleado.setDireccion(ingresoDireccion.getText());
             empleado.setEmail(ingresoEmail.getText());
             empleado.setDni(ingresoDni.getText());
-            empleado.setContraseña(ingresoContrasenia.getText());
+            empleado.setContrasenia(ingresoContrasenia.getText());
             if (gestorEmpleado.verificarUsuarioRepetido(empleado)) {
                 gestorEmpleado.add(empleado);
                 reestablecerTextoCargaUsuario();

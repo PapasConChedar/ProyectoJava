@@ -5,7 +5,7 @@
   "direccion" : "Lambertiana 345",
   "idEmpleado" : 0,
   "email" : "nico@gmail.com",
-  "contraseña" : "123456789"
+  "contrasenia" : "123456789"
 }, {
   "nombre" : "Florencia",
   "apellido" : "Aguiar",
@@ -13,7 +13,7 @@
   "direccion" : "cualquiercalle 87",
   "idEmpleado" : 1,
   "email" : "florenciaAguiar@gmail.com",
-  "contraseña" : "112345789"
+  "contrasenia" : "112345789"
 }, {
   "nombre" : "asdasdasdasda",
   "apellido" : "asdasdasdasdad",
@@ -21,5 +21,5 @@
   "direccion" : "123asdasdasdasdas",
   "idEmpleado" : 2,
   "email" : "asdasdasdasd@gmail.com",
-  "contraseña" : "123123123123"
+  "contrasenia" : "123123123123"
 } ]
