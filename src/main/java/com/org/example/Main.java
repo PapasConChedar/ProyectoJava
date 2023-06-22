@@ -10,9 +10,20 @@ import org.example.ventanas.vistas.VistaMiUsuario;
 
 public class Main {
     public static void main(String[] args) {
-
-        Login login = new Login();
+        Cliente nuevo = new Cliente("Agus",
+        "miranda",
+        "38439118",
+        "ostende123",
+        2,
+        "45365434536",
+        "email@gmaol.com",
+        "123123123",
+        "1234putoelquelee");
+        MenuUsuario login = new MenuUsuario(nuevo);
         login.setVisible(true);
+        
+        MenuInicio menu = new MenuInicio();
+        menu.setVisible(true);
 
     }
 }

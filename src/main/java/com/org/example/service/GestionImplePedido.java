@@ -8,6 +8,7 @@ import com.org.example.repository.imple.ImplePedidoRepository;
 import com.org.example.repository.imple.ImpleProductoRepository;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class GestionImplePedido {
     ImplePedidoRepository implePedidoRepository = new ImplePedidoRepository();
@@ -28,6 +29,10 @@ public class GestionImplePedido {
     }
     public void delete(Pedido item){
         implePedidoRepository.delete(item);
+    }
+    
+    public List<Pedido> getList(){
+        return implePedidoRepository.getAll();
     }
 
 

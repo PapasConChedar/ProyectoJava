@@ -2,6 +2,7 @@ package com.org.example.service;
 
 import com.org.example.Exceptions.UsuarioNoEncontradoException;
 import com.org.example.clases.Cliente;
+import com.org.example.clases.Productos;
 import com.org.example.repository.imple.ImpleClienteRepository;
 
 import java.util.ArrayList;

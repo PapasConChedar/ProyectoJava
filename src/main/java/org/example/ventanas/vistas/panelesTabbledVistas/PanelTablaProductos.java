@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package org.example.ventanas.vistas.panelesTabbledVistas;
-import com.org.example.clases.Cliente;
 import com.org.example.enums.Categoria;
 import com.org.example.service.GestionImpleProducto;
 import com.org.example.clases.Productos;

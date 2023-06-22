@@ -63,10 +63,10 @@ public class MenuUsuario extends javax.swing.JFrame {
                 componentesVista(new VistaMiUsuario(dato),contPanel);
                 break;
             case 3:
-                componentesVista(new PanelMisCompras(),contPanel);
+                componentesVista(new VistaCompras(dato),contPanel);
                 break;
             case 4:
-                componentesVista(new VistaCompras(),contPanel);
+                componentesVista(new PanelMisCompras(),contPanel);
                 break;
             default:
                 throw new AssertionError();
