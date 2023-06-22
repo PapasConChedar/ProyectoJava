@@ -446,6 +446,7 @@ public class VistaComprasUsuarios extends javax.swing.JPanel {
         cargarTablaPedido();
     }//GEN-LAST:event_btnActualizarMouseClicked
 
+
     private void resetearYcargarTabla(Cliente cliente) {
         this.cliente = cliente;
         modeloTablaPedido.setRowCount(0);
