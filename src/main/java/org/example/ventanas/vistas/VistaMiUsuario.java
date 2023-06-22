@@ -4,12 +4,12 @@
  */
 package org.example.ventanas.vistas;
 
-import com.org.example.Exceptions.UsuarioCargaDatosException;
 import com.org.example.clases.Cliente;
 import com.org.example.service.GestionImpleCliente;
 import com.org.example.service.Utils;
-import javax.swing.*;
 import java.awt.*;
+
+import static com.org.example.service.Utils.verificarDatos;
 
 /**
  *
@@ -27,21 +27,13 @@ public class VistaMiUsuario extends javax.swing.JPanel {
         deshabilitarEditable();
         setTextos(usuario);
     }
-    
-    public boolean verificarCampos() throws UsuarioCargaDatosException{
-        if(utilidades.validEmail(ingresoEmail.getText())){
-            if(utilidades.validPassword(ingresoApellido.getText())){
-                if(gestorCliente.verificarIngresosVacios()){
-                    return true;
-                }else{
-                    throw new UsuarioCargaDatosException(7);
-                } 
-            }else{
-                throw new UsuarioCargaDatosException(6);
-            }
-        }else{
-            throw new UsuarioCargaDatosException(3);
+
+    public boolean verificarCampos() {
+        boolean res = false;
+        if (verificarDatos(ingresoEmail.getText(), ingresoContraseña.getText()) && gestorCliente.verificarIngresosVacios()) {
+            res = true;
         }
+        return res;
     }
 
     /**
@@ -284,14 +276,10 @@ public class VistaMiUsuario extends javax.swing.JPanel {
 
     private void btnGuardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarMouseClicked
         // TODO add your handling code here:
-        try{
-            if(verificarCampos()){
-                
-            }
-        }catch(UsuarioCargaDatosException e){
-            JOptionPane.showMessageDialog(null, e.escribirMensaje());
+        if(verificarCampos()){
+
         }
-       deshabilitarEditable();
+        deshabilitarEditable();
     }//GEN-LAST:event_btnGuardarMouseClicked
 
     private void ingresoNombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresoNombreMouseClicked
@@ -370,7 +358,7 @@ public void habilitarEditable(){
         ingresoTelefono.setText("");
         ingresoContraseña.setText("");
     }
-    
+
     public void setTextos(Cliente user){
         ingresoNombre.setText(user.getNombre());
         ingresoApellido.setText(user.getApellido());
@@ -380,7 +368,7 @@ public void habilitarEditable(){
         ingresoTelefono.setText(user.getTelefono());
         ingresoContraseña.setText(user.getContrasenia());
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnGuardar;
