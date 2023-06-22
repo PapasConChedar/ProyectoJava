@@ -9,6 +9,10 @@ import com.org.example.clases.Pedido;
 import com.org.example.clases.Productos;
 import com.org.example.service.GestionImpleCliente;
 import com.org.example.service.GestionImplePedido;
+import java.util.ArrayList;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.plaf.basic.BasicListUI;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -31,6 +35,16 @@ public class VistaComprasUsuarios extends javax.swing.JPanel {
         modeloTablaProductos = new DefaultTableModel();
         gestorPedido = new GestionImplePedido();
         initComponents();
+        cargarTablaPedido();
+        tablaPedidos.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
+            @Override
+            public void valueChanged(ListSelectionEvent event){
+                if(!event.getValueIsAdjusting() && tablaPedidos.getSelectedRow() != -1){
+                    int filaSeleccionada = tablaPedidos.getSelectedRow();
+                    cargarTablaProductos(cliente.getListaDePedidos().get(filaSeleccionada).getProductos());
+                }
+            }
+        });
     }
 
     public void cargarTablaPedido() {
@@ -46,13 +60,13 @@ public class VistaComprasUsuarios extends javax.swing.JPanel {
         }
     }
 
-    public void cargarTablaProductos() {
-        for (Productos item : cliente.getListaDePedidos()) {
-            for(int i =0; i<cliente.getListaDePedidos().size();i++){
-                if( cliente.getListaDePedidos().get(i) != null){
-                    
-                }
-            }
+    public void cargarTablaProductos(ArrayList<Productos> lista) {
+        for(Productos item : lista){
+            Object[] infoDatos = new Object[3];
+                infoDatos[0] = item.getNombre();
+                infoDatos[1] = item.getStock();
+                infoDatos[2] = item.getPrecio();
+                modeloTablaPedido.addRow(infoDatos);
         }
     }
 

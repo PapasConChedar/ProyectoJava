@@ -19,7 +19,7 @@ public class Main {
         "email@gmaol.com",
         "123123123",
         "1234putoelquelee");
-        MenuUsuario login = new MenuUsuario(nuevo);
+        MenuInicio login = new MenuInicio();
         login.setVisible(true);
         
      //   MenuInicio menu = new MenuInicio();

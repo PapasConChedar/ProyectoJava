@@ -4,25 +4,23 @@ import com.org.example.enums.EstadoPedido;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Objects;
 
-public class Pedido extends Productos implements Serializable {
+public class Pedido implements Serializable {
     private int numPedido;
-    private int precio;
+    private Double precio;
     private EstadoPedido Estado;
     private ArrayList<Productos> productos;
 
 //region CONSTRUCTOR VACIO
-    public Pedido(int idProducto, String marca, String nombre, String fecheaDeVencimiento, String fechaElavoracion, int stock, int precio, int numPedido, int precio1, ArrayList<Productos> productos) {
-        this.numPedido = numPedido;
-        this.precio = precio1;
-        this.productos = productos;
+    public Pedido(){
+        
     }
-
-    public Pedido() {
+    public Pedido(int numPedido, Double precio, ArrayList<Productos> productos) {
+        setNumPedido(numPedido);
+        setPrecio(precio);
+        setProductos(productos);
     }
-    //endregion
-
-    //region GETTERS AND SETTERS
 
     public int getNumPedido() {
         return numPedido;
@@ -32,14 +30,20 @@ public class Pedido extends Productos implements Serializable {
         this.numPedido = numPedido;
     }
 
-    @Override
-    public int getPrecio() {
+    public Double getPrecio() {
         return precio;
     }
 
-    @Override
-    public void setPrecio(int precio) {
+    public void setPrecio(Double precio) {
         this.precio = precio;
+    }
+
+    public EstadoPedido getEstado() {
+        return Estado;
+    }
+
+    public void setEstado(EstadoPedido Estado) {
+        this.Estado = Estado;
     }
 
     public ArrayList<Productos> getProductos() {
@@ -50,13 +54,42 @@ public class Pedido extends Productos implements Serializable {
         this.productos = productos;
     }
 
-    public EstadoPedido getEstado() {
-        return Estado;
+    @Override
+    public String toString() {
+        return "Pedido{" + "numPedido=" + numPedido + ", precio=" + precio + ", Estado=" + Estado + ", productos=" + productos + '}';
     }
 
-    public void setEstado(EstadoPedido estado) {
-        Estado = estado;
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 53 * hash + this.numPedido;
+        hash = 53 * hash + Objects.hashCode(this.precio);
+        hash = 53 * hash + Objects.hashCode(this.Estado);
+        return hash;
     }
-//endregion
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Pedido other = (Pedido) obj;
+        if (this.numPedido != other.numPedido) {
+            return false;
+        }
+        if (!Objects.equals(this.precio, other.precio)) {
+            return false;
+        }
+        return this.Estado == other.Estado;
+    }
+    
+    
+
     
 }

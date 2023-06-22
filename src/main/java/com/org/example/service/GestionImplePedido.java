@@ -1,11 +1,9 @@
 package com.org.example.service;
 
-import com.org.example.clases.Cliente;
 import com.org.example.clases.Pedido;
 import com.org.example.clases.Productos;
 import com.org.example.enums.EstadoPedido;
 import com.org.example.repository.imple.ImplePedidoRepository;
-import com.org.example.repository.imple.ImpleProductoRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,8 +51,8 @@ public class GestionImplePedido {
         return i;
     }
 
-    public int calcularPrecio(ArrayList<Productos> listProductos){
-        int total= 0;
+    public Double calcularPrecio(ArrayList<Productos> listProductos){
+        double total= 0;
         for (Productos producto:listProductos) {
             total += producto.getPrecio();
         }
@@ -65,5 +63,6 @@ public class GestionImplePedido {
         implePedidoRepository.getAll();
       implePedidoRepository.getById(id).setEstado(EstadoPedido.PAGO);
     }
+    
 
 }
