@@ -4,18 +4,12 @@
  */
 package com.org.example.ventanas;
 
-import com.org.example.Exceptions.UsuarioNoEncontradoException;
-import com.org.example.clases.Cliente;
-import com.org.example.clases.Empleado;
 import com.org.example.clases.User;
 import com.org.example.service.GestionImpleCliente;
-import com.org.example.service.GestionImpleEmpleado;
 import com.org.example.service.Utils;
 import com.org.example.session.SessionManager;
 
 import java.awt.Color;
-import java.util.Objects;
-import java.util.Optional;
 import javax.swing.JOptionPane;
 
 /**
@@ -25,7 +19,7 @@ public class Login extends javax.swing.JFrame {
     int mouseX;
     int mouseY;
 
-    private SessionManager sessionManager = SessionManager.getInstance();
+    private final SessionManager sessionManager = SessionManager.getInstance();
 
     /**
      * Creates new form Login
@@ -224,12 +218,17 @@ public class Login extends javax.swing.JFrame {
 
         Integer response = Utils.verificarEntidad(email, pass);
 
-        if(response == 1 || response == 2){
+        if (response == 1) {
+            JOptionPane.showMessageDialog(null, "Bienvenido");
+            MenuUsuario ventana = new MenuUsuario(new GestionImpleCliente().encontrarCliente(email, pass));
+            ventana.setVisible(true);
+            this.dispose();
+        } else if (response == 2) {
             JOptionPane.showMessageDialog(null, "Bienvenido");
             MenuInicio ventana = new MenuInicio();
             ventana.setVisible(true);
             this.dispose();
-        }else if(response == 0){
+        } else if (response == 0) {
             JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos");
         }
     }

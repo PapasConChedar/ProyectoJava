@@ -7,37 +7,37 @@ package com.org.example.ventanas;
 import com.org.example.clases.Cliente;
 import com.org.example.enums.Archivos;
 import org.example.ventanas.vistas.VistaPrincipal;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.io.File;
-import java.io.IOException;
 import javax.sound.sampled.*;
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.border.MatteBorder;
+
 import org.example.ventanas.vistas.PanelMisCompras;
 import org.example.ventanas.vistas.VistaComprasUsuarios;
-import org.example.ventanas.vistas.VistaProductos;
-import org.example.ventanas.vistas.VistaUsuarios;
 import org.example.ventanas.vistas.VistaMiUsuario;
+
 /**
- *
  * @author Agus-Notebook
  */
 public class MenuUsuario extends javax.swing.JFrame {
-    public static Cliente dato = new Cliente();
+    public Cliente cliente = new Cliente();
     int mouseX;
     int mouseY;
+
     /**
      * Creates new form Menu
      */
-    public MenuUsuario(Cliente user) {
+    public MenuUsuario(Cliente cliente) {
         initComponents();
-        iniciarVista(1,contenido);
+        iniciarVista(1, contenido);
         reproducirMusica();
-        dato = user;
+        this.cliente = cliente;
     }
+
     public void reproducirMusica() {
         try {
             AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File(Archivos.CANCION.getRuta()));
@@ -52,61 +52,68 @@ public class MenuUsuario extends javax.swing.JFrame {
     /**
      * Funcion que instancia un Jpanel Ventana seleccionado para que aparesca
      * en el Jpanel que lo "contenga" en el Menu Principal
-     * @param valor Indica que tipo de ventana 
+     *
+     * @param valor Indica que tipo de ventana
      */
-    private void iniciarVista(int valor, JPanel contPanel){
+    private void iniciarVista(int valor, JPanel contPanel) {
         switch (valor) {
             case 1:
-                componentesVista(new VistaPrincipal(),contPanel);
+                componentesVista(new VistaPrincipal(), contPanel);
                 break;
             case 2:
-                componentesVista(new VistaMiUsuario(dato),contPanel);
+                componentesVista(new VistaMiUsuario(cliente), contPanel);
                 break;
             case 3:
-                componentesVista(new VistaComprasUsuarios(dato),contPanel);
+                componentesVista(new VistaComprasUsuarios(cliente), contPanel);
                 break;
             case 4:
-                componentesVista(new PanelMisCompras(dato),contPanel);
+                componentesVista(new PanelMisCompras(cliente), contPanel);
                 break;
             default:
                 throw new AssertionError();
         }
     }
+
     /**
      * Metodo que recibe una Jpanel y se le settean caracteristicas y restablece
      * el Jpanel que lo esta conteniendo
-     * @param vista 
+     *
+     * @param vista
      */
-    private void componentesVista(JPanel vista,JPanel contenedor){
+    private void componentesVista(JPanel vista, JPanel contenedor) {
         vista.setSize(800, 560);
-        vista.setLocation(0,0);
-        
+        vista.setLocation(0, 0);
+
         contenedor.removeAll();
-        contenedor.add(vista,BorderLayout.CENTER);
+        contenedor.add(vista, BorderLayout.CENTER);
         contenedor.revalidate();
-        contenedor.repaint(); 
+        contenedor.repaint();
     }
+
     /**
      * Metodo que permite setter a un Panel que contenga un Texto, un color
      * cuando el mouse entre
+     *
      * @param panelSelecionado Panel al que se le va a modificar el color
-     * @param texto  Indica que texto va a modificar el color
+     * @param texto            Indica que texto va a modificar el color
      */
-    private void setColorEventoMouseEntrando(JPanel panelSelecionado, JLabel texto){
-        panelSelecionado.setBorder(BorderFactory.createMatteBorder(1, 10, 1, 1, (new Color(81,204,210))));
-        panelSelecionado.setBackground(new Color(81,204,210));
+    private void setColorEventoMouseEntrando(JPanel panelSelecionado, JLabel texto) {
+        panelSelecionado.setBorder(BorderFactory.createMatteBorder(1, 10, 1, 1, (new Color(81, 204, 210))));
+        panelSelecionado.setBackground(new Color(81, 204, 210));
         texto.setForeground(Color.WHITE);
     }
+
     /**
      * Metodo que permite restaurar a un Panel que contenga un Texto el color
      * que tenia cuando el mouse salga del panel
+     *
      * @param panelSelecionado Panel al que se le va a modificar el color
-     * @param texto  Indica que texto va a modificar el color
+     * @param texto            Indica que texto va a modificar el color
      */
-    private void setColorEventoMouseSaliendo(JPanel panelSelecionado, JLabel texto){
-        panelSelecionado.setBorder(BorderFactory.createMatteBorder(1, 10, 1, 1, (new Color(142,233,239))));
-        panelSelecionado.setBackground(new Color(142,233,239));
-        texto.setForeground(new Color(57,136,158));
+    private void setColorEventoMouseSaliendo(JPanel panelSelecionado, JLabel texto) {
+        panelSelecionado.setBorder(BorderFactory.createMatteBorder(1, 10, 1, 1, (new Color(142, 233, 239))));
+        panelSelecionado.setBackground(new Color(142, 233, 239));
+        texto.setForeground(new Color(57, 136, 158));
     }
 
     /**
@@ -146,12 +153,12 @@ public class MenuUsuario extends javax.swing.JFrame {
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+                jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 58, Short.MAX_VALUE)
+                jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 58, Short.MAX_VALUE)
         );
 
         jLabel2.setText("jLabel2");
@@ -198,9 +205,11 @@ public class MenuUsuario extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 exitTextoMenuMouseClicked(evt);
             }
+
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 exitTextoMenuMouseEntered(evt);
             }
+
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 exitTextoMenuMouseExited(evt);
             }
@@ -209,27 +218,27 @@ public class MenuUsuario extends javax.swing.JFrame {
         javax.swing.GroupLayout botonExitMenuLayout = new javax.swing.GroupLayout(botonExitMenu);
         botonExitMenu.setLayout(botonExitMenuLayout);
         botonExitMenuLayout.setHorizontalGroup(
-            botonExitMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(exitTextoMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE)
+                botonExitMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(exitTextoMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE)
         );
         botonExitMenuLayout.setVerticalGroup(
-            botonExitMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(exitTextoMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                botonExitMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(exitTextoMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout barraSuperiorMenuLayout = new javax.swing.GroupLayout(barraSuperiorMenu);
         barraSuperiorMenu.setLayout(barraSuperiorMenuLayout);
         barraSuperiorMenuLayout.setHorizontalGroup(
-            barraSuperiorMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, barraSuperiorMenuLayout.createSequentialGroup()
-                .addContainerGap(997, Short.MAX_VALUE)
-                .addComponent(botonExitMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                barraSuperiorMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, barraSuperiorMenuLayout.createSequentialGroup()
+                                .addContainerGap(997, Short.MAX_VALUE)
+                                .addComponent(botonExitMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         barraSuperiorMenuLayout.setVerticalGroup(
-            barraSuperiorMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, barraSuperiorMenuLayout.createSequentialGroup()
-                .addComponent(botonExitMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                barraSuperiorMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, barraSuperiorMenuLayout.createSequentialGroup()
+                                .addComponent(botonExitMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         backGroundMenu.add(barraSuperiorMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -260,9 +269,11 @@ public class MenuUsuario extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 BtnCerrarSesionMouseClicked(evt);
             }
+
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 BtnCerrarSesionMouseEntered(evt);
             }
+
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 BtnCerrarSesionMouseExited(evt);
             }
@@ -271,12 +282,12 @@ public class MenuUsuario extends javax.swing.JFrame {
         javax.swing.GroupLayout opcionMenu5Layout = new javax.swing.GroupLayout(opcionMenu5);
         opcionMenu5.setLayout(opcionMenu5Layout);
         opcionMenu5Layout.setHorizontalGroup(
-            opcionMenu5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(BtnCerrarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                opcionMenu5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(BtnCerrarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         opcionMenu5Layout.setVerticalGroup(
-            opcionMenu5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(BtnCerrarSesion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
+                opcionMenu5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(BtnCerrarSesion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
         );
 
         opcionMenu4.setBackground(new java.awt.Color(142, 233, 239));
@@ -296,9 +307,11 @@ public class MenuUsuario extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnNuevoPedidoMouseClicked(evt);
             }
+
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnNuevoPedidoMouseEntered(evt);
             }
+
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnNuevoPedidoMouseExited(evt);
             }
@@ -307,14 +320,14 @@ public class MenuUsuario extends javax.swing.JFrame {
         javax.swing.GroupLayout opcionMenu4Layout = new javax.swing.GroupLayout(opcionMenu4);
         opcionMenu4.setLayout(opcionMenu4Layout);
         opcionMenu4Layout.setHorizontalGroup(
-            opcionMenu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnNuevoPedido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                opcionMenu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btnNuevoPedido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         opcionMenu4Layout.setVerticalGroup(
-            opcionMenu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(opcionMenu4Layout.createSequentialGroup()
-                .addComponent(btnNuevoPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(2, Short.MAX_VALUE))
+                opcionMenu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(opcionMenu4Layout.createSequentialGroup()
+                                .addComponent(btnNuevoPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(2, Short.MAX_VALUE))
         );
 
         opcionMenu3.setBackground(new java.awt.Color(142, 233, 239));
@@ -333,9 +346,11 @@ public class MenuUsuario extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnMisComprasMouseClicked(evt);
             }
+
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnMisComprasMouseEntered(evt);
             }
+
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnMisComprasMouseExited(evt);
             }
@@ -344,14 +359,14 @@ public class MenuUsuario extends javax.swing.JFrame {
         javax.swing.GroupLayout opcionMenu3Layout = new javax.swing.GroupLayout(opcionMenu3);
         opcionMenu3.setLayout(opcionMenu3Layout);
         opcionMenu3Layout.setHorizontalGroup(
-            opcionMenu3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnMisCompras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                opcionMenu3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btnMisCompras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         opcionMenu3Layout.setVerticalGroup(
-            opcionMenu3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, opcionMenu3Layout.createSequentialGroup()
-                .addGap(0, 2, Short.MAX_VALUE)
-                .addComponent(btnMisCompras, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                opcionMenu3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, opcionMenu3Layout.createSequentialGroup()
+                                .addGap(0, 2, Short.MAX_VALUE)
+                                .addComponent(btnMisCompras, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         opcionMenu2.setBackground(new java.awt.Color(142, 233, 239));
@@ -371,9 +386,11 @@ public class MenuUsuario extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnEditarCuentaMouseClicked(evt);
             }
+
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnEditarCuentaMouseEntered(evt);
             }
+
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnEditarCuentaMouseExited(evt);
             }
@@ -382,12 +399,12 @@ public class MenuUsuario extends javax.swing.JFrame {
         javax.swing.GroupLayout opcionMenu2Layout = new javax.swing.GroupLayout(opcionMenu2);
         opcionMenu2.setLayout(opcionMenu2Layout);
         opcionMenu2Layout.setHorizontalGroup(
-            opcionMenu2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnEditarCuenta, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                opcionMenu2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btnEditarCuenta, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         opcionMenu2Layout.setVerticalGroup(
-            opcionMenu2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnEditarCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                opcionMenu2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btnEditarCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         opcionMenu1.setBackground(new java.awt.Color(142, 233, 239));
@@ -406,9 +423,11 @@ public class MenuUsuario extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnMiCuentaMouseClicked(evt);
             }
+
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnMiCuentaMouseEntered(evt);
             }
+
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnMiCuentaMouseExited(evt);
             }
@@ -417,55 +436,55 @@ public class MenuUsuario extends javax.swing.JFrame {
         javax.swing.GroupLayout opcionMenu1Layout = new javax.swing.GroupLayout(opcionMenu1);
         opcionMenu1.setLayout(opcionMenu1Layout);
         opcionMenu1Layout.setHorizontalGroup(
-            opcionMenu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnMiCuenta, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                opcionMenu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btnMiCuenta, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         opcionMenu1Layout.setVerticalGroup(
-            opcionMenu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnMiCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                opcionMenu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btnMiCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         javax.swing.GroupLayout panelOpcionesLayout = new javax.swing.GroupLayout(panelOpciones);
         panelOpciones.setLayout(panelOpcionesLayout);
         panelOpcionesLayout.setHorizontalGroup(
-            panelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(opcionMenu1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(opcionMenu2, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
-            .addComponent(opcionMenu3, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
-            .addComponent(opcionMenu5, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
-            .addComponent(opcionMenu4, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
-            .addGroup(panelOpcionesLayout.createSequentialGroup()
-                .addGroup(panelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelOpcionesLayout.createSequentialGroup()
-                        .addGap(113, 113, 113)
-                        .addComponent(iconoMenu))
-                    .addGroup(panelOpcionesLayout.createSequentialGroup()
-                        .addGap(62, 62, 62)
-                        .addGroup(panelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tituloMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(separadorMenu1))))
-                .addContainerGap(61, Short.MAX_VALUE))
+                panelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(opcionMenu1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(opcionMenu2, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+                        .addComponent(opcionMenu3, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+                        .addComponent(opcionMenu5, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+                        .addComponent(opcionMenu4, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+                        .addGroup(panelOpcionesLayout.createSequentialGroup()
+                                .addGroup(panelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(panelOpcionesLayout.createSequentialGroup()
+                                                .addGap(113, 113, 113)
+                                                .addComponent(iconoMenu))
+                                        .addGroup(panelOpcionesLayout.createSequentialGroup()
+                                                .addGap(62, 62, 62)
+                                                .addGroup(panelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                        .addComponent(tituloMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(separadorMenu1))))
+                                .addContainerGap(61, Short.MAX_VALUE))
         );
         panelOpcionesLayout.setVerticalGroup(
-            panelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelOpcionesLayout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addComponent(tituloMenu)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(separadorMenu1, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(iconoMenu)
-                .addGap(10, 10, 10)
-                .addComponent(opcionMenu1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(opcionMenu2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(opcionMenu4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(opcionMenu3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 191, Short.MAX_VALUE)
-                .addComponent(opcionMenu5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
+                panelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(panelOpcionesLayout.createSequentialGroup()
+                                .addGap(11, 11, 11)
+                                .addComponent(tituloMenu)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(separadorMenu1, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(iconoMenu)
+                                .addGap(10, 10, 10)
+                                .addComponent(opcionMenu1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(opcionMenu2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(opcionMenu4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(opcionMenu3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 191, Short.MAX_VALUE)
+                                .addComponent(opcionMenu5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(23, 23, 23))
         );
 
         backGroundMenu.add(panelOpciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, 600));
@@ -478,12 +497,12 @@ public class MenuUsuario extends javax.swing.JFrame {
         javax.swing.GroupLayout contenidoLayout = new javax.swing.GroupLayout(contenido);
         contenido.setLayout(contenidoLayout);
         contenidoLayout.setHorizontalGroup(
-            contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
+                contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 800, Short.MAX_VALUE)
         );
         contenidoLayout.setVerticalGroup(
-            contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 560, Short.MAX_VALUE)
+                contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 560, Short.MAX_VALUE)
         );
 
         backGroundMenu.add(contenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, 800, 560));
@@ -503,7 +522,7 @@ public class MenuUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
         int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
-        this.setLocation(x-mouseX,y-mouseY);
+        this.setLocation(x - mouseX, y - mouseY);
     }//GEN-LAST:event_barraSuperiorMenuMouseDragged
 
     private void exitTextoMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitTextoMenuMouseClicked
@@ -513,41 +532,41 @@ public class MenuUsuario extends javax.swing.JFrame {
 
     private void exitTextoMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitTextoMenuMouseEntered
         // TODO add your handling code here:
-        botonExitMenu.setBackground(new Color(237,80,122));
-        exitTextoMenu.setForeground(new Color(232,246,255));
-        
+        botonExitMenu.setBackground(new Color(237, 80, 122));
+        exitTextoMenu.setForeground(new Color(232, 246, 255));
+
     }//GEN-LAST:event_exitTextoMenuMouseEntered
 
     private void exitTextoMenuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitTextoMenuMouseExited
         // TODO add your handling code here:
-        botonExitMenu.setBackground(new Color(232,246,255));
+        botonExitMenu.setBackground(new Color(232, 246, 255));
         exitTextoMenu.setForeground(Color.BLACK);
     }//GEN-LAST:event_exitTextoMenuMouseExited
 
- 
+
     private void btnMiCuentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMiCuentaMouseClicked
         // TODO add your handling code here:
-        iniciarVista(1,contenido);
+        iniciarVista(1, contenido);
     }//GEN-LAST:event_btnMiCuentaMouseClicked
 
     private void btnEditarCuentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditarCuentaMouseClicked
         // TODO add your handling code here:
-        iniciarVista(2,contenido);
+        iniciarVista(2, contenido);
     }//GEN-LAST:event_btnEditarCuentaMouseClicked
 
     private void btnMisComprasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMisComprasMouseClicked
         // TODO add your handling code here:
-        iniciarVista(3,contenido);
+        iniciarVista(3, contenido);
     }//GEN-LAST:event_btnMisComprasMouseClicked
 
     private void btnNuevoPedidoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNuevoPedidoMouseClicked
         // TODO add your handling code here:
-        iniciarVista(4,contenido);
+        iniciarVista(4, contenido);
     }//GEN-LAST:event_btnNuevoPedidoMouseClicked
 
     private void btnMiCuentaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMiCuentaMouseEntered
         // TODO add your handling code here:
-        setColorEventoMouseEntrando(opcionMenu1,btnMiCuenta);
+        setColorEventoMouseEntrando(opcionMenu1, btnMiCuenta);
     }//GEN-LAST:event_btnMiCuentaMouseEntered
 
     private void btnMiCuentaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMiCuentaMouseExited
@@ -557,7 +576,7 @@ public class MenuUsuario extends javax.swing.JFrame {
 
     private void btnEditarCuentaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditarCuentaMouseEntered
         // TODO add your handling code here:
-        setColorEventoMouseEntrando(opcionMenu2,btnEditarCuenta);
+        setColorEventoMouseEntrando(opcionMenu2, btnEditarCuenta);
     }//GEN-LAST:event_btnEditarCuentaMouseEntered
 
     private void btnEditarCuentaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditarCuentaMouseExited
@@ -567,7 +586,7 @@ public class MenuUsuario extends javax.swing.JFrame {
 
     private void btnMisComprasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMisComprasMouseEntered
         // TODO add your handling code here:
-        setColorEventoMouseEntrando(opcionMenu3,btnMisCompras);
+        setColorEventoMouseEntrando(opcionMenu3, btnMisCompras);
     }//GEN-LAST:event_btnMisComprasMouseEntered
 
     private void btnMisComprasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMisComprasMouseExited
@@ -577,7 +596,7 @@ public class MenuUsuario extends javax.swing.JFrame {
 
     private void btnNuevoPedidoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNuevoPedidoMouseEntered
         // TODO add your handling code here:
-        setColorEventoMouseEntrando(opcionMenu4,btnNuevoPedido);
+        setColorEventoMouseEntrando(opcionMenu4, btnNuevoPedido);
     }//GEN-LAST:event_btnNuevoPedidoMouseEntered
 
     private void btnNuevoPedidoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNuevoPedidoMouseExited
@@ -587,23 +606,22 @@ public class MenuUsuario extends javax.swing.JFrame {
 
     private void BtnCerrarSesionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnCerrarSesionMouseEntered
         // TODO add your handling code here:
-        opcionMenu5.setBorder(BorderFactory.createMatteBorder(1, 10, 1, 1, (new Color(237,80,122))));
-        opcionMenu5.setBackground(new Color(237,80,122));
-        BtnCerrarSesion.setForeground(new Color (232,246,255));
+        opcionMenu5.setBorder(BorderFactory.createMatteBorder(1, 10, 1, 1, (new Color(237, 80, 122))));
+        opcionMenu5.setBackground(new Color(237, 80, 122));
+        BtnCerrarSesion.setForeground(new Color(232, 246, 255));
     }//GEN-LAST:event_BtnCerrarSesionMouseEntered
 
     private void BtnCerrarSesionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnCerrarSesionMouseExited
         // TODO add your handling code here:
-        opcionMenu5.setBorder(BorderFactory.createMatteBorder(1, 10, 1, 1, (new Color(142,233,239))));
-        opcionMenu5.setBackground(new Color(142,233,239));
-        BtnCerrarSesion.setForeground(new Color(57,136,158));
+        opcionMenu5.setBorder(BorderFactory.createMatteBorder(1, 10, 1, 1, (new Color(142, 233, 239))));
+        opcionMenu5.setBackground(new Color(142, 233, 239));
+        BtnCerrarSesion.setForeground(new Color(57, 136, 158));
     }//GEN-LAST:event_BtnCerrarSesionMouseExited
 
     private void BtnCerrarSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnCerrarSesionMouseClicked
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_BtnCerrarSesionMouseClicked
-
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

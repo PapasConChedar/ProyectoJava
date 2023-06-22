@@ -40,10 +40,10 @@ public class Utils {
      * @return
      */
     public static Integer verificarEntidad(String email, String pass) {
-        Optional<Cliente> cliente = new GestionImpleCliente().encontrarCliente(email, pass);
+        Cliente cliente = new GestionImpleCliente().encontrarCliente(email, pass);
         Optional<Empleado> empleado = new GestionImpleEmpleado().encontrarEmpleado(email, pass);
         Integer response;
-        if (cliente.isPresent()) {
+        if (cliente!=null) {
             response = 1;
         } else if (empleado.isPresent()) {
             response = 2;

@@ -2,12 +2,10 @@ package com.org.example.service;
 
 import com.org.example.Exceptions.UsuarioNoEncontradoException;
 import com.org.example.clases.Cliente;
-import com.org.example.clases.Productos;
 import com.org.example.repository.imple.ImpleClienteRepository;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public class GestionImpleCliente {
 
@@ -61,14 +59,14 @@ public class GestionImpleCliente {
         return encontrado;
     }
 
-    public Optional<Cliente> encontrarCliente(String email, String password) {
+    public Cliente encontrarCliente(String email, String password) {
         impleClienteRepository.cargar();
         for (Cliente cliente : impleClienteRepository.getAll()) {
             if (cliente.getEmail().equals(email) && cliente.getContrasenia().equals(password)) {
-                return Optional.of(cliente);
+                return cliente;
             }
         }
-        return Optional.empty();
+        return null;
     }
 
     public boolean verificacionIngresoBases(String... textos) {
