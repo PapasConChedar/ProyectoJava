@@ -17,7 +17,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.MatteBorder;
 import org.example.ventanas.vistas.PanelMisCompras;
-import org.example.ventanas.vistas.VistaCompras;
+import org.example.ventanas.vistas.VistaComprasUsuarios;
 import org.example.ventanas.vistas.VistaProductos;
 import org.example.ventanas.vistas.VistaUsuarios;
 import org.example.ventanas.vistas.VistaMiUsuario;
@@ -63,7 +63,7 @@ public class MenuUsuario extends javax.swing.JFrame {
                 componentesVista(new VistaMiUsuario(dato),contPanel);
                 break;
             case 3:
-                componentesVista(new VistaCompras(dato),contPanel);
+                componentesVista(new VistaComprasUsuarios(dato),contPanel);
                 break;
             case 4:
                 componentesVista(new PanelMisCompras(),contPanel);

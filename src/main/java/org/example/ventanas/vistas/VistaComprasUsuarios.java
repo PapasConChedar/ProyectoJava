@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Agus-Notebook
  */
-public class VistaCompras extends javax.swing.JPanel {
+public class VistaComprasUsuarios extends javax.swing.JPanel {
 
     private GestionImplePedido gestorPedido;
     private DefaultTableModel modeloTablaPedido;
@@ -25,7 +25,7 @@ public class VistaCompras extends javax.swing.JPanel {
     /**
      * Creates new form VistaCompras
      */
-    public VistaCompras(Cliente user) {
+    public VistaComprasUsuarios(Cliente user) {
         cliente = user;
         modeloTablaPedido = new DefaultTableModel();
         modeloTablaProductos = new DefaultTableModel();
@@ -199,7 +199,7 @@ public class VistaCompras extends javax.swing.JPanel {
                     .addComponent(contenedorTabla2, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnBorrarSeleccionados, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

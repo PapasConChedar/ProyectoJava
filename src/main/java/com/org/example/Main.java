@@ -22,8 +22,9 @@ public class Main {
         MenuUsuario login = new MenuUsuario(nuevo);
         login.setVisible(true);
         
-        MenuInicio menu = new MenuInicio();
-        menu.setVisible(true);
+     //   MenuInicio menu = new MenuInicio();
+      //  menu.setVisible(true);
+
 
     }
 }

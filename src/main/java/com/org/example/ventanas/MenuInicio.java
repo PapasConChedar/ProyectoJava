@@ -14,9 +14,10 @@ import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.MatteBorder;
-import org.example.ventanas.vistas.VistaCompras;
+import org.example.ventanas.vistas.VistaComprasUsuarios;
 import org.example.ventanas.vistas.VistaProductos;
 import org.example.ventanas.vistas.VistaUsuarios;
+import org.example.ventanas.vistas.VistasCompras;
 
 /**
  *
@@ -61,7 +62,7 @@ public class MenuInicio extends javax.swing.JFrame {
                 componentesVista(new VistaProductos(),contPanel);
                 break;
             case 4:
-                componentesVista(new VistaCompras(),contPanel);
+                componentesVista(new VistasCompras(),contPanel);
                 break;
             default:
                 throw new AssertionError();
